@@ -5,8 +5,9 @@ TWENTIETH CORPS, Atlanta, Ga., September 23, 1864." puts that command's headquar
    The text before the date splits at commas into command parts (regiment, brigade, division, corps, army, department)
    and the place (what follows the last command part; "Camp near", "In the field" stripped). Side: the nearest
    running head or report title above (CONFEDERATE / UNION, "C. S. Army" / "U. S. Army").
-2. Resolve the command against the OR organization tables (data/or/placements.jsonl) of the same side within 120 days
-   of the date, nearest table first: every command part given must agree with the table row (ordinal number, or a
+2. Resolve the command against the OR organization tables (data/or/placements.jsonl) of the same side, nearest table first, within
+   45 days of the date (TABLE_DAYS; up to 120 only for the units a table on the other side of the date also holds:
+   2026-11-12 check, far tables agreed with other positions 63% of the time vs 81% for near ones): every command part given must agree with the table row (ordinal number, or a
    commander's name: "Ross' Brigade", "Jackson's Cavalry Division"; cavalry vs infantry). The matching rows must form
    one brigade / division / corps; if two do, the heading is ambiguous and dropped. A regiment heading
    ("124th Ohio Volunteer Infantry") is matched to the unit itself. Army, department and district headquarters are
@@ -15,6 +16,13 @@ TWENTIETH CORPS, Atlanta, Ga., September 23, 1864." puts that command's headquar
    Locate the place like the post lines (data/places/geocoded.csv, then GNIS) in the written state, or a well-known
    place name (Dyer's 40+ mentions). Each unit of the command gets a unit_at claim on that day, with a precision by
    level: regiment 2 km, brigade 4 km, division 10 km, corps 25 km (+3 km for "near").
+
+   A later part of the place names a place next to the first ("White House, Lookout Mountain"). A stateless famous
+   place far (> 300 km) from the book's other headings gives way to a namesake near them that Dyer's regiments were at.
+4. (members) Brigade / division / corps headings do not place: company / detachment rows of the table; a unit whose
+   own clear positions within 10 days (ROUTE_DAYS: Dyer's route from unit_tracks.jsonl, post lines, NPS histories)
+   are all beyond rail / boat reach of the place; for a "Detachment ..." heading, a unit with no position within
+   150 km then ("Detachment Nineteenth Army Corps, Near Leesburg": the divisions left in Louisiana).
 
 Writes data/or/datelines.jsonl (every heading, resolved or not, with the reason) and data/manual/or_datelines.json
 (manual claims format). Usage: python pipeline/or_datelines.py <dir of OR text files> data/or/volumes.json \
@@ -736,7 +744,8 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
                     "by pipeline/or_datelines.py.",
            "sources": {"or": {"title": "The War of the Rebellion: Official Records, Series I (letter and report headings)",
                               "kind": "official_records", "url": "https://archive.org/details/warofrebellion", "public_domain": 1,
-                              "notes": "commands matched to OR organization tables within 120 days; places located with "
+                              "notes": "commands matched to OR organization tables within 45 days (120 when a table on the other side of the "
+                                       "date also holds the unit); members whose own route is elsewhere are dropped; places located with "
                                        "data/places/geocoded.csv and USGS GNIS"}},
            "claims": claims}
     json.dump(doc, open(out_claims, "w", encoding="utf-8"), indent=0, ensure_ascii=False)

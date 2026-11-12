@@ -32,6 +32,13 @@ state, or none in GNIS, gets one compromise. Here each mention of a unit is reso
 6. A clear place (anchor) may still be the wrong location: its namesakes (within the written state, if any) are
    candidates at ANCHOR_SWITCH (gainesville|VA carried the Texas coordinates of a wrong Wikidata seed); a switch with margin >= ANCHOR_MARGIN (3.0: a margin of 1.8 moved Savannah, Ga. to a north Georgia namesake) is written like a resolution (was 'anchor').
 
+7. Pooled 'context' places of a name with no state ("alexandria|?": a median of every unit's positions, near
+   Petersburg): a mention no candidate settles gets the median of the unit's own clear positions within 30 days
+   (class 'unit_context', 25 km). When the pooled point is beyond rail / boat reach of the unit's anchors within 30
+   days (a same-day anchor only if it is an event), the best route pick is taken at margin >= MARGIN / 2, else the
+   mention is detached (was 'off_route', no coordinates; build_db keeps the claim without a place). Lone GNIS
+   namesakes (Fort Rice, Dakota for the Petersburg fort) are left alone: as often the anchor is a mismatched event.
+
 Also writes data/places/unit_tracks.jsonl (each Dyer's unit's dated points: day numbers from 1861-01-01, slack,
 lat, lon) for or_datelines.py.
 Writes data/places/mention_resolution.jsonl (unit, date, raw, place_key -> name, state, lat, lon, precision_m, margin,
