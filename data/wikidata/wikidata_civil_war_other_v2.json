@@ -1,0 +1,3582 @@
+[
+{
+"b": "http://www.wikidata.org/entity/Q11218",
+"label": "United States Marine Corps",
+"aliases": "USMC|US Marine Corps|United States Marines|U.S. Marines|U.S. Marine Corps|Marine Corps",
+"classes": "http://www.wikidata.org/entity/Q1898583",
+"places": "http://www.wikidata.org/entity/Q1370|http://www.wikidata.org/entity/Q11208",
+"place_labels": "Virginia|The Pentagon",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11220",
+"label": "United States Navy",
+"aliases": "USN|U.S. Navy|US Navy|ВМС США",
+"parts": "http://www.wikidata.org/entity/Q11211|http://www.wikidata.org/entity/Q178033|http://www.wikidata.org/entity/Q742787",
+"classes": "http://www.wikidata.org/entity/Q4508",
+"places": "http://www.wikidata.org/entity/Q1370|http://www.wikidata.org/entity/Q11208",
+"place_labels": "Virginia|The Pentagon",
+"short_names": "US Navy|ВМС США",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q493920",
+"label": "Siege of Limerick",
+"coord": "Point(-8.6238 52.6653)",
+"pit": "1642-01-01T00:00:00Z",
+"pit_prec": 9,
+"start": "1642-05-18T00:00:00Z",
+"start_prec": 11,
+"end": "1642-06-23T00:00:00Z",
+"end_prec": 11,
+"classes": "http://www.wikidata.org/entity/Q188055",
+"places": "http://www.wikidata.org/entity/Q133315",
+"place_labels": "Limerick",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q319592",
+"label": "Battle on the Planta",
+"coord": "Point(7.360833 46.233056)",
+"pit": "1475-11-22T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q315342",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q68136",
+"place_labels": "Sion",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q326989",
+"label": "Battle of Morgarten",
+"coord": "Point(8.633 47.09)",
+"pit": "1315-11-23T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q692606",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q65017",
+"place_labels": "Oberägeri",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q472614",
+"label": "Battle of Giornico",
+"coord": "Point(8.88333 46.3833)",
+"pit": "1478-12-28T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q870077",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q67763",
+"place_labels": "Giornico",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q9212",
+"label": "United States Army",
+"aliases": "US troop|US land forces|U.S. Army|U. S. Army|Ground forces of the United States Armed Forces|American Army|US troops|USAR|USA",
+"parts": "http://www.wikidata.org/entity/Q11211",
+"classes": "http://www.wikidata.org/entity/Q37726",
+"places": "http://www.wikidata.org/entity/Q13780930",
+"place_labels": "worldwide",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q210609",
+"label": "2nd Cavalry Regiment",
+"aliases": "2d Stryker Cavalry Regiment|2nd Dragoons",
+"classes": "http://www.wikidata.org/entity/Q6600858",
+"places": "http://www.wikidata.org/entity/Q508107",
+"place_labels": "Vilseck",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q12088",
+"label": "Tex Willer",
+"classes": "http://www.wikidata.org/entity/Q1114461|http://www.wikidata.org/entity/Q15632617",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q115194",
+"label": "United States Volunteers",
+"aliases": "U. S. Vols.|U. S. V.",
+"parts": "http://www.wikidata.org/entity/Q9212",
+"classes": "http://www.wikidata.org/entity/Q828787|http://www.wikidata.org/entity/Q6857899|http://www.wikidata.org/entity/Q116773301",
+"short_names": "U. S. Vols.",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q119134",
+"label": "USS Vincennes",
+"classes": "http://www.wikidata.org/entity/Q928235",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q186422",
+"label": "Wolverine",
+"aliases": "Weapon X|Experiment X|Agent Ten|James Howlett|Jim Logan|Patch|Logan|Scarlett",
+"classes": "http://www.wikidata.org/entity/Q1094617|http://www.wikidata.org/entity/Q1114461|http://www.wikidata.org/entity/Q1569167|http://www.wikidata.org/entity/Q3658341|http://www.wikidata.org/entity/Q15711870|http://www.wikidata.org/entity/Q15773347|http://www.wikidata.org/entity/Q80447738",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q255087",
+"label": "43rd Battalion Virginia Cavalry",
+"aliases": "Mosby's Rangers|Mosby's Men|43rd Virginia Cavalry Battalion",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q269602",
+"label": "Brown Bess",
+"aliases": "Land Pattern Musket|British Land Pattern Musket",
+"classes": "http://www.wikidata.org/entity/Q22704163",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q272975",
+"label": "Gatling gun",
+"aliases": "Gatling|Gat",
+"classes": "http://www.wikidata.org/entity/Q15142889",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q532313",
+"label": "Springfield Model 1861",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q581813",
+"label": "XV Corps",
+"classes": "http://www.wikidata.org/entity/Q188497",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q598596",
+"label": "Lefaucheux M1858",
+"aliases": "Model 1858 revolver|M1858",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q653089",
+"label": "Army of the Potomac",
+"classes": "http://www.wikidata.org/entity/Q4005772",
+"places": "http://www.wikidata.org/entity/Q61",
+"place_labels": "Washington, D.C.",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q661759",
+"label": "Battle of Sempach",
+"coord": "Point(8.213333333 47.145555555)",
+"pit": "1386-07-09T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q692606",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q7151",
+"place_labels": "Sempach",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q645288",
+"label": "Battle of the Thames",
+"aliases": "Battle of Moraviantown",
+"coord": "Point(-81.931388888 42.5625)",
+"pit": "1813-10-05T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q26013",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q113464",
+"place_labels": "Chatham-Kent",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q689847",
+"label": "Army of Northern Virginia",
+"aliases": "A. N. V.|ANV",
+"parts": "http://www.wikidata.org/entity/Q1125021",
+"classes": "http://www.wikidata.org/entity/Q51977",
+"places": "http://www.wikidata.org/entity/Q43421",
+"place_labels": "Richmond",
+"short_names": "ANV",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q793828",
+"label": "Battle of Kharda",
+"coord": "Point(73.458248 25.432036)",
+"pit": "1795-03-11T00:00:00Z",
+"pit_prec": 11,
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q6400611",
+"place_labels": "Kharda",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q636990",
+"label": "Colt Walker",
+"aliases": "Walker Colt",
+"classes": "http://www.wikidata.org/entity/Q22704163",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q689849",
+"label": "Army of Tennessee",
+"parts": "http://www.wikidata.org/entity/Q1125021",
+"classes": "http://www.wikidata.org/entity/Q51977",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q689952",
+"label": "Army of the Tennessee",
+"classes": "http://www.wikidata.org/entity/Q51977",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1111569",
+"label": "Colored Soldiers Monument in Frankfort",
+"aliases": "Colored Soldiers Monument",
+"coord": "Point(-84.838333 38.205)",
+"classes": "http://www.wikidata.org/entity/Q575759",
+"locs": "http://www.wikidata.org/entity/Q491919|http://www.wikidata.org/entity/Q28603",
+"loc_labels": "Franklin County|Frankfort",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1124953",
+"label": "Confederate States Marine Corps",
+"parts": "http://www.wikidata.org/entity/Q1124986",
+"classes": "http://www.wikidata.org/entity/Q1898583",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1125021",
+"label": "Confederate States Army",
+"aliases": "Confederate Army|C.S.A|CSA",
+"classes": "http://www.wikidata.org/entity/Q37726",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1134427",
+"label": "USS Alligator",
+"aliases": "Alligator",
+"classes": "http://www.wikidata.org/entity/Q2811",
+"official_names": "Alligator",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1140668",
+"label": "54th Regiment Massachusetts Volunteer Infantry",
+"aliases": "54th Massachusetts Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1163363",
+"label": "Lorenz rifle",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1382693",
+"label": "Iron Brigade",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1438639",
+"label": "Fort Monroe",
+"aliases": "Fort Monroe National Monument|Monroe",
+"coord": "Point(-76.3075 37.003611)",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q17343829",
+"locs": "http://www.wikidata.org/entity/Q342043",
+"loc_labels": "Hampton",
+"short_names": "Monroe",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1501784",
+"label": "United States Army Rangers",
+"parts": "http://www.wikidata.org/entity/Q482421",
+"classes": "http://www.wikidata.org/entity/Q450307|http://www.wikidata.org/entity/Q1598759",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1606404",
+"label": "Henry rifle",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1750527",
+"label": "Agar gun",
+"aliases": "Union Repeating Gun|Coffee Mill Gun|Ager Gun",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1752901",
+"label": "Union Army",
+"aliases": "Northern Army|Federal Army",
+"classes": "http://www.wikidata.org/entity/Q37726",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1771309",
+"label": "Bill Compton",
+"aliases": "William Erasmus Compton|Vampire Bill|Bill",
+"classes": "http://www.wikidata.org/entity/Q3658341|http://www.wikidata.org/entity/Q15773317|http://www.wikidata.org/entity/Q30061417",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1784821",
+"label": "Remington Model 1858",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q1787000",
+"label": "LeMat Revolver",
+"classes": "http://www.wikidata.org/entity/Q22704163",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2095719",
+"label": "Spencer repeating rifle",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2351517",
+"label": "Battle of Lanckorona",
+"coord": "Point(19.715431 49.845698)",
+"pit": "1771-05-23T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q874784",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q2461175",
+"place_labels": "Gmina Lanckorona",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2351998",
+"label": "Confederate Army of the Shenandoah",
+"classes": "http://www.wikidata.org/entity/Q51977",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2362299",
+"label": "Rhett Butler",
+"classes": "http://www.wikidata.org/entity/Q3658341|http://www.wikidata.org/entity/Q15632617|http://www.wikidata.org/entity/Q15773347",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2628690",
+"label": "Army of Mississippi",
+"parts": "http://www.wikidata.org/entity/Q1125021",
+"classes": "http://www.wikidata.org/entity/Q29171",
+"places": "http://www.wikidata.org/entity/Q493787",
+"place_labels": "Vicksburg",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2618930",
+"label": "Battle of Stołowicze",
+"coord": "Point(26.0367 53.2147)",
+"pit": "1771-09-23T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q874784",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q1993831",
+"place_labels": "Stalovičy",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2449886",
+"label": "Tranter",
+"classes": "http://www.wikidata.org/entity/Q614853",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2522513",
+"label": "Duncan MacLeod",
+"classes": "http://www.wikidata.org/entity/Q15773347|http://www.wikidata.org/entity/Q17560936",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2613381",
+"label": "Ashley Wilkes",
+"aliases": "George Ashley Wilkes",
+"classes": "http://www.wikidata.org/entity/Q3658341|http://www.wikidata.org/entity/Q15632617|http://www.wikidata.org/entity/Q15773347",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2890073",
+"label": "Battle of Suipacha",
+"coord": "Point(-65.60888889 -21.56560278)",
+"pit": "1810-11-07T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q68475|http://www.wikidata.org/entity/Q617409|http://www.wikidata.org/entity/Q1123201",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q750",
+"place_labels": "Bolivia",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2629647",
+"label": "Confederate Army of the Potomac",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2734913",
+"label": "John Carter of Mars",
+"aliases": "John Carter",
+"classes": "http://www.wikidata.org/entity/Q3658341|http://www.wikidata.org/entity/Q15632617|http://www.wikidata.org/entity/Q15773347",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2814904",
+"label": "21st Regiment Massachusetts Volunteer Infantry",
+"classes": "http://www.wikidata.org/entity/Q52371",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2837111",
+"label": "Django",
+"classes": "http://www.wikidata.org/entity/Q15632617|http://www.wikidata.org/entity/Q15773347",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2917624",
+"label": "Confederate Army of Kentucky",
+"parts": "http://www.wikidata.org/entity/Q1125021",
+"classes": "http://www.wikidata.org/entity/Q51977",
+"places": "http://www.wikidata.org/entity/Q185582",
+"place_labels": "Knoxville",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q3077774",
+"label": "Fort Bayard",
+"aliases": "Bayard",
+"coord": "Point(-77.0911 38.9564)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1349587|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q49490419",
+"place_labels": "Fort Bayard Park",
+"short_names": "Bayard",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q3078994",
+"label": "Siege of Port Royal",
+"aliases": "Siege of Port Royal, 1710|Siege of Port Royal (1710)|Conquest of Acadia",
+"coord": "Point(-65.518611111 44.741666666)",
+"start": "1710-10-05T00:00:00Z",
+"start_prec": 11,
+"end": "1710-10-13T00:00:00Z",
+"end_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q869045",
+"classes": "http://www.wikidata.org/entity/Q188055",
+"places": "http://www.wikidata.org/entity/Q3398298",
+"place_labels": "Port-Royal",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q3630511",
+"label": "Battle of Koregaon",
+"aliases": "Bhima Koregaon Battle",
+"coord": "Point(74.05916667 18.64555556)",
+"pit": "1818-01-01T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q617210",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q2729341",
+"place_labels": "Koregaon",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2890439",
+"label": "Battle of Yungay",
+"pit": "1839-01-20T00:00:00Z",
+"pit_prec": 11,
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q919678",
+"place_labels": "Yungay",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q2896855",
+"label": "Union Army of Kentucky",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q3032408",
+"label": "Military Division of the Mississippi",
+"classes": "http://www.wikidata.org/entity/Q580112|http://www.wikidata.org/entity/Q9822982",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q3057643",
+"label": "Mississippi River Squadron",
+"parts": "http://www.wikidata.org/entity/Q1752901",
+"classes": "http://www.wikidata.org/entity/Q955920",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q3095394",
+"label": "Missouri State Guard",
+"aliases": "Mo. S. G.|M. S. G.",
+"classes": "http://www.wikidata.org/entity/Q153936",
+"official_names": "Missouri State Guard",
+"short_names": "M. S. G.|Mo. S. G.",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q3247229",
+"label": "List of naval battles of the American Civil War",
+"classes": "http://www.wikidata.org/entity/Q13406463",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q3550003",
+"label": "Union Navy",
+"classes": "http://www.wikidata.org/entity/Q4508|http://www.wikidata.org/entity/Q17524420",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4644059",
+"label": "7th Illinois Volunteer Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4644061",
+"label": "7th Illinois Volunteer Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4031852",
+"label": "58th New York Volunteer Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4347928",
+"label": "Colt Army Model 1860",
+"aliases": "Colt Model 1860|Colt Army 1860",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4352456",
+"label": "Army of the Kanawha",
+"parts": "http://www.wikidata.org/entity/Q1125021",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4456779",
+"label": "Texas Brigade",
+"aliases": "Hood's brigade",
+"parts": "http://www.wikidata.org/entity/Q689847",
+"classes": "http://www.wikidata.org/entity/Q102356",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4462015",
+"label": "Trans-Mississippi Department",
+"aliases": "Trans-Mississippi Dept.|Trans-Miss. Dept.",
+"classes": "http://www.wikidata.org/entity/Q580112|http://www.wikidata.org/entity/Q9822982",
+"locs": "http://www.wikidata.org/entity/Q81931",
+"loc_labels": "Confederate States of America",
+"official_names": "Trans-Mississippi Department",
+"short_names": "Trans-Miss. Dept.",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4546996",
+"label": "10th Arkansas Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4547057",
+"label": "10th Illinois Volunteer Cavalry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4547061",
+"label": "10th Illinois Volunteer Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4547808",
+"label": "11th Arkansas Infantry Regiment",
+"aliases": "Eleventh Arkansas|11th Arkansas Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "11th Arkansas Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4547974",
+"label": "11th Rhode Island Infantry",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4549818",
+"label": "146th Ohio Infantry",
+"aliases": "Ohio 146th Infantry Regiment|146th Ohio Volunteer Infantry|146th Ohio Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4550060",
+"label": "14th New Jersey Volunteer Infantry",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4550075",
+"label": "14th Regiment",
+"aliases": "Fourteenth Regiment|14th Regiment of Brooklyn",
+"classes": "http://www.wikidata.org/entity/Q52371",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4550930",
+"label": "15th Arkansas Infantry Regiment",
+"aliases": "15th Regiment, Arkansas Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4550931",
+"label": "Northwest (15th) Arkansas Infantry Regiment",
+"aliases": "Northwest regiment|Northwest Arkansas Volunteers|15th Regiment, Arkansas Infantry (Northwest)|15th Arkansas Volunteers",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4552113",
+"label": "16th Arkansas Infantry Regiment",
+"aliases": "16th Arkansas Infantry|Sixteenth Arkansas",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "16th Arkansas Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4557560",
+"label": "18th (Carroll's) Arkansas Infantry Regiment",
+"aliases": "Carroll's regiment|18th Arkansas Infantry Regiment (Carroll's)|18th Arkansas Infantry Regiment|18th Arkansas Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"official_names": "18th Arkansas Infantry Regiment",
+"short_names": "18th Arkansas Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4557561",
+"label": "18th (Marmaduke's) Arkansas Infantry Regiment",
+"aliases": "Marmaduke's regiment|3rd Confederate Infantry Regiment|18th Arkansas Infantry Regiment (Marmaduke's)|18th Arkansas Infantry Regiment|18th Arkansas Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"official_names": "18th Arkansas Infantry Regiment",
+"short_names": "18th Arkansas Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4595731",
+"label": "19th Arkansas Infantry Regiment",
+"aliases": "Dawson's Regiment|19th Arkansas Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "19th Arkansas Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4595732",
+"label": "19th Arkansas Infantry Regiment",
+"aliases": "Dockery's Arkansas Infantry Regiment|19th Regiment, Arkansas Volunteers|19th Ark.|19th Ark. Regt.|19th Arkansas",
+"classes": "http://www.wikidata.org/entity/Q52371",
+"short_names": "19th Ark.|19th Ark. Regt.|19th Arkansas",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4596105",
+"label": "1st Alabama Cavalry Regiment",
+"aliases": "1st Alabama Cavalry",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"short_names": "1st Alabama Cavalry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4596120",
+"label": "1st Arkansas Cavalry Regiment",
+"aliases": "1st Regiment, Arkansas Cavalry (Dobbin's)|Dobbins' regiment",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4596126",
+"label": "1st Arkansas Infantry Regiment",
+"aliases": "1st Arkansas Infantry|First Arkansas",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4596128",
+"label": "1st Arkansas Mounted Rifles",
+"classes": "http://www.wikidata.org/entity/Q10358588|http://www.wikidata.org/entity/Q60377878",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4596272",
+"label": "1st Colorado Cavalry",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4631134",
+"label": "21st Mississippi Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4631347",
+"label": "22nd Arkansas Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4631421",
+"label": "22nd Alabama Infantry Regiment",
+"aliases": "22d Regiment Alabama Infantry|22nd Regiment Alabama Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "22nd Regiment Alabama Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4631639",
+"label": "23rd Illinois Volunteer Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4633490",
+"label": "22nd (Barteau's) Tennessee Cavalry Regiment",
+"aliases": "22nd Tennessee Cavalry Regiment|Barteau's regiment|2nd Tennessee Cavalry Regiment",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"official_names": "22nd Tennessee Cavalry Regiment",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4633527",
+"label": "2nd Arkansas Cavalry Regiment",
+"aliases": "2nd Regiment, Arkansas Cavalry (Slemons')|Slemons' regiment|McMurtrey's battalion|18th Arkansas Cavalry Battalion|2nd Arkansas Cavalry",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"official_names": "2nd Arkansas Cavalry Regiment",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4633867",
+"label": "2nd Alabama Cavalry Regiment",
+"aliases": "Second Alabama Cavalry Regiment|Second Alabama Cavalry|2d Alabama Cavalry Regiment|2d Alabama Cavalry|2nd Alabama Cavalry",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"official_names": "2nd Alabama Cavalry Regiment",
+"short_names": "2nd Alabama Cavalry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4634606",
+"label": "30th Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q52371",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4635873",
+"label": "37th Arkansas Infantry Regiment",
+"aliases": "1st Trans-Mississippi Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4635925",
+"label": "37th Virginia Infantry Regiment",
+"aliases": "37th Regiment of Virginia Volunteers|37th Virginia Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "37th Virginia Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4636129",
+"label": "39th Arkansas Infantry Regiment",
+"aliases": "Polk's regiment|Johnson's regiment|Hawthorn's regiment|Cocke's regiment|Cocke's Arkansas Infantry Regiment|6th Trans-Mississippi Rifle Regiment|39th Arkansas Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"official_names": "39th Arkansas Infantry Regiment",
+"short_names": "39th Arkansas Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4636639",
+"label": "3rd Arkansas Cavalry Regiment",
+"aliases": "Third Arkansas Cavalry|3d Arkansas Cavalry Regiment (Confederate States)|3d Arkansas Cavalry (Confederate)|3d Arkansas Cavalry",
+"classes": "http://www.wikidata.org/entity/Q47512221",
+"short_names": "3d Arkansas Cavalry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4636861",
+"label": "3rd Missouri Regiment of Colored Infantry",
+"classes": "http://www.wikidata.org/entity/Q176799|http://www.wikidata.org/entity/Q66735957",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4638387",
+"label": "46th Ohio Infantry",
+"aliases": "United States. Army. Ohio Infantry Regiment, 46th (1861-1865)",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4639176",
+"label": "4th Arkansas Infantry Regiment",
+"aliases": "Fourth Arkansas|4th Arkansas Infantry (Confederate)",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4639424",
+"label": "4th Regiment Iowa Volunteer Cavalry",
+"aliases": "4th Iowa Cavalry",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4639488",
+"label": "4th Virginia Infantry Regiment",
+"aliases": "4th Virginia Infantry",
+"parts": "http://www.wikidata.org/entity/Q2082696",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "4th Virginia Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4641229",
+"label": "5th Arkansas Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4642599",
+"label": "6th Arkansas Infantry Regiment",
+"aliases": "Sixth Arkansas Volunteers|Sixth Arkansas Volunteer Infantry|Sixth Arkansas Regiment|Sixth Arkansas|6th Regiment, Arkansas Infantry|6th Arkansas Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"official_names": "6th Arkansas Infantry Regiment",
+"short_names": "6th Arkansas Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4642694",
+"label": "6th Iowa Volunteer Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4642939",
+"label": "70 pounder Whitworth gun",
+"classes": "http://www.wikidata.org/entity/Q124056273",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4643220",
+"label": "72nd Ohio Infantry",
+"aliases": "United States. Army. Ohio Infantry Regiment, 72nd (1861-1865)|72nd OVI|72nd Ohio Volunteer Infantry",
+"classes": "http://www.wikidata.org/entity/Q52371|http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4643964",
+"label": "7th Arkansas Infantry Regiment",
+"aliases": "7th Arkansas Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4870267",
+"label": "Siege of Aligarh",
+"aliases": "Battle of Aligarh",
+"coord": "Point(78.067 27.928)",
+"start": "1803-09-01T00:00:00Z",
+"start_prec": 11,
+"end": "1803-09-04T00:00:00Z",
+"end_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q233642",
+"classes": "http://www.wikidata.org/entity/Q188055",
+"places": "http://www.wikidata.org/entity/Q201832",
+"place_labels": "Aligarh",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4869846",
+"label": "Battery Garesché",
+"aliases": "Battery Garesche",
+"coord": "Point(-77.09725 38.838517)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"places": "http://www.wikidata.org/entity/Q5430555",
+"place_labels": "Fairlington",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4869888",
+"label": "Battery White",
+"coord": "Point(-79.293889 33.303611)",
+"classes": "http://www.wikidata.org/entity/Q57821",
+"locs": "http://www.wikidata.org/entity/Q505980",
+"loc_labels": "Georgetown County",
+"places": "http://www.wikidata.org/entity/Q603389",
+"place_labels": "Georgetown",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4645301",
+"label": "8th Arkansas Infantry Regiment",
+"aliases": "Eighth Arkansas|8th Arkansas Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "8th Arkansas Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4645331",
+"label": "8th Connecticut Regiment Infantry",
+"aliases": "Eighth Connecticut Volunteers|Eighth Connecticut Regiment Infantry|Eighth Connecticut Infantry Regiment|Connecticut Infantry, 8th Regiment|Connecticut Infantry Regiment, 8th|8th Connecticut Volunteers|8th Connecticut Infantry Regiment|8th C.V.",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4645367",
+"label": "8th Illinois Volunteer Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4645369",
+"label": "8th Illinois Volunteer Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4646181",
+"label": "97th Ohio Infantry",
+"aliases": "United States. Army. Ohio Infantry Regiment, 97th (1862-1865)",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4646247",
+"label": "98th Pennsylvania Regiment",
+"classes": "http://www.wikidata.org/entity/Q29171",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4646503",
+"label": "9th Arkansas Infantry Regiment",
+"aliases": "Ninth Arkansas|9th Arkansas Infantry Regiment (Confederate States)|9th Arkansas Infantry (Confederate)|9th Arkansas Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "9th Arkansas Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4646570",
+"label": "9th Illinois Volunteer Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4731964",
+"label": "Allen and James Thompson",
+"classes": "http://www.wikidata.org/entity/Q125258836",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4794355",
+"label": "Army of the Trans-Mississippi",
+"aliases": "Trans-Mississippi Army|Army of the Trans-Mississippi Department|army of the Trans-Mississippi Department|army of the Trans-Mississippi",
+"parts": "http://www.wikidata.org/entity/Q4462015",
+"classes": "http://www.wikidata.org/entity/Q51977",
+"locs": "http://www.wikidata.org/entity/Q81931",
+"loc_labels": "Confederate States of America",
+"official_names": "Army of the Trans-Mississippi",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4816303",
+"label": "Atlantic Blockading Squadron",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4869824",
+"label": "Battery Cameron",
+"coord": "Point(-77.088806 38.915639)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4869884",
+"label": "Battery Rodgers",
+"coord": "Point(-77.0433 38.7952)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q88",
+"loc_labels": "Alexandria",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4872015",
+"label": "Battle of Pequawket",
+"coord": "Point(-70.936 44.021)",
+"pit": "1725-05-09T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q1265114",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q4890653",
+"label": "Bentonville Battlefield",
+"aliases": "Bentonville Battleground State Historic Site",
+"coord": "Point(-78.323889 35.306389)",
+"classes": "http://www.wikidata.org/entity/Q473972|http://www.wikidata.org/entity/Q4895508|http://www.wikidata.org/entity/Q37952119",
+"locs": "http://www.wikidata.org/entity/Q1454",
+"loc_labels": "North Carolina",
+"places": "http://www.wikidata.org/entity/Q497938",
+"place_labels": "Johnston County",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5027132",
+"label": "Camp Douglas",
+"coord": "Point(-87.621 41.8275)",
+"classes": "http://www.wikidata.org/entity/Q1070290|http://www.wikidata.org/entity/Q1198413",
+"locs": "http://www.wikidata.org/entity/Q1297",
+"loc_labels": "Chicago",
+"places": "http://www.wikidata.org/entity/Q3037975",
+"place_labels": "Douglas",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5000160",
+"label": "Burnside carbine",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5004253",
+"label": "Byrne's Artillery Battery",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5021045",
+"label": "California State Guard",
+"aliases": "California State Military Reserve|CSG|CSMR",
+"classes": "http://www.wikidata.org/entity/Q1107156|http://www.wikidata.org/entity/Q1144991",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5054813",
+"label": "Cavalry Corps",
+"parts": "http://www.wikidata.org/entity/Q1752901",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5054815",
+"label": "Cavalry Corps, Army of Northern Virginia",
+"parts": "http://www.wikidata.org/entity/Q689847",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5138739",
+"label": "Cobb's Legion",
+"aliases": "Georgia Legion",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5149434",
+"label": "Colt revolving rifle",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5159726",
+"label": "Confederate Revolving Cannon",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5193108",
+"label": "Culpeper Minutemen",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5201145",
+"label": "Cyrus Smith",
+"aliases": "Cyrus Harding",
+"classes": "http://www.wikidata.org/entity/Q3658341|http://www.wikidata.org/entity/Q15632617",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6130139",
+"label": "Third Siege of Callao",
+"aliases": "Siege of Callao",
+"coord": "Point(-77.133333333 -12.033333333)",
+"pit": "1838-01-01T00:00:00Z",
+"pit_prec": 9,
+"start": "1838-08-31T00:00:00Z",
+"start_prec": 11,
+"end": "1838-11-08T00:00:00Z",
+"end_prec": 11,
+"classes": "http://www.wikidata.org/entity/Q188055",
+"places": "http://www.wikidata.org/entity/Q105037",
+"place_labels": "Callao",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5723335",
+"label": "Battle of the Tonelero Pass",
+"aliases": "Passage of the Tonelero",
+"coord": "Point(-60.05777778 -33.43361111)",
+"pit": "1851-12-17T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q3042457",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q127892",
+"place_labels": "Paraná River",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5502007",
+"label": "French blockade of the Río de la Plata",
+"aliases": "French blockade of the Rio de la Plata.",
+"coord": "Point(-58.38166667 -34.60361111)",
+"start": "1838-03-28T00:00:00Z",
+"start_prec": 11,
+"end": "1840-10-29T00:00:00Z",
+"end_prec": 11,
+"classes": "http://www.wikidata.org/entity/Q1959141",
+"places": "http://www.wikidata.org/entity/Q35827",
+"place_labels": "Río de la Plata",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5242954",
+"label": "Day of Thirst",
+"pit": "0724-01-01T00:00:00Z",
+"pit_prec": 9,
+"parts": "http://www.wikidata.org/entity/Q4817850",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q373808",
+"place_labels": "Khujand",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471422",
+"label": "Fort Kearny",
+"aliases": "Kearny",
+"coord": "Point(-77.066098 38.955254)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q383689",
+"place_labels": "Northwest",
+"short_names": "Kearny",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5470867",
+"label": "Fort Bunker Hill",
+"coord": "Point(-76.988055555 38.935277777)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q49490446",
+"place_labels": "Fort Bunker Hill Park",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471243",
+"label": "Fort Greble",
+"aliases": "Greble",
+"coord": "Point(-77.0147 38.8272)",
+"classes": "http://www.wikidata.org/entity/Q109607|http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q19860854",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q18157983",
+"place_labels": "Shepherd Parkway",
+"short_names": "Greble",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471771",
+"label": "Fort O'Rourke",
+"aliases": "O'Rourke",
+"coord": "Point(-77.0661 38.7828)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q341915",
+"loc_labels": "Fairfax County",
+"places": "http://www.wikidata.org/entity/Q3469009",
+"place_labels": "Belle Haven",
+"short_names": "O'Rourke",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471912",
+"label": "Fort Reynolds",
+"aliases": "Fort Blenker|Reynolds",
+"coord": "Point(-77.0948 38.8376)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q90754",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"places": "http://www.wikidata.org/entity/Q5430555",
+"place_labels": "Fairlington",
+"short_names": "Reynolds",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5472116",
+"label": "Fort Stevens",
+"aliases": "Fort Stevens Park|Fort Massachusetts|Stevens",
+"coord": "Point(-77.028888888 38.964444444)",
+"parts": "http://www.wikidata.org/entity/Q5124610|http://www.wikidata.org/entity/Q49490466",
+"classes": "http://www.wikidata.org/entity/Q46169|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q4967829",
+"place_labels": "Brightwood",
+"official_names": "Fort Stevens",
+"short_names": "Stevens",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5472326",
+"label": "Fort Willard",
+"aliases": "Fort Willard Park|Fort Willard Historic Site|Willard",
+"coord": "Point(-77.066388888 38.782777777)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q22698|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q341915",
+"loc_labels": "Fairfax County",
+"places": "http://www.wikidata.org/entity/Q3469009",
+"place_labels": "Belle Haven",
+"short_names": "Willard",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5472149",
+"label": "Fort Sumner",
+"aliases": "Sumner",
+"coord": "Point(-77.124 38.9554)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q15893266",
+"locs": "http://www.wikidata.org/entity/Q488659",
+"loc_labels": "Montgomery County",
+"places": "http://www.wikidata.org/entity/Q754633",
+"place_labels": "Brookmont",
+"short_names": "Sumner",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5472261",
+"label": "Fort Washington Park",
+"aliases": "FOWA|Fort Washington National Park|Fort Washington Military Historical Park|Fort Washington Historical Park|Fort Warburton|Fort Washington",
+"coord": "Point(-77.031 38.7137)",
+"parts": "http://www.wikidata.org/entity/Q5124610|http://www.wikidata.org/entity/Q6971258",
+"classes": "http://www.wikidata.org/entity/Q245016|http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q30304302|http://www.wikidata.org/entity/Q47272186",
+"locs": "http://www.wikidata.org/entity/Q26807",
+"loc_labels": "Prince George's County",
+"places": "http://www.wikidata.org/entity/Q754010",
+"place_labels": "Fort Washington",
+"official_names": "Fort Washington",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5470422",
+"label": "Forrest's Cavalry Corps",
+"aliases": "Forrest Cavalry Corps",
+"classes": "http://www.wikidata.org/entity/Q188497|http://www.wikidata.org/entity/Q14825551",
+"locs": "http://www.wikidata.org/entity/Q81931",
+"loc_labels": "Confederate States of America",
+"places": "http://www.wikidata.org/entity/Q2988047",
+"place_labels": "Western theater of the American Civil War",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471024",
+"label": "Fort DeRussy",
+"aliases": "Fort DeRussey|Fort De Russey|Camp Holt|Fort De Russy|DeRussy",
+"coord": "Point(-77.051111111 38.963055555)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1349587|http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q15893266",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q2172035",
+"place_labels": "Rock Creek Park",
+"short_names": "DeRussy",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5646292",
+"label": "Hampton Roads Conference",
+"pit": "1865-02-03T00:00:00Z",
+"pit_prec": 11,
+"classes": "http://www.wikidata.org/entity/Q7157512",
+"places": "http://www.wikidata.org/entity/Q1011895",
+"place_labels": "Hampton Roads",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5384780",
+"label": "Era No. 5",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5439071",
+"label": "Fayetteville rifle",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5447913",
+"label": "Fighting McCooks",
+"classes": "http://www.wikidata.org/entity/Q16887380",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5452883",
+"label": "First Corps, Army of Tennessee",
+"aliases": "Hardee's Corps",
+"parts": "http://www.wikidata.org/entity/Q689849",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5453447",
+"label": "First New Jersey Brigade",
+"aliases": "Kearny's New Jersey Brigade|First Jersey Brigade",
+"classes": "http://www.wikidata.org/entity/Q102356",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5470877",
+"label": "Fort C. F. Smith",
+"aliases": "Fort C F Smith",
+"coord": "Point(-77.0905556 38.9008333)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q839954|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5470987",
+"label": "Fort Craig",
+"aliases": "Craig",
+"coord": "Point(-77.0816 38.8704)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q19860854",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"short_names": "Craig",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471127",
+"label": "Fort Ellsworth",
+"aliases": "Ellsworth",
+"coord": "Point(-77.0687 38.806)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q19860854",
+"locs": "http://www.wikidata.org/entity/Q88",
+"loc_labels": "Alexandria",
+"short_names": "Ellsworth",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471273",
+"label": "Fort Hamilton",
+"aliases": "Fort Hamilton, New York|Fort Hamilton (N.Y.)",
+"coord": "Point(-74.030833333 40.606111111)",
+"classes": "http://www.wikidata.org/entity/Q245016",
+"locs": "http://www.wikidata.org/entity/Q18419",
+"loc_labels": "Brooklyn",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471395",
+"label": "Fort Jackson",
+"aliases": "Jackson",
+"coord": "Point(-77.0418 38.8709)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q19860854",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"short_names": "Jackson",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471519",
+"label": "Fort Lincoln",
+"aliases": "Lincoln",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q1558",
+"loc_labels": "Kansas",
+"short_names": "Lincoln",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471558",
+"label": "Fort Lyon",
+"aliases": "Camp Lyon|Lyon",
+"coord": "Point(-77.0778 38.7939)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q19860854",
+"locs": "http://www.wikidata.org/entity/Q341915",
+"loc_labels": "Fairfax County",
+"short_names": "Lyon",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471917",
+"label": "Fort Richardson",
+"aliases": "Richardson",
+"coord": "Point(-77.0873 38.8544)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"short_names": "Richardson",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471959",
+"label": "Fort Runyon",
+"aliases": "Runyon",
+"coord": "Point(-77.051666666 38.865277777)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q19860854",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"short_names": "Runyon",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5471997",
+"label": "Fort Scott",
+"aliases": "Scott",
+"coord": "Point(-77.059 38.846)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"short_names": "Scott",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5472092",
+"label": "Fort Stanton",
+"aliases": "Stanton",
+"coord": "Point(-76.9772 38.86)",
+"parts": "http://www.wikidata.org/entity/Q49490748",
+"classes": "http://www.wikidata.org/entity/Q109607|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"short_names": "Stanton",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5472243",
+"label": "Fort Ward",
+"aliases": "Fort Ward Museum and Park|Fort Ward Museum and Historic Site|Fort Ward Museum & Historic Site|Fort Ward Museum|Ward",
+"coord": "Point(-77.101833 38.830806)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q88",
+"loc_labels": "Alexandria",
+"short_names": "Ward",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5472353",
+"label": "Fort Williams",
+"aliases": "Williams",
+"coord": "Point(-77.09 38.8118)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q88",
+"loc_labels": "Alexandria",
+"short_names": "Williams",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5472368",
+"label": "Fort Woodbury",
+"aliases": "Woodbury",
+"coord": "Point(-77.0838667 38.88975)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q15893266",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"short_names": "Woodbury",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5472369",
+"label": "Fort Worth",
+"aliases": "Fort Worth, Virginia|Worth",
+"coord": "Point(-77.099 38.815)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q88",
+"loc_labels": "Alexandria",
+"short_names": "Worth",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5547603",
+"label": "Georgia Militia",
+"aliases": "Georgia militia|Militia of Georgia",
+"parts": "http://www.wikidata.org/entity/Q5589210",
+"classes": "http://www.wikidata.org/entity/Q153936",
+"official_names": "Militia of Georgia",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5559130",
+"label": "Gibraltar Brigade",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q5928280",
+"label": "Springfield Model 1863",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6064232",
+"label": "Iowa",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6175475",
+"label": "Jefferson General Hospital",
+"coord": "Point(-85.7211 38.2822)",
+"classes": "http://www.wikidata.org/entity/Q16917|http://www.wikidata.org/entity/Q64578911",
+"locs": "http://www.wikidata.org/entity/Q1415",
+"loc_labels": "Indiana",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6751689",
+"label": "Mansfield State Historic Site",
+"aliases": "Mansfield SHS|Mansfield Battlefield|Mansfield Battle Park",
+"coord": "Point(-93.664980555 32.010911111)",
+"classes": "http://www.wikidata.org/entity/Q33506|http://www.wikidata.org/entity/Q1081138|http://www.wikidata.org/entity/Q4895508",
+"locs": "http://www.wikidata.org/entity/Q383739|http://www.wikidata.org/entity/Q1588",
+"loc_labels": "DeSoto Parish|Louisiana",
+"places": "http://www.wikidata.org/entity/Q1363163",
+"place_labels": "Mansfield",
+"official_names": "Mansfield State Historic Site",
+"short_names": "Mansfield Battlefield|Mansfield SHS",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6771371",
+"label": "Marks’ Mills Battleground State Park",
+"aliases": "Marks’ Mills State Park|Marks’ Mills Battleground|Marks’ Mills Battlefield|Marks’ Mills|Marks' Mills Battleground State Park",
+"coord": "Point(-92.254861111 33.781222222)",
+"parts": "http://www.wikidata.org/entity/Q2431655",
+"classes": "http://www.wikidata.org/entity/Q4895508|http://www.wikidata.org/entity/Q37947493",
+"locs": "http://www.wikidata.org/entity/Q61032",
+"loc_labels": "Cleveland County",
+"places": "http://www.wikidata.org/entity/Q80098",
+"place_labels": "Fordyce",
+"official_names": "Marks' Mills Battleground State Park",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7509918",
+"label": "Siege of Charlemont",
+"aliases": "Charlemont",
+"coord": "Point(-6.679 54.448)",
+"start": "1650-07-01T00:00:00Z",
+"start_prec": 10,
+"end": "1650-08-01T00:00:00Z",
+"end_prec": 10,
+"parts": "http://www.wikidata.org/entity/Q1672808",
+"classes": "http://www.wikidata.org/entity/Q188055",
+"places": "http://www.wikidata.org/entity/Q193452",
+"place_labels": "Armagh",
+"short_names": "Charlemont",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6288557",
+"label": "Josey Wales",
+"classes": "http://www.wikidata.org/entity/Q3658341|http://www.wikidata.org/entity/Q15632617|http://www.wikidata.org/entity/Q15773347",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6291026",
+"label": "Joslyn rifle",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6645116",
+"label": "list of weapons in the American Civil War",
+"classes": "http://www.wikidata.org/entity/Q13406463",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6646246",
+"label": "Colt M1861 Navy",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6747016",
+"label": "Manassas National Battlefield Park",
+"aliases": "Manassas Battlefield Historic District|MANA",
+"coord": "Point(-77.5217 38.8128)",
+"classes": "http://www.wikidata.org/entity/Q4895508|http://www.wikidata.org/entity/Q100222740",
+"locs": "http://www.wikidata.org/entity/Q341915|http://www.wikidata.org/entity/Q183263",
+"loc_labels": "Fairfax County|Prince William County",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6797440",
+"label": "Maynard carbine",
+"classes": "http://www.wikidata.org/entity/Q22704163",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6820237",
+"label": "Merrill carbine",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6879730",
+"label": "Missouri State Militia",
+"aliases": "Missouri State Militia (Union)",
+"classes": "http://www.wikidata.org/entity/Q6857899",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6888171",
+"label": "Model 1850 Army Staff & Field Officers' Sword",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6888173",
+"label": "Model 1860 Light Cavalry Saber",
+"aliases": "M1862",
+"classes": "http://www.wikidata.org/entity/Q120637119",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q6969870",
+"label": "Nathaniel Starbuck",
+"classes": "http://www.wikidata.org/entity/Q3658341|http://www.wikidata.org/entity/Q15632617",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7235056",
+"label": "Potomac Flotilla",
+"parts": "http://www.wikidata.org/entity/Q1752901",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7252734",
+"label": "Provisional Enrolled Missouri Militia",
+"classes": "http://www.wikidata.org/entity/Q6857899",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7331059",
+"label": "Richmond rifle",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7366526",
+"label": "Rooster Cogburn",
+"aliases": "Reuben J. \"Rooster\" Cogburn",
+"classes": "http://www.wikidata.org/entity/Q3658341|http://www.wikidata.org/entity/Q15632617|http://www.wikidata.org/entity/Q15773347",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7512646",
+"label": "Signal Corps in the American Civil War",
+"classes": "http://www.wikidata.org/entity/Q62934160",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7545377",
+"label": "Smith carbine",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7566618",
+"label": "South Carolina Navy",
+"classes": "http://www.wikidata.org/entity/Q4508",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7602235",
+"label": "Starr Revolver",
+"classes": "http://www.wikidata.org/entity/Q22704163",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7602236",
+"label": "Starr carbine",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7686589",
+"label": "Tarpley carbine",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7691860",
+"label": "teat-fire cartridge",
+"classes": "http://www.wikidata.org/entity/Q124078422",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7843594",
+"label": "Triplett & Scott carbine",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7866947",
+"label": "A. Houghton",
+"aliases": "USS A. Houghton",
+"parts": "http://www.wikidata.org/entity/Q63975785",
+"classes": "http://www.wikidata.org/entity/Q216057",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7866948",
+"label": "USS A. J. View",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7866982",
+"label": "USS Abraham",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867032",
+"label": "USS Adelaide",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867071",
+"label": "USS Advance",
+"aliases": "USS Frolic",
+"classes": "http://www.wikidata.org/entity/Q204577|http://www.wikidata.org/entity/Q884687|http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867119",
+"label": "USS Alabama",
+"classes": "http://www.wikidata.org/entity/Q178193",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867161",
+"label": "USS Albemarle",
+"classes": "http://www.wikidata.org/entity/Q204577|http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867184",
+"label": "USS Alert",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867216",
+"label": "USS Allegheny",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867240",
+"label": "USS Alonzo Child",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867252",
+"label": "USS Althea",
+"classes": "http://www.wikidata.org/entity/Q324233|http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867333",
+"label": "USS Antona",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867394",
+"label": "USS Arethusa",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867402",
+"label": "USS Argosy",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867420",
+"label": "USS Arletta",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867428",
+"label": "USS Aroostook",
+"classes": "http://www.wikidata.org/entity/Q214196|http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867676",
+"label": "USS Ben Morgan",
+"classes": "http://www.wikidata.org/entity/Q15888|http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867698",
+"label": "USS Bermuda",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867715",
+"label": "USS Bibb",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867719",
+"label": "USS Bignonia",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867829",
+"label": "USS Brandywine",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867841",
+"label": "USS Breaker",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867877",
+"label": "USS Brockenborough",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867914",
+"label": "USS Buckthorn",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7867976",
+"label": "USS Cactus",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7868251",
+"label": "USS Chatham",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7868371",
+"label": "USS Circassian",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7868411",
+"label": "USS Clover",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7868603",
+"label": "USS Courier",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7868712",
+"label": "USS Dahlia",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7868717",
+"label": "USS Daisy",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7868910",
+"label": "USS Don",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7868919",
+"label": "USS Donegal",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869201",
+"label": "USS Epsilon",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869231",
+"label": "USS Estrella",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869273",
+"label": "USS Exchange",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869340",
+"label": "USS Fearnot",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869422",
+"label": "USS Flusser",
+"classes": "http://www.wikidata.org/entity/Q204577|http://www.wikidata.org/entity/Q5150726",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869454",
+"label": "USS Fort Morgan",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869527",
+"label": "USS Fulton",
+"aliases": "Dick Fulton",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869539",
+"label": "USS G. L. Brockenborough",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869634",
+"label": "USS General Lyon",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869645",
+"label": "USS General Putnam",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869703",
+"label": "USS George W. Rodgers",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869706",
+"label": "USS George Washington Parke Custis",
+"classes": "http://www.wikidata.org/entity/Q805338",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869710",
+"label": "USS Geranium",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869741",
+"label": "USS Gladiolus",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869744",
+"label": "USS Glasgow",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869832",
+"label": "USS Great Western",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7869894",
+"label": "USS Guard",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7870228",
+"label": "USS Home",
+"classes": "http://www.wikidata.org/entity/Q15888|http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7870249",
+"label": "USS Horace Beals",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7870328",
+"label": "USS Hydrangea",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7870346",
+"label": "USS Ida",
+"coord": "Point(-88.03 30.67)",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7870459",
+"label": "USS J. C. Kuhn",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7870464",
+"label": "USS J. W. Wilder",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7870565",
+"label": "USS John Paul, Jr.",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7870619",
+"label": "USS Judge Torrence",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7870660",
+"label": "USS Kalmia",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7871245",
+"label": "USS Lexington",
+"classes": "http://www.wikidata.org/entity/Q178193|http://www.wikidata.org/entity/Q7804682",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7871454",
+"label": "USS Mail",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7871868",
+"label": "USS Mistletoe",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7871950",
+"label": "USS Monticello",
+"parts": "http://www.wikidata.org/entity/Q4816303",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7872045",
+"label": "USS Myrtle",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7872221",
+"label": "USS New Berne",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7872237",
+"label": "USS New National",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7872282",
+"label": "USS Nightingale",
+"classes": "http://www.wikidata.org/entity/Q251355",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7872351",
+"label": "USS Nymph",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7872529",
+"label": "USS Otsego",
+"classes": "http://www.wikidata.org/entity/Q214196|http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7872632",
+"label": "USS Pampero",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7923568",
+"label": "Veteran Corps of Artillery",
+"aliases": "V.C.A.|V. C. A.|VCA|VCASNY",
+"parts": "http://www.wikidata.org/entity/Q123014732",
+"classes": "http://www.wikidata.org/entity/Q163740|http://www.wikidata.org/entity/Q188497|http://www.wikidata.org/entity/Q1060409",
+"places": "http://www.wikidata.org/entity/Q60",
+"place_labels": "New York City",
+"short_names": "VCA|V. C. A.|VCASNY",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11688218",
+"label": "Battle of Orzechowo",
+"coord": "Point(23.953056 51.638611)",
+"pit": "1769-09-13T00:00:00Z",
+"pit_prec": 11,
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q6464707",
+"place_labels": "Arechava",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7872642",
+"label": "USS Pansy",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7872698",
+"label": "USS Patriot",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7872807",
+"label": "USS Percy Drayton",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7872812",
+"label": "USS Polaris",
+"aliases": "USS Periwinkle|America",
+"classes": "http://www.wikidata.org/entity/Q204577|http://www.wikidata.org/entity/Q12859788",
+"official_names": "America|USS Periwinkle|USS Polaris",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873020",
+"label": "USS Poppy",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873029",
+"label": "USS Port Fire",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873181",
+"label": "USS Queen",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873247",
+"label": "USS Rachel Seaman",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873326",
+"label": "USS Red Rover",
+"classes": "http://www.wikidata.org/entity/Q15888|http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873369",
+"label": "USS Release",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873378",
+"label": "USS Relief",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873393",
+"label": "USS Renshaw",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873408",
+"label": "USS Resolute",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873433",
+"label": "USS Rhode Island",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873562",
+"label": "USS Rosalie",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873563",
+"label": "USS Rose",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873737",
+"label": "USS Saginaw",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873755",
+"label": "USS Sallie Wood",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873780",
+"label": "USS Samson",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7873949",
+"label": "USS Sea Bird",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874252",
+"label": "USS Sorrel",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874257",
+"label": "USS South America",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874272",
+"label": "USS Sovereign",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874498",
+"label": "USS Susan Ann Howard",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874538",
+"label": "USS Swift",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874561",
+"label": "USS T. D. Horner",
+"classes": "http://www.wikidata.org/entity/Q191826",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874701",
+"label": "USS Theta",
+"classes": "http://www.wikidata.org/entity/Q191826",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874708",
+"label": "USS Thistle",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874738",
+"label": "USS Thunder",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874871",
+"label": "USS Tritonia",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874980",
+"label": "USS Union",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7874983",
+"label": "USS Unit",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7875011",
+"label": "USS Valparaiso",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7875072",
+"label": "USS Vermont",
+"classes": "http://www.wikidata.org/entity/Q15888|http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7875533",
+"label": "USS William Badger",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7875543",
+"label": "USS William H. Brown",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7907015",
+"label": "VII Corps",
+"aliases": "Seventh Corps|Seventh Army Corps",
+"classes": "http://www.wikidata.org/entity/Q609269",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7934533",
+"label": "Virginia State Navy",
+"classes": "http://www.wikidata.org/entity/Q4508",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q7988271",
+"label": "Western Sanitary Commission",
+"classes": "http://www.wikidata.org/entity/Q43229",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q8023681",
+"label": "Winans Steam Gun",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q8042231",
+"label": "XIX Corps",
+"aliases": "XIX Corps, Union Army|19th Corps, Union Army|US XIX Corps|US 19th Corps",
+"classes": "http://www.wikidata.org/entity/Q188497",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q8042588",
+"label": "XXIV Corps",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q8042705",
+"label": "X Corps",
+"classes": "http://www.wikidata.org/entity/Q188497",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q8564701",
+"label": "Fort Albany",
+"aliases": "Albany",
+"coord": "Point(-77.066666666 38.865833333)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"short_names": "Albany",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q8564728",
+"label": "Fort Ethan Allen",
+"aliases": "Fort Ethan Allen Park",
+"coord": "Point(-77.1236111 38.9244444)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q22746|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q9385673",
+"label": "Battle of Barari Ghat",
+"pit": "1760-01-09T00:00:00Z",
+"pit_prec": 11,
+"classes": "http://www.wikidata.org/entity/Q178561",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q10951611",
+"label": "Yamashiro ikki",
+"aliases": "Yamsahiro kuni-ikki|Yamashiro province ikki",
+"pit": "1500-01-01T00:00:00Z",
+"pit_prec": 7,
+"classes": "http://www.wikidata.org/entity/Q9683607|http://www.wikidata.org/entity/Q20045350",
+"locs": "http://www.wikidata.org/entity/Q749276",
+"loc_labels": "Yamashiro Province",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11082378",
+"label": "Jonah Hex",
+"aliases": "Jonah Woodson Hex",
+"classes": "http://www.wikidata.org/entity/Q1114461|http://www.wikidata.org/entity/Q15632617|http://www.wikidata.org/entity/Q15711870|http://www.wikidata.org/entity/Q15773317|http://www.wikidata.org/entity/Q15773347",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11653806",
+"label": "USS New Hampshire",
+"coord": "Point(-70.745555555 42.570555555)",
+"classes": "http://www.wikidata.org/entity/Q207452|http://www.wikidata.org/entity/Q852190",
+"locs": "http://www.wikidata.org/entity/Q54076",
+"loc_labels": "Essex County",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11703398",
+"label": "USS Clara Dolsen",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11703590",
+"label": "USS Benefit",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11703602",
+"label": "USS Blue Light",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q12001379",
+"label": "Battle of Kolding",
+"pit": "1849-04-23T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q685683",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q27119",
+"place_labels": "Kolding",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q16253609",
+"label": "Battle of Cloughleagh",
+"coord": "Point(-8.276 52.141)",
+"pit": "1643-06-04T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q1672808",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q1012470",
+"place_labels": "Fermoy",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q16981242",
+"label": "Fort Riverview",
+"aliases": "Riverview",
+"coord": "http://www.wikidata.org/.well-known/genid/fec452ce225f3fbb326300925917cfac",
+"classes": "http://www.wikidata.org/entity/Q90754|http://www.wikidata.org/entity/Q839954",
+"locs": "http://www.wikidata.org/entity/Q470626",
+"loc_labels": "Amherst County",
+"places": "http://www.wikidata.org/entity/Q1377155",
+"place_labels": "Madison Heights",
+"short_names": "Riverview",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q17029532",
+"label": "Rising Hill Camp",
+"coord": "http://www.wikidata.org/.well-known/genid/58ea3076d4dd6ade29fe19fbb861b92d",
+"classes": "http://www.wikidata.org/entity/Q839954|http://www.wikidata.org/entity/Q1198413",
+"locs": "http://www.wikidata.org/entity/Q183263",
+"loc_labels": "Prince William County",
+"places": "http://www.wikidata.org/entity/Q1374564",
+"place_labels": "Marine Corps Base Quantico",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11703646",
+"label": "USS Julia",
+"classes": "http://www.wikidata.org/entity/Q11446",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11703662",
+"label": "USS King Philip",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11704088",
+"label": "USS Howell Cobb",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11704215",
+"label": "USS Sarah and Caroline",
+"classes": "http://www.wikidata.org/entity/Q204577",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11704239",
+"label": "USS Sibyl",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11704260",
+"label": "USS Stonewall",
+"classes": "http://www.wikidata.org/entity/Q204577|http://www.wikidata.org/entity/Q884687|http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q11705018",
+"label": "USS Emerald",
+"classes": "http://www.wikidata.org/entity/Q7605392",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q12808342",
+"label": "Aidan Waite",
+"classes": "http://www.wikidata.org/entity/Q15632617|http://www.wikidata.org/entity/Q15773317|http://www.wikidata.org/entity/Q30061417",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q14691922",
+"label": "Fort Foote",
+"aliases": "Foote",
+"coord": "Point(-77.027777777 38.766666666)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1349587|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q26807",
+"loc_labels": "Prince George's County",
+"short_names": "Foote",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q15218169",
+"label": "Fort Tillinghast",
+"aliases": "Tillinghast",
+"coord": "Point(-77.0838333 38.8785)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"short_names": "Tillinghast",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q15952577",
+"label": "Pattern 1861 Enfield musketoon",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q15953484",
+"label": "Whitworth rifle",
+"classes": "http://www.wikidata.org/entity/Q22704163",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q15956424",
+"label": "Hughes Breech-loading cannon",
+"classes": "http://www.wikidata.org/entity/Q124056273",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q15990623",
+"label": "Savage 1861 Navy",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q16157118",
+"label": "45th Virginia Infantry Battalion",
+"aliases": "Beckley's battalion|45th Battalion, Virginia Infantry",
+"classes": "http://www.wikidata.org/entity/Q6382533",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q16202582",
+"label": "26th Regiment Infantry U.S. Colored Troops",
+"aliases": "26th United States Colored Infantry Regiment",
+"parts": "http://www.wikidata.org/entity/Q9212|http://www.wikidata.org/entity/Q1752901",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q16256289",
+"label": "Camp Prospect Hill",
+"coord": "Point(-71.09 42.38)",
+"classes": "http://www.wikidata.org/entity/Q2935239|http://www.wikidata.org/entity/Q29918961",
+"locs": "http://www.wikidata.org/entity/Q771",
+"loc_labels": "Massachusetts",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q16824527",
+"label": "156th Indiana Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q52371",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q16824996",
+"label": "189th New York Volunteer Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q16828992",
+"label": "1st Connecticut Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q16934176",
+"label": "Model 1840 Cavalry Saber",
+"classes": "http://www.wikidata.org/entity/Q120636987",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q16988511",
+"label": "Colt Model 1855 Sidehammer Pocket Revolver",
+"classes": "http://www.wikidata.org/entity/Q15142894",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q17017493",
+"label": "42d Mississippi Infantry Regiment",
+"aliases": "Forty-second Mississippi|42d Mississippi Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"official_names": "42d Mississippi Infantry Regiment",
+"short_names": "42d Mississippi Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q17090652",
+"label": "3d Mississippi Cavalry Regiment",
+"aliases": "McGuirk's regiment|3d Mississippi Cavalry",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"official_names": "3d Mississippi Cavalry Regiment",
+"short_names": "3d Mississippi Cavalry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q18613312",
+"label": "Battle of Kharistan",
+"pit": "0737-12-01T00:00:00Z",
+"pit_prec": 10,
+"parts": "http://www.wikidata.org/entity/Q4817850",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q309345",
+"place_labels": "Maymana",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q18150288",
+"label": "Fort Lincoln",
+"aliases": "Fort Lincoln Park|Lincoln",
+"coord": "Point(-76.9565 38.9267)",
+"parts": "http://www.wikidata.org/entity/Q5124610|http://www.wikidata.org/entity/Q49490466",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q15893266",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q67651837",
+"place_labels": "Fort Lincoln New Town",
+"short_names": "Lincoln",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q18150335",
+"label": "Fort Totten",
+"coord": "Point(-77.0047222 38.9486111)",
+"parts": "http://www.wikidata.org/entity/Q5124610|http://www.wikidata.org/entity/Q49490466",
+"classes": "http://www.wikidata.org/entity/Q1349587|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q61834036",
+"place_labels": "Fort Totten Park",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q34831965",
+"label": "Battery Ricketts",
+"aliases": "Fort Ricketts",
+"coord": "Point(-76.975277777 38.857777777)",
+"parts": "http://www.wikidata.org/entity/Q5472092",
+"classes": "http://www.wikidata.org/entity/Q1349587|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q49490748",
+"place_labels": "Fort Stanton Park",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q19870426",
+"label": "19th Mississippi Infantry Regiment",
+"aliases": "19th Mississippi Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "19th Mississippi Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q19881327",
+"label": "The Saint of Killers",
+"classes": "http://www.wikidata.org/entity/Q1114461|http://www.wikidata.org/entity/Q5174137|http://www.wikidata.org/entity/Q15773317|http://www.wikidata.org/entity/Q17624054",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q20312907",
+"label": "4th New York Heavy Artillery Regiment",
+"classes": "http://www.wikidata.org/entity/Q12079224",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q20880555",
+"label": "SS Arago",
+"classes": "http://www.wikidata.org/entity/Q202539|http://www.wikidata.org/entity/Q1121471",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q21187873",
+"label": "4th Pennsylvania Infantry",
+"aliases": "4th Regiment, Pennsylvania Volunteer Infantry",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q22935893",
+"label": "Battle of Gagron",
+"pit": "1519-01-01T00:00:00Z",
+"pit_prec": 9,
+"classes": "http://www.wikidata.org/entity/Q178561",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q24191934",
+"label": "100th Pennsylvania Infantry",
+"aliases": "Roundhead Regiment|Round Head Regiment|Pennsylvania Volunteers, 100th Infantry Regiment|Pennsylvania Veteran Volunteer Infantry, 100th Regiment|Pennsylvania Infantry, 100th Regiment|Pennsylvania Infantry Regiment, 100th|One Hundredth Pennsylvania Infantry Regiment|Calvinist Regiment|100th Regiment Pennsylvania Volunteer Infantry|Roundheads",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q25352466",
+"label": "147th Regiment",
+"aliases": "First Ohio|147th Infantry Regiment|147th Infantry",
+"parts": "http://www.wikidata.org/entity/Q7080740",
+"classes": "http://www.wikidata.org/entity/Q52371",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q28448538",
+"label": "11th (Perrin's) Mississippi Cavalry Regiment",
+"aliases": "Eleventh (Perrin's) Cavalry|Eleventh Mississippi Cavalry|Eleventh Mississippi Cavalry Regiment|Perrin's Regiment of Mississippi Cavalry|Perrin's regiment|11th Mississippi Cavalry|11th Mississippi Cavalry Regiment",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"official_names": "11th Mississippi Cavalry Regiment",
+"short_names": "11th Mississippi Cavalry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q28449202",
+"label": "119th Pennsylvania Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q44470193",
+"label": "Haas & Peale",
+"aliases": "Haas and Peale",
+"classes": "http://www.wikidata.org/entity/Q672070|http://www.wikidata.org/entity/Q4830453",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q48784997",
+"label": "Siege of Dublin",
+"coord": "Point(-6.265833333 53.3425)",
+"pit": "1649-01-01T00:00:00Z",
+"pit_prec": 9,
+"start": "1649-06-01T00:00:00Z",
+"start_prec": 11,
+"end": "1649-08-02T00:00:00Z",
+"end_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q2577772",
+"classes": "http://www.wikidata.org/entity/Q188055",
+"places": "http://www.wikidata.org/entity/Q1761",
+"place_labels": "Dublin",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q54933359",
+"label": "Fort Saratoga",
+"aliases": "Saratoga",
+"coord": "Point(-76.978333333 38.929444444)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q2402523",
+"place_labels": "Northeast",
+"short_names": "Saratoga",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q55611925",
+"label": "Fort Thayer",
+"aliases": "Thayer",
+"coord": "Point(-76.971674 38.928836)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q15893266",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q2402523",
+"place_labels": "Northeast",
+"short_names": "Thayer",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q55611922",
+"label": "Fort Slemmer",
+"aliases": "Slemmer",
+"coord": "Point(-77.0013889 38.9397222)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q15893266",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q4575058",
+"place_labels": "Brookland",
+"short_names": "Slemmer",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q55611923",
+"label": "Fort Slocum",
+"aliases": "Slocum",
+"coord": "Point(-77.0144444 38.9597222)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q839954|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q49490735",
+"place_labels": "Fort Slocum Park",
+"short_names": "Slocum",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q61782669",
+"label": "Battery Kemble",
+"coord": "Point(-77.095277777 38.930277777)",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q15893266",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q4869860",
+"place_labels": "Battery Kemble Park",
+"official_names": "Battery Kemble",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q61784495",
+"label": "Fort Marcy",
+"aliases": "Marcy",
+"coord": "Point(-77.126 38.934)",
+"parts": "http://www.wikidata.org/entity/Q5124610|http://www.wikidata.org/entity/Q5471590|http://www.wikidata.org/entity/Q49490466",
+"classes": "http://www.wikidata.org/entity/Q1349587|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q341915",
+"loc_labels": "Fairfax County",
+"places": "http://www.wikidata.org/entity/Q5471590",
+"place_labels": "Fort Marcy Park",
+"short_names": "Marcy",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q61793385",
+"label": "Fort Reno",
+"aliases": "Fort Pennsylvania|Reno",
+"coord": "Point(-77.0759 38.952)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q245016|http://www.wikidata.org/entity/Q839954|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q5471906",
+"place_labels": "Fort Reno Park",
+"official_names": "Fort Reno|Fort Pennsylvania",
+"short_names": "Reno",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q61837662",
+"label": "Fort Mahan",
+"aliases": "Mahan",
+"coord": "Point(-76.944889 38.895167)",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q49490623",
+"place_labels": "Fort Mahan Park",
+"short_names": "Mahan",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q61861574",
+"label": "Fort Chaplin",
+"aliases": "Chaplin",
+"coord": "Point(-76.942778 38.888611)",
+"classes": "http://www.wikidata.org/entity/Q1349587|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q49490457",
+"place_labels": "Fort Chaplin Park",
+"short_names": "Chaplin",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q61863438",
+"label": "Fort Dupont",
+"aliases": "Dupont",
+"coord": "Point(-76.940639 38.872806)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1349587|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q5471103",
+"place_labels": "Fort Dupont Park",
+"short_names": "Dupont",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q61874792",
+"label": "Fort Davis",
+"aliases": "Davis",
+"coord": "Point(-76.951861 38.866556)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1349587|http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q17492451",
+"place_labels": "Fort Davis Park",
+"short_names": "Davis",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q61903413",
+"label": "Battery Carroll",
+"aliases": "Fort Carroll",
+"coord": "Point(-77.006861 38.837889)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q15893266",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q18157983",
+"place_labels": "Shepherd Parkway",
+"official_names": "Battery Carroll",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q96578508",
+"label": "Battery Reno",
+"coord": "Point(-77.0775 38.955833333)",
+"parts": "http://www.wikidata.org/entity/Q61793385",
+"classes": "http://www.wikidata.org/entity/Q56344492",
+"locs": "http://www.wikidata.org/entity/Q61",
+"loc_labels": "Washington, D.C.",
+"places": "http://www.wikidata.org/entity/Q7699929",
+"place_labels": "Tenleytown",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q44479920",
+"label": "McPherson & Oliver",
+"aliases": "McPherson and Oliver",
+"classes": "http://www.wikidata.org/entity/Q672070|http://www.wikidata.org/entity/Q4830453",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q44614697",
+"label": "Wenderoth, Taylor & Brown",
+"aliases": "Wenderoth, Taylor and Brown|Wenderoth and Taylor and Brown|Wenderoth & Taylor & Brown",
+"classes": "http://www.wikidata.org/entity/Q672070|http://www.wikidata.org/entity/Q4830453",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q45106072",
+"label": "Bendann Bros.",
+"aliases": "Bendann Brothers",
+"classes": "http://www.wikidata.org/entity/Q672070",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q48812878",
+"label": "Fort Farnsworth",
+"aliases": "Farnsworth",
+"coord": "Point(-77.075261 38.794065)",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071|http://www.wikidata.org/entity/Q19860854",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"short_names": "Farnsworth",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q51589044",
+"label": "Fort Whipple",
+"aliases": "Fort Whipple, Virginia|Whipple",
+"parts": "http://www.wikidata.org/entity/Q5124610",
+"classes": "http://www.wikidata.org/entity/Q1785071",
+"locs": "http://www.wikidata.org/entity/Q107126",
+"loc_labels": "Arlington County",
+"short_names": "Whipple",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q55639048",
+"label": "211th Pennsylvania Infantry",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q65159849",
+"classes": "http://www.wikidata.org/entity/Q52371|http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q66312161",
+"label": "Civil War Monuments of Kentucky MPS",
+"aliases": "Civil War Monuments of Kentucky Multiple Property Submission",
+"classes": "http://www.wikidata.org/entity/Q18247357|http://www.wikidata.org/entity/Q19558910",
+"locs": "http://www.wikidata.org/entity/Q1603",
+"loc_labels": "Kentucky",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q84765003",
+"label": "Mr. March",
+"aliases": "Robert March",
+"classes": "http://www.wikidata.org/entity/Q3658341|http://www.wikidata.org/entity/Q15632617",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q84821437",
+"label": "John Brooke",
+"aliases": "Mr. Brooke",
+"classes": "http://www.wikidata.org/entity/Q3658341|http://www.wikidata.org/entity/Q15632617",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q85738631",
+"label": "7th Texas Infantry Regiment",
+"aliases": "7th Texas Volunteers|7th Texas Vols.|Gregg's regiment|Seventh Texas Infantry|7th Texas Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "7th Texas Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q85785489",
+"label": "Military Division of the James",
+"classes": "http://www.wikidata.org/entity/Q66736191",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q96371082",
+"label": "44th Massachusetts Volunteer Infantry Regiment",
+"aliases": "44th Massachusetts Volunteer Militia",
+"parts": "http://www.wikidata.org/entity/Q1752901",
+"classes": "http://www.wikidata.org/entity/Q52371",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q96371092",
+"label": "4th Missouri Infantry Regiment",
+"aliases": "4th Regiment, Missouri Infantry (Confederate)|4th Missouri Infantry Regiment (Confederate)|4th Missouri Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "4th Missouri Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q96373244",
+"label": "Battle of Clones",
+"coord": "Point(-7.2337 54.183)",
+"pit": "1643-06-13T00:00:00Z",
+"pit_prec": 11,
+"parts": "http://www.wikidata.org/entity/Q1672808",
+"classes": "http://www.wikidata.org/entity/Q178561",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q96386877",
+"label": "Landis' Missouri Battery",
+"aliases": "Missouri Light Artillery|Landis's Company",
+"classes": "http://www.wikidata.org/entity/Q176799|http://www.wikidata.org/entity/Q240313",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q96414177",
+"label": "Wade's Missouri Battery",
+"aliases": "Walsh's Battery|1st Light Battery",
+"classes": "http://www.wikidata.org/entity/Q240313",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q97275436",
+"label": "Logan",
+"aliases": "er hueso|James Howlett|Wolverine",
+"classes": "http://www.wikidata.org/entity/Q1094617|http://www.wikidata.org/entity/Q15773347",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q97354726",
+"label": "Slayback's Missouri Cavalry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q97356247",
+"label": "12th Missouri Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q98778725",
+"label": "2nd Regiment, New Hampshire Volunteer Infantry",
+"classes": "http://www.wikidata.org/entity/Q66735957",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q104870335",
+"label": "Nichols's Missouri Cavalry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q104880513",
+"label": "13th Missouri Cavalry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q106063747",
+"label": "Arkansas Militia",
+"aliases": "Arkansas militia|Militia of Arkansas",
+"parts": "http://www.wikidata.org/entity/Q7225182",
+"classes": "http://www.wikidata.org/entity/Q153936",
+"locs": "http://www.wikidata.org/entity/Q1612",
+"loc_labels": "Arkansas",
+"official_names": "Militia of Arkansas",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q110459441",
+"label": "Battle of Błonie",
+"coord": "Point(20.616944 52.196667)",
+"pit": "1770-02-12T00:00:00Z",
+"pit_prec": 11,
+"classes": "http://www.wikidata.org/entity/Q178561",
+"places": "http://www.wikidata.org/entity/Q608376",
+"place_labels": "Błonie",
+"found_by": "typed_desc"
+},
+{
+"b": "http://www.wikidata.org/entity/Q108571193",
+"label": "Black Terror",
+"classes": "http://www.wikidata.org/entity/Q177597",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q109406942",
+"label": "26th Virginia Infantry Battalion",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q110226651",
+"label": "CSS Colonel Lamb",
+"classes": "http://www.wikidata.org/entity/Q884687",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q110271146",
+"label": "CSS Vicksburg",
+"classes": "http://www.wikidata.org/entity/Q12859788",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q111737739",
+"label": "CSS Ida",
+"classes": "http://www.wikidata.org/entity/Q178193",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q112118667",
+"label": "Archeological Resources of the American Civil War in Tennessee MPS",
+"aliases": "Archeological Resources of the American Civil War in Tennessee Multiple Property Submission|Archaeological Resources of the American Civil War in Tennessee MPS",
+"classes": "http://www.wikidata.org/entity/Q18247357|http://www.wikidata.org/entity/Q19558910",
+"locs": "http://www.wikidata.org/entity/Q1509",
+"loc_labels": "Tennessee",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q112118671",
+"label": "Civil War Historic and Historic Archeological Resources in Tennessee MPS",
+"aliases": "Civil War Historic and Historic Archeological Resources in Tennessee Multiple Property Submission|Civil War Historic and Historic Archaeological Resources in Tennessee MPS",
+"classes": "http://www.wikidata.org/entity/Q18247357|http://www.wikidata.org/entity/Q19558910",
+"locs": "http://www.wikidata.org/entity/Q1509",
+"loc_labels": "Tennessee",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q113339570",
+"label": "Point Lookout Prison Camp",
+"aliases": "Point Lookout Prisoner of War Camp|Point Lookout Prison Camp for Confederates|Hammond Hospital|Camp Hoffman",
+"classes": "http://www.wikidata.org/entity/Q16917|http://www.wikidata.org/entity/Q1070290",
+"locs": "http://www.wikidata.org/entity/Q1391",
+"loc_labels": "Maryland",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q115242520",
+"label": "American Civil War veteran",
+"aliases": "United States Civil War veteran|U.S. Civil War veteran|Civil War veteran",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q115803103",
+"label": "8th Texas Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q115803630",
+"label": "Val Verde Texas Battery",
+"classes": "http://www.wikidata.org/entity/Q240313",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q115803813",
+"label": "29th Texas Cavalry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q116745261",
+"label": "Jacksonville Light Infantry",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q117266761",
+"label": "Sixty-Ninth Regiment, United States Colored Troops",
+"aliases": "Sixty-Ninth USCT",
+"parts": "http://www.wikidata.org/entity/Q9212|http://www.wikidata.org/entity/Q1752901",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q118398909",
+"label": "Whistling Dick",
+"classes": "http://www.wikidata.org/entity/Q124056273",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q124735109",
+"label": "Seventh Battalion Mississippi Infantry",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q124736670",
+"label": "Angel Eyes",
+"aliases": "the Bad",
+"classes": "http://www.wikidata.org/entity/Q15632617|http://www.wikidata.org/entity/Q15773347",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q124737582",
+"label": "Douglas Mortimer",
+"aliases": "Colonel Douglas Mortimer",
+"classes": "http://www.wikidata.org/entity/Q15632617|http://www.wikidata.org/entity/Q15773347",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q125372013",
+"label": "Army of 10,000",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q125449951",
+"label": "100th Regiment, United States Colored Infantry",
+"aliases": "United States. Army. Colored Infantry Regiment, 100th (1864-1865)",
+"classes": "http://www.wikidata.org/entity/Q52371",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q126284872",
+"label": "Wirt Adams' Cavalry Regiment",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q126454228",
+"label": "3rd Mississippi Infantry Regiment",
+"aliases": "Third Mississippi|3d Mississippi Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q126679095",
+"label": "56th Alabama Cavalry Regiment",
+"aliases": "56th Alabama Partisan Rangers|56th Alabama Cavalry",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"short_names": "56th Alabama Cavalry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q126946538",
+"label": "13th Mississippi Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q176799",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q139961800",
+"label": "General Hospital No. 4",
+"aliases": "Baptist Institute Hospital|Gen. Hos. No. 4",
+"classes": "http://www.wikidata.org/entity/Q2387974|http://www.wikidata.org/entity/Q2440002",
+"locs": "http://www.wikidata.org/entity/Q43421",
+"loc_labels": "Richmond",
+"places": "http://www.wikidata.org/entity/Q139951157",
+"place_labels": "Richmond Female Institute",
+"official_names": "General Hospital No. 4",
+"short_names": "Gen. Hos. No. 4",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q130313872",
+"label": "17th Mississippi Infantry Regiment",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q131300924",
+"label": "Henry Favours",
+"aliases": "Colonel Henry Favours|Colonel Favours",
+"classes": "http://www.wikidata.org/entity/Q1569167|http://www.wikidata.org/entity/Q15632617",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q133864321",
+"label": "Trans-Mississippi District",
+"classes": "http://www.wikidata.org/entity/Q580112|http://www.wikidata.org/entity/Q2008856",
+"locs": "http://www.wikidata.org/entity/Q81931",
+"loc_labels": "Confederate States of America",
+"official_names": "Trans-Mississippi District",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q134972150",
+"label": "Tennessee Volunteers",
+"parts": "http://www.wikidata.org/entity/Q115194|http://www.wikidata.org/entity/Q134972128",
+"classes": "http://www.wikidata.org/entity/Q781132|http://www.wikidata.org/entity/Q828787",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q134980691",
+"label": "North Carolina Militia",
+"aliases": "North Carolina militia|Militia of North Carolina",
+"classes": "http://www.wikidata.org/entity/Q153936",
+"locs": "http://www.wikidata.org/entity/Q1454",
+"loc_labels": "North Carolina",
+"official_names": "Militia of North Carolina",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q136938679",
+"label": "Department of Alabama, Mississippi, and East Louisiana",
+"aliases": "Department of Ala., Miss., and East La.|Dept. of Ala., Miss., and E. La.|Army of the Department of Alabama, Mississippi and East Louisiana|Dept. of Alabama, Mississippi, and East Louisiana|Department of Alabama, Mississippi and East Louisiana",
+"classes": "http://www.wikidata.org/entity/Q580112|http://www.wikidata.org/entity/Q9822982",
+"locs": "http://www.wikidata.org/entity/Q81931",
+"loc_labels": "Confederate States of America",
+"official_names": "Department of Alabama, Mississippi, and East Louisiana",
+"short_names": "Dept. of Ala., Miss., and E. La.",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q136945668",
+"label": "Military Division of the West",
+"classes": "http://www.wikidata.org/entity/Q580112|http://www.wikidata.org/entity/Q9822982",
+"locs": "http://www.wikidata.org/entity/Q81931",
+"loc_labels": "Confederate States of America",
+"official_names": "Military Division of the West",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q136945813",
+"label": "Department of Tennessee and Georgia",
+"classes": "http://www.wikidata.org/entity/Q580112|http://www.wikidata.org/entity/Q9822982",
+"locs": "http://www.wikidata.org/entity/Q81931",
+"loc_labels": "Confederate States of America",
+"official_names": "Department of Tennessee and Georgia",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q137829355",
+"label": "49th Tennessee Infantry Regiment",
+"aliases": "49th Tennessee Volunteer Infantry Regiment|49th Regiment, Tennessee Infantry|Forty-ninth Tennessee Infantry|49th Tennessee Infantry",
+"classes": "http://www.wikidata.org/entity/Q10358588",
+"short_names": "49th Tennessee Infantry|Forty-ninth Tennessee Infantry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q137921546",
+"label": "Ferguson's Brigade",
+"aliases": "Ferguson's Cavalry Brigade",
+"classes": "http://www.wikidata.org/entity/Q23905067",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q139762210",
+"label": "8th Confederate Cavalry Regiment",
+"aliases": "Eighth Confederate Cavalry|Wade's regiment|8th Confederate Cavalry",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"short_names": "8th Confederate Cavalry",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q140263454",
+"label": "2nd Cavalry Battalion",
+"aliases": "2nd Battalion, Reserve Corps|2nd Battalion, Mississippi Cavalry Reserves|2nd Cavalry Battalion, Mississippi Reserves|Baskin’s Battalion|2nd Cavalry Battalion (Mississippi Reserves)|2nd Battalion, Reserve Forces",
+"classes": "http://www.wikidata.org/entity/Q59817677",
+"official_names": "2nd Cavalry Battalion, Mississippi Reserves",
+"short_names": "2nd Cavalry Battalion",
+"found_by": "conflict"
+},
+{
+"b": "http://www.wikidata.org/entity/Q140420619",
+"label": "11th (Ashcraft's) Mississippi Cavalry Regiment",
+"aliases": "11th Consolidated Mississippi Cavalry Regiment|11th Consolidated Regiment, Mississippi Cavalry|Eleventh (Ashcraft's) Cavalry|Ashcraft's regiment|11th Mississippi Cavalry|11th Mississippi Cavalry Regiment",
+"classes": "http://www.wikidata.org/entity/Q12107531",
+"official_names": "11th Mississippi Cavalry Regiment",
+"short_names": "11th Mississippi Cavalry",
+"found_by": "conflict"
+}
+]

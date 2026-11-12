@@ -1,0 +1,287 @@
+# Batch 2: clusters with 10-19 regiments and no Wikidata match. Same fields as batch 1.
+cl00032|combat|Rock Cut, near Tuscumbia|||Dodge's expedition to northern Alabama|34.720|-87.720||high|
+cl02079|battle|Battle of Fair Oaks & Darbytown Road|Battle of Fair Oaks & Darbytown Road||Siege of Petersburg|37.510|-77.300|1864-10-27..1864-10-28|high|Year misread as 1865
+cl03582|march|Advance on Nashville (Feb 1862)||||36.160|-86.780||high|After Fort Donelson
+cl04278|combat|Liberty Mills|||Torbert's expedition to Gordonsville|38.200|-78.270||high|
+cl04938|campaign|Western Virginia campaign (1861)|Western Virginia Campaign||||||high|
+cl05590|combat|Lynch's Creek|||Carolinas Campaign|34.500|-80.150||med|
+cl06179|siege|Siege of Fort Wagner and Battery Gregg|||Second Battle of Charleston Harbor|32.710|-79.880||high|Jul 18-Sep 7, 1863
+cl07856|admin|Regiment re-enlisted as veterans|||||||high|Not an event
+cl07963|combat|Farmville (Apr 7, 1865)|||Appomattox campaign|37.300|-78.390||med|Includes Cumberland Church and High Bridge fighting
+cl10897|battle|Battle of White Oak Road|Battle of White Oak Road||Appomattox campaign|37.140|-77.540||high|
+cl00010|combat|Tuscumbia (Apr 1863)|||Dodge's expedition to northern Alabama|34.730|-87.700||high|
+cl00473|expedition|Expedition to Huntsville (Jul 1863)||||34.730|-86.590||high|
+cl00812|combat|Hurricane Creek (Aug 1864)|||A. J. Smith's expedition to Oxford|34.430|-89.400||high|
+cl01633|campaign|Chancellorsville campaign||Chancellorsville campaign||38.310|-77.640|1863-04-27..1863-05-06|high|Year misread as 1862
+cl01687|battle|Battle of Spotsylvania Court House|Battle of Spotsylvania Court House||Overland Campaign|38.220|-77.600|1864-05-12..1864-05-21|high|Year misread as 1863
+cl01739|battle|Battle of Secessionville||Battle of Secessionville||32.710|-79.950||high|
+cl01773|battle|Battle of Proctor's Creek (Drewry's Bluff)|Battle of Proctor's Creek||Bermuda Hundred campaign|37.420|-77.420||high|
+cl01977|combat|Pine Mountain|||Atlanta campaign|34.010|-84.660||high|
+cl02625|combat|Martinsburg (Jul 25, 1864)|||Valley Campaigns of 1864|39.460|-77.960||high|
+cl03509|combat|Salem, Va. (Hunter's retreat)|||Hunter's expedition to Lynchburg|37.290|-80.060||high|
+cl04685|raid|Morgan's Christmas Raid|Morgan's Christmas Raid||||||high|
+cl04759|combat|Blain's Cross Roads|||Knoxville Campaign|36.140|-83.650||high|
+cl05057|combat|Bear Creek, near Tuscumbia (Oct 1863)|||Chattanooga campaign|34.720|-87.900||high|Sherman's move along the Memphis & Charleston R.R.
+cl06864|operations|Operations against Hoke (Feb 1865)|||Wilmington Campaign|34.060|-77.900||high|
+cl07177|combat|White Oak Swamp (Jun 13, 1864)|||Overland Campaign|37.500|-77.250||high|Riddell's Shop; not the 1862 battle
+cl07958|raid|Warren's raid on the Weldon Railroad (Applejack Raid)|||Siege of Petersburg|36.680|-77.540||high|Same as cl10305
+cl07982|combat|Orangeburg|||Carolinas Campaign|33.490|-80.860||high|
+cl09888|battle|Battle of Crampton's Gap|Battle of Crampton's Gap||Maryland Campaign|39.410|-77.640||high|
+cl10612|combat|Warwick Road|||Siege of Yorktown|37.170|-76.550||high|
+cl13560|combat|Turkey Bridge (Malvern Cliff)|||Seven Days Battles|37.420|-77.250||med|Jun 30, 1862, Glendale day
+cl01337|combat|Port Republic (Sep 1864)|||Valley Campaigns of 1864|38.300|-78.810||high|Not the 1862 battle
+cl01397|battle|Battle of Totopotomoy Creek|Battle of Totopotomoy Creek||Overland Campaign|37.650|-77.330|1864-05-28..1864-05-31|high|Year misread as 1863
+cl01418|battle|Battle of Cold Harbor|Battle of Cold Harbor||Overland Campaign|37.590|-77.290|1864-06-01..1864-06-12|high|Year misread as 1863
+cl01756|combat|Actions on James Island (Jul 1864)||||32.700|-79.950||med|
+cl02040|assault|Landing on Morris Island (Jul 10, 1863)|||Second Battle of Charleston Harbor|32.700|-79.880||high|Precedes First Battle of Fort Wagner
+cl02043|assault|First Battle of Fort Wagner|First Battle of Fort Wagner||Second Battle of Charleston Harbor|32.710|-79.880||high|
+cl02421|battle|Battle of the Wilderness|Battle of the Wilderness||Overland Campaign|38.310|-77.750|1864-05-05..1864-05-07|high|Year misread as 1863
+cl03256|expedition|Blair's expedition to Mechanicsburg|||Vicksburg Campaign|32.680|-90.570||high|
+cl03357|combat|Clinton, Miss. (Jul 1863)|||Jackson Expedition|32.340|-90.320||high|
+cl04787|capture|Capture of Macon|||Wilson's Raid|32.840|-83.630||high|
+cl04896|combat|Cheyney's Farm|||||||low|Unidentified; Jun 22, 1864 - check unit histories
+cl05387|expedition|Expedition to McMinnville (Apr 1863)||||35.680|-85.770||high|
+cl07667|combat|Mount Jackson (Sep 1864)|||Valley Campaigns of 1864|38.750|-78.640||high|
+cl08540|combat|Cane Creek (Oct 1863)|||Chattanooga campaign|34.740|-87.850||high|Sherman's move along the Memphis & Charleston R.R.
+cl10295|battle|Peebles' Farm (Poplar Grove Church)|Battle of Peebles' Farm||Siege of Petersburg|37.170|-77.480||high|
+cl10450|combat|Sevier's Ford, Opequon Creek|||Valley Campaigns of 1864|39.170|-78.050||high|
+cl10898|battle|Battle of Sutherland's Station|Battle of Sutherland's Station||Appomattox campaign|37.200|-77.570||high|
+cl00059|combat|Ripley (Jun 1864)|||Battle of Brice's Cross Roads|34.730|-88.950||high|Retreat after Brice's Cross Roads
+cl00204|combat|Rome, Ga. (May 1864)|||Atlanta campaign|34.260|-85.160||high|
+cl00701|combat|Camden, Ark. (Apr 1864)|||Camden Expedition|33.580|-92.830||high|
+cl01320|battle|Battle of Good's Farm (Harrisonburg)|Battle of Good's Farm||Shenandoah Valley Campaign|38.420|-78.860||high|
+cl01454|battle|Second Battle of Petersburg|Second Battle of Petersburg||Siege of Petersburg|37.210|-77.380|1864-06-16..1864-06-18|high|Year misread as 1863
+cl01627|combat|Malvern Hill (Jul 28, 1864)|||First Battle of Deep Bottom|37.420|-77.250||high|Not the 1862 battle; state field wrong
+cl01637|battle|Battle of Gettysburg|Battle of Gettysburg||Gettysburg campaign|39.810|-77.230|1863-07-01..1863-07-03|high|Year misread as 1862
+cl01953|combat|Raccoon Ford (Sep 1863)|||Advance from the Rappahannock to the Rapidan|38.380|-77.900||high|
+cl01964|battle|New Hope Church, Va. (Mine Run)|||Battle of Mine Run|38.300|-77.760||high|Virginia, not Georgia
+cl02025|combat|Montieth Swamp|||Sherman's March to the Sea|32.180|-81.300||med|
+cl02818|battle|Boydton and White Oak Roads|Battle of White Oak Road||Appomattox campaign|37.140|-77.540||high|
+cl02997|combat|Charleston, Tenn. (Dec 1863)||||35.290|-84.760||high|
+cl03369|expedition|Expedition to Clinton, La. (Aug 1864)||||30.860|-91.020||high|
+cl03914|combat|Columbia Ford (Nov 1864)|||Franklin–Nashville campaign|35.620|-87.040||high|
+cl04756|battle|Battle of Bean's Station|Battle of Bean's Station|||36.340|-83.330||high|
+cl05264|expedition|Sturgis's expedition to Guntown||Sturgis's expedition||34.500|-88.730||high|Contains Brice's Cross Roads
+cl05482|occupation|Occupation of Montgomery|||Wilson's Raid|32.380|-86.300||high|
+cl05528|pursuit|Pursuit of Longstreet (Dec 1863)|||Knoxville Campaign||||high|
+cl05691|reconnaissance|Reconnaissance to the Salkehatchie River|||Carolinas Campaign|33.000|-81.050||high|
+cl05936|combat|Kernstown (Nov 11, 1864)|||Valley Campaigns of 1864|39.140|-78.190||high|
+cl06279|combat|Henderson's Hill|||Red River campaign|31.400|-92.700||high|
+cl07160|raid|Kilpatrick-Dahlgren raid on Richmond|Dahlgren Affair|||37.540|-77.430||high|
+cl07618|combat|Howard House (Jul 20, 1864)|||Atlanta campaign|33.760|-84.340||med|
+cl10466|combat|Scott's Cross Roads|||Appomattox campaign|37.220|-77.700||med|
+cl00011|combat|Tuscumbia (Oct 1863)|||Chattanooga campaign|34.730|-87.700||high|Sherman's move along the Memphis & Charleston R.R.
+cl00220|combat|Waynesboro, Va. (Sep 1864)|||Valley Campaigns of 1864|38.070|-78.890||high|Not the Mar 1865 battle
+cl01136|battle|Battle of Fredericksburg|Battle of Fredericksburg|||38.300|-77.460|1862-12-12..1862-12-15|high|Year misread as 1863
+cl01868|capture|Capture of Jackson, Tenn. (Jun 1862)||||35.610|-88.810||high|
+cl02028|occupation|Cheraw|||Carolinas Campaign|34.700|-79.880||high|
+cl02743|combat|Yellow House (Oct 1864)|||Siege of Petersburg|37.170|-77.450||high|Globe Tavern area after Peebles' Farm
+cl03013|march|Advance on Springfield, Mo. (Feb 1862)||||37.210|-93.290||high|Opening of the Pea Ridge campaign
+cl03326|march|Monett's Ferry and Cloutierville (Mar 1864)|||Red River campaign|31.550|-92.920||high|Advance, not the Apr 23 battle
+cl03327|combat|Natchitoches (Mar 1864)|||Red River campaign|31.760|-93.090||high|
+cl03337|battle|Battle of Monett's Ferry|Battle of Monett's Ferry||Red River campaign|31.520|-92.960||high|
+cl03406|pursuit|Pursuit of Price into Arkansas (Feb 1862)|||||||high|Opening of the Pea Ridge campaign
+cl03442|battle|Battle of Chickasaw Bayou|Battle of Chickasaw Bayou||Vicksburg Campaign|32.420|-90.850||high|
+cl03806|march|Tallahatchie March|||Grant's Central Mississippi campaign|34.400|-89.500||high|
+cl04264|reconnaissance|Reconnaissance across the Rapidan (Sep 1863)||||38.370|-77.950||high|
+cl05095|combat|Farmington, Miss. (May 9, 1862)||Battle of Farmington|Siege of Corinth|34.930|-88.450||high|
+cl05108|combat|La Vergne (Dec 1862)|||Battle of Stones River|36.020|-86.580||high|Advance on Murfreesboro
+cl05669|combat|South Edisto River (Binnaker's Bridge)|||Carolinas Campaign|33.270|-81.120||high|Same as cl05177
+cl06024|battle|Battle of Griswoldville|Battle of Griswoldville||Sherman's March to the Sea|32.860|-83.460||high|
+cl06266|capture|Capture of Mobile|-||Mobile campaign|30.690|-88.040||high|
+cl06276|combat|Mississippi Springs|||Vicksburg Campaign|32.280|-90.330||high|
+cl06374|operations|Operations in East Tennessee (spring 1865)||||36.200|-83.000||high|Same as cl05855
+cl06617|expedition|Expedition from Morganza to the Atchafalaya||||30.800|-91.700||high|
+cl08254|pursuit|Pursuit of Bragg into Kentucky|||Confederate Heartland Offensive||||high|Same as cl05003
+cl08538|expedition|Steele's Greenville expedition|Steele's Greenville expedition|||33.400|-91.000||high|
+cl09932|operations|In works at Centreville (Aug 1862)|||Northern Virginia Campaign|38.840|-77.430||high|
+cl10456|combat|Mount Crawford (Oct 1864)|||Valley Campaigns of 1864|38.360|-78.940||high|
+cl10687|battle|Kettle Run (Bristoe Station, Aug 1862)|Manassas Station Operations||Northern Virginia Campaign|38.720|-77.540||high|
+cl10692|operations|Orange & Alexandria R.R. (Nov 1862)||||38.600|-77.700||high|
+cl00140|battle|Battle of Rome Cross Roads|Battle of Rome Cross Roads||Atlanta campaign|34.590|-84.950||high|
+cl00665|battle|Battle of Mine Creek|Battle of Mine Creek||Price’s Missouri Expedition|38.150|-94.700||high|Includes Marais des Cygnes and Little Osage
+cl01271|reconnaissance|Reconnaissance to Strasburg (Mar 1862)|||Shenandoah Valley Campaign|38.990|-78.360||high|
+cl01349|combat|Kelly's Ford (Jul-Aug 1863)||||38.480|-77.780||high|
+cl01362|operations|Operations in Hampshire and Hardy Counties (Rosser's raid)||||39.100|-78.750||high|
+cl01475|reconnaissance|Reconnaissance to Winchester (Dec 1862)||||39.180|-78.160||high|
+cl01644|campaign|Bristoe campaign|Bristoe Campaign|||38.720|-77.540|1863-10-09..1863-10-22|high|Year misread as 1862
+cl01663|combat|Brandy Station (Aug 1, 1863)||||38.500|-77.880||high|Not the Jun 9 battle
+cl02052|demonstration|Second Battle of Deep Bottom|Second Battle of Deep Bottom||Siege of Petersburg|37.420|-77.300||high|
+cl02695|battle|Battle of Monett's Ferry|Battle of Monett's Ferry||Red River campaign|31.520|-92.960||high|
+cl02974|siege|Siege of Island No. 10|Battle of Island Number Ten|||36.480|-89.530||high|
+cl03119|battle|Battle of Hatchie's Bridge|Battle of Hatchie Bridge||Second Battle of Corinth|35.160|-88.890||high|
+cl03371|combat|Clinton, Ga. (Nov 1864)|||Sherman's March to the Sea|33.020|-83.610||high|
+cl03402|campaign|Frémont's campaign against Springfield (1861)||||37.210|-93.290||high|
+cl03641|combat|Canton, Miss. (Feb 1864)|||Meridian campaign|32.610|-90.040||high|
+cl04089|combat|Mechanicsville (May 1862)|||Peninsula Campaign|37.610|-77.360||high|Not the Jun 26 battle
+cl04324|combat|Parker's Store (Nov 1863)|||Battle of Mine Run|38.300|-77.720||high|
+cl04459|operations|Operations against Marmaduke (Apr 1863)||Marmaduke's second Missouri raid||37.300|-89.520||med|Includes Cape Girardeau
+cl04697|campaign|Cumberland Gap campaign (1862)||||36.600|-83.670||high|
+cl05052|expedition|Steele's Bayou expedition|Steele's Bayou Expedition||Vicksburg Campaign|32.900|-90.800||high|
+cl05092|capture|Capture at Tiptonville|||Battle of Island Number Ten|36.380|-89.480||high|
+cl05534|expedition|Dodge's expedition to northern Alabama||||34.730|-87.700||high|Supports Streight's Raid
+cl05737|campaign|Frémont's campaign against Springfield (1861)||||37.210|-93.290||high|Same as cl03402
+cl10098|battle|Battle of Globe Tavern (Six Mile House)|Battle of Globe Tavern||Siege of Petersburg|37.170|-77.420||high|
+cl10467|combat|Tabernacle Church (Beaver Pond Creek)|||Appomattox campaign|37.300|-77.850||high|
+cl14454|operations|Reopening the Tennessee River (Cracker Line)|||Chattanooga campaign|35.030|-85.370||high|Same as cl05843
+cl00007|pursuit|Pursuit to Tuscumbia Creek (May-Jun 1862)|||Siege of Corinth|34.880|-88.530||high|
+cl00221|combat|Waynesboro, Ga. (Nov 27-28, 1864)|||Sherman's March to the Sea|33.090|-82.020||med|Kilpatrick vs Wheeler; near Buck Head Creek
+cl00468|capture|Capture of Huntsville (Apr 1862)||||34.730|-86.590||high|
+cl00549|reconnaissance|Scout to Richland Creek, Ark.|||||||low|Location uncertain
+cl00639|combat|Boonville, Mo. (Oct 1864)|||Price’s Missouri Expedition|38.970|-92.740||high|
+cl01528|battle|Battle of Tom's Brook|Battle of Tom's Brook||Valley Campaigns of 1864|38.950|-78.430||high|
+cl01665|combat|Brandy Station (Nov 8, 1863)|||Bristoe Campaign|38.500|-77.880||high|After Second Rappahannock Station
+cl01668|campaign|Mine Run campaign|Battle of Mine Run|||38.330|-77.780|1863-11-26..1863-12-02|high|Year misread as 1862
+cl01751|occupation|Pocotaligo (Jan 1865)|||Carolinas Campaign|32.680|-80.950||high|
+cl01802|battle|Battle of Chaffin's Farm (New Market Heights)|Battle of Chaffin's Farm||Siege of Petersburg|37.410|-77.350|1864-09-28..1864-09-30|high|Year misread as 1865
+cl02133|expedition|Burnside's North Carolina expedition|Burnside's North Carolina Expedition|||35.880|-75.670||high|Contains Roanoke Island
+cl02170|combat|Edenton Road|||Siege of Suffolk|36.750|-76.560||high|
+cl02451|battle|Battle of Hatcher's Run (Dabney's Mill)|Battle of Hatcher's Run||Siege of Petersburg|37.140|-77.520||high|
+cl02508|occupation|Kinston (Mar 1865)|||Carolinas Campaign|35.260|-77.580||high|After Wyse Fork
+cl02585|expedition|Sigel's expedition to New Market|||Valley Campaigns of 1864||||high|Contains Battle of New Market
+cl02782|combat|Sulphur Springs, Va. (Aug 1862)|||Northern Virginia Campaign|38.640|-77.880||high|
+cl03184|operations|Milliken's Bend to New Carthage|||Vicksburg Campaign|32.200|-91.100||high|
+cl04273|combat|Liberty (Bedford), Va. (Jun 1864)|||Hunter's expedition to Lynchburg|37.330|-79.520||high|
+cl04535|march|Advance on Bunker Hill (Jul 1861)||||39.330|-78.050||high|Patterson's advance
+cl04963|operations|Kanawha Valley and New River (fall 1861)|||Western Virginia Campaign|38.100|-81.200||high|
+cl05473|combat|Pulaski, Tenn. (Sep 1864)||||35.200|-87.030||high|Forrest's raid into Middle Tennessee
+cl05476|raid|Wilson's Raid|Wilson's Raid||||||high|
+cl05520|combat|Lenoir Station|||Knoxville Campaign|35.800|-84.260||high|
+cl06212|battle|Battle of Old River Lake (Lake Chicot)|Battle of Old River Lake|||33.280|-91.250||high|
+cl06796|expedition|Expedition from Atlanta to Tuckum's Cross Roads|||||||med|Location uncertain
+cl06854|combat|Philadelphia, Tenn. (Oct 1863)|Battle of Philadelphia|||35.680|-84.400||high|
+cl07888|march|McDowell's advance toward Richmond (May 1862)|||Peninsula Campaign||||med|
+cl08621|combat|Bushy (Brush) Mountain|||Atlanta campaign|33.990|-84.640||med|
+cl09299|battle|Second Battle of Saltville|Second Battle of Saltville|||36.880|-81.760|1864-12-20..1864-12-21|high|
+cl09412|raid|Crook's raid on the Virginia & Tennessee Railroad||||37.100|-80.700||high|Contains Cloyd's Mountain
+cl09827|combat|White House / St. Peter's Church (Jun 21, 1864)|||Overland Campaign|37.580|-77.020||high|
+cl09910|demonstration|Gilbert's Ford, Opequon Creek|||Valley Campaigns of 1864|39.190|-78.080||high|
+cl10961|battle|Battle of Fort Stevens|Battle of Fort Stevens|||38.960|-77.030||high|
+cl11433|march|March up the Potomac to Leesburg and Falmouth|||||||high|
+cl00175|combat|Buchanan, Va. (Jun 1864)|||Hunter's expedition to Lynchburg|37.530|-79.680||high|
+cl00845|admin|Regiment redesignated as U.S. Colored Troops|||||||high|Not an event
+cl01515|combat|Cedarville (Sep 20, 1864)|||Valley Campaigns of 1864|38.970|-78.190||high|
+cl01553|combat|Rude's Hill (Nov 1864)|||Valley Campaigns of 1864|38.720|-78.660||high|
+cl01743|march|Evacuation of James Island (Jul 1862)||||32.700|-79.950||high|
+cl02902|battle|Plains of Manassas (Aug 27-29, 1862)|||Second Battle of Bull Run|38.810|-77.550||med|
+cl03329|combat|Natchitoches (Apr 1864)|||Red River campaign|31.760|-93.090||high|
+cl03356|expedition|Expedition to Clinton, La. (Jun 1863)|||Siege of Port Hudson|30.860|-91.020||high|
+cl03838|combat|Louisville, Ga.|||Sherman's March to the Sea|33.000|-82.410||high|
+cl04123|combat|Sugar Loaf Mountain, Md.|||Maryland Campaign|39.270|-77.390||high|
+cl04687|raid|Morgan's last Kentucky raid (1864)||||38.050|-84.500||high|
+cl05094|combat|Farmington, Miss. (May 3, 1862)||Battle of Farmington|Siege of Corinth|34.930|-88.450||high|
+cl05339|expedition|Expedition to Monroe, La. (Aug 1863)||||32.510|-92.120||high|
+cl05388|combat|McMinnville (Oct 1863)|||Wheeler's October 1863 Raid|35.680|-85.770||high|
+cl05565|admin|Regiment veteranized|||||||high|Not an event
+cl05670|combat|Orangeburg, North Edisto River|||Carolinas Campaign|33.490|-80.860||high|
+cl05723|combat|Sugar Valley, near Resaca|||Atlanta campaign|34.590|-84.990||high|
+cl06137|combat|Edinburg, Va. (Apr 1862)|||Shenandoah Valley Campaign|38.820|-78.560||high|
+cl06435|combat|Cartersville|||Atlanta campaign|34.170|-84.800||high|
+cl06603|battle|Battle of Bayou Bourbeux (Grand Coteau)|Battle of Bayou Bourbeux||Texas Overland Expedition|30.420|-92.050||high|
+cl06826|combat|Lawtonville, S.C.|||Carolinas Campaign|32.780|-81.300||high|
+cl07704|campaign|Western Louisiana (Teche) campaign, fall 1863||Texas Overland Expedition||30.200|-91.900||med|Same as cl02344
+cl07775|expedition|Expedition to Blue's Gap||||39.320|-78.540||high|Hanging Rock Pass, W.Va.
+cl07908|combat|Bottom's Bridge (Jun 1862)|||Seven Days Battles|37.510|-77.200||high|
+cl08895|battle|Battle of Dam No. 1 (Lee's Mill)||Battle of Dam No. 1|Siege of Yorktown|37.140|-76.550||high|
+cl09282|battle|Mount Sterling, Ky. (Jun 1864)|Battle of Mount Sterling||Morgan's last Kentucky raid (1864)|38.060|-83.940||med|
+cl09298|battle|First Battle of Saltville|First Battle of Saltville|||36.880|-81.760||high|
+cl09420|combat|New River Bridge (May 1864)|||Crook's raid on the Virginia & Tennessee Railroad|37.130|-80.580||high|
+cl09817|combat|Jones' Bridge (Jun 1864)|||Overland Campaign|37.380|-77.000||high|
+cl10312|pursuit|Pursuit of Early to Snicker's Gap|||Valley Campaigns of 1864|39.110|-77.850||high|Same as cl01945
+cl10532|battle|Battle of Chaffin's Farm (New Market Heights)|Battle of Chaffin's Farm||Siege of Petersburg|37.410|-77.350||high|OCR 'Chaffln'
+cl10742|battle|Battle of Oak Grove|Battle of Oak Grove||Seven Days Battles|37.520|-77.310||high|
+cl11136|battle|Leetown and Smithfield|Battle of Smithfield Crossing||Valley Campaigns of 1864|39.270|-77.880||high|
+cl13765|operations|Covering Pope's retreat to Fairfax Court House|||Battle of Chantilly|38.850|-77.380||med|
+cl00663|battle|Independence, Big Blue and State Line (Oct 22, 1864)|Battle of Byram's Ford||Price’s Missouri Expedition|39.000|-94.520||med|Also Second Battle of Independence, same day
+cl01142|battle|Battle of Fredericksburg|Battle of Fredericksburg|||38.300|-77.460|1862-12-12..1862-12-15|high|Year misread as 1865
+cl01393|combat|Brook Church / fortifications of Richmond|||Sheridan's Richmond Raid|37.620|-77.430||high|
+cl01714|combat|Woodstock (Apr 1862)|||Shenandoah Valley Campaign|38.880|-78.510||high|
+cl01885|combat|Jackson, Miss. (Jul 1864)||||32.300|-90.180||high|Slocum's expedition, not 1863
+cl02113|capture|Capture of Forts Wagner and Gregg|||Second Battle of Charleston Harbor|32.710|-79.880||high|Same as cl02291
+cl02262|battle|Battle of New Bern (1862)|Battle of New Bern|||35.070|-77.050||high|
+cl02270|combat|Rawle's Mill||||35.850|-77.300||high|Foster's Tarboro expedition
+cl02350|occupation|Opelousas (Apr 1863)|||Bayou Teche campaign (spring 1863)|30.530|-92.080||high|
+cl02354|expedition|Expedition to Alexandria and Simsport (May 1863)||||31.310|-92.450||high|
+cl02425|battle|Battle of Spotsylvania Court House|Battle of Spotsylvania Court House||Overland Campaign|38.220|-77.600|1864-05-08..1864-05-12|high|Year misread as 1863
+cl02565|admin|Paroled after capture|||||||high|Not an event; Harpers Ferry surrender, Sep 15, 1862
+cl02595|battle|Battle of Piedmont|Battle of Piedmont||Hunter's expedition to Lynchburg|38.230|-78.920||high|
+cl02796|combat|Groveton (Oct 1863)|||Bristoe Campaign|38.810|-77.550||high|
+cl02857|raid|Stony Creek Station (Dec 1864)|||Siege of Petersburg|36.950|-77.400||high|
+cl03244|siege|Siege of Vicksburg|Siege of Vicksburg||Vicksburg Campaign|32.350|-90.850|1863-05-18..1863-07-04|high|Year misread as 1864
+cl03433|expedition|Expedition from Helena toward Arkansas Post (Nov 1862)||||34.000|-91.000||high|
+cl03564|combat|Hurricane Creek and Oxford (Aug 1864)|||A. J. Smith's expedition to Oxford|34.370|-89.520||high|
+cl03596|battle|Battle of Nashville|Battle of Nashville||Franklin–Nashville campaign|36.110|-86.790|1864-12-15..1864-12-16|high|Year misread as 1865
+cl03993|reconnaissance|Reconnaissance toward Baldwyn (Jun 1862)|||Siege of Corinth|34.510|-88.640||high|
+cl04225|battle|Battle of Hoke's Run (Falling Waters)|Battle of Hoke's Run|||39.570|-77.880||high|
+cl04548|combat|Bunker Hill (Sep 1864)|||Valley Campaigns of 1864|39.330|-78.050||high|
+cl04910|expedition|Expedition to Yellow Creek and occupation of Pittsburg Landing||||35.150|-88.330||high|Before Shiloh
+cl05077|combat|Lovejoy's Station (Jul 29, 1864)|||Atlanta campaign|33.440|-84.310||high|McCook's raid; precedes Brown's Mill
+cl05139|battle|Battle of Utoy Creek|Battle of Utoy Creek||Atlanta campaign|33.730|-84.460||high|OCR 'TJtoy'
+cl05232|campaign|Tullahoma campaign|Tullahoma Campaign|||35.360|-86.210||high|Tullahoma occupation, inside the campaign
+cl05327|expedition|Expedition to Yazoo City (Jul 1863)||||32.850|-90.410||high|
+cl05423|raid|Kilpatrick's raid around Atlanta||Kilpatrick's Raid|Atlanta campaign||||high|Contains Lovejoy's Station, Aug 20
+cl05426|combat|Red Oak (Aug 1864)|||Atlanta campaign|33.610|-84.500||high|
+cl05671|combat|Phillips' Cross Roads|||Carolinas Campaign|34.850|-79.900||med|
+cl05825|combat|Howell's Ferry|||Atlanta campaign|33.810|-84.540||med|
+cl05999|combat|Dug Gap (Mill Creek)|Battle of Rocky Face Ridge||Atlanta campaign|34.740|-84.960||high|
+cl06019|combat|Brush Mountain|||Atlanta campaign|33.990|-84.640||high|
+cl06088|march|Advance on Bowling Green and Nashville (Feb 1862)||||36.990|-86.440||high|
+cl06186|siege|In the trenches before Richmond|||Siege of Petersburg|37.450|-77.350||high|Siege duty, not a discrete event
+cl06613|expedition|Expedition from Morganza to the Atchafalaya||||30.800|-91.700||high|Same as cl06617
+cl06783|combat|Nelson's Cross Roads, Ky.|||Confederate Heartland Offensive||||low|Location uncertain
+cl06862|combat|Bend of Chucky Road, near Dandridge|||Battle of Dandridge|36.020|-83.420||high|
+cl07030|combat|Fourteen Mile Creek|||Vicksburg Campaign|32.230|-90.400||high|
+cl07147|combat|Waterloo Bridge (Aug 1862)|||Northern Virginia Campaign|38.700|-77.900||high|
+cl07158|combat|Barnett's Ford (Feb 1864)|||Battle of Morton's Ford|38.330|-78.050||high|
+cl07574|reconnaissance|Reconnaissance to Nolensville and Versailles (Jan 1863)||||35.950|-86.670||high|
+cl08611|expedition|Yazoo Pass expedition|Yazoo Pass Expedition||Vicksburg Campaign|33.520|-90.180||high|Includes Fort Pemberton
+cl10095|battle|Haymarket (Buckland Mills)|Battle of Buckland Mills||Bristoe Campaign|38.800|-77.640||high|
+cl10096|battle|Jericho Mills (North Anna)|Battle of North Anna||Overland Campaign|37.970|-77.500||high|
+cl10163|battle|Battle of Sutherland's Station|Battle of Sutherland's Station||Appomattox campaign|37.200|-77.570||high|
+cl10289|reconnaissance|Reconnaissance to Rippon, W.Va.||||39.220|-77.900||high|
+cl10345|combat|Hartwood Church (Feb 1863)||||38.400|-77.570||high|
+cl10375|combat|Tunstall Station and White House (Jun 21, 1864)|||Overland Campaign|37.580|-77.020||high|Same as cl09827
+cl11051|demonstration|Demonstration on the Charleston & Savannah Railroad||Battle of Deveaux's Neck|Carolinas Campaign|32.620|-80.950||high|Includes Deveaux's Neck
+cl11114|expedition|Expedition to Port Conway (Sep 1863)||||38.180|-77.180||high|
+cl00185|combat|Jonesborough, Tenn. (Sep 1863)|||Burnside's East Tennessee campaign (1863)|36.290|-82.470||high|
+cl00667|battle|Battle of Marmiton River (Charlot)|Battle of Marmiton River||Price’s Missouri Expedition|37.850|-94.700||high|
+cl00690|combat|Benton, Ark. (May 1864)|||Camden Expedition|34.560|-92.590||med|
+cl02032|battle|Battle of Port Royal|Battle of Port Royal|||32.240|-80.680||high|
+cl02036|siege|Battle of Fort Pulaski|Battle of Fort Pulaski|||32.030|-80.890||high|
+cl02059|siege|In the trenches before Petersburg|||Siege of Petersburg|37.210|-77.380||high|Siege duty, not a discrete event
+cl02264|combat|Demonstration on New Bern (Nov 1862)||||35.070|-77.050||high|
+cl02386|battle|Battle of Monett's Ferry|Battle of Monett's Ferry||Red River campaign|31.520|-92.960||high|
+cl02651|operations|Operations on the Potomac (Oct 1861)|||Battle of Ball's Bluff|39.130|-77.530||med|
+cl02667|combat|Bayou Boeuf (May 1864)|||Red River campaign|31.100|-92.300||med|
+cl02770|combat|Defence of Harpers Ferry (May 1862)|||Shenandoah Valley Campaign|39.320|-77.740||high|
+cl02874|combat|Dinwiddie Road near Ream's Station|||Second Battle of Ream's Station|37.080|-77.430||high|
+cl03404|march|Curtis's advance on Springfield, Mo. (Feb 1862)||||37.210|-93.290||high|Same as cl03013
+cl03599|pursuit|Pursuit of Hood to the Tennessee River|||Franklin–Nashville campaign||||high|Same as cl03927
+cl03638|combat|Canton, Miss. (Jul 1863)|||Jackson Expedition|32.610|-90.040||high|
+cl04021|combat|Summerville, Ga. (Oct 1864)|||Franklin–Nashville campaign|34.480|-85.350||high|
+cl04295|combat|Oak Hill, Va. (Oct 1863)|||Bristoe Campaign||||low|Location uncertain
+cl04724|combat|Zollicoffer, Tenn. (Sep 1863)|||Burnside's East Tennessee campaign (1863)|36.560|-82.240||high|
+cl04921|campaign|Battles for Chattanooga (Chattanooga-Ringgold)||Third Battle of Chattanooga|Chattanooga campaign|35.030|-85.280|1863-11-23..1863-11-27|high|Year misread as 1864
+cl05038|battle|Battle of Stones River|Battle of Stones River|||35.880|-86.430||high|
+cl05079|battle|Battle of Lovejoy's Station|Battle of Lovejoy's Station||Kilpatrick's raid around Atlanta|33.440|-84.310||high|
+cl05250|battle|Battle of Port Gibson (Thompson's Hill)|Battle of Port Gibson||Vicksburg Campaign|31.960|-91.030||high|
+cl05583|reconnaissance|Reconnaissance from Rome on the Cave Spring road|||Franklin–Nashville campaign|34.200|-85.230||high|
+cl05690|reconnaissance|Reconnaissance to the Salkehatchie River|||Carolinas Campaign|33.000|-81.050||high|
+cl05797|march|Advance on Bowling Green (Feb 1862)||||36.990|-86.440||high|Same as cl06088
+cl05827|combat|Barker's Mill, Whippy Swamp|||Carolinas Campaign|32.880|-81.150||med|
+cl05918|combat|Near Harpers Ferry (Jul 1863)|||Retreat from Gettysburg|39.320|-77.740||high|
+cl06236|operations|Operations against Forrest in West Tennessee (Dec 1862)||Forrest's West Tennessee raid||35.600|-88.500||high|Contains Parker's Cross Roads
+cl06346|operations|Movements on Dallas|||Atlanta campaign|33.920|-84.840||high|
+cl06349|combat|Statesboro|||Sherman's March to the Sea|32.450|-81.780||high|
+cl06678|reconnaissance|Reconnaissance from Ringgold toward Tunnel Hill (Apr 1864)||||34.880|-85.080||high|
+cl07639|pursuit|Strasburg and Staunton Road (Jun 1862)|||Shenandoah Valley Campaign|38.990|-78.360||high|Pursuit of Jackson
+cl07904|campaign|Mud March|Mud March||||||high|
+cl07951|demonstration|Second Battle of Deep Bottom|Second Battle of Deep Bottom||Siege of Petersburg|37.420|-77.300||high|
+cl09798|combat|Warrenton (White Sulphur) Springs (Oct 1863)|||Bristoe Campaign|38.640|-77.880||high|
+cl10464|combat|Duguidsville (Mar 1865)|||Sheridan's raid from Winchester (1865)|37.600|-78.580||high|
+cl10964|admin|Parse fragment ('arriving there')|||||||high|Not an event; extraction error
+cl11107|combat|Smithsburg, Md.|||Retreat from Gettysburg|39.650|-77.570||high|
+cl11420|battle|Junction of Quaker and Boydton Roads|Battle of Lewis's Farm||Appomattox campaign|37.120|-77.530||high|
+cl13577|admin|Sailed for New Bern|||||||high|Movement note, not an event
+cl15374|expedition|Expedition to Grinnell's Farm (Dec 1861)|||||||low|Location uncertain
+cl16656|combat|Northeast Ferry, N.C.|||Wilmington Campaign|34.330|-77.880||med|

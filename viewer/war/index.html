@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Civil War, Day by Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>.maplibregl-map{font:12px/20px Helvetica Neue,Arial,Helvetica,sans-serif;overflow:hidden;position:relative;-webkit-tap-highlight-color:rgb(0 0 0/0)}.maplibregl-canvas{left:0;position:absolute;top:0}.maplibregl-map:fullscreen{height:100%;width:100%}.maplibregl-ctrl-group button.maplibregl-ctrl-compass{touch-action:none}.maplibregl-canvas-container.maplibregl-interactive,.maplibregl-ctrl-group button.maplibregl-ctrl-compass{cursor:grab;-webkit-user-select:none;-moz-user-select:none;user-select:none}.maplibregl-canvas-container.maplibregl-interactive.maplibregl-track-pointer{cursor:pointer}.maplibregl-canvas-container.maplibregl-interactive:active,.maplibregl-ctrl-group button.maplibregl-ctrl-compass:active{cursor:grabbing}.maplibregl-canvas-container.maplibregl-touch-zoom-rotate,.maplibregl-canvas-container.maplibregl-touch-zoom-rotate .maplibregl-canvas{touch-action:pan-x pan-y}.maplibregl-canvas-container.maplibregl-touch-drag-pan,.maplibregl-canvas-container.maplibregl-touch-drag-pan .maplibregl-canvas{touch-action:pinch-zoom}.maplibregl-canvas-container.maplibregl-touch-zoom-rotate.maplibregl-touch-drag-pan,.maplibregl-canvas-container.maplibregl-touch-zoom-rotate.maplibregl-touch-drag-pan .maplibregl-canvas{touch-action:none}.maplibregl-canvas-container.maplibregl-touch-drag-pan.maplibregl-cooperative-gestures,.maplibregl-canvas-container.maplibregl-touch-drag-pan.maplibregl-cooperative-gestures .maplibregl-canvas{touch-action:pan-x pan-y}.maplibregl-ctrl-bottom-left,.maplibregl-ctrl-bottom-right,.maplibregl-ctrl-top-left,.maplibregl-ctrl-top-right{pointer-events:none;position:absolute;z-index:2}.maplibregl-ctrl-top-left{left:0;top:0}.maplibregl-ctrl-top-right{right:0;top:0}.maplibregl-ctrl-bottom-left{bottom:0;left:0}.maplibregl-ctrl-bottom-right{bottom:0;right:0}.maplibregl-ctrl{clear:both;pointer-events:auto;transform:translate(0)}.maplibregl-ctrl-top-left .maplibregl-ctrl{float:left;margin:10px 0 0 10px}.maplibregl-ctrl-top-right .maplibregl-ctrl{float:right;margin:10px 10px 0 0}.maplibregl-ctrl-bottom-left .maplibregl-ctrl{float:left;margin:0 0 10px 10px}.maplibregl-ctrl-bottom-right .maplibregl-ctrl{float:right;margin:0 10px 10px 0}.maplibregl-ctrl-group{background:#fff;border-radius:4px}.maplibregl-ctrl-group:not(:empty){box-shadow:0 0 0 2px rgba(0,0,0,.1)}@media (forced-colors:active){.maplibregl-ctrl-group:not(:empty){box-shadow:0 0 0 2px ButtonText}}.maplibregl-ctrl-group button{background-color:transparent;border:0;box-sizing:border-box;cursor:pointer;display:block;height:29px;outline:none;padding:0;width:29px}.maplibregl-ctrl-group button+button{border-top:1px solid #ddd}.maplibregl-ctrl button .maplibregl-ctrl-icon{background-position:50%;background-repeat:no-repeat;display:block;height:100%;width:100%}@media (forced-colors:active){.maplibregl-ctrl-icon{background-color:transparent}.maplibregl-ctrl-group button+button{border-top:1px solid ButtonText}}.maplibregl-ctrl button::-moz-focus-inner{border:0;padding:0}.maplibregl-ctrl-attrib-button:focus,.maplibregl-ctrl-group button:focus{box-shadow:0 0 2px 2px #0096ff}.maplibregl-ctrl button:disabled{cursor:not-allowed}.maplibregl-ctrl button:disabled .maplibregl-ctrl-icon{opacity:.25}.maplibregl-ctrl button:not(:disabled):hover{background-color:rgb(0 0 0/5%)}.maplibregl-ctrl-group button:focus:focus-visible{box-shadow:0 0 2px 2px #0096ff}.maplibregl-ctrl-group button:focus:not(:focus-visible){box-shadow:none}.maplibregl-ctrl-group button:focus:first-child{border-radius:4px 4px 0 0}.maplibregl-ctrl-group button:focus:last-child{border-radius:0 0 4px 4px}.maplibregl-ctrl-group button:focus:only-child{border-radius:inherit}.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='M10 13c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h9c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='M14.5 8.5c-.75 0-1.5.75-1.5 1.5v3h-3c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h3v3c0 .75.75 1.5 1.5 1.5S16 19.75 16 19v-3h3c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13h-3v-3c0-.75-.75-1.5-1.5-1.5'/%3E%3C/svg%3E")}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M10 13c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h9c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M14.5 8.5c-.75 0-1.5.75-1.5 1.5v3h-3c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h3v3c0 .75.75 1.5 1.5 1.5S16 19.75 16 19v-3h3c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13h-3v-3c0-.75-.75-1.5-1.5-1.5'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M10 13c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h9c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M14.5 8.5c-.75 0-1.5.75-1.5 1.5v3h-3c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h3v3c0 .75.75 1.5 1.5 1.5S16 19.75 16 19v-3h3c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13h-3v-3c0-.75-.75-1.5-1.5-1.5'/%3E%3C/svg%3E")}}.maplibregl-ctrl button.maplibregl-ctrl-fullscreen .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='M24 16v5.5c0 1.75-.75 2.5-2.5 2.5H16v-1l3-1.5-4-5.5 1-1 5.5 4 1.5-3zM6 16l1.5 3 5.5-4 1 1-4 5.5 3 1.5v1H7.5C5.75 24 5 23.25 5 21.5V16zm7-11v1l-3 1.5 4 5.5-1 1-5.5-4L6 13H5V7.5C5 5.75 5.75 5 7.5 5zm11 2.5c0-1.75-.75-2.5-2.5-2.5H16v1l3 1.5-4 5.5 1 1 5.5-4 1.5 3h1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-shrink .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M18.5 16c-1.75 0-2.5.75-2.5 2.5V24h1l1.5-3 5.5 4 1-1-4-5.5 3-1.5v-1zM13 18.5c0-1.75-.75-2.5-2.5-2.5H5v1l3 1.5L4 24l1 1 5.5-4 1.5 3h1zm3-8c0 1.75.75 2.5 2.5 2.5H24v-1l-3-1.5L25 5l-1-1-5.5 4L17 5h-1zM10.5 13c1.75 0 2.5-.75 2.5-2.5V5h-1l-1.5 3L5 4 4 5l4 5.5L5 12v1z'/%3E%3C/svg%3E")}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-fullscreen .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M24 16v5.5c0 1.75-.75 2.5-2.5 2.5H16v-1l3-1.5-4-5.5 1-1 5.5 4 1.5-3zM6 16l1.5 3 5.5-4 1 1-4 5.5 3 1.5v1H7.5C5.75 24 5 23.25 5 21.5V16zm7-11v1l-3 1.5 4 5.5-1 1-5.5-4L6 13H5V7.5C5 5.75 5.75 5 7.5 5zm11 2.5c0-1.75-.75-2.5-2.5-2.5H16v1l3 1.5-4 5.5 1 1 5.5-4 1.5 3h1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-shrink .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M18.5 16c-1.75 0-2.5.75-2.5 2.5V24h1l1.5-3 5.5 4 1-1-4-5.5 3-1.5v-1zM13 18.5c0-1.75-.75-2.5-2.5-2.5H5v1l3 1.5L4 24l1 1 5.5-4 1.5 3h1zm3-8c0 1.75.75 2.5 2.5 2.5H24v-1l-3-1.5L25 5l-1-1-5.5 4L17 5h-1zM10.5 13c1.75 0 2.5-.75 2.5-2.5V5h-1l-1.5 3L5 4 4 5l4 5.5L5 12v1z'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-fullscreen .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M24 16v5.5c0 1.75-.75 2.5-2.5 2.5H16v-1l3-1.5-4-5.5 1-1 5.5 4 1.5-3zM6 16l1.5 3 5.5-4 1 1-4 5.5 3 1.5v1H7.5C5.75 24 5 23.25 5 21.5V16zm7-11v1l-3 1.5 4 5.5-1 1-5.5-4L6 13H5V7.5C5 5.75 5.75 5 7.5 5zm11 2.5c0-1.75-.75-2.5-2.5-2.5H16v1l3 1.5-4 5.5 1 1 5.5-4 1.5 3h1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-shrink .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M18.5 16c-1.75 0-2.5.75-2.5 2.5V24h1l1.5-3 5.5 4 1-1-4-5.5 3-1.5v-1zM13 18.5c0-1.75-.75-2.5-2.5-2.5H5v1l3 1.5L4 24l1 1 5.5-4 1.5 3h1zm3-8c0 1.75.75 2.5 2.5 2.5H24v-1l-3-1.5L25 5l-1-1-5.5 4L17 5h-1zM10.5 13c1.75 0 2.5-.75 2.5-2.5V5h-1l-1.5 3L5 4 4 5l4 5.5L5 12v1z'/%3E%3C/svg%3E")}}.maplibregl-ctrl button.maplibregl-ctrl-compass .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='m10.5 14 4-8 4 8z'/%3E%3Cpath fill='%23ccc' d='m10.5 16 4 8 4-8z'/%3E%3C/svg%3E")}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-compass .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='m10.5 14 4-8 4 8z'/%3E%3Cpath fill='%23ccc' d='m10.5 16 4 8 4-8z'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-compass .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='m10.5 14 4-8 4 8z'/%3E%3Cpath fill='%23ccc' d='m10.5 16 4 8 4-8z'/%3E%3C/svg%3E")}}.maplibregl-ctrl button.maplibregl-ctrl-terrain .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='%23333' viewBox='0 0 22 22'%3E%3Cpath d='m1.754 13.406 4.453-4.851 3.09 3.09 3.281 3.277.969-.969-3.309-3.312 3.844-4.121 6.148 6.886h1.082v-.855l-7.207-8.07-4.84 5.187L6.169 6.57l-5.48 5.965v.871ZM.688 16.844h20.625v1.375H.688Zm0 0'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-terrain-enabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='%2333b5e5' viewBox='0 0 22 22'%3E%3Cpath d='m1.754 13.406 4.453-4.851 3.09 3.09 3.281 3.277.969-.969-3.309-3.312 3.844-4.121 6.148 6.886h1.082v-.855l-7.207-8.07-4.84 5.187L6.169 6.57l-5.48 5.965v.871ZM.688 16.844h20.625v1.375H.688Zm0 0'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate:disabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23aaa' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Cpath fill='red' d='m14 5 1 1-9 9-1-1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e58978' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e54e33' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-waiting .maplibregl-ctrl-icon{animation:maplibregl-spin 2s linear infinite}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate:disabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23999' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Cpath fill='red' d='m14 5 1 1-9 9-1-1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e58978' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e54e33' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate:disabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23666' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Cpath fill='red' d='m14 5 1 1-9 9-1-1z'/%3E%3C/svg%3E")}}@keyframes maplibregl-spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}a.maplibregl-ctrl-logo{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='23' fill='none'%3E%3Cpath fill='%23000' fill-opacity='.4' fill-rule='evenodd' d='M17.408 16.796h-1.827l2.501-12.095h.198l3.324 6.533.988 2.19.988-2.19 3.258-6.533h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.929 5.644h-.098l-2.914-5.644-.757-1.71-.345 1.71zm1.958-3.42-.726 3.663a1.255 1.255 0 0 1-1.232 1.011h-1.827a1.255 1.255 0 0 1-1.229-1.509l2.501-12.095a1.255 1.255 0 0 1 1.23-1.001h.197a1.25 1.25 0 0 1 1.12.685l3.19 6.273 3.125-6.263a1.25 1.25 0 0 1 1.123-.695h.181a1.255 1.255 0 0 1 1.227.991l1.443 6.71a5 5 0 0 1 .314-.787l.009-.016a4.6 4.6 0 0 1 1.777-1.887c.782-.46 1.668-.667 2.611-.667a4.6 4.6 0 0 1 1.7.32l.306.134c.21-.16.474-.256.759-.256h1.694a1.255 1.255 0 0 1 1.212.925 1.255 1.255 0 0 1 1.212-.925h1.711c.284 0 .545.094.755.252.613-.3 1.312-.45 2.075-.45 1.356 0 2.557.445 3.482 1.4q.47.48.763 1.064V4.701a1.255 1.255 0 0 1 1.255-1.255h1.86A1.255 1.255 0 0 1 54.44 4.7v9.194h2.217c.19 0 .37.043.532.118v-4.77c0-.356.147-.678.385-.906a2.42 2.42 0 0 1-.682-1.71c0-.665.267-1.253.735-1.7a2.45 2.45 0 0 1 1.722-.674 2.43 2.43 0 0 1 1.705.675q.318.302.504.683V4.7a1.255 1.255 0 0 1 1.255-1.255h1.744A1.255 1.255 0 0 1 65.812 4.7v3.335a4.8 4.8 0 0 1 1.526-.246c.938 0 1.817.214 2.59.69a4.47 4.47 0 0 1 1.67 1.743v-.98a1.255 1.255 0 0 1 1.256-1.256h1.777c.233 0 .451.064.639.174a3.4 3.4 0 0 1 1.567-.372c.346 0 .861.02 1.285.232a1.25 1.25 0 0 1 .689 1.004 4.7 4.7 0 0 1 .853-.588c.795-.44 1.675-.647 2.61-.647 1.385 0 2.65.39 3.525 1.396.836.938 1.168 2.173 1.168 3.528q-.001.515-.056 1.051a1.255 1.255 0 0 1-.947 1.09l.408.952a1.255 1.255 0 0 1-.477 1.552c-.418.268-.92.463-1.458.612-.613.171-1.304.244-2.049.244-1.06 0-2.043-.207-2.886-.698l-.015-.008c-.798-.48-1.419-1.135-1.818-1.963l-.004-.008a5.8 5.8 0 0 1-.548-2.512q0-.429.053-.843a1.3 1.3 0 0 1-.333-.086l-.166-.004c-.223 0-.426.062-.643.228-.03.024-.142.139-.142.59v3.883a1.255 1.255 0 0 1-1.256 1.256h-1.777a1.255 1.255 0 0 1-1.256-1.256V15.69l-.032.057a4.8 4.8 0 0 1-1.86 1.833 5.04 5.04 0 0 1-2.484.634 4.5 4.5 0 0 1-1.935-.424 1.25 1.25 0 0 1-.764.258h-1.71a1.255 1.255 0 0 1-1.256-1.255V7.687a2.4 2.4 0 0 1-.428.625c.253.23.412.561.412.93v7.553a1.255 1.255 0 0 1-1.256 1.255h-1.843a1.25 1.25 0 0 1-.894-.373c-.228.23-.544.373-.894.373H51.32a1.255 1.255 0 0 1-1.256-1.255v-1.251l-.061.117a4.7 4.7 0 0 1-1.782 1.884 4.77 4.77 0 0 1-2.485.67 5.6 5.6 0 0 1-1.485-.188l.009 2.764a1.255 1.255 0 0 1-1.255 1.259h-1.729a1.255 1.255 0 0 1-1.255-1.255v-3.537a1.255 1.255 0 0 1-1.167.793h-1.679a1.25 1.25 0 0 1-.77-.263 4.5 4.5 0 0 1-1.945.429c-.885 0-1.724-.21-2.495-.632l-.017-.01a5 5 0 0 1-1.081-.836 1.255 1.255 0 0 1-1.254 1.312h-1.81a1.255 1.255 0 0 1-1.228-.99l-.782-3.625-2.044 3.939a1.25 1.25 0 0 1-1.115.676h-.098a1.25 1.25 0 0 1-1.116-.68l-2.061-3.994zM35.92 16.63l.207-.114.223-.15q.493-.356.735-.785l.061-.118.033 1.332h1.678V9.242h-1.694l-.033 1.267q-.133-.329-.526-.658l-.032-.028a3.2 3.2 0 0 0-.668-.428l-.27-.12a3.3 3.3 0 0 0-1.235-.23q-1.136-.001-1.974.493a3.36 3.36 0 0 0-1.3 1.382q-.445.89-.444 2.074 0 1.2.51 2.107a3.8 3.8 0 0 0 1.382 1.381 3.9 3.9 0 0 0 1.893.477q.795 0 1.455-.33zm-2.789-5.38q-.576.675-.575 1.762 0 1.102.559 1.794.576.675 1.645.675a2.25 2.25 0 0 0 .934-.19 2.2 2.2 0 0 0 .468-.29l.178-.161a2.2 2.2 0 0 0 .397-.561q.244-.5.244-1.15v-.115q0-.708-.296-1.267l-.043-.077a2.2 2.2 0 0 0-.633-.709l-.13-.086-.047-.028a2.1 2.1 0 0 0-1.073-.285q-1.052 0-1.629.692zm2.316 2.706c.163-.17.28-.407.28-.83v-.114c0-.292-.06-.508-.15-.68a.96.96 0 0 0-.353-.389.85.85 0 0 0-.464-.127c-.4 0-.56.114-.664.239l-.01.012c-.148.174-.275.45-.275.945 0 .506.122.801.27.99.097.11.266.224.68.224.303 0 .504-.09.687-.269zm7.545 1.705a2.6 2.6 0 0 0 .331.423q.319.33.755.548l.173.074q.65.255 1.49.255 1.02 0 1.844-.493a3.45 3.45 0 0 0 1.316-1.4q.493-.904.493-2.089 0-1.909-.988-2.913-.988-1.02-2.584-1.02-.898 0-1.575.347a3 3 0 0 0-.415.262l-.199.166a3.4 3.4 0 0 0-.64.82V9.242h-1.712v11.553h1.729l-.017-5.134zm.53-1.138q.206.29.48.5l.155.11.053.034q.51.296 1.119.297 1.07 0 1.645-.675.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.435 0-.835.16a2 2 0 0 0-.284.136 2 2 0 0 0-.363.254 2.2 2.2 0 0 0-.46.569l-.082.162a2.6 2.6 0 0 0-.213 1.072v.115q0 .707.296 1.267l.135.211zm.964-.818a1.1 1.1 0 0 0 .367.385.94.94 0 0 0 .476.118c.423 0 .59-.117.687-.23.159-.194.28-.478.28-.95 0-.53-.133-.8-.266-.952l-.021-.025c-.078-.094-.231-.221-.68-.221a1 1 0 0 0-.503.135l-.012.007a.86.86 0 0 0-.335.343c-.073.133-.132.324-.132.614v.115a1.4 1.4 0 0 0 .14.66zm15.7-6.222q.347-.346.346-.856a1.05 1.05 0 0 0-.345-.79 1.18 1.18 0 0 0-.84-.329q-.51 0-.855.33a1.05 1.05 0 0 0-.346.79q0 .51.346.855.345.346.856.346.51 0 .839-.346zm4.337 9.314.033-1.332q.191.403.59.747l.098.081a4 4 0 0 0 .316.224l.223.122a3.2 3.2 0 0 0 1.44.322 3.8 3.8 0 0 0 1.875-.477 3.5 3.5 0 0 0 1.382-1.366q.527-.89.526-2.09 0-1.184-.444-2.073a3.24 3.24 0 0 0-1.283-1.399q-.823-.51-1.942-.51a3.5 3.5 0 0 0-1.527.344l-.086.043-.165.09a3 3 0 0 0-.33.214q-.432.315-.656.707a2 2 0 0 0-.099.198l.082-1.283V4.701h-1.744v12.095zm.473-2.509a2.5 2.5 0 0 0 .566.7q.117.098.245.18l.144.08a2.1 2.1 0 0 0 .975.232q1.07 0 1.645-.675.576-.69.576-1.778 0-1.102-.576-1.777-.56-.691-1.645-.692a2.2 2.2 0 0 0-1.015.235q-.22.113-.415.282l-.15.142a2.1 2.1 0 0 0-.42.594q-.223.479-.223 1.1v.115q0 .705.293 1.26zm2.616-.293c.157-.191.28-.479.28-.967 0-.51-.13-.79-.276-.961l-.021-.026c-.082-.1-.232-.225-.67-.225a.87.87 0 0 0-.681.279l-.012.011c-.154.155-.274.38-.274.807v.115c0 .285.057.499.144.669a1.1 1.1 0 0 0 .367.405c.137.082.28.123.455.123.423 0 .59-.118.686-.23zm8.266-3.013q.345-.13.724-.14l.069-.002q.493 0 .642.099l.247-1.794q-.196-.099-.717-.099a2.3 2.3 0 0 0-.545.063 2 2 0 0 0-.411.148 2.2 2.2 0 0 0-.4.249 2.5 2.5 0 0 0-.485.499 2.7 2.7 0 0 0-.32.581l-.05.137v-1.48h-1.778v7.553h1.777v-3.884q0-.546.159-.943a1.5 1.5 0 0 1 .466-.636 2.5 2.5 0 0 1 .399-.253 2 2 0 0 1 .224-.099zm9.784 2.656.05-.922q0-1.743-.856-2.698-.838-.97-2.584-.97-1.119-.001-2.007.493a3.46 3.46 0 0 0-1.4 1.382q-.493.906-.493 2.106 0 1.07.428 1.975.428.89 1.332 1.432.906.526 2.255.526.973 0 1.668-.185l.044-.012.135-.04q.613-.184.984-.421l-.542-1.267q-.3.162-.642.274l-.297.087q-.51.131-1.3.131-.954 0-1.497-.444a1.6 1.6 0 0 1-.192-.193q-.366-.44-.512-1.234l-.004-.021zm-5.427-1.256-.003.022h3.752v-.138q-.011-.727-.288-1.118a1 1 0 0 0-.156-.176q-.46-.428-1.316-.428-.986 0-1.494.604-.379.45-.494 1.234zm-27.053 2.77V4.7h-1.86v12.095h5.333V15.15zm7.103-5.908v7.553h-1.843V9.242h1.843z'/%3E%3Cpath fill='%23fff' d='m19.63 11.151-.757-1.71-.345 1.71-1.12 5.644h-1.827L18.083 4.7h.197l3.325 6.533.988 2.19.988-2.19L26.839 4.7h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.93 5.644h-.098l-2.913-5.644zm14.836 5.81q-1.02 0-1.893-.478a3.8 3.8 0 0 1-1.381-1.382q-.51-.906-.51-2.106 0-1.185.444-2.074a3.36 3.36 0 0 1 1.3-1.382q.839-.494 1.974-.494a3.3 3.3 0 0 1 1.234.231 3.3 3.3 0 0 1 .97.575q.396.33.527.659l.033-1.267h1.694v7.553H37.18l-.033-1.332q-.279.593-1.02 1.053a3.17 3.17 0 0 1-1.662.444zm.296-1.482q.938 0 1.58-.642.642-.66.642-1.711v-.115q0-.708-.296-1.267a2.2 2.2 0 0 0-.807-.872 2.1 2.1 0 0 0-1.119-.313q-1.053 0-1.629.692-.575.675-.575 1.76 0 1.103.559 1.795.577.675 1.645.675zm6.521-6.237h1.711v1.4q.906-1.597 2.83-1.597 1.596 0 2.584 1.02.988 1.005.988 2.914 0 1.185-.493 2.09a3.46 3.46 0 0 1-1.316 1.399 3.5 3.5 0 0 1-1.844.493q-.954 0-1.662-.329a2.67 2.67 0 0 1-1.086-.97l.017 5.134h-1.728zm4.048 6.22q1.07 0 1.645-.674.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.592 0-1.12.296-.51.28-.822.823-.296.527-.296 1.234v.115q0 .708.296 1.267.313.543.823.855.51.296 1.119.297z'/%3E%3Cpath fill='%23e1e3e9' d='M51.325 4.7h1.86v10.45h3.473v1.646h-5.333zm7.12 4.542h1.843v7.553h-1.843zm.905-1.415a1.16 1.16 0 0 1-.856-.346 1.17 1.17 0 0 1-.346-.856 1.05 1.05 0 0 1 .346-.79q.346-.329.856-.329.494 0 .839.33a1.05 1.05 0 0 1 .345.79 1.16 1.16 0 0 1-.345.855q-.33.346-.84.346zm7.875 9.133a3.17 3.17 0 0 1-1.662-.444q-.723-.46-1.004-1.053l-.033 1.332h-1.71V4.701h1.743v4.657l-.082 1.283q.279-.658 1.086-1.119a3.5 3.5 0 0 1 1.778-.477q1.119 0 1.942.51a3.24 3.24 0 0 1 1.283 1.4q.445.888.444 2.072 0 1.201-.526 2.09a3.5 3.5 0 0 1-1.382 1.366 3.8 3.8 0 0 1-1.876.477zm-.296-1.481q1.069 0 1.645-.675.577-.69.577-1.778 0-1.102-.577-1.776-.56-.691-1.645-.692a2.12 2.12 0 0 0-1.58.659q-.642.641-.642 1.694v.115q0 .71.296 1.267a2.4 2.4 0 0 0 .807.872 2.1 2.1 0 0 0 1.119.313zm5.927-6.237h1.777v1.481q.263-.757.856-1.217a2.14 2.14 0 0 1 1.349-.46q.527 0 .724.098l-.247 1.794q-.149-.099-.642-.099-.774 0-1.416.494-.626.493-.626 1.58v3.883h-1.777V9.242zm9.534 7.718q-1.35 0-2.255-.526-.904-.543-1.332-1.432a4.6 4.6 0 0 1-.428-1.975q0-1.2.493-2.106a3.46 3.46 0 0 1 1.4-1.382q.889-.495 2.007-.494 1.744 0 2.584.97.855.956.856 2.7 0 .444-.05.92h-5.43q.18 1.005.708 1.45.542.443 1.497.443.79 0 1.3-.131a4 4 0 0 0 .938-.362l.542 1.267q-.411.263-1.119.46-.708.198-1.711.197zm1.596-4.558q.016-1.02-.444-1.432-.46-.428-1.316-.428-1.728 0-1.991 1.86z'/%3E%3Cpath d='M5.074 15.948a.484.657 0 0 0-.486.659v1.84a.484.657 0 0 0 .486.659h4.101a.484.657 0 0 0 .486-.659v-1.84a.484.657 0 0 0-.486-.659zm3.56 1.16H5.617v.838h3.017z' style='fill:%23fff;fill-rule:evenodd;stroke-width:1.03600001'/%3E%3Cg style='stroke-width:1.12603545'%3E%3Cpath d='M-9.408-1.416c-3.833-.025-7.056 2.912-7.08 6.615-.02 3.08 1.653 4.832 3.107 6.268.903.892 1.721 1.74 2.32 2.902l-.525-.004c-.543-.003-.992.304-1.24.639a1.87 1.87 0 0 0-.362 1.121l-.011 1.877c-.003.402.104.787.347 1.125.244.338.688.653 1.23.656l4.142.028c.542.003.99-.306 1.238-.641a1.87 1.87 0 0 0 .363-1.121l.012-1.875a1.87 1.87 0 0 0-.348-1.127c-.243-.338-.688-.653-1.23-.656l-.518-.004c.597-1.145 1.425-1.983 2.348-2.87 1.473-1.414 3.18-3.149 3.2-6.226-.016-3.59-2.923-6.684-6.993-6.707m-.006 1.1v.002c3.274.02 5.92 2.532 5.9 5.6-.017 2.706-1.39 4.026-2.863 5.44-1.034.994-2.118 2.033-2.814 3.633-.018.041-.052.055-.075.065q-.013.004-.02.01a.34.34 0 0 1-.226.084.34.34 0 0 1-.224-.086l-.092-.077c-.699-1.615-1.768-2.669-2.781-3.67-1.454-1.435-2.797-2.762-2.78-5.478.02-3.067 2.7-5.545 5.975-5.523m-.02 2.826c-1.62-.01-2.944 1.315-2.955 2.96-.01 1.646 1.295 2.988 2.916 2.999h.002c1.621.01 2.943-1.316 2.953-2.961.011-1.646-1.294-2.988-2.916-2.998m-.005 1.1c1.017.006 1.829.83 1.822 1.89s-.83 1.874-1.848 1.867c-1.018-.006-1.829-.83-1.822-1.89s.83-1.874 1.848-1.868m-2.155 11.857 4.14.025c.271.002.49.305.487.676l-.013 1.875c-.003.37-.224.67-.495.668l-4.14-.025c-.27-.002-.487-.306-.485-.676l.012-1.875c.003-.37.224-.67.494-.668' style='color:%23000;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:%23000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:evenodd;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:%23000;solid-opacity:1;vector-effect:none;fill:%23000;fill-opacity:.4;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-9.415-.316C-12.69-.338-15.37 2.14-15.39 5.207c-.017 2.716 1.326 4.041 2.78 5.477 1.013 1 2.081 2.055 2.78 3.67l.092.076a.34.34 0 0 0 .225.086.34.34 0 0 0 .227-.083l.019-.01c.022-.009.057-.024.074-.064.697-1.6 1.78-2.64 2.814-3.634 1.473-1.414 2.847-2.733 2.864-5.44.02-3.067-2.627-5.58-5.901-5.601m-.057 8.784c1.621.011 2.944-1.315 2.955-2.96.01-1.646-1.295-2.988-2.916-2.999-1.622-.01-2.945 1.315-2.955 2.96s1.295 2.989 2.916 3' style='clip-rule:evenodd;fill:%23e1e3e9;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-11.594 15.465c-.27-.002-.492.297-.494.668l-.012 1.876c-.003.371.214.673.485.675l4.14.027c.271.002.492-.298.495-.668l.012-1.877c.003-.37-.215-.672-.485-.674z' style='clip-rule:evenodd;fill:%23fff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3C/g%3E%3C/svg%3E");background-repeat:no-repeat;cursor:pointer;display:block;height:23px;margin:0 0 -4px -4px;overflow:hidden;width:88px}a.maplibregl-ctrl-logo.maplibregl-compact{width:14px}@media (forced-colors:active){a.maplibregl-ctrl-logo{background-color:transparent;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='23' fill='none'%3E%3Cpath fill='%23000' fill-opacity='.4' fill-rule='evenodd' d='M17.408 16.796h-1.827l2.501-12.095h.198l3.324 6.533.988 2.19.988-2.19 3.258-6.533h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.929 5.644h-.098l-2.914-5.644-.757-1.71-.345 1.71zm1.958-3.42-.726 3.663a1.255 1.255 0 0 1-1.232 1.011h-1.827a1.255 1.255 0 0 1-1.229-1.509l2.501-12.095a1.255 1.255 0 0 1 1.23-1.001h.197a1.25 1.25 0 0 1 1.12.685l3.19 6.273 3.125-6.263a1.25 1.25 0 0 1 1.123-.695h.181a1.255 1.255 0 0 1 1.227.991l1.443 6.71a5 5 0 0 1 .314-.787l.009-.016a4.6 4.6 0 0 1 1.777-1.887c.782-.46 1.668-.667 2.611-.667a4.6 4.6 0 0 1 1.7.32l.306.134c.21-.16.474-.256.759-.256h1.694a1.255 1.255 0 0 1 1.212.925 1.255 1.255 0 0 1 1.212-.925h1.711c.284 0 .545.094.755.252.613-.3 1.312-.45 2.075-.45 1.356 0 2.557.445 3.482 1.4q.47.48.763 1.064V4.701a1.255 1.255 0 0 1 1.255-1.255h1.86A1.255 1.255 0 0 1 54.44 4.7v9.194h2.217c.19 0 .37.043.532.118v-4.77c0-.356.147-.678.385-.906a2.42 2.42 0 0 1-.682-1.71c0-.665.267-1.253.735-1.7a2.45 2.45 0 0 1 1.722-.674 2.43 2.43 0 0 1 1.705.675q.318.302.504.683V4.7a1.255 1.255 0 0 1 1.255-1.255h1.744A1.255 1.255 0 0 1 65.812 4.7v3.335a4.8 4.8 0 0 1 1.526-.246c.938 0 1.817.214 2.59.69a4.47 4.47 0 0 1 1.67 1.743v-.98a1.255 1.255 0 0 1 1.256-1.256h1.777c.233 0 .451.064.639.174a3.4 3.4 0 0 1 1.567-.372c.346 0 .861.02 1.285.232a1.25 1.25 0 0 1 .689 1.004 4.7 4.7 0 0 1 .853-.588c.795-.44 1.675-.647 2.61-.647 1.385 0 2.65.39 3.525 1.396.836.938 1.168 2.173 1.168 3.528q-.001.515-.056 1.051a1.255 1.255 0 0 1-.947 1.09l.408.952a1.255 1.255 0 0 1-.477 1.552c-.418.268-.92.463-1.458.612-.613.171-1.304.244-2.049.244-1.06 0-2.043-.207-2.886-.698l-.015-.008c-.798-.48-1.419-1.135-1.818-1.963l-.004-.008a5.8 5.8 0 0 1-.548-2.512q0-.429.053-.843a1.3 1.3 0 0 1-.333-.086l-.166-.004c-.223 0-.426.062-.643.228-.03.024-.142.139-.142.59v3.883a1.255 1.255 0 0 1-1.256 1.256h-1.777a1.255 1.255 0 0 1-1.256-1.256V15.69l-.032.057a4.8 4.8 0 0 1-1.86 1.833 5.04 5.04 0 0 1-2.484.634 4.5 4.5 0 0 1-1.935-.424 1.25 1.25 0 0 1-.764.258h-1.71a1.255 1.255 0 0 1-1.256-1.255V7.687a2.4 2.4 0 0 1-.428.625c.253.23.412.561.412.93v7.553a1.255 1.255 0 0 1-1.256 1.255h-1.843a1.25 1.25 0 0 1-.894-.373c-.228.23-.544.373-.894.373H51.32a1.255 1.255 0 0 1-1.256-1.255v-1.251l-.061.117a4.7 4.7 0 0 1-1.782 1.884 4.77 4.77 0 0 1-2.485.67 5.6 5.6 0 0 1-1.485-.188l.009 2.764a1.255 1.255 0 0 1-1.255 1.259h-1.729a1.255 1.255 0 0 1-1.255-1.255v-3.537a1.255 1.255 0 0 1-1.167.793h-1.679a1.25 1.25 0 0 1-.77-.263 4.5 4.5 0 0 1-1.945.429c-.885 0-1.724-.21-2.495-.632l-.017-.01a5 5 0 0 1-1.081-.836 1.255 1.255 0 0 1-1.254 1.312h-1.81a1.255 1.255 0 0 1-1.228-.99l-.782-3.625-2.044 3.939a1.25 1.25 0 0 1-1.115.676h-.098a1.25 1.25 0 0 1-1.116-.68l-2.061-3.994zM35.92 16.63l.207-.114.223-.15q.493-.356.735-.785l.061-.118.033 1.332h1.678V9.242h-1.694l-.033 1.267q-.133-.329-.526-.658l-.032-.028a3.2 3.2 0 0 0-.668-.428l-.27-.12a3.3 3.3 0 0 0-1.235-.23q-1.136-.001-1.974.493a3.36 3.36 0 0 0-1.3 1.382q-.445.89-.444 2.074 0 1.2.51 2.107a3.8 3.8 0 0 0 1.382 1.381 3.9 3.9 0 0 0 1.893.477q.795 0 1.455-.33zm-2.789-5.38q-.576.675-.575 1.762 0 1.102.559 1.794.576.675 1.645.675a2.25 2.25 0 0 0 .934-.19 2.2 2.2 0 0 0 .468-.29l.178-.161a2.2 2.2 0 0 0 .397-.561q.244-.5.244-1.15v-.115q0-.708-.296-1.267l-.043-.077a2.2 2.2 0 0 0-.633-.709l-.13-.086-.047-.028a2.1 2.1 0 0 0-1.073-.285q-1.052 0-1.629.692zm2.316 2.706c.163-.17.28-.407.28-.83v-.114c0-.292-.06-.508-.15-.68a.96.96 0 0 0-.353-.389.85.85 0 0 0-.464-.127c-.4 0-.56.114-.664.239l-.01.012c-.148.174-.275.45-.275.945 0 .506.122.801.27.99.097.11.266.224.68.224.303 0 .504-.09.687-.269zm7.545 1.705a2.6 2.6 0 0 0 .331.423q.319.33.755.548l.173.074q.65.255 1.49.255 1.02 0 1.844-.493a3.45 3.45 0 0 0 1.316-1.4q.493-.904.493-2.089 0-1.909-.988-2.913-.988-1.02-2.584-1.02-.898 0-1.575.347a3 3 0 0 0-.415.262l-.199.166a3.4 3.4 0 0 0-.64.82V9.242h-1.712v11.553h1.729l-.017-5.134zm.53-1.138q.206.29.48.5l.155.11.053.034q.51.296 1.119.297 1.07 0 1.645-.675.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.435 0-.835.16a2 2 0 0 0-.284.136 2 2 0 0 0-.363.254 2.2 2.2 0 0 0-.46.569l-.082.162a2.6 2.6 0 0 0-.213 1.072v.115q0 .707.296 1.267l.135.211zm.964-.818a1.1 1.1 0 0 0 .367.385.94.94 0 0 0 .476.118c.423 0 .59-.117.687-.23.159-.194.28-.478.28-.95 0-.53-.133-.8-.266-.952l-.021-.025c-.078-.094-.231-.221-.68-.221a1 1 0 0 0-.503.135l-.012.007a.86.86 0 0 0-.335.343c-.073.133-.132.324-.132.614v.115a1.4 1.4 0 0 0 .14.66zm15.7-6.222q.347-.346.346-.856a1.05 1.05 0 0 0-.345-.79 1.18 1.18 0 0 0-.84-.329q-.51 0-.855.33a1.05 1.05 0 0 0-.346.79q0 .51.346.855.345.346.856.346.51 0 .839-.346zm4.337 9.314.033-1.332q.191.403.59.747l.098.081a4 4 0 0 0 .316.224l.223.122a3.2 3.2 0 0 0 1.44.322 3.8 3.8 0 0 0 1.875-.477 3.5 3.5 0 0 0 1.382-1.366q.527-.89.526-2.09 0-1.184-.444-2.073a3.24 3.24 0 0 0-1.283-1.399q-.823-.51-1.942-.51a3.5 3.5 0 0 0-1.527.344l-.086.043-.165.09a3 3 0 0 0-.33.214q-.432.315-.656.707a2 2 0 0 0-.099.198l.082-1.283V4.701h-1.744v12.095zm.473-2.509a2.5 2.5 0 0 0 .566.7q.117.098.245.18l.144.08a2.1 2.1 0 0 0 .975.232q1.07 0 1.645-.675.576-.69.576-1.778 0-1.102-.576-1.777-.56-.691-1.645-.692a2.2 2.2 0 0 0-1.015.235q-.22.113-.415.282l-.15.142a2.1 2.1 0 0 0-.42.594q-.223.479-.223 1.1v.115q0 .705.293 1.26zm2.616-.293c.157-.191.28-.479.28-.967 0-.51-.13-.79-.276-.961l-.021-.026c-.082-.1-.232-.225-.67-.225a.87.87 0 0 0-.681.279l-.012.011c-.154.155-.274.38-.274.807v.115c0 .285.057.499.144.669a1.1 1.1 0 0 0 .367.405c.137.082.28.123.455.123.423 0 .59-.118.686-.23zm8.266-3.013q.345-.13.724-.14l.069-.002q.493 0 .642.099l.247-1.794q-.196-.099-.717-.099a2.3 2.3 0 0 0-.545.063 2 2 0 0 0-.411.148 2.2 2.2 0 0 0-.4.249 2.5 2.5 0 0 0-.485.499 2.7 2.7 0 0 0-.32.581l-.05.137v-1.48h-1.778v7.553h1.777v-3.884q0-.546.159-.943a1.5 1.5 0 0 1 .466-.636 2.5 2.5 0 0 1 .399-.253 2 2 0 0 1 .224-.099zm9.784 2.656.05-.922q0-1.743-.856-2.698-.838-.97-2.584-.97-1.119-.001-2.007.493a3.46 3.46 0 0 0-1.4 1.382q-.493.906-.493 2.106 0 1.07.428 1.975.428.89 1.332 1.432.906.526 2.255.526.973 0 1.668-.185l.044-.012.135-.04q.613-.184.984-.421l-.542-1.267q-.3.162-.642.274l-.297.087q-.51.131-1.3.131-.954 0-1.497-.444a1.6 1.6 0 0 1-.192-.193q-.366-.44-.512-1.234l-.004-.021zm-5.427-1.256-.003.022h3.752v-.138q-.011-.727-.288-1.118a1 1 0 0 0-.156-.176q-.46-.428-1.316-.428-.986 0-1.494.604-.379.45-.494 1.234zm-27.053 2.77V4.7h-1.86v12.095h5.333V15.15zm7.103-5.908v7.553h-1.843V9.242h1.843z'/%3E%3Cpath fill='%23fff' d='m19.63 11.151-.757-1.71-.345 1.71-1.12 5.644h-1.827L18.083 4.7h.197l3.325 6.533.988 2.19.988-2.19L26.839 4.7h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.93 5.644h-.098l-2.913-5.644zm14.836 5.81q-1.02 0-1.893-.478a3.8 3.8 0 0 1-1.381-1.382q-.51-.906-.51-2.106 0-1.185.444-2.074a3.36 3.36 0 0 1 1.3-1.382q.839-.494 1.974-.494a3.3 3.3 0 0 1 1.234.231 3.3 3.3 0 0 1 .97.575q.396.33.527.659l.033-1.267h1.694v7.553H37.18l-.033-1.332q-.279.593-1.02 1.053a3.17 3.17 0 0 1-1.662.444zm.296-1.482q.938 0 1.58-.642.642-.66.642-1.711v-.115q0-.708-.296-1.267a2.2 2.2 0 0 0-.807-.872 2.1 2.1 0 0 0-1.119-.313q-1.053 0-1.629.692-.575.675-.575 1.76 0 1.103.559 1.795.577.675 1.645.675zm6.521-6.237h1.711v1.4q.906-1.597 2.83-1.597 1.596 0 2.584 1.02.988 1.005.988 2.914 0 1.185-.493 2.09a3.46 3.46 0 0 1-1.316 1.399 3.5 3.5 0 0 1-1.844.493q-.954 0-1.662-.329a2.67 2.67 0 0 1-1.086-.97l.017 5.134h-1.728zm4.048 6.22q1.07 0 1.645-.674.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.592 0-1.12.296-.51.28-.822.823-.296.527-.296 1.234v.115q0 .708.296 1.267.313.543.823.855.51.296 1.119.297z'/%3E%3Cpath fill='%23e1e3e9' d='M51.325 4.7h1.86v10.45h3.473v1.646h-5.333zm7.12 4.542h1.843v7.553h-1.843zm.905-1.415a1.16 1.16 0 0 1-.856-.346 1.17 1.17 0 0 1-.346-.856 1.05 1.05 0 0 1 .346-.79q.346-.329.856-.329.494 0 .839.33a1.05 1.05 0 0 1 .345.79 1.16 1.16 0 0 1-.345.855q-.33.346-.84.346zm7.875 9.133a3.17 3.17 0 0 1-1.662-.444q-.723-.46-1.004-1.053l-.033 1.332h-1.71V4.701h1.743v4.657l-.082 1.283q.279-.658 1.086-1.119a3.5 3.5 0 0 1 1.778-.477q1.119 0 1.942.51a3.24 3.24 0 0 1 1.283 1.4q.445.888.444 2.072 0 1.201-.526 2.09a3.5 3.5 0 0 1-1.382 1.366 3.8 3.8 0 0 1-1.876.477zm-.296-1.481q1.069 0 1.645-.675.577-.69.577-1.778 0-1.102-.577-1.776-.56-.691-1.645-.692a2.12 2.12 0 0 0-1.58.659q-.642.641-.642 1.694v.115q0 .71.296 1.267a2.4 2.4 0 0 0 .807.872 2.1 2.1 0 0 0 1.119.313zm5.927-6.237h1.777v1.481q.263-.757.856-1.217a2.14 2.14 0 0 1 1.349-.46q.527 0 .724.098l-.247 1.794q-.149-.099-.642-.099-.774 0-1.416.494-.626.493-.626 1.58v3.883h-1.777V9.242zm9.534 7.718q-1.35 0-2.255-.526-.904-.543-1.332-1.432a4.6 4.6 0 0 1-.428-1.975q0-1.2.493-2.106a3.46 3.46 0 0 1 1.4-1.382q.889-.495 2.007-.494 1.744 0 2.584.97.855.956.856 2.7 0 .444-.05.92h-5.43q.18 1.005.708 1.45.542.443 1.497.443.79 0 1.3-.131a4 4 0 0 0 .938-.362l.542 1.267q-.411.263-1.119.46-.708.198-1.711.197zm1.596-4.558q.016-1.02-.444-1.432-.46-.428-1.316-.428-1.728 0-1.991 1.86z'/%3E%3Cpath d='M5.074 15.948a.484.657 0 0 0-.486.659v1.84a.484.657 0 0 0 .486.659h4.101a.484.657 0 0 0 .486-.659v-1.84a.484.657 0 0 0-.486-.659zm3.56 1.16H5.617v.838h3.017z' style='fill:%23fff;fill-rule:evenodd;stroke-width:1.03600001'/%3E%3Cg style='stroke-width:1.12603545'%3E%3Cpath d='M-9.408-1.416c-3.833-.025-7.056 2.912-7.08 6.615-.02 3.08 1.653 4.832 3.107 6.268.903.892 1.721 1.74 2.32 2.902l-.525-.004c-.543-.003-.992.304-1.24.639a1.87 1.87 0 0 0-.362 1.121l-.011 1.877c-.003.402.104.787.347 1.125.244.338.688.653 1.23.656l4.142.028c.542.003.99-.306 1.238-.641a1.87 1.87 0 0 0 .363-1.121l.012-1.875a1.87 1.87 0 0 0-.348-1.127c-.243-.338-.688-.653-1.23-.656l-.518-.004c.597-1.145 1.425-1.983 2.348-2.87 1.473-1.414 3.18-3.149 3.2-6.226-.016-3.59-2.923-6.684-6.993-6.707m-.006 1.1v.002c3.274.02 5.92 2.532 5.9 5.6-.017 2.706-1.39 4.026-2.863 5.44-1.034.994-2.118 2.033-2.814 3.633-.018.041-.052.055-.075.065q-.013.004-.02.01a.34.34 0 0 1-.226.084.34.34 0 0 1-.224-.086l-.092-.077c-.699-1.615-1.768-2.669-2.781-3.67-1.454-1.435-2.797-2.762-2.78-5.478.02-3.067 2.7-5.545 5.975-5.523m-.02 2.826c-1.62-.01-2.944 1.315-2.955 2.96-.01 1.646 1.295 2.988 2.916 2.999h.002c1.621.01 2.943-1.316 2.953-2.961.011-1.646-1.294-2.988-2.916-2.998m-.005 1.1c1.017.006 1.829.83 1.822 1.89s-.83 1.874-1.848 1.867c-1.018-.006-1.829-.83-1.822-1.89s.83-1.874 1.848-1.868m-2.155 11.857 4.14.025c.271.002.49.305.487.676l-.013 1.875c-.003.37-.224.67-.495.668l-4.14-.025c-.27-.002-.487-.306-.485-.676l.012-1.875c.003-.37.224-.67.494-.668' style='color:%23000;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:%23000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:evenodd;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:%23000;solid-opacity:1;vector-effect:none;fill:%23000;fill-opacity:.4;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-9.415-.316C-12.69-.338-15.37 2.14-15.39 5.207c-.017 2.716 1.326 4.041 2.78 5.477 1.013 1 2.081 2.055 2.78 3.67l.092.076a.34.34 0 0 0 .225.086.34.34 0 0 0 .227-.083l.019-.01c.022-.009.057-.024.074-.064.697-1.6 1.78-2.64 2.814-3.634 1.473-1.414 2.847-2.733 2.864-5.44.02-3.067-2.627-5.58-5.901-5.601m-.057 8.784c1.621.011 2.944-1.315 2.955-2.96.01-1.646-1.295-2.988-2.916-2.999-1.622-.01-2.945 1.315-2.955 2.96s1.295 2.989 2.916 3' style='clip-rule:evenodd;fill:%23e1e3e9;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-11.594 15.465c-.27-.002-.492.297-.494.668l-.012 1.876c-.003.371.214.673.485.675l4.14.027c.271.002.492-.298.495-.668l.012-1.877c.003-.37-.215-.672-.485-.674z' style='clip-rule:evenodd;fill:%23fff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3C/g%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){a.maplibregl-ctrl-logo{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='23' fill='none'%3E%3Cpath fill='%23000' fill-opacity='.4' fill-rule='evenodd' d='M17.408 16.796h-1.827l2.501-12.095h.198l3.324 6.533.988 2.19.988-2.19 3.258-6.533h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.929 5.644h-.098l-2.914-5.644-.757-1.71-.345 1.71zm1.958-3.42-.726 3.663a1.255 1.255 0 0 1-1.232 1.011h-1.827a1.255 1.255 0 0 1-1.229-1.509l2.501-12.095a1.255 1.255 0 0 1 1.23-1.001h.197a1.25 1.25 0 0 1 1.12.685l3.19 6.273 3.125-6.263a1.25 1.25 0 0 1 1.123-.695h.181a1.255 1.255 0 0 1 1.227.991l1.443 6.71a5 5 0 0 1 .314-.787l.009-.016a4.6 4.6 0 0 1 1.777-1.887c.782-.46 1.668-.667 2.611-.667a4.6 4.6 0 0 1 1.7.32l.306.134c.21-.16.474-.256.759-.256h1.694a1.255 1.255 0 0 1 1.212.925 1.255 1.255 0 0 1 1.212-.925h1.711c.284 0 .545.094.755.252.613-.3 1.312-.45 2.075-.45 1.356 0 2.557.445 3.482 1.4q.47.48.763 1.064V4.701a1.255 1.255 0 0 1 1.255-1.255h1.86A1.255 1.255 0 0 1 54.44 4.7v9.194h2.217c.19 0 .37.043.532.118v-4.77c0-.356.147-.678.385-.906a2.42 2.42 0 0 1-.682-1.71c0-.665.267-1.253.735-1.7a2.45 2.45 0 0 1 1.722-.674 2.43 2.43 0 0 1 1.705.675q.318.302.504.683V4.7a1.255 1.255 0 0 1 1.255-1.255h1.744A1.255 1.255 0 0 1 65.812 4.7v3.335a4.8 4.8 0 0 1 1.526-.246c.938 0 1.817.214 2.59.69a4.47 4.47 0 0 1 1.67 1.743v-.98a1.255 1.255 0 0 1 1.256-1.256h1.777c.233 0 .451.064.639.174a3.4 3.4 0 0 1 1.567-.372c.346 0 .861.02 1.285.232a1.25 1.25 0 0 1 .689 1.004 4.7 4.7 0 0 1 .853-.588c.795-.44 1.675-.647 2.61-.647 1.385 0 2.65.39 3.525 1.396.836.938 1.168 2.173 1.168 3.528q-.001.515-.056 1.051a1.255 1.255 0 0 1-.947 1.09l.408.952a1.255 1.255 0 0 1-.477 1.552c-.418.268-.92.463-1.458.612-.613.171-1.304.244-2.049.244-1.06 0-2.043-.207-2.886-.698l-.015-.008c-.798-.48-1.419-1.135-1.818-1.963l-.004-.008a5.8 5.8 0 0 1-.548-2.512q0-.429.053-.843a1.3 1.3 0 0 1-.333-.086l-.166-.004c-.223 0-.426.062-.643.228-.03.024-.142.139-.142.59v3.883a1.255 1.255 0 0 1-1.256 1.256h-1.777a1.255 1.255 0 0 1-1.256-1.256V15.69l-.032.057a4.8 4.8 0 0 1-1.86 1.833 5.04 5.04 0 0 1-2.484.634 4.5 4.5 0 0 1-1.935-.424 1.25 1.25 0 0 1-.764.258h-1.71a1.255 1.255 0 0 1-1.256-1.255V7.687a2.4 2.4 0 0 1-.428.625c.253.23.412.561.412.93v7.553a1.255 1.255 0 0 1-1.256 1.255h-1.843a1.25 1.25 0 0 1-.894-.373c-.228.23-.544.373-.894.373H51.32a1.255 1.255 0 0 1-1.256-1.255v-1.251l-.061.117a4.7 4.7 0 0 1-1.782 1.884 4.77 4.77 0 0 1-2.485.67 5.6 5.6 0 0 1-1.485-.188l.009 2.764a1.255 1.255 0 0 1-1.255 1.259h-1.729a1.255 1.255 0 0 1-1.255-1.255v-3.537a1.255 1.255 0 0 1-1.167.793h-1.679a1.25 1.25 0 0 1-.77-.263 4.5 4.5 0 0 1-1.945.429c-.885 0-1.724-.21-2.495-.632l-.017-.01a5 5 0 0 1-1.081-.836 1.255 1.255 0 0 1-1.254 1.312h-1.81a1.255 1.255 0 0 1-1.228-.99l-.782-3.625-2.044 3.939a1.25 1.25 0 0 1-1.115.676h-.098a1.25 1.25 0 0 1-1.116-.68l-2.061-3.994zM35.92 16.63l.207-.114.223-.15q.493-.356.735-.785l.061-.118.033 1.332h1.678V9.242h-1.694l-.033 1.267q-.133-.329-.526-.658l-.032-.028a3.2 3.2 0 0 0-.668-.428l-.27-.12a3.3 3.3 0 0 0-1.235-.23q-1.136-.001-1.974.493a3.36 3.36 0 0 0-1.3 1.382q-.445.89-.444 2.074 0 1.2.51 2.107a3.8 3.8 0 0 0 1.382 1.381 3.9 3.9 0 0 0 1.893.477q.795 0 1.455-.33zm-2.789-5.38q-.576.675-.575 1.762 0 1.102.559 1.794.576.675 1.645.675a2.25 2.25 0 0 0 .934-.19 2.2 2.2 0 0 0 .468-.29l.178-.161a2.2 2.2 0 0 0 .397-.561q.244-.5.244-1.15v-.115q0-.708-.296-1.267l-.043-.077a2.2 2.2 0 0 0-.633-.709l-.13-.086-.047-.028a2.1 2.1 0 0 0-1.073-.285q-1.052 0-1.629.692zm2.316 2.706c.163-.17.28-.407.28-.83v-.114c0-.292-.06-.508-.15-.68a.96.96 0 0 0-.353-.389.85.85 0 0 0-.464-.127c-.4 0-.56.114-.664.239l-.01.012c-.148.174-.275.45-.275.945 0 .506.122.801.27.99.097.11.266.224.68.224.303 0 .504-.09.687-.269zm7.545 1.705a2.6 2.6 0 0 0 .331.423q.319.33.755.548l.173.074q.65.255 1.49.255 1.02 0 1.844-.493a3.45 3.45 0 0 0 1.316-1.4q.493-.904.493-2.089 0-1.909-.988-2.913-.988-1.02-2.584-1.02-.898 0-1.575.347a3 3 0 0 0-.415.262l-.199.166a3.4 3.4 0 0 0-.64.82V9.242h-1.712v11.553h1.729l-.017-5.134zm.53-1.138q.206.29.48.5l.155.11.053.034q.51.296 1.119.297 1.07 0 1.645-.675.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.435 0-.835.16a2 2 0 0 0-.284.136 2 2 0 0 0-.363.254 2.2 2.2 0 0 0-.46.569l-.082.162a2.6 2.6 0 0 0-.213 1.072v.115q0 .707.296 1.267l.135.211zm.964-.818a1.1 1.1 0 0 0 .367.385.94.94 0 0 0 .476.118c.423 0 .59-.117.687-.23.159-.194.28-.478.28-.95 0-.53-.133-.8-.266-.952l-.021-.025c-.078-.094-.231-.221-.68-.221a1 1 0 0 0-.503.135l-.012.007a.86.86 0 0 0-.335.343c-.073.133-.132.324-.132.614v.115a1.4 1.4 0 0 0 .14.66zm15.7-6.222q.347-.346.346-.856a1.05 1.05 0 0 0-.345-.79 1.18 1.18 0 0 0-.84-.329q-.51 0-.855.33a1.05 1.05 0 0 0-.346.79q0 .51.346.855.345.346.856.346.51 0 .839-.346zm4.337 9.314.033-1.332q.191.403.59.747l.098.081a4 4 0 0 0 .316.224l.223.122a3.2 3.2 0 0 0 1.44.322 3.8 3.8 0 0 0 1.875-.477 3.5 3.5 0 0 0 1.382-1.366q.527-.89.526-2.09 0-1.184-.444-2.073a3.24 3.24 0 0 0-1.283-1.399q-.823-.51-1.942-.51a3.5 3.5 0 0 0-1.527.344l-.086.043-.165.09a3 3 0 0 0-.33.214q-.432.315-.656.707a2 2 0 0 0-.099.198l.082-1.283V4.701h-1.744v12.095zm.473-2.509a2.5 2.5 0 0 0 .566.7q.117.098.245.18l.144.08a2.1 2.1 0 0 0 .975.232q1.07 0 1.645-.675.576-.69.576-1.778 0-1.102-.576-1.777-.56-.691-1.645-.692a2.2 2.2 0 0 0-1.015.235q-.22.113-.415.282l-.15.142a2.1 2.1 0 0 0-.42.594q-.223.479-.223 1.1v.115q0 .705.293 1.26zm2.616-.293c.157-.191.28-.479.28-.967 0-.51-.13-.79-.276-.961l-.021-.026c-.082-.1-.232-.225-.67-.225a.87.87 0 0 0-.681.279l-.012.011c-.154.155-.274.38-.274.807v.115c0 .285.057.499.144.669a1.1 1.1 0 0 0 .367.405c.137.082.28.123.455.123.423 0 .59-.118.686-.23zm8.266-3.013q.345-.13.724-.14l.069-.002q.493 0 .642.099l.247-1.794q-.196-.099-.717-.099a2.3 2.3 0 0 0-.545.063 2 2 0 0 0-.411.148 2.2 2.2 0 0 0-.4.249 2.5 2.5 0 0 0-.485.499 2.7 2.7 0 0 0-.32.581l-.05.137v-1.48h-1.778v7.553h1.777v-3.884q0-.546.159-.943a1.5 1.5 0 0 1 .466-.636 2.5 2.5 0 0 1 .399-.253 2 2 0 0 1 .224-.099zm9.784 2.656.05-.922q0-1.743-.856-2.698-.838-.97-2.584-.97-1.119-.001-2.007.493a3.46 3.46 0 0 0-1.4 1.382q-.493.906-.493 2.106 0 1.07.428 1.975.428.89 1.332 1.432.906.526 2.255.526.973 0 1.668-.185l.044-.012.135-.04q.613-.184.984-.421l-.542-1.267q-.3.162-.642.274l-.297.087q-.51.131-1.3.131-.954 0-1.497-.444a1.6 1.6 0 0 1-.192-.193q-.366-.44-.512-1.234l-.004-.021zm-5.427-1.256-.003.022h3.752v-.138q-.011-.727-.288-1.118a1 1 0 0 0-.156-.176q-.46-.428-1.316-.428-.986 0-1.494.604-.379.45-.494 1.234zm-27.053 2.77V4.7h-1.86v12.095h5.333V15.15zm7.103-5.908v7.553h-1.843V9.242h1.843z'/%3E%3Cpath fill='%23fff' d='m19.63 11.151-.757-1.71-.345 1.71-1.12 5.644h-1.827L18.083 4.7h.197l3.325 6.533.988 2.19.988-2.19L26.839 4.7h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.93 5.644h-.098l-2.913-5.644zm14.836 5.81q-1.02 0-1.893-.478a3.8 3.8 0 0 1-1.381-1.382q-.51-.906-.51-2.106 0-1.185.444-2.074a3.36 3.36 0 0 1 1.3-1.382q.839-.494 1.974-.494a3.3 3.3 0 0 1 1.234.231 3.3 3.3 0 0 1 .97.575q.396.33.527.659l.033-1.267h1.694v7.553H37.18l-.033-1.332q-.279.593-1.02 1.053a3.17 3.17 0 0 1-1.662.444zm.296-1.482q.938 0 1.58-.642.642-.66.642-1.711v-.115q0-.708-.296-1.267a2.2 2.2 0 0 0-.807-.872 2.1 2.1 0 0 0-1.119-.313q-1.053 0-1.629.692-.575.675-.575 1.76 0 1.103.559 1.795.577.675 1.645.675zm6.521-6.237h1.711v1.4q.906-1.597 2.83-1.597 1.596 0 2.584 1.02.988 1.005.988 2.914 0 1.185-.493 2.09a3.46 3.46 0 0 1-1.316 1.399 3.5 3.5 0 0 1-1.844.493q-.954 0-1.662-.329a2.67 2.67 0 0 1-1.086-.97l.017 5.134h-1.728zm4.048 6.22q1.07 0 1.645-.674.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.592 0-1.12.296-.51.28-.822.823-.296.527-.296 1.234v.115q0 .708.296 1.267.313.543.823.855.51.296 1.119.297z'/%3E%3Cpath fill='%23e1e3e9' d='M51.325 4.7h1.86v10.45h3.473v1.646h-5.333zm7.12 4.542h1.843v7.553h-1.843zm.905-1.415a1.16 1.16 0 0 1-.856-.346 1.17 1.17 0 0 1-.346-.856 1.05 1.05 0 0 1 .346-.79q.346-.329.856-.329.494 0 .839.33a1.05 1.05 0 0 1 .345.79 1.16 1.16 0 0 1-.345.855q-.33.346-.84.346zm7.875 9.133a3.17 3.17 0 0 1-1.662-.444q-.723-.46-1.004-1.053l-.033 1.332h-1.71V4.701h1.743v4.657l-.082 1.283q.279-.658 1.086-1.119a3.5 3.5 0 0 1 1.778-.477q1.119 0 1.942.51a3.24 3.24 0 0 1 1.283 1.4q.445.888.444 2.072 0 1.201-.526 2.09a3.5 3.5 0 0 1-1.382 1.366 3.8 3.8 0 0 1-1.876.477zm-.296-1.481q1.069 0 1.645-.675.577-.69.577-1.778 0-1.102-.577-1.776-.56-.691-1.645-.692a2.12 2.12 0 0 0-1.58.659q-.642.641-.642 1.694v.115q0 .71.296 1.267a2.4 2.4 0 0 0 .807.872 2.1 2.1 0 0 0 1.119.313zm5.927-6.237h1.777v1.481q.263-.757.856-1.217a2.14 2.14 0 0 1 1.349-.46q.527 0 .724.098l-.247 1.794q-.149-.099-.642-.099-.774 0-1.416.494-.626.493-.626 1.58v3.883h-1.777V9.242zm9.534 7.718q-1.35 0-2.255-.526-.904-.543-1.332-1.432a4.6 4.6 0 0 1-.428-1.975q0-1.2.493-2.106a3.46 3.46 0 0 1 1.4-1.382q.889-.495 2.007-.494 1.744 0 2.584.97.855.956.856 2.7 0 .444-.05.92h-5.43q.18 1.005.708 1.45.542.443 1.497.443.79 0 1.3-.131a4 4 0 0 0 .938-.362l.542 1.267q-.411.263-1.119.46-.708.198-1.711.197zm1.596-4.558q.016-1.02-.444-1.432-.46-.428-1.316-.428-1.728 0-1.991 1.86z'/%3E%3Cpath d='M5.074 15.948a.484.657 0 0 0-.486.659v1.84a.484.657 0 0 0 .486.659h4.101a.484.657 0 0 0 .486-.659v-1.84a.484.657 0 0 0-.486-.659zm3.56 1.16H5.617v.838h3.017z' style='fill:%23fff;fill-rule:evenodd;stroke-width:1.03600001'/%3E%3Cg style='stroke-width:1.12603545'%3E%3Cpath d='M-9.408-1.416c-3.833-.025-7.056 2.912-7.08 6.615-.02 3.08 1.653 4.832 3.107 6.268.903.892 1.721 1.74 2.32 2.902l-.525-.004c-.543-.003-.992.304-1.24.639a1.87 1.87 0 0 0-.362 1.121l-.011 1.877c-.003.402.104.787.347 1.125.244.338.688.653 1.23.656l4.142.028c.542.003.99-.306 1.238-.641a1.87 1.87 0 0 0 .363-1.121l.012-1.875a1.87 1.87 0 0 0-.348-1.127c-.243-.338-.688-.653-1.23-.656l-.518-.004c.597-1.145 1.425-1.983 2.348-2.87 1.473-1.414 3.18-3.149 3.2-6.226-.016-3.59-2.923-6.684-6.993-6.707m-.006 1.1v.002c3.274.02 5.92 2.532 5.9 5.6-.017 2.706-1.39 4.026-2.863 5.44-1.034.994-2.118 2.033-2.814 3.633-.018.041-.052.055-.075.065q-.013.004-.02.01a.34.34 0 0 1-.226.084.34.34 0 0 1-.224-.086l-.092-.077c-.699-1.615-1.768-2.669-2.781-3.67-1.454-1.435-2.797-2.762-2.78-5.478.02-3.067 2.7-5.545 5.975-5.523m-.02 2.826c-1.62-.01-2.944 1.315-2.955 2.96-.01 1.646 1.295 2.988 2.916 2.999h.002c1.621.01 2.943-1.316 2.953-2.961.011-1.646-1.294-2.988-2.916-2.998m-.005 1.1c1.017.006 1.829.83 1.822 1.89s-.83 1.874-1.848 1.867c-1.018-.006-1.829-.83-1.822-1.89s.83-1.874 1.848-1.868m-2.155 11.857 4.14.025c.271.002.49.305.487.676l-.013 1.875c-.003.37-.224.67-.495.668l-4.14-.025c-.27-.002-.487-.306-.485-.676l.012-1.875c.003-.37.224-.67.494-.668' style='color:%23000;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:%23000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:evenodd;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:%23000;solid-opacity:1;vector-effect:none;fill:%23000;fill-opacity:.4;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-9.415-.316C-12.69-.338-15.37 2.14-15.39 5.207c-.017 2.716 1.326 4.041 2.78 5.477 1.013 1 2.081 2.055 2.78 3.67l.092.076a.34.34 0 0 0 .225.086.34.34 0 0 0 .227-.083l.019-.01c.022-.009.057-.024.074-.064.697-1.6 1.78-2.64 2.814-3.634 1.473-1.414 2.847-2.733 2.864-5.44.02-3.067-2.627-5.58-5.901-5.601m-.057 8.784c1.621.011 2.944-1.315 2.955-2.96.01-1.646-1.295-2.988-2.916-2.999-1.622-.01-2.945 1.315-2.955 2.96s1.295 2.989 2.916 3' style='clip-rule:evenodd;fill:%23e1e3e9;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-11.594 15.465c-.27-.002-.492.297-.494.668l-.012 1.876c-.003.371.214.673.485.675l4.14.027c.271.002.492-.298.495-.668l.012-1.877c.003-.37-.215-.672-.485-.674z' style='clip-rule:evenodd;fill:%23fff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3C/g%3E%3C/svg%3E")}}.maplibregl-ctrl.maplibregl-ctrl-attrib{background-color:hsla(0,0%,100%,.5);margin:0;padding:0 5px}@media screen{.maplibregl-ctrl-attrib.maplibregl-compact{background-color:#fff;border-radius:12px;box-sizing:content-box;color:#000;margin:10px;min-height:20px;padding:2px 24px 2px 0;position:relative}.maplibregl-ctrl-attrib.maplibregl-compact-show{padding:2px 28px 2px 8px;visibility:visible}.maplibregl-ctrl-bottom-left>.maplibregl-ctrl-attrib.maplibregl-compact-show,.maplibregl-ctrl-top-left>.maplibregl-ctrl-attrib.maplibregl-compact-show{border-radius:12px;padding:2px 8px 2px 28px}.maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-inner{display:none}.maplibregl-ctrl-attrib-button{background-color:hsla(0,0%,100%,.5);background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E");border:0;border-radius:12px;box-sizing:border-box;cursor:pointer;display:none;height:24px;outline:none;position:absolute;right:0;top:0;width:24px}.maplibregl-ctrl-attrib summary.maplibregl-ctrl-attrib-button{-webkit-appearance:none;-moz-appearance:none;appearance:none;list-style:none}.maplibregl-ctrl-attrib summary.maplibregl-ctrl-attrib-button::-webkit-details-marker{display:none}.maplibregl-ctrl-bottom-left .maplibregl-ctrl-attrib-button,.maplibregl-ctrl-top-left .maplibregl-ctrl-attrib-button{left:0}.maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-button,.maplibregl-ctrl-attrib.maplibregl-compact-show .maplibregl-ctrl-attrib-inner{display:block}.maplibregl-ctrl-attrib.maplibregl-compact-show .maplibregl-ctrl-attrib-button{background-color:rgb(0 0 0/5%)}.maplibregl-ctrl-bottom-right>.maplibregl-ctrl-attrib.maplibregl-compact:after{bottom:0;right:0}.maplibregl-ctrl-top-right>.maplibregl-ctrl-attrib.maplibregl-compact:after{right:0;top:0}.maplibregl-ctrl-top-left>.maplibregl-ctrl-attrib.maplibregl-compact:after{left:0;top:0}.maplibregl-ctrl-bottom-left>.maplibregl-ctrl-attrib.maplibregl-compact:after{bottom:0;left:0}}@media screen and (forced-colors:active){.maplibregl-ctrl-attrib.maplibregl-compact:after{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23fff' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E")}}@media screen and (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl-attrib.maplibregl-compact:after{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E")}}.maplibregl-ctrl-attrib a{color:rgba(0,0,0,.75);text-decoration:none}.maplibregl-ctrl-attrib a:hover{color:inherit;text-decoration:underline}.maplibregl-attrib-empty{display:none}.maplibregl-ctrl-scale{background-color:hsla(0,0%,100%,.75);border:2px solid #333;border-top:#333;box-sizing:border-box;color:#333;font-size:10px;padding:0 5px}.maplibregl-popup{display:flex;left:0;pointer-events:none;position:absolute;top:0;will-change:transform}.maplibregl-popup-anchor-top,.maplibregl-popup-anchor-top-left,.maplibregl-popup-anchor-top-right{flex-direction:column}.maplibregl-popup-anchor-bottom,.maplibregl-popup-anchor-bottom-left,.maplibregl-popup-anchor-bottom-right{flex-direction:column-reverse}.maplibregl-popup-anchor-left{flex-direction:row}.maplibregl-popup-anchor-right{flex-direction:row-reverse}.maplibregl-popup-tip{border:10px solid transparent;height:0;width:0;z-index:1}.maplibregl-popup-anchor-top .maplibregl-popup-tip{align-self:center;border-bottom-color:#fff;border-top:none}.maplibregl-popup-anchor-top-left .maplibregl-popup-tip{align-self:flex-start;border-bottom-color:#fff;border-left:none;border-top:none}.maplibregl-popup-anchor-top-right .maplibregl-popup-tip{align-self:flex-end;border-bottom-color:#fff;border-right:none;border-top:none}.maplibregl-popup-anchor-bottom .maplibregl-popup-tip{align-self:center;border-bottom:none;border-top-color:#fff}.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip{align-self:flex-start;border-bottom:none;border-left:none;border-top-color:#fff}.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip{align-self:flex-end;border-bottom:none;border-right:none;border-top-color:#fff}.maplibregl-popup-anchor-left .maplibregl-popup-tip{align-self:center;border-left:none;border-right-color:#fff}.maplibregl-popup-anchor-right .maplibregl-popup-tip{align-self:center;border-left-color:#fff;border-right:none}.maplibregl-popup-close-button{background-color:transparent;border:0;border-radius:0 3px 0 0;cursor:pointer;position:absolute;right:0;top:0}.maplibregl-popup-close-button:hover{background-color:rgb(0 0 0/5%)}.maplibregl-popup-content{background:#fff;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.1);padding:15px 10px;pointer-events:auto;position:relative}.maplibregl-popup-anchor-top-left .maplibregl-popup-content{border-top-left-radius:0}.maplibregl-popup-anchor-top-right .maplibregl-popup-content{border-top-right-radius:0}.maplibregl-popup-anchor-bottom-left .maplibregl-popup-content{border-bottom-left-radius:0}.maplibregl-popup-anchor-bottom-right .maplibregl-popup-content{border-bottom-right-radius:0}.maplibregl-popup-track-pointer{display:none}.maplibregl-popup-track-pointer *{pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.maplibregl-map:hover .maplibregl-popup-track-pointer{display:flex}.maplibregl-map:active .maplibregl-popup-track-pointer{display:none}.maplibregl-marker{left:0;position:absolute;top:0;transition:opacity .2s;will-change:transform}.maplibregl-user-location-dot,.maplibregl-user-location-dot:before{background-color:#1da1f2;border-radius:50%;height:15px;width:15px}.maplibregl-user-location-dot:before{animation:maplibregl-user-location-dot-pulse 2s infinite;content:"";position:absolute}.maplibregl-user-location-dot:after{border:2px solid #fff;border-radius:50%;box-shadow:0 0 3px rgba(0,0,0,.35);box-sizing:border-box;content:"";height:19px;left:-2px;position:absolute;top:-2px;width:19px}@keyframes maplibregl-user-location-dot-pulse{0%{opacity:1;transform:scale(1)}70%{opacity:0;transform:scale(3)}to{opacity:0;transform:scale(1)}}.maplibregl-user-location-dot-stale{background-color:#aaa}.maplibregl-user-location-dot-stale:after{display:none}.maplibregl-user-location-accuracy-circle{background-color:#1da1f233;border-radius:100%;height:1px;width:1px}.maplibregl-crosshair,.maplibregl-crosshair .maplibregl-interactive,.maplibregl-crosshair .maplibregl-interactive:active{cursor:crosshair}.maplibregl-boxzoom{background:#fff;border:2px dotted #202020;height:0;left:0;opacity:.5;position:absolute;top:0;width:0}.maplibregl-cooperative-gesture-screen{align-items:center;background:rgba(0,0,0,.4);color:#fff;display:flex;font-size:1.4em;inset:0;justify-content:center;line-height:1.2;opacity:0;padding:1rem;pointer-events:none;position:absolute;transition:opacity 1s ease 1s;z-index:99999}.maplibregl-cooperative-gesture-screen.maplibregl-show{opacity:1;transition:opacity .05s}.maplibregl-cooperative-gesture-screen .maplibregl-mobile-message{display:none}@media (hover:none),(width <= 480px){.maplibregl-cooperative-gesture-screen .maplibregl-desktop-message{display:none}.maplibregl-cooperative-gesture-screen .maplibregl-mobile-message{display:block}}.maplibregl-pseudo-fullscreen{height:100%!important;left:0!important;position:fixed!important;top:0!important;width:100%!important;z-index:99999}</style>
+<style>
+:root {
+  /* layout: full-bleed map; date and summary top-left; timeline docked at the bottom; unit detail top-right */
+  --land: #e9ebe4; --water: #b9c9d2; --ink: #1f2a30; --muted: #5c6970; --line: #c9cfcc;
+  --panel: rgba(250, 251, 248, 0.94); --union: #2c5d9b; --conf: #a3402c; --event: #1f2a30;
+  --display: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif; --body: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --land: #232a2c; --water: #142026; --ink: #e6e9e4; --muted: #9aa6a8; --line: #3b4548;
+  --panel: rgba(24, 30, 32, 0.93); --union: #6f9ee0; --conf: #e07a5f; --event: #f2efe6; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --land: #232a2c; --water: #142026; --ink: #e6e9e4; --muted: #9aa6a8; --line: #3b4548;
+  --panel: rgba(24, 30, 32, 0.93); --union: #6f9ee0; --conf: #e07a5f; --event: #f2efe6; color-scheme: dark; }
+html, body { height: 100%; margin: 0; }
+body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); overflow: hidden; }
+#map { position: absolute; inset: 0; }
+.panel { position: absolute; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12); }
+#head { top: 12px; left: 12px; max-width: 330px; display: grid; gap: 6px; }
+#head h1 { margin: 0; font: 600 13px/1.2 var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+#date { font: 600 30px/1.05 var(--display); text-wrap: balance; }
+#sub { color: var(--muted); font-size: 12.5px; }
+.counts { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-variant-numeric: tabular-nums; font-size: 13px; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 500 12px var(--body); border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 999px;
+  padding: 3px 10px; cursor: pointer; }
+.chip[aria-pressed="false"] { opacity: .45; text-decoration: line-through; }
+.chip:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--union); outline-offset: 2px; }
+#legend { font-size: 12px; color: var(--muted); display: grid; gap: 3px; }
+#detail { top: 12px; right: 56px; width: 300px; display: none; gap: 6px; }
+#detail.on { display: grid; }
+#detail h2 { margin: 0; font: 600 17px/1.2 var(--display); }
+#detail .meta { color: var(--muted); font-size: 12.5px; }
+#detail ol { margin: 0; padding: 0; list-style: none; max-height: 260px; overflow: auto; font-size: 12.5px; }
+#detail .close { justify-self: end; border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 13px; }
+#bar { left: 12px; right: 12px; bottom: 12px; display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; align-items: center; }
+#play { font: 600 13px var(--body); border: 1px solid var(--line); background: var(--ink); color: var(--land); border-radius: 4px;
+  padding: 6px 12px; cursor: pointer; min-width: 64px; }
+#slider { width: 100%; accent-color: var(--ink); }
+#ticks { grid-column: 2; position: relative; height: 24px; font: 11px var(--mono); color: var(--muted); touch-action: none; cursor: crosshair;
+  user-select: none; -webkit-user-select: none; border-top: 1px dashed var(--line); }
+#ticks span { position: absolute; top: 4px; transform: translateX(-50%); white-space: nowrap; pointer-events: none; }
+#band { position: absolute; top: -1px; bottom: 0; display: none; pointer-events: none; border-radius: 2px;
+  background: color-mix(in srgb, var(--ink) 16%, transparent); border-left: 2px solid var(--ink); border-right: 2px solid var(--ink); box-sizing: border-box; }
+.ctl { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.tz { padding: 2px 9px; min-width: 28px; }
+#moved { font-size: 12.5px; color: var(--muted); }
+#moved:empty { display: none; }
+#ticks i { position: absolute; top: -4px; width: 2px; height: 8px; background: var(--event); opacity: .6; }
+.lbl { font: 500 11px var(--body); color: var(--muted); white-space: nowrap; pointer-events: none; text-shadow: 0 0 3px var(--land), 0 0 3px var(--land); }
+.lbl.big { font-weight: 600; color: var(--ink); }
+.ulbl { font: 600 10.5px var(--display); white-space: nowrap; pointer-events: none;
+  text-shadow: 0 0 3px var(--land), 0 0 3px var(--land), 0 0 3px var(--land); }
+.ev { font: 600 12px var(--display); color: var(--event); white-space: nowrap; pointer-events: none;
+  text-shadow: 0 0 3px var(--land), 0 0 3px var(--land), 0 0 3px var(--land); }
+.ev::before { content: "\2605 "; }
+#find { position: relative; }
+#q { width: 100%; box-sizing: border-box; font: 13px var(--body); color: var(--ink); background: transparent; border: 1px solid var(--line);
+  border-radius: 4px; padding: 5px 8px; }
+#qres { position: absolute; left: 0; right: 0; top: 100%; margin: 2px 0 0; padding: 0; list-style: none; z-index: 6; background: var(--panel);
+  border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,.15); max-height: 260px; overflow: auto; }
+#qres:empty { display: none; }
+#qres li { padding: 5px 8px; cursor: pointer; font-size: 13px; display: flex; gap: 6px; align-items: baseline; }
+#qres li small { color: var(--muted); margin-left: auto; white-space: nowrap; }
+#qres li[aria-selected="true"], #qres li:hover { background: color-mix(in srgb, var(--ink) 9%, transparent); }
+#detail .now { font-size: 13px; border-left: 3px solid var(--line); padding: 2px 0 2px 8px; }
+#detail .now b { font-weight: 600; }
+#detail .src, #detail ol .src { display: block; color: var(--muted); font-size: 11.5px; }
+#detail a { color: inherit; text-decoration-color: var(--line); text-underline-offset: 2px; }
+#detail ol li { margin-bottom: 3px; }
+#detail ol li.est { color: var(--muted); }
+#detail ol li.cur { font-weight: 600; }
+#detail .row { display: flex; gap: 8px; align-items: center; font-size: 12.5px; }
+#detail .mem { border: 0; background: none; color: inherit; font: inherit; padding: 0; cursor: pointer; text-align: left; text-decoration: underline;
+  text-decoration-color: var(--line); text-underline-offset: 2px; }
+#tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+  padding: 4px 8px; font-size: 12px; display: none; z-index: 5; max-width: 280px; }
+#mtoggle { display: none; justify-self: start; }
+@media (max-width: 640px) {
+  #head { max-width: none; right: 56px; gap: 5px; padding: 10px 12px; } #date { font-size: 24px; }
+  #head .filters, #head #more { display: none; } #head.open .filters { display: flex; } #head.open #more { display: block; }
+  #mtoggle { display: inline-block; }
+  #bar { grid-template-columns: 1fr; padding: 10px 12px; } #ticks { grid-column: 1; }
+  #detail { left: 12px; right: 12px; width: auto; top: auto; bottom: 128px; max-height: 42vh; overflow: auto; box-sizing: border-box; }
+}
+</style>
+</head>
+<body>
+<div id="map" aria-label="Map of unit positions"></div>
+<div id="head" class="panel">
+  <div id="loading" style="font-size:12px;color:var(--muted)">Loading…</div>
+  <h1>The Civil War, day by day</h1>
+  <div id="date">&nbsp;</div>
+  <div class="counts" id="counts"></div>
+  <div id="moved" aria-live="polite"></div>
+  <button class="chip" id="mtoggle" aria-expanded="false" aria-controls="head">Filters and places</button>
+  <div id="find"><input id="q" type="search" placeholder="Find a regiment or battery…" autocomplete="off" aria-label="Find a unit"
+    role="combobox" aria-expanded="false" aria-controls="qres" aria-autocomplete="list"><ul id="qres" role="listbox"></ul></div>
+  <div class="filters" role="group" aria-label="Show">
+    <button class="chip" id="f-union" aria-pressed="true">Union</button>
+    <button class="chip" id="f-conf" aria-pressed="true">Confederate</button>
+    <button class="chip" id="f-est" aria-pressed="true">Estimated positions</button>
+    <button class="chip" id="f-group" aria-pressed="true" title="When zoomed out, draw each brigade as one circle">Group brigades</button>
+  </div>
+  <div class="filters" id="focus" role="group" aria-label="Go to"></div>
+  <details id="more"><summary style="cursor:pointer;font-size:12.5px;color:var(--muted)">Legend and sources</summary>
+  <div id="legend">
+    <div><span class="sw" style="background:var(--union)"></span>Union regiment, battery or company</div>
+    <div><span class="sw" style="background:var(--conf)"></span>Confederate</div>
+    <div>Solid: a source places it there that day. Faint: an estimate: between two known places, its last known place, a long posting (“duty at Washington till March”), or where its brigade or its campaign was that day.</div>
+    <div>Zoomed out, a larger circle is a brigade: three or more of its regiments within about 40 km of each other. Zoom in or turn off “Group brigades” to see them one by one.</div>
+    <div>Trails: drag across the timeline below the slider, or pick a length, to see where units moved over those days; each line ends in an arrow where the unit was on the last day, and units on the same route share one, thicker line. Dashed: partly estimated. Dotted and faint: a step faster than a march (over 50 km a day), such as a move by rail or river, or a doubtful placement. Zoom the timeline with − and +, or the mouse wheel over it, to pick a few days or a whole campaign.</div>
+    <div>Click a unit for where the sources place it through the year, each with its source.</div>
+    <div>Zoomed in on a battlefield: regiments stand at their monuments, and a brigade's regiments are joined as its line.</div>
+  </div>
+  <div id="sub">Positions from Dyer's Compendium, the Official Records, Wikipedia orders of battle, NPS lists and battlefield monuments; places located with USGS GNIS. Many Confederate regiments are placed by their brigade or campaign between battle records.</div>
+  </details>
+</div>
+<div id="detail" class="panel" aria-live="polite"></div>
+<div id="bar" class="panel">
+  <div class="ctl"><button id="play" aria-label="Play">Play</button>
+  <select id="speed" aria-label="Speed" class="chip"><option value="1">1 day per step</option><option value="3" selected>3 days per step</option><option value="7">1 week per step</option></select>
+  <select id="span" aria-label="Trails: show where units moved over the days before this one" class="chip"><option value="0">No trails</option><option value="3">Trails: 3 days</option>
+    <option value="7">Trails: 1 week</option><option value="14">Trails: 2 weeks</option><option value="30">Trails: 1 month</option><option value="91">Trails: 3 months</option>
+    <option id="span-c" value="-1" hidden>Trails: custom</option></select></div>
+  <input id="slider" type="range" min="0" max="0" value="0" aria-label="Day">
+  <div class="ctl" role="group" aria-label="Timeline zoom"><button class="chip tz" id="tz-out" aria-label="Zoom the timeline out" title="Zoom the timeline out">−</button>
+    <button class="chip tz" id="tz-in" aria-label="Zoom the timeline in" title="Zoom the timeline in">+</button>
+    <button class="chip tz" id="tz-l" aria-label="Earlier" title="Earlier" hidden>‹</button><button class="chip tz" id="tz-r" aria-label="Later" title="Later" hidden>›</button>
+    <button class="chip tz" id="tz-all" title="Whole war" hidden>All</button></div>
+  <div id="ticks" title="Click a day, or drag across days to see where units moved"><div id="band"></div></div>
+</div>
+<div id="tip"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
+<script>
+// Whole-war viewer: data/units.json + data/y<year>.json (pipeline/export_war.py), basemap and terrain as files.
+const START = new Date("1861-01-01T12:00:00Z"), NDAYS = 1826;
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const dayDate = i => new Date(START.getTime() + i * 864e5);
+const fmt = i => { const d = dayDate(i); return `${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`; };
+const yearOf = i => dayDate(i).getUTCFullYear();
+const dayOf = (y, m, d) => Math.round((Date.UTC(y, m - 1, d, 12) - START.getTime()) / 864e5);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const FOCUS = [
+  {name: "Whole war", bounds: [-100, 27, -70, 43]},
+  {name: "Virginia front", bounds: [-80.5, 36.5, -75.5, 40.2]},
+  {name: "Western theater", bounds: [-92, 31, -82, 38.5]},
+  {name: "Trans-Mississippi", bounds: [-100, 28, -89, 39.5]},
+  {name: "Gettysburg, July 2, 1863", bounds: [-77.27, 39.78, -77.2, 39.85], day: dayOf(1863, 7, 2)},
+  {name: "Atlanta, July 22, 1864", bounds: [-85.2, 33.4, -83.8, 34.3], day: dayOf(1864, 7, 22)},
+  {name: "Vicksburg, June 1863", bounds: [-91.4, 32.0, -90.4, 32.7], day: dayOf(1863, 6, 15)}];
+let UNITS = {}, YEARS = {}, BASE = null;
+const off = id => [Math.abs(Math.sin(id * 12.9898) * 43758.5453) % 1, Math.abs(Math.sin((id + 7.1) * 12.9898) * 43758.5453) % 1];
+async function year(y) {
+  if (!YEARS[y]) YEARS[y] = fetch(`data/y${y}.json`).then(r => r.json());
+  return YEARS[y];
+}
+function locate(segs, day, Y) {     // [lat, lon, precision, label, state 0 known | 1 moving | 2 stale | 3 long posting | 4 with its brigade or campaign, source index]
+  let lo = 0, hi = segs.length - 1, prev = null, next = null;
+  while (lo <= hi) { const m = (lo + hi) >> 1, s = segs[m];
+    if (day < s[0]) { next = s; hi = m - 1; } else if (day > s[1]) { prev = s; lo = m + 1; } else {
+      const f = Y.fixes[s[2]]; return [f[0] / 1e4, f[1] / 1e4, f[2], Y.labels[f[3]], f[4] >= 2 ? 4 : f[4] ? 3 : 0, f[5] ?? -1]; } }
+  if (prev && next && next[0] - prev[1] <= 21) {
+    const a = Y.fixes[prev[2]], b = Y.fixes[next[2]], w = (day - prev[1]) / (next[0] - prev[1]);
+    return [(a[0] + w * (b[0] - a[0])) / 1e4, (a[1] + w * (b[1] - a[1])) / 1e4, Math.max(a[2], b[2]), `${Y.labels[a[3]].slice(0, 28)} -> ${Y.labels[b[3]].slice(0, 28)}`, 1, a[5] ?? -1];
+  }
+  if (prev && day - prev[1] <= 10) { const a = Y.fixes[prev[2]]; return [a[0] / 1e4, a[1] / 1e4, a[2], Y.labels[a[3]], 2, a[5] ?? -1]; }
+  return null;
+}
+const show = {union: true, conf: true, est: true, group: true};
+const GROUP_ZOOM = 7.2;
+let selId = -1, follow = false;
+let cur = null;     // {day, Y, fc}
+function features(day, Y) {
+  const pos = [], stack = {};
+  for (const [id, segs] of Object.entries(Y.seg)) {
+    const u = UNITS[id]; if (!u) continue;
+    if (u[1] === 0 ? !show.union : !show.conf) continue;
+    const p = locate(segs, day, Y); if (!p) continue;
+    if (p[4] > 0 && !show.est) continue;
+    const key = p[0].toFixed(3) + "," + p[1].toFixed(3); stack[key] = (stack[key] || 0) + 1;
+    pos.push([+id, p, key]);
+  }
+  return {type: "FeatureCollection", features: pos.map(([id, p, key]) => {
+    const [h1, h2] = off(id), n = stack[key];
+    const r = (p[2] <= 500 ? 25 : Math.min(Math.max(Math.min(p[2] || 2000, 3000), 220 * Math.sqrt(n)), 6500)) * Math.sqrt(h1) / 111000;
+    return {type: "Feature", geometry: {type: "Point", coordinates: [p[1] + r * Math.cos(2 * Math.PI * h2) / Math.cos(p[0] * Math.PI / 180), p[0] + r * Math.sin(2 * Math.PI * h2)]},
+      properties: {id, side: UNITS[id][1], st: p[4], name: UNITS[id][0], where: p[3], fine: p[2] <= 500 ? 1 : 0}};
+  })};
+}
+function grouped(fc, Y, day) {
+  // zoomed out: a brigade's regiments (3 or more within ~40 km of their median) become one circle
+  if (!show.group || map.getZoom() >= GROUP_ZOOM) return [fc, {type: "FeatureCollection", features: []}];
+  const by = {};
+  fc.features.forEach(f => { if (f.properties.id === selId) return; const b = brigOf(Y, f.properties.id, day); if (!b) return;
+    (by[f.properties.side + "|" + b] ||= []).push(f); });
+  const med = a => { const s = [...a].sort((x, y) => x - y); return s[s.length >> 1]; };
+  const taken = new Set(), groups = [];
+  for (const [key, fs] of Object.entries(by)) {
+    if (fs.length < 3) continue;
+    const mx = med(fs.map(f => f.geometry.coordinates[0])), my = med(fs.map(f => f.geometry.coordinates[1]));
+    const near = fs.filter(f => Math.abs(f.geometry.coordinates[0] - mx) < 0.45 && Math.abs(f.geometry.coordinates[1] - my) < 0.36);
+    if (near.length < 3 || near.length > 12) continue;     // more than 12 is two brigades sharing a label, not one
+    near.forEach(f => taken.add(f.properties.id));
+    const est = near.filter(f => f.properties.st !== 0).length, side = +key[0];
+    groups.push({type: "Feature", geometry: {type: "Point", coordinates: [near.reduce((a, f) => a + f.geometry.coordinates[0], 0) / near.length,
+      near.reduce((a, f) => a + f.geometry.coordinates[1], 0) / near.length]},
+      properties: {side, n: near.length, est: est / near.length, name: key.slice(2), ids: near.map(f => f.properties.id).join(",")}});
+  }
+  return [{type: "FeatureCollection", features: fc.features.filter(f => !taken.has(f.properties.id))}, {type: "FeatureCollection", features: groups}];
+}
+function brigOf(Y, id, day) { const b = Y.brig[id]; if (!b) return null; let r = null; for (const [d, l] of b) { if (d <= day) r = l; else break; } return r; }
+function brigadeLines(fc, Y, day) {
+  const groups = {};
+  fc.features.forEach(f => { if (!f.properties.fine) return; const b = brigOf(Y, f.properties.id, day); if (!b) return;
+    (groups[f.properties.side + "|" + b] ||= []).push(f.geometry.coordinates); });
+  const out = [];
+  for (const [key, pts] of Object.entries(groups)) {
+    if (pts.length < 2) continue;
+    const c = pts[0][1] * Math.PI / 180, mx = pts.reduce((a, p) => a + p[0], 0) / pts.length, my = pts.reduce((a, p) => a + p[1], 0) / pts.length;
+    let sxx = 0, syy = 0, sxy = 0; pts.forEach(p => { const x = (p[0] - mx) * Math.cos(c), y = p[1] - my; sxx += x * x; syy += y * y; sxy += x * y; });
+    const ang = 0.5 * Math.atan2(2 * sxy, sxx - syy), proj = p => (p[0] - mx) * Math.cos(c) * Math.cos(ang) + (p[1] - my) * Math.sin(ang);
+    pts.sort((a, b) => proj(a) - proj(b));
+    const dist = (p, q) => Math.hypot((p[0] - q[0]) * Math.cos(c), p[1] - q[1]) * 111000;
+    let seg = [pts[0]];
+    const flush = () => { if (seg.length > 1 && seg.slice(1).reduce((a, p, i) => a + dist(p, seg[i]), 0) < 2000) out.push({type: "Feature", properties: {side: +key[0]}, geometry: {type: "LineString", coordinates: seg}}); };
+    for (let i = 1; i < pts.length; i++) { if (dist(pts[i], pts[i - 1]) > 500) { flush(); seg = []; } seg.push(pts[i]); }
+    flush();
+  }
+  return {type: "FeatureCollection", features: out};
+}
+const map = new maplibregl.Map({container: "map", bounds: [[-95, 29], [-72, 42]], attributionControl: false,
+  style: {version: 8, sources: {}, layers: [{id: "bg", type: "background", paint: {"background-color": css("--water")}}]}});
+map.addControl(new maplibregl.NavigationControl({showCompass: false}), "top-right");
+map.addControl(new maplibregl.AttributionControl({compact: true, customAttribution: "Natural Earth; terrain: AWS Terrain Tiles (USGS, SRTM); places: USGS GNIS; monuments: © OpenStreetMap contributors (ODbL); Dyer's Compendium, Official Records, Wikipedia, NPS"}), "top-right");
+map.once("idle", () => document.querySelectorAll(".maplibregl-ctrl-attrib").forEach(e => e.classList.remove("maplibregl-compact-show")));
+const slider = document.getElementById("slider"); slider.max = NDAYS - 1; slider.value = dayOf(1861, 7, 21);
+const labels = [];
+function placeLabels() {
+  if (!BASE) return;
+  labels.forEach(m => m.remove()); labels.length = 0;
+  const z = map.getZoom(), taken = [], b = map.getBounds();
+  BASE.towns.features.forEach((f, i) => {
+    if (i > (z < 5.5 ? 40 : z < 7 ? 160 : z < 8.5 ? 400 : 900) || !b.contains(f.geometry.coordinates)) return;
+    const p = map.project(f.geometry.coordinates), w = 7 * f.properties.name.length + 8;
+    if (taken.some(q => Math.abs(q.x - p.x) < (q.w + w) / 2 + 4 && Math.abs(q.y - p.y) < 14)) return;
+    taken.push({x: p.x + w / 2, y: p.y, w});
+    const el = document.createElement("div"); el.className = "lbl" + (f.properties.mentions > 150 ? " big" : ""); el.textContent = f.properties.name;
+    labels.push(new maplibregl.Marker({element: el, anchor: "left", offset: [4, 0]}).setLngLat(f.geometry.coordinates).addTo(map));
+  });
+}
+let evMarkers = [], unitMarkers = [];
+function placeEvents(day, Y) {
+  evMarkers.forEach(m => m.remove()); evMarkers = [];
+  const b = map.getBounds(), z = map.getZoom();
+  Y.events.filter(e => e[2] <= day && day <= e[3] && e[6] >= (z < 6 ? 25 : 5) && b.contains([e[5] / 1e4, e[4] / 1e4])).sort((a, c) => c[6] - a[6]).slice(0, 10).forEach(e => {
+    const el = document.createElement("div"); el.className = "ev"; el.textContent = e[1];
+    evMarkers.push(new maplibregl.Marker({element: el, anchor: "bottom", offset: [0, -6]}).setLngLat([e[5] / 1e4, e[4] / 1e4]).addTo(map));
+  });
+}
+function unitLabels(fc) {
+  unitMarkers.forEach(m => m.remove()); unitMarkers = [];
+  if (map.getZoom() < 13.2) return;
+  const b = map.getBounds();
+  fc.features.filter(f => f.properties.fine && b.contains(f.geometry.coordinates)).slice(0, 140).forEach(f => {
+    const el = document.createElement("div"); el.className = "ulbl"; el.textContent = f.properties.name.replace(/ Infantry$/, "");
+    el.style.color = f.properties.side ? "var(--conf)" : "var(--union)";
+    unitMarkers.push(new maplibregl.Marker({element: el, anchor: "left", offset: [6, 0]}).setLngLat(f.geometry.coordinates).addTo(map));
+  });
+}
+function counts(fc) {
+  const c = [[0, 0], [0, 0]]; fc.features.forEach(f => c[f.properties.side][f.properties.st === 0 ? 0 : 1]++);
+  document.getElementById("counts").innerHTML =
+    `<span><span class="sw" style="background:var(--union)"></span>Union</span><span>${c[0][0]} placed, ${c[0][1]} estimated</span>` +
+    `<span><span class="sw" style="background:var(--conf)"></span>Confederate</span><span>${c[1][0]} placed, ${c[1][1]} estimated</span>`;
+}
+let ticket = 0, wasGrouped = null;
+function draw() {
+  if (!cur || !map.getSource("units")) return;
+  const [ufc, gfc] = grouped(cur.fc, cur.Y, cur.day);
+  wasGrouped = show.group && map.getZoom() < GROUP_ZOOM;
+  map.getSource("units").setData(ufc); map.getSource("groups").setData(gfc);
+  map.getSource("lines").setData(brigadeLines(cur.fc, cur.Y, cur.day));
+  if (map.getLayer("trail-sel")) map.setFilter("trail-sel", ["in", "," + selId + ",", ["get", "ids"]]);
+}
+async function render() {
+  const day = +slider.value, t = ++ticket;
+  document.getElementById("date").textContent = fmt(day);
+  const Y = await year(yearOf(day));
+  if (t !== ticket) return;
+  document.getElementById("loading").textContent = "";
+  const fc = features(day, Y); cur = {day, Y, fc};
+  draw();
+  counts(fc); placeEvents(day, Y); unitLabels(fc);
+  if (selId >= 0) showUnit(selId, false);
+  drawBand(); drawTrails(day, t);
+  saveHash();
+  const ny = yearOf(Math.min(NDAYS - 1, day + 40)); if (ny !== yearOf(day)) year(ny);   // prefetch
+}
+map.on("load", async () => {
+  BASE = await (await fetch("data/basemap.json")).json();
+  map.addSource("states", {type: "geojson", data: BASE.states});
+  map.addSource("rivers", {type: "geojson", data: BASE.rivers});
+  map.addSource("lakes", {type: "geojson", data: BASE.lakes});
+  map.addLayer({id: "land", type: "fill", source: "states", paint: {"fill-color": css("--land")}});
+  map.addLayer({id: "lakes", type: "fill", source: "lakes", paint: {"fill-color": css("--water")}});
+  map.addLayer({id: "borders", type: "line", source: "states", paint: {"line-color": css("--muted"), "line-width": 0.8, "line-dasharray": [3, 2], "line-opacity": 0.6}});
+  map.addLayer({id: "rivers", type: "line", source: "rivers", paint: {"line-color": css("--water"), "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.6, 8, 1.5, 11, 2.5]}});
+  const dark = matchMedia("(prefers-color-scheme: dark)").matches && document.documentElement.dataset.theme !== "light" || document.documentElement.dataset.theme === "dark";
+  // Live relief: AWS Terrain Tiles (terrarium) drawn by MapLibre's hillshade, sharpening with zoom (USGS 3DEP ~10 m in the US).
+  // Reachable when the page is served from localhost or a web host; the claude.ai artifact sandbox blocks it, so the
+  // pre-rendered images below stay as the fallback (and as the relief at low zoom either way).
+  const DEM = "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png";
+  let live = false;
+  try { const r = await fetch(DEM.replace("{z}/{x}/{y}", "10/292/391")); live = r.ok; } catch (e) {}
+  const LIVE_Z = 7.5;
+  for (const [i, [name, mz]] of (live ? [["terrain_war", 0]] : [["terrain_war", 0], ["terrain_gettysburg", 10]]).entries()) {
+    const meta = await (await fetch(`data/${name}.json`)).json();
+    const img = new Image();
+    img.onload = () => { const cv = document.createElement("canvas"); cv.width = img.width; cv.height = img.height; cv.getContext("2d").drawImage(img, 0, 0);
+      map.addSource(name, {type: "canvas", canvas: cv, coordinates: meta.corners, animate: false});
+      map.addLayer({id: name, type: "raster", source: name, minzoom: mz, maxzoom: live ? LIVE_Z + 0.5 : 24, paint: {"raster-opacity": dark ? 0.55 : 0.8, "raster-fade-duration": 0}}, map.getLayer("hillshade") ? "hillshade" : "borders"); };
+    img.src = `data/${name}.png`;
+  }
+  if (live) {
+    map.addSource("dem", {type: "raster-dem", tiles: [DEM], encoding: "terrarium", tileSize: 256, maxzoom: 15});
+    map.addLayer({id: "hillshade", type: "hillshade", source: "dem", minzoom: LIVE_Z, paint: {
+      "hillshade-exaggeration": dark ? 0.7 : 0.8, "hillshade-illumination-direction": 315, "hillshade-illumination-anchor": "map",
+      "hillshade-shadow-color": dark ? "rgba(0,0,0,0.85)" : "rgba(60,50,40,0.75)",
+      "hillshade-highlight-color": dark ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.6)",
+      "hillshade-accent-color": dark ? "rgba(0,0,0,0.3)" : "rgba(50,40,30,0.25)"}}, "borders");
+  }
+  map.addSource("lines", {type: "geojson", data: {type: "FeatureCollection", features: []}});
+  map.addLayer({id: "lines", type: "line", source: "lines", minzoom: 11.5, layout: {"line-cap": "round", "line-join": "round"},
+    paint: {"line-color": ["match", ["get", "side"], 0, css("--union"), css("--conf")], "line-width": ["interpolate", ["linear"], ["zoom"], 12, 2, 15, 5], "line-opacity": 0.55}});
+  map.addSource("units", {type: "geojson", data: {type: "FeatureCollection", features: []}});
+  map.addLayer({id: "units", type: "circle", source: "units", paint: {
+    "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, 2.6, 7, 3.2, 9, 3.8, 12, ["case", ["==", ["get", "fine"], 1], 6, 3], 15, ["case", ["==", ["get", "fine"], 1], 8, 3]],
+    "circle-color": ["match", ["get", "side"], 0, css("--union"), css("--conf")],
+    "circle-opacity": ["interpolate", ["linear"], ["zoom"], 11, ["match", ["get", "st"], 0, 0.9, 1, 0.38, 3, 0.45, 4, 0.42, 0.2],
+      13, ["case", ["==", ["get", "fine"], 1], ["match", ["get", "st"], 0, 0.95, 0.4], 0.18]],
+    "circle-stroke-width": ["match", ["get", "st"], 0, 0.6, 0], "circle-stroke-color": css("--land")}});
+  map.addSource("groups", {type: "geojson", data: {type: "FeatureCollection", features: []}});
+  map.addLayer({id: "groups", type: "circle", source: "groups", paint: {
+    "circle-radius": ["interpolate", ["linear"], ["zoom"], 4, ["+", 2, ["*", 1.5, ["sqrt", ["get", "n"]]]], 7, ["+", 3, ["*", 2, ["sqrt", ["get", "n"]]]]],
+    "circle-color": ["match", ["get", "side"], 0, css("--union"), css("--conf")],
+    "circle-opacity": ["interpolate", ["linear"], ["get", "est"], 0, 0.85, 1, 0.42],
+    "circle-stroke-width": 1, "circle-stroke-color": css("--land")}});
+  map.addLayer({id: "sel", type: "circle", source: "units", filter: ["==", ["get", "id"], -1], paint: {"circle-radius": 9, "circle-color": "rgba(0,0,0,0)", "circle-stroke-width": 2.5, "circle-stroke-color": css("--ink")}});
+  UNITS = (await (await fetch("data/units.json")).json()).units;
+  placeLabels(); map.on("moveend", () => { placeLabels(); if (cur) { placeEvents(cur.day, cur.Y); unitLabels(cur.fc); } saveHash(); });
+  map.on("zoomend", () => { if (cur && wasGrouped !== (show.group && map.getZoom() < GROUP_ZOOM)) draw(); });
+  trailLayers(); setWindow(W0, W1); await loadHash(); await render();
+  if (selId >= 0) showUnit(selId, true);
+});
+slider.addEventListener("input", render);
+const headEl = document.getElementById("head"), mt = document.getElementById("mtoggle");
+mt.addEventListener("click", () => { const o = headEl.classList.toggle("open"); mt.setAttribute("aria-expanded", o); });
+const fbox = document.getElementById("focus");
+FOCUS.forEach(f => { const b = document.createElement("button"); b.className = "chip"; b.textContent = f.name;
+  b.onclick = () => { headEl.classList.remove("open"); mt.setAttribute("aria-expanded", false); if (f.day !== undefined) { setDay(f.day); render(); } map.fitBounds([[f.bounds[0], f.bounds[1]], [f.bounds[2], f.bounds[3]]], {padding: 30}); };
+  fbox.appendChild(b); });
+let timer = null;
+const playBtn = document.getElementById("play"), reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+playBtn.addEventListener("click", () => {
+  if (timer) { clearInterval(timer); timer = null; playBtn.textContent = "Play"; return; }
+  if (+slider.value >= NDAYS - 1) setDay(0);
+  playBtn.textContent = "Pause";
+  timer = setInterval(() => { const step = +document.getElementById("speed").value, v = +slider.value;
+    if (v >= NDAYS - 1) { playBtn.click(); return; }
+    const nv = Math.min(NDAYS - 1, v + step), w = W1 - W0;
+    if (nv > W1) setWindow(nv - 0.2 * w, nv + 0.8 * w);        // a zoomed timeline scrolls along
+    slider.value = nv; render(); }, reduce ? 900 : 350);
+});
+[["f-union", "union"], ["f-conf", "conf"], ["f-est", "est"], ["f-group", "group"]].forEach(([id, k]) => document.getElementById(id).addEventListener("click", e => {
+  show[k] = !show[k]; e.currentTarget.setAttribute("aria-pressed", show[k]); render(); }));
+const tip = document.getElementById("tip");
+function showTip(e, text) { tip.style.display = "block"; tip.style.left = (e.point.x + 12) + "px"; tip.style.top = (e.point.y + 12) + "px";
+  tip.textContent = text; map.getCanvas().style.cursor = "pointer"; }
+map.on("mousemove", "units", e => { const p = e.features[0].properties;
+  showTip(e, `${p.name} — ${["", "between ", "last known: ", "stationed: ", "estimated "][p.st]}${p.where}`); });
+map.on("mousemove", "groups", e => { const p = e.features[0].properties, ne = Math.round(p.est * p.n);
+  showTip(e, `${p.name} — ${p.n} regiments${ne ? `, ${ne} estimated` : ""}. Click to list them.`); });
+for (const l of ["units", "groups"]) map.on("mouseleave", l, () => { tip.style.display = "none"; map.getCanvas().style.cursor = ""; });
+
+// ---- unit detail: where the sources place it this year, each with its source
+const detail = document.getElementById("detail");
+const SHORT = MONTHS.map(m => m.slice(0, 3));
+const md = i => { const d = dayDate(i); return `${SHORT[d.getUTCMonth()]} ${d.getUTCDate()}`; };
+const rng = (a, b) => a === b ? md(a) : dayDate(a).getUTCMonth() === dayDate(b).getUTCMonth() ? `${md(a)}–${dayDate(b).getUTCDate()}` : `${md(a)} – ${md(b)}`;
+const STATE = ["At ", "Moving: ", "Last known: ", "Stationed: ", "Estimated: "];
+function srcEl(Y, sis, est) {
+  const el = document.createElement("span"); el.className = "src";
+  sis = [].concat(sis).filter(si => si >= 0 && Y.srcs && Y.srcs[si]);
+  if (!sis.length) { el.textContent = est ? "Estimate from its brigade's or campaign's positions" : ""; return el; }
+  el.append(sis.length > 1 ? "Sources: " : "Source: ");
+  sis.slice(0, 3).forEach((si, i) => { const [t, u] = Y.srcs[si]; if (i) el.append("; ");
+    if (u) { const a = document.createElement("a"); a.href = u; a.target = "_blank"; a.rel = "noopener"; a.textContent = t; el.append(a); }
+    else el.append(t); });
+  if (sis.length > 3) el.append(` and ${sis.length - 3} more`);
+  return el;
+}
+let detailFor = "";
+function closeDetail() {
+  detail.classList.remove("on"); detailFor = ""; const had = selId >= 0; selId = -1; follow = false;
+  map.setFilter("sel", ["==", ["get", "id"], -1]); if (had) draw(); saveHash();
+}
+function showUnit(id, open) {
+  if (!cur || !UNITS[id]) return;
+  const Y = cur.Y, u = UNITS[id], day = cur.day, changed = selId !== id;
+  selId = id; map.setFilter("sel", ["==", ["get", "id"], id]);
+  if (changed) { draw(); saveHash(); }
+  if (!open && !detail.classList.contains("on")) return;
+  const segs = Y.seg[id] || [], p = locate(segs, day, Y), key = id + "|" + Y.year;
+  if (detailFor !== key) {
+    detailFor = key;
+    const y0 = dayOf(Y.year, 1, 1), y1 = dayOf(Y.year, 12, 31), rows = [];
+    let last = null;
+    segs.forEach(s => { if (s[1] < y0 || s[0] > y1) return;
+      const f = Y.fixes[s[2]], lab = Y.labels[f[3]], si = f[5] ?? -1;
+      if (last && last.lab === lab && s[0] - last.d1 <= 3) { last.d1 = Math.min(s[1], y1); if (!last.si.includes(si)) last.si.push(si); return; }
+      last = {d0: Math.max(s[0], y0), d1: Math.min(s[1], y1), lab, si: [si], est: f[4] >= 2}; rows.push(last); });
+    detail.innerHTML = `<button class="close" id="dx">Close</button><h2></h2><div class="meta"></div><div class="now"></div>
+      <label class="row"><input type="checkbox" id="follow"> Follow it on the map</label><ol></ol>`;
+    detail.querySelector("h2").textContent = u[0];
+    const nr = rows.filter(r => !r.est).length;
+    detail.querySelector(".meta").textContent = `${u[1] ? "Confederate" : "Union"}${u[2] ? " · " + u[2] : ""} · ${nr} placement${nr === 1 ? "" : "s"} in ${Y.year}` +
+      (rows.length > nr ? `, ${rows.length - nr} estimated` : "");
+    const ol = detail.querySelector("ol");
+    rows.forEach(r => { const li = document.createElement("li"); li.dataset.d0 = r.d0; li.dataset.d1 = r.d1; if (r.est) li.className = "est";
+      li.append(`${rng(r.d0, r.d1)}: ${r.est ? "estimated, " : ""}${r.lab}`); if (!r.est) li.append(srcEl(Y, r.si, false)); ol.appendChild(li); });
+    const fb = detail.querySelector("#follow"); fb.checked = follow;
+    fb.onchange = () => { follow = fb.checked; if (follow) center(); };
+    detail.querySelector("#dx").onclick = closeDetail;
+    detail.classList.add("on");
+    setTimeout(() => { const c = ol.querySelector("li.cur"); if (c) ol.scrollTop = c.offsetTop - ol.offsetTop - 40; }, 0);
+  }
+  const now = detail.querySelector(".now"); now.textContent = "";
+  const b = document.createElement("b"); b.textContent = fmt(day); now.append(b, ": ");
+  if (p) now.append(STATE[p[4]] + p[3], srcEl(Y, p[5], p[4] === 4)); else now.append("no position in the sources near this day");
+  detail.querySelectorAll("ol li").forEach(li => li.classList.toggle("cur", +li.dataset.d0 <= day && day <= +li.dataset.d1));
+  if (follow) center();
+}
+function center() {
+  const f = cur && cur.fc.features.find(f => f.properties.id === selId);
+  if (f) map.easeTo({center: f.geometry.coordinates, duration: reduce ? 0 : 300});
+}
+function showGroup(p) {
+  detailFor = "group"; selId = -1; follow = false; map.setFilter("sel", ["==", ["get", "id"], -1]);
+  detail.innerHTML = `<button class="close" id="dx">Close</button><h2></h2><div class="meta"></div><ol></ol>`;
+  detail.querySelector("h2").textContent = p.name;
+  detail.querySelector(".meta").textContent = p.meta || `${p.side ? "Confederate" : "Union"} brigade · ${p.n} regiments here on ${fmt(cur.day)}`;
+  const ol = detail.querySelector("ol");
+  String(p.ids).split(",").filter(Boolean).map(Number).sort((a, b) => UNITS[a][0].localeCompare(UNITS[b][0], undefined, {numeric: true})).forEach(id => {
+    const li = document.createElement("li"), bt = document.createElement("button"); bt.className = "mem"; bt.textContent = UNITS[id][0];
+    bt.onclick = () => { detailFor = ""; showUnit(id, true); }; li.appendChild(bt); ol.appendChild(li); });
+  detail.querySelector("#dx").onclick = closeDetail;
+  detail.classList.add("on");
+}
+map.on("click", e => {      // one handler: a unit dot first, then a brigade circle, then a trail
+  const box = [[e.point.x - 4, e.point.y - 4], [e.point.x + 4, e.point.y + 4]], hit = l => map.getLayer(l) ? map.queryRenderedFeatures(box, {layers: [l]})[0] : null;
+  const u = hit("units"); if (u) { detailFor = ""; showUnit(u.properties.id, true); return; }
+  const g = hit("groups"); if (g) { showGroup(g.properties); return; }
+  const t = hit("trail-heads") || hit("trails") || hit("trails-est") || hit("trails-jump"); if (!t) return;
+  const p = t.properties, ids = String(p.ids).split(",").filter(Boolean).map(Number);
+  if (ids.length === 1) { detailFor = ""; showUnit(ids[0], true); return; }
+  showGroup({name: `${p.from} → ${p.to}`, side: p.side, n: ids.length, ids: ids.join(","),
+    meta: `${ids.length} ${p.side ? "Confederate" : "Union"} units on the same route, ${p.km} km, ${md(Math.max(0, cur.day - span))} to ${md(cur.day)}`});
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape" && detail.classList.contains("on") && document.activeElement !== q) closeDetail(); });
+
+// ---- find a unit: jump to the nearest day it has a position, fly there, open its detail
+async function findDay(id, day) {
+  const y = yearOf(day), years = [1861, 1862, 1863, 1864, 1865].sort((a, b) => Math.abs(a - y) - Math.abs(b - y));
+  for (const yy of years) {
+    const Y = await year(yy), segs = Y.seg[id]; if (!segs) continue;
+    if (yy === y && locate(segs, day, Y)) return day;
+    const y0 = dayOf(yy, 1, 1), y1 = dayOf(yy, 12, 31);
+    let best = null;
+    for (const real of [true, false]) {
+      for (const s of segs) { if ((Y.fixes[s[2]][4] < 2) !== real) continue;
+        const c = Math.min(Math.max(day, s[0], y0), s[1], y1); if (c < s[0] || c > s[1]) continue;
+        if (best === null || Math.abs(c - day) < Math.abs(best - day)) best = c; }
+      if (best !== null) return best;
+    }
+  }
+  return null;
+}
+async function goTo(id) {
+  const d = await findDay(id, +slider.value);
+  if (d === null) return false;
+  const side = UNITS[id][1] ? "conf" : "union";
+  if (!show[side]) document.getElementById(side === "conf" ? "f-conf" : "f-union").click();
+  setDay(d); detailFor = ""; selId = id; await render();
+  const f = cur.fc.features.find(f => f.properties.id === id);
+  if (f) map.flyTo({center: f.geometry.coordinates, zoom: Math.max(map.getZoom(), GROUP_ZOOM + 0.6), duration: reduce ? 0 : 1200});
+  showUnit(id, true);
+  return true;
+}
+const q = document.getElementById("q"), qres = document.getElementById("qres");
+const norm = s => s.toLowerCase().replace(/(\d+)(st|nd|rd|th|d)\b/g, "$1").replace(/[^a-z0-9]+/g, " ").trim();
+let INDEX = null, hits = [], hi = -1;
+function search() {
+  INDEX ||= Object.entries(UNITS).map(([id, u]) => [+id, u[0], " " + norm(u[0]), u[1]]);
+  const t = norm(q.value); qres.innerHTML = ""; hits = []; hi = -1;
+  if (!t) { q.setAttribute("aria-expanded", "false"); return; }
+  const toks = t.split(" ");
+  hits = INDEX.filter(e => toks.every(k => e[2].includes(" " + k)))
+    .sort((a, b) => (a[2].startsWith(" " + t) ? 0 : 1) - (b[2].startsWith(" " + t) ? 0 : 1) || a[1].length - b[1].length).slice(0, 12);
+  hits.forEach((e, i) => { const li = document.createElement("li"); li.id = "qr" + i; li.setAttribute("role", "option");
+    const sw = document.createElement("span"); sw.className = "sw"; sw.style.background = e[3] ? "var(--conf)" : "var(--union)";
+    const sm = document.createElement("small"); sm.textContent = e[3] ? "Confederate" : "Union";
+    li.append(sw, e[1], sm); li.onmousedown = ev => { ev.preventDefault(); pick(i); }; qres.appendChild(li); });
+  if (!hits.length) { const li = document.createElement("li"); li.textContent = "No unit by that name"; li.style.color = "var(--muted)"; qres.appendChild(li); }
+  q.setAttribute("aria-expanded", "true");
+}
+function mark(i) { hi = i; [...qres.children].forEach((li, k) => li.setAttribute("aria-selected", k === i)); q.setAttribute("aria-activedescendant", i >= 0 ? "qr" + i : "");
+  if (i >= 0) qres.children[i].scrollIntoView({block: "nearest"}); }
+async function pick(i) {
+  const e = hits[i]; if (!e) return;
+  q.value = e[1]; qres.innerHTML = ""; q.setAttribute("aria-expanded", "false"); q.blur();
+  if (!await goTo(e[0])) { q.value = ""; q.placeholder = `${e[1]}: no positions in the sources`; }
+}
+q.addEventListener("input", search);
+q.addEventListener("keydown", e => {
+  if (e.key === "ArrowDown" && hits.length) { e.preventDefault(); mark(Math.min(hits.length - 1, hi + 1)); }
+  else if (e.key === "ArrowUp" && hits.length) { e.preventDefault(); mark(Math.max(0, hi - 1)); }
+  else if (e.key === "Enter") { e.preventDefault(); pick(hi >= 0 ? hi : 0); }
+  else if (e.key === "Escape") { q.value = ""; search(); }
+});
+q.addEventListener("blur", () => setTimeout(() => { qres.innerHTML = ""; q.setAttribute("aria-expanded", "false"); }, 150));
+
+// ---- shareable state in the address: #day=1863-07-02&unit=123&map=zoom/lat/lon
+function saveHash() {
+  if (!cur) return;
+  const c = map.getCenter(), h = new URLSearchParams({day: dayDate(+slider.value).toISOString().slice(0, 10)});
+  if (selId >= 0) h.set("unit", selId);
+  if (span) h.set("span", span);
+  if (W1 - W0 < NDAYS - 1) h.set("tl", W0 + "-" + W1);
+  h.set("map", `${map.getZoom().toFixed(2)}/${c.lat.toFixed(4)}/${c.lng.toFixed(4)}`);
+  history.replaceState(null, "", "#" + h.toString().replace(/%2F/g, "/"));
+}
+async function loadHash() {
+  const h = new URLSearchParams(location.hash.slice(1));
+  const m = /^(\d{4})-(\d\d)-(\d\d)$/.exec(h.get("day") || "");
+  const tl = (h.get("tl") || "").split("-").map(Number);
+  if (tl.length === 2 && tl.every(Number.isFinite)) setWindow(tl[0], tl[1]);
+  if (m) setDay(dayOf(+m[1], +m[2], +m[3]));
+  if (+h.get("span") > 0) setSpan(+h.get("span"));
+  const v = (h.get("map") || "").split("/").map(Number);
+  if (v.length === 3 && v.every(Number.isFinite)) map.jumpTo({zoom: v[0], center: [v[2], v[1]]});
+  const u = +h.get("unit"); if (h.has("unit") && UNITS[u]) selId = u;
+}
+// ---- zoomable timeline: the slider covers the window [W0, W1]; the tick row picks days and intervals
+let W0 = 0, W1 = NDAYS - 1, span = 0;
+const MIN_W = 10, ticksEl = document.getElementById("ticks"), band = document.getElementById("band");
+function setWindow(a, b) {
+  const w = Math.round(Math.max(MIN_W, Math.min(NDAYS - 1, b - a)));
+  W0 = Math.round(Math.max(0, Math.min(a, NDAYS - 1 - w))); W1 = W0 + w;
+  const v = +slider.value; slider.min = W0; slider.max = W1; slider.value = Math.min(W1, Math.max(W0, v));
+  const zoomed = W1 - W0 < NDAYS - 1;
+  ["tz-l", "tz-r", "tz-all"].forEach(i => document.getElementById(i).hidden = !zoomed);
+  ticks(); drawBand();
+  return +slider.value !== v;
+}
+function setDay(d) {
+  d = Math.round(Math.max(0, Math.min(NDAYS - 1, d)));
+  if (d < W0 || d > W1) { const w = W1 - W0; setWindow(d - w / 2, d + w / 2); }
+  slider.value = d;
+}
+function zoomTimeline(f, c) {
+  c ??= +slider.value; const w = (W1 - W0) * f;
+  if (setWindow(c - (c - W0) * f, c - (c - W0) * f + w)) render();
+}
+function panTimeline(frac) { const w = W1 - W0; if (setWindow(W0 + w * frac, W1 + w * frac)) render(); }
+const dayAtX = x => { const r = ticksEl.getBoundingClientRect(); return Math.round(Math.max(W0, Math.min(W1, W0 + (x - r.left) / r.width * (W1 - W0)))); };
+function ticks() {
+  ticksEl.querySelectorAll("span").forEach(s => s.remove());
+  const w = W1 - W0, perPx = w / (ticksEl.clientWidth || 800);
+  const steps = [[1, "d"], [2, "d"], [7, "d"], [14, "d"], [1, "m"], [3, "m"], [6, "m"], [12, "m"]];
+  const [n, unit] = steps.find(([k, u]) => (u === "d" ? k : k * 30.4) / perPx >= 62) || [12, "m"];
+  const out = [];
+  if (unit === "d") { for (let d = Math.ceil(W0 / n) * n; d <= W1; d += n) out.push(d); }
+  else { const a = dayDate(W0); for (let y = a.getUTCFullYear(), m = a.getUTCMonth(); y <= 1865; m++) { if (m > 11) { m = 0; y++; } if (y > 1865) break;
+    const d = dayOf(y, m + 1, 1); if (d > W1) break; if (d >= W0 && m % n === 0) out.push(d); } }
+  out.forEach((d, i) => { const s = document.createElement("span"), t = dayDate(d);
+    s.style.left = (100 * (d - W0) / Math.max(1, w)) + "%";
+    s.textContent = unit === "m" ? (t.getUTCMonth() === 0 ? String(t.getUTCFullYear()) : SHORT[t.getUTCMonth()] + (n < 12 && i === 0 ? " " + t.getUTCFullYear() : ""))
+      : md(d) + (i === 0 || (t.getUTCMonth() === 0 && t.getUTCDate() <= n) ? " " + t.getUTCFullYear() : "");
+    ticksEl.appendChild(s); });
+}
+function drawBand(d0, d1) {
+  if (d0 === undefined) { if (!span) { band.style.display = "none"; return; } d1 = +slider.value; d0 = Math.max(0, d1 - span); }
+  const w = Math.max(1, W1 - W0), a = Math.max(d0, W0), b = Math.min(d1, W1);
+  if (b < a) { band.style.display = "none"; return; }
+  band.style.display = "block"; band.style.left = (100 * (a - W0) / w) + "%"; band.style.width = Math.max(0.4, 100 * (b - a) / w) + "%";
+}
+const spanSel = document.getElementById("span");
+function setSpan(n) {
+  span = Math.max(0, Math.round(n));
+  const opt = [...spanSel.options].find(o => +o.value === span && o.id !== "span-c"), c = document.getElementById("span-c");
+  if (opt || !span) { spanSel.value = String(span); c.hidden = true; }
+  else { c.hidden = false; c.value = String(span); c.textContent = `Trails: ${span} days`; spanSel.value = c.value; }
+}
+spanSel.addEventListener("change", () => { setSpan(+spanSel.value); render(); });
+let drag = null;
+ticksEl.addEventListener("pointerdown", e => { drag = {x: e.clientX, d: dayAtX(e.clientX), moved: false}; ticksEl.setPointerCapture(e.pointerId); });
+ticksEl.addEventListener("pointermove", e => { if (!drag) return; if (Math.abs(e.clientX - drag.x) > 5) drag.moved = true;
+  if (drag.moved) { const d = dayAtX(e.clientX); drawBand(Math.min(d, drag.d), Math.max(d, drag.d)); } });
+ticksEl.addEventListener("pointerup", e => { if (!drag) return; const d = dayAtX(e.clientX), a = Math.min(d, drag.d), b = Math.max(d, drag.d);
+  if (drag.moved && b > a) { setSpan(b - a); setDay(b); } else setDay(d);
+  drag = null; render(); });
+ticksEl.addEventListener("pointercancel", () => { drag = null; drawBand(); });
+document.getElementById("bar").addEventListener("wheel", e => { e.preventDefault();
+  if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) panTimeline(e.deltaX / 600);
+  else zoomTimeline(Math.exp(e.deltaY * 0.0015), dayAtX(e.clientX)); }, {passive: false});
+document.getElementById("tz-in").onclick = () => zoomTimeline(0.5);
+document.getElementById("tz-out").onclick = () => zoomTimeline(2);
+document.getElementById("tz-l").onclick = () => panTimeline(-0.5);
+document.getElementById("tz-r").onclick = () => panTimeline(0.5);
+document.getElementById("tz-all").onclick = () => { setWindow(0, NDAYS - 1); render(); };
+addEventListener("resize", () => ticks());
+
+// ---- trails: each unit's route over the interval, with an arrowhead where it ended; units on the same route share one line
+const kmOf = pts => pts.slice(1).reduce((a, p, i) => { const q = pts[i], c = Math.cos(p[1] * Math.PI / 180);
+  return a + Math.hypot((p[0] - q[0]) * c, p[1] - q[1]) * 111; }, 0);
+async function trailData(day) {
+  const d0 = Math.max(0, day - span), k = Math.min(span, 40), days = [];
+  for (let i = 0; i <= k; i++) days.push(Math.round(d0 + (day - d0) * i / k));
+  const yrs = {}; for (const d of days) yrs[yearOf(d)] ||= await year(yearOf(d));
+  const Ye = yrs[yearOf(day)], paths = {};
+  for (const id of Object.keys(Ye.seg)) {
+    const u = UNITS[id]; if (!u || (u[1] === 0 ? !show.union : !show.conf)) continue;
+    const pts = [], pday = []; let est = false, first = null, last = null;
+    for (const d of days) { const Y = yrs[yearOf(d)], s = Y.seg[id], p = s && locate(s, d, Y); if (!p) continue;
+      if (p[4] === 4 || p[4] === 2) { if (!show.est) continue; est = true; }
+      const q = [Math.round(p[1] * 200) / 200, Math.round(p[0] * 200) / 200];   // ~500 m grid: units moving together share a route
+      if (!pts.length || q[0] !== pts[pts.length - 1][0] || q[1] !== pts[pts.length - 1][1]) { pts.push(q); pday.push([d, d]); }
+      else pday[pday.length - 1][1] = d;
+      first ??= p[3]; last = p[3]; }
+    if (pts.length < 2) continue;
+    const km = kmOf(pts); if (km < 8) continue;
+    const key = u[1] + "|" + pts.join(";"), r = (paths[key] ||= {pts, pday, side: u[1], est: false, ids: [], km, first, last});
+    r.ids.push(+id); if (est) r.est = true;
+  }
+  const lines = [], heads = [], moved = [0, 0];
+  Object.values(paths).sort((a, b) => a.ids.length - b.ids.length).forEach(r => {
+    moved[r.side] += r.ids.length;
+    const props = {side: r.side, n: r.ids.length, est: r.est ? 1 : 0, ids: "," + r.ids.join(",") + ",", km: Math.round(r.km),
+      from: (r.first || "").replace(/ -> .*/, ""), to: (r.last || "").replace(/.* -> /, "")};
+    // a step faster than a march (over 50 km a day: rail, steamer, or a bad placement) is drawn apart, faint
+    let run = [r.pts[0]], jump = null;
+    const flush = () => { if (run.length > 1) lines.push({type: "Feature", properties: {...props, jump: jump ? 1 : 0}, geometry: {type: "LineString", coordinates: run}}); };
+    for (let i = 1; i < r.pts.length; i++) {
+      const j = kmOf([r.pts[i - 1], r.pts[i]]) / Math.max(1, r.pday[i][0] - r.pday[i - 1][1]) > 50;
+      if (jump !== null && j !== jump) { flush(); run = [r.pts[i - 1]]; }
+      jump = j; run.push(r.pts[i]);
+    }
+    flush();
+    const [a, b] = r.pts.slice(-2), c = Math.cos(b[1] * Math.PI / 180);
+    heads.push({type: "Feature", properties: {...props, brg: Math.atan2((b[0] - a[0]) * c, b[1] - a[1]) * 180 / Math.PI},
+      geometry: {type: "Point", coordinates: b}});
+  });
+  return {lines: {type: "FeatureCollection", features: lines}, heads: {type: "FeatureCollection", features: heads}, moved};
+}
+const EMPTY = {type: "FeatureCollection", features: []};
+async function drawTrails(day, t) {
+  const mv = document.getElementById("moved");
+  if (!map.getSource("trails")) return;
+  if (!span) { map.getSource("trails").setData(EMPTY); map.getSource("trailheads").setData(EMPTY); mv.textContent = ""; return; }
+  const r = await trailData(day); if (t !== ticket) return;
+  map.getSource("trails").setData(r.lines); map.getSource("trailheads").setData(r.heads);
+  mv.textContent = `Trails: ${r.moved[0] + r.moved[1]} units moved 8 km or more from ${md(Math.max(0, day - span))} to ${md(day)}` +
+    ` (${r.moved[0]} Union, ${r.moved[1]} Confederate).`;
+}
+function trailLayers() {
+  for (const side of [0, 1]) {
+    const cv = document.createElement("canvas"); cv.width = cv.height = 28; const g = cv.getContext("2d");
+    g.fillStyle = css(side ? "--conf" : "--union"); g.strokeStyle = css("--land"); g.lineWidth = 2;
+    g.beginPath(); g.moveTo(14, 2); g.lineTo(25, 25); g.lineTo(14, 19); g.lineTo(3, 25); g.closePath(); g.stroke(); g.fill();
+    map.addImage("arrow-" + side, g.getImageData(0, 0, 28, 28), {pixelRatio: 2});
+  }
+  map.addSource("trails", {type: "geojson", data: EMPTY}); map.addSource("trailheads", {type: "geojson", data: EMPTY});
+  const width = ["interpolate", ["linear"], ["zoom"], 4, ["+", 0.7, ["*", 0.45, ["sqrt", ["get", "n"]]]], 9, ["+", 1.4, ["*", 0.9, ["sqrt", ["get", "n"]]]]];
+  const color = ["match", ["get", "side"], 0, css("--union"), css("--conf")];
+  map.addLayer({id: "trail-sel", type: "line", source: "trails", filter: ["in", ",-1,", ["get", "ids"]], layout: {"line-cap": "round", "line-join": "round"},
+    paint: {"line-color": css("--ink"), "line-width": ["interpolate", ["linear"], ["zoom"], 4, ["+", 3.7, ["*", 0.45, ["sqrt", ["get", "n"]]]], 9, ["+", 4.4, ["*", 0.9, ["sqrt", ["get", "n"]]]]], "line-opacity": 0.8}}, "units");
+  map.addLayer({id: "trails-jump", type: "line", source: "trails", filter: ["==", ["get", "jump"], 1],
+    paint: {"line-color": color, "line-width": 1, "line-opacity": 0.35, "line-dasharray": [1, 2.5]}}, "units");
+  map.addLayer({id: "trails-est", type: "line", source: "trails", filter: ["all", ["==", ["get", "est"], 1], ["==", ["get", "jump"], 0]], layout: {"line-join": "round"},
+    paint: {"line-color": color, "line-width": width, "line-opacity": 0.4, "line-dasharray": [2, 1.6]}}, "units");
+  map.addLayer({id: "trails", type: "line", source: "trails", filter: ["all", ["==", ["get", "est"], 0], ["==", ["get", "jump"], 0]], layout: {"line-cap": "round", "line-join": "round"},
+    paint: {"line-color": color, "line-width": width, "line-opacity": 0.75}}, "units");
+  map.addLayer({id: "trail-heads", type: "symbol", source: "trailheads", layout: {"icon-image": ["concat", "arrow-", ["to-string", ["get", "side"]]],
+    "icon-rotate": ["get", "brg"], "icon-rotation-alignment": "map", "icon-allow-overlap": true, "icon-ignore-placement": true,
+    "icon-size": ["interpolate", ["linear"], ["get", "n"], 1, 0.75, 9, 1.05, 40, 1.4]},
+    paint: {"icon-opacity": ["case", ["==", ["get", "est"], 1], 0.5, 0.95]}}, "units");
+}
+const TRAIL_LAYERS = ["trails", "trails-est", "trails-jump", "trail-heads"];
+const trailTip = p => `${p.n === 1 ? UNITS[+String(p.ids).split(",")[1]][0] : p.n + " units on the same route"}: ${p.from} → ${p.to}, ${p.km} km${p.est ? " (partly estimated)" : ""}`;
+for (const l of TRAIL_LAYERS) {
+  map.on("mousemove", l, e => { if (!map.queryRenderedFeatures(e.point, {layers: ["units", "groups"]}).length) showTip(e, trailTip(e.features[0].properties)); });
+  map.on("mouseleave", l, () => { tip.style.display = "none"; map.getCanvas().style.cursor = ""; });
+}
+</script>
+</body>
+</html>

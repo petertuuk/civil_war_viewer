@@ -1,0 +1,67 @@
+unit: 21st Ohio Infantry (3 years)
+side: Union
+db_unit: 2195
+same_as: 8110
+organized: 1861-09-19
+ended: 1865-07-25
+ended_how: mustered out
+sources: Dyer's (witness-voted text); "Operations against Hood ... April 29" read as September 29 (Dyer's standard dates for those operations); data/gold/21st_ohio_3yr.json
+complete: yes
+P 1861-11-08 | Ivy Mountain | dyers
+P 1861-11-08/1861-11-09 | Try Mountain and Piketon | dyers
+M 1862-02-10/1862-02-15 | Advance on Bowling Green | dyers
+M 1862-02-22/1862-02-25 | Advance on Nashville | dyers
+M 1862-02-25/1862-03-17 | Occupation of Nashville | dyers
+M 1862-03-17/1862-03-19 | Advance on Murfreesboro | dyers
+M 1862-04-04/1862-04-11 | Advance on Huntsville | dyers
+P 1862-04-11 | Capture of Huntsville | dyers
+P 1862-04-07/1862-04-12 | Pittenger's (Andrews) Raid on Georgia State Railroad | dyers | detachment
+P 1862-05-01 | Near Pulaski | dyers
+P 1862-08-27 | Richland Creek near Pulaski | dyers
+P 1862-09-12/1862-11-07 | Siege of Nashville | dyers
+P 1862-11-08 | Murfreesboro Road | dyers
+M 1862-12-26/1862-12-30 | Advance on Murfreesboro | dyers
+P 1862-12-30/1863-01-03 | Battle of Stones River | dyers
+P 1863-06-23/1863-07-07 | Tullahoma Campaign | dyers
+P 1863-08-16/1863-09-22 | Chickamauga Campaign | dyers
+P 1863-09-11 | Davis Cross Roads or Dug Gap | dyers
+P 1863-09-19/1863-09-21 | Battle of Chickamauga | dyers
+P 1863-09-24/1863-11-23 | Siege of Chattanooga | dyers
+P 1863-11-23/1863-11-27 | Chattanooga-Ringgold Campaign | dyers
+P 1863-11-23/1863-11-24 | Orchard Knob | dyers
+P 1863-11-25 | Missionary Ridge | dyers
+P 1863-11-26/1863-11-27 | Pursuit to Graysville | dyers
+P 1863-11-26 | Rossville Gap | dyers
+P 1864-02-22/1864-02-27 | Reconnaissance of Dalton | dyers | non-veterans
+P 1864-02-23/1864-02-25 | Rocky Face Ridge and Buzzard's Roost Gap | dyers | non-veterans
+P 1864-05-01/1864-09-08 | Atlanta Campaign | dyers
+P 1864-05-08/1864-05-11 | Demonstrations on Rocky Face Ridge | dyers
+P 1864-05-08/1864-05-09 | Buzzard's Roost Gap | dyers
+P 1864-05-14/1864-05-15 | Battle of Resaca | dyers
+M 1864-05-18/1864-05-25 | Advance on Dallas | dyers
+P 1864-05-25/1864-06-05 | Operations on line of Pumpkin Vine Creek (Dallas, New Hope Church, Allatoona Hills) | dyers
+P 1864-06-10/1864-07-02 | Operations about Marietta and against Kennesaw Mountain | dyers
+P 1864-06-11/1864-06-14 | Pine Hill | dyers
+P 1864-06-15/1864-06-17 | Lost Mountain | dyers
+P 1864-06-27 | Assault on Kennesaw | dyers
+P 1864-07-04 | Ruff's Station | dyers
+P 1864-07-05/1864-07-17 | Chattahoochee River | dyers
+P 1864-07-09/1864-07-11 | Vining Station | dyers
+P 1864-07-19/1864-07-20 | Peachtree Creek | dyers
+P 1864-07-22/1864-08-25 | Siege of Atlanta | dyers
+P 1864-08-05/1864-08-07 | Utoy Creek | dyers
+M 1864-08-25/1864-08-30 | Flank movement on Jonesboro | dyers
+P 1864-09-29/1864-11-03 | Operations against Hood in North Georgia and North Alabama | dyers | printed "April 29"
+P 1864-10-02 | Near Atlanta | dyers
+P 1864-11-15/1864-12-10 | March to the Sea | dyers
+P 1864-12-11 | Jacksonboro | dyers
+P 1864-12-10/1864-12-21 | Siege of Savannah | dyers
+P 1865-01/1865-04 | Campaign of the Carolinas | dyers
+P 1865-03-16 | Averasboro (Taylor's Hole Creek) | dyers
+P 1865-03-19/1865-03-21 | Battle of Bentonville | dyers
+M 1865-03-24 | Occupation of Goldsboro | dyers
+M 1865-04-10/1865-04-14 | Advance on Raleigh | dyers
+M 1865-04-14 | Occupation of Raleigh | dyers
+P 1865-04-26 | Bennett's House (surrender of Johnston) | dyers
+M 1865-04-29/1865-05-19 | March to Washington | dyers
+M 1865-05-24 | Grand Review | dyers

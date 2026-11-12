@@ -1,0 +1,65 @@
+unit: 1st New York Independent Battery Light Artillery (Cowan's)
+side: Union
+db_unit: 1756
+same_as: 7906
+organized: 1861-11-23
+ended: 1865-06-23
+ended_how: mustered out
+sources: Dyer's (witness-voted text)
+complete: yes
+P 1862-04-05 | Lee's Mills | dyers
+P 1862-04-05/1862-05-04 | Siege of Yorktown | dyers
+P 1862-04-16 | Lee's Mills (second) | dyers
+P 1862-05-05 | Battle of Williamsburg | dyers
+P 1862-06-25/1862-07-01 | Seven Days Battles | dyers
+P 1862-06-27 | Gaines' Mill | dyers
+P 1862-06-28 | Golding's Farm | dyers
+P 1862-06-29 | Savage Station | dyers
+P 1862-06-30 | White Oak Swamp and Glendale | dyers
+P 1862-07-01 | Malvern Hill | dyers
+P 1862-09-06/1862-09-22 | Maryland Campaign | dyers
+P 1862-09-14 | Crampton's Pass, South Mountain | dyers
+P 1862-09-16/1862-09-17 | Battle of Antietam | dyers
+M 1862-10-29/1862-11-19 | Movement to Falmouth | dyers
+P 1862-12-12/1862-12-15 | Battle of Fredericksburg | dyers
+M 1863-01-20/1863-01-24 | Mud March | dyers
+P 1863-04-27/1863-05-06 | Chancellorsville Campaign | dyers
+P 1863-04-29/1863-05-02 | Operations at Franklin's Crossing | dyers
+P 1863-05-03 | Marye's Heights, Fredericksburg | dyers
+P 1863-05-03/1863-05-04 | Salem Heights | dyers
+P 1863-06-05/1863-06-13 | Deep Run Ravine | dyers
+P 1863-07-02/1863-07-04 | Battle of Gettysburg | dyers
+P 1863-07-05 | Near Fairfield | dyers
+P 1863-10-09/1863-10-22 | Bristoe Campaign | dyers
+M 1863-11-07/1863-11-08 | Advance to line of the Rappahannock | dyers
+P 1863-11-07 | Rappahannock Station | dyers
+P 1863-11-26/1863-12-02 | Mine Run Campaign | dyers
+P 1864-02-27/1864-03-02 | Reconnaissance to Madison Court House | dyers
+P 1864-05-03/1864-06-15 | Campaign from the Rapidan to the James | dyers
+P 1864-05-05/1864-05-07 | Battle of the Wilderness | dyers
+P 1864-05-08/1864-05-21 | Spotsylvania Court House | dyers
+P 1864-05-12 | Assault on the Salient, Bloody Angle | dyers
+P 1864-05-23/1864-05-26 | North Anna River | dyers
+P 1864-05-26/1864-05-28 | Line of the Pamunkey | dyers
+P 1864-05-28/1864-05-31 | Totopotomoy | dyers
+P 1864-06-01/1864-06-12 | Cold Harbor | dyers
+P 1864-06-17/1864-06-19 | Before Petersburg | dyers
+P 1864-06-18/1864-07-09 | Siege of Petersburg | dyers
+P 1864-06-22/1864-06-23 | Jerusalem Plank Road, Weldon Railroad | dyers
+P 1864-07-12/1864-07-13 | Repulse of Early's attack on Washington (Fort Stevens) | dyers
+P 1864-08-07/1864-11-28 | Sheridan's Shenandoah Valley Campaign | dyers
+P 1864-08-12 | Cedar Creek | dyers
+P 1864-08-21 | Charlestown | dyers
+P 1864-08-28/1864-08-29 | Leetown | dyers
+P 1864-09-13 | Opequon Creek | dyers
+P 1864-09-19 | Third Battle of Winchester | dyers
+P 1864-09-22 | Fisher's Hill | dyers
+P 1864-10-19 | Battle of Cedar Creek | dyers
+P 1864-12/1865-04 | Siege of Petersburg (second period) | dyers
+P 1865-03-25 | Fort Fisher, Petersburg | dyers
+P 1865-03-28/1865-04-09 | Appomattox Campaign | dyers
+P 1865-04-02 | Assault and capture of Petersburg | dyers
+P 1865-04-03/1865-04-09 | Pursuit of Lee | dyers
+P 1865-04-06 | Sailor's Creek | dyers
+P 1865-04-07 | High Bridge | dyers
+P 1865-04-09 | Appomattox Court House | dyers

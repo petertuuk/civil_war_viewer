@@ -1,0 +1,13 @@
+# Namesake decisions: order-of-battle placements (Official Records, Wikipedia) linked to one unit that belong to a
+# namesake. Applied by build_db.py to the participated, subordinate_to and commanded claims of matching placements.
+# from_code: NPS code of the unit the claims are linked to now. theater: E / W / * (pipeline/theater.py).
+# date_from / date_to: placement date window (blank = open). brigade: Python regex on the brigade (blank = any).
+# to_code: NPS code to move them to, or UNLINK (wrong namesake, right one unknown: leave the claim without a unit).
+# citation: what decided it (Wikipedia article and revision, or the placements themselves).
+# from_code|theater|date_from|date_to|brigade|to_code|citation|note
+CTN0001RI|E|||(?i)^(?!.*cavalry)|CTN0001RI02|Wikipedia "1st Tennessee Infantry Regiment" rev 1352532323: Western Theater, Maney's Brigade, Army of Tennessee|Virginia placements (Hatton's/Anderson's, Archer's, Heth's, Kirkland's, Walker's, McComb's brigades) are Turney's 1st Tennessee (Provisional Army)
+CTN0001RI|*|||(?i)cavalry|UNLINK|placements: "Williams' Cavalry Brigade" 1863-64 is a cavalry 1st Tennessee|which 1st Tennessee Cavalry is not decided
+CAL0026RI|W||1863-06-06||CAL0050RI|Wikipedia "26th Alabama Infantry Regiment" rev 1380648404: Coltart's 26th Alabama, formed in Mississippi, renumbered 50th Alabama on June 6, 1863|O'Neal's 26th served in Virginia until 1864
+CMS0002RI01|W||||UNLINK|Wikipedia "2nd Mississippi Infantry Regiment" rev 1343287165: Army of Northern Virginia throughout|Western rows (Moore's brigade 1863, Buford's/Gholson's 1864) are other 2nd Mississippi units
+CGA0002RI|W||1863-08-31|(?i)^(?!.*benning)|UNLINK|placements: Benning's brigade (2nd Georgia) went west only with Longstreet, Sep 1863-Apr 1864|Breckinridge's/Wharton's rows 1862-63 are another 2nd Georgia (cavalry or battalion)
+CGA0002RI|W|1864-04-30||(?i)^(?!.*benning)|UNLINK|placements: Benning's brigade was back in Virginia from April 1864|Cumming's/Jackson's brigade rows 1864 are the 2nd Georgia State Troops or 2nd Battalion

@@ -1,0 +1,38 @@
+unit: 54th Massachusetts Infantry (Colored)
+side: Union
+db_unit: 993
+organized: 1863-05-13
+ended: 1865-08-20
+ended_how: mustered out
+sources: Dyer's (witness-voted text)
+complete: yes
+P 1863-06-10/1863-06-11 | Expedition up Altamaha River (Darien) | dyers
+P 1863-07-09/1863-07-16 | Expedition against James Island | dyers
+P 1863-07-13 | Affair Legareville | dyers
+P 1863-07-16 | Secessionville (Grimball's Landing) | dyers
+P 1863-07-18 | Assault on Fort Wagner | dyers
+P 1863-07-18/1863-09-07 | Siege of Forts Wagner and Gregg, Morris Island | dyers
+P 1863-09-07/1864-01-28 | Operations against Fort Sumter and Charleston | dyers
+P 1863-09-07 | Capture of Forts Wagner and Gregg | dyers
+P 1864-02-05/1864-02-07 | Expedition to Jacksonville | dyers
+P 1864-02-06 | Capture of Jacksonville | dyers
+P 1864-02-07/1864-02-22 | Expedition to Lake City | dyers
+P 1864-02-20 | Battle of Olustee | dyers
+P 1864-06-30/1864-07-10 | Expedition to James Island | dyers
+P 1864-07-02/1864-07-10 | Actions on James Island | dyers
+M 1864-09-07/1864-10-20 | Prisoners under fire of Charleston batteries | dyers | six companies
+P 1864-11-29/1864-11-30 | Expedition to Boyd's Neck | dyers
+P 1864-11-29 | Boyd's Landing | dyers
+P 1864-11-30 | Battle of Honey Hill | dyers
+P 1864-12-06/1864-12-09 | Demonstration on Charleston & Savannah Railroad (Deveaux's Neck) | dyers
+M 1865-01-15/1865-02-23 | March to Charleston | dyers | skirmishing all the way
+M 1865-02-18 | Occupation of Charleston | dyers | Cos. B and F
+P 1865-04-05/1865-04-25 | Potter's Expedition to Camden | dyers
+P 1865-04-06 | Seven Mile Bridge | dyers
+P 1865-04-07 | Destruction of Eppes' Bridge, Black River | dyers
+P 1865-04-09 | Dingle's Mills | dyers
+P 1865-04-11 | Wateree Junction | dyers
+P 1865-04-12 | Singleton's Plantation | dyers
+P 1865-04-15 | Statesburg | dyers
+M 1865-04-17 | Occupation of Camden | dyers
+P 1865-04-18 | Boykin's Mills | dyers

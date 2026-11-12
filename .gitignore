@@ -1,0 +1,63 @@
+# Civil War Viewer: what goes in git
+#
+# Tracked: pipeline code, the hand-maintained viewer pages, and hand-made
+# inputs (overrides, decisions, gold answer keys, AI resolutions), the things
+# you can't regenerate. Everything else is either a big downloaded source
+# (re-fetchable) or a pipeline output (rebuilt by pipeline/rebuild.sh).
+
+# ---- Python / OS / editor junk ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# ---- Databases (built by `rebuild.sh db`) ----
+*.db
+*.db-journal
+*.sqlite
+
+# ---- Big source documents in the project root ----
+/08697590_*
+/dyers_compendium.pdf
+/dyers_compendium.txt
+
+# ---- Backups and scratch ----
+*_before_*
+_before_*/
+_to_delete*/
+*.bak
+*.tmp
+
+# ---- data/: ignore everything, then re-include the hand-made inputs ----
+/data/**
+!/data/**/
+!/data/**/README.md
+!/data/gold/**
+!/data/manual/*.psv
+!/data/manual/sample_regiments.json
+!/data/dyers/unit_overrides.jsonl
+!/data/dyers/flag_decisions.jsonl
+!/data/ai/event_resolutions_batch*.psv
+!/data/ai/cluster_keys_v1.jsonl
+!/data/places/place_overrides.csv
+!/data/or/table_overrides.psv
+!/data/or/volumes.json
+!/data/battles/osm_gettysburg_monuments.json
+!/data/wikidata/*.json
+# (the rule above would also re-include old backups; keep them out)
+/data/**/*_before_*
+/data/_before_v2/
+# downloaded third-party sources (acw_battle_data, GNIS, Natural Earth, archive.org texts)
+/data/external/
+
+# ---- viewer/: track templates and the hand-written war page, not built output ----
+/viewer/gettysburg.html
+/viewer/war_template_built.txt
+/viewer/data/
+/viewer/war/data/

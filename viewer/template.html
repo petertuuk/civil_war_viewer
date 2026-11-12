@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>/*MAPLIBRE_CSS*/</style>
+<style>
+:root {
+  /* layout: full-bleed map; date and summary top-left; timeline docked at the bottom; unit detail top-right */
+  --land: #e9ebe4; --water: #b9c9d2; --ink: #1f2a30; --muted: #5c6970; --line: #c9cfcc;
+  --panel: rgba(250, 251, 248, 0.94); --union: #2c5d9b; --conf: #a3402c; --event: #1f2a30;
+  --display: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif; --body: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --land: #232a2c; --water: #142026; --ink: #e6e9e4; --muted: #9aa6a8; --line: #3b4548;
+  --panel: rgba(24, 30, 32, 0.93); --union: #6f9ee0; --conf: #e07a5f; --event: #f2efe6; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --land: #232a2c; --water: #142026; --ink: #e6e9e4; --muted: #9aa6a8; --line: #3b4548;
+  --panel: rgba(24, 30, 32, 0.93); --union: #6f9ee0; --conf: #e07a5f; --event: #f2efe6; color-scheme: dark; }
+html, body { height: 100%; margin: 0; }
+body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); overflow: hidden; }
+#map { position: absolute; inset: 0; }
+.panel { position: absolute; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12); }
+#head { top: 12px; left: 12px; max-width: 330px; display: grid; gap: 6px; }
+#head h1 { margin: 0; font: 600 13px/1.2 var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+#date { font: 600 30px/1.05 var(--display); text-wrap: balance; }
+#sub { color: var(--muted); font-size: 12.5px; }
+.counts { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-variant-numeric: tabular-nums; font-size: 13px; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 500 12px var(--body); border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 999px;
+  padding: 3px 10px; cursor: pointer; }
+.chip[aria-pressed="false"] { opacity: .45; text-decoration: line-through; }
+.chip:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--union); outline-offset: 2px; }
+#legend { font-size: 12px; color: var(--muted); display: grid; gap: 3px; }
+#detail { top: 12px; right: 56px; width: 300px; display: none; gap: 6px; }
+#detail.on { display: grid; }
+#detail h2 { margin: 0; font: 600 17px/1.2 var(--display); }
+#detail .meta { color: var(--muted); font-size: 12.5px; }
+#detail ol { margin: 0; padding-left: 18px; max-height: 210px; overflow: auto; font-size: 12.5px; }
+#detail .close { justify-self: end; border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 13px; }
+#bar { left: 12px; right: 12px; bottom: 12px; display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; align-items: center; }
+#play { font: 600 13px var(--body); border: 1px solid var(--line); background: var(--ink); color: var(--land); border-radius: 4px;
+  padding: 6px 12px; cursor: pointer; min-width: 64px; }
+#slider { width: 100%; accent-color: var(--ink); }
+#ticks { grid-column: 2; position: relative; height: 18px; font: 11px var(--mono); color: var(--muted); }
+#ticks span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+#ticks i { position: absolute; top: -4px; width: 2px; height: 8px; background: var(--event); opacity: .6; }
+.lbl { font: 500 11px var(--body); color: var(--muted); white-space: nowrap; pointer-events: none; text-shadow: 0 0 3px var(--land), 0 0 3px var(--land); }
+.lbl.big { font-weight: 600; color: var(--ink); }
+.ulbl { font: 600 10.5px var(--display); white-space: nowrap; pointer-events: none;
+  text-shadow: 0 0 3px var(--land), 0 0 3px var(--land), 0 0 3px var(--land); }
+.ev { font: 600 12px var(--display); color: var(--event); white-space: nowrap; pointer-events: none;
+  text-shadow: 0 0 3px var(--land), 0 0 3px var(--land), 0 0 3px var(--land); }
+.ev::before { content: "\2605 "; }
+#tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+  padding: 4px 8px; font-size: 12px; display: none; z-index: 5; max-width: 280px; }
+@media (max-width: 640px) { #head { max-width: calc(100% - 24px); } #detail { left: 12px; right: 12px; width: auto; top: auto; bottom: 110px; } #date { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div id="map" aria-label="Map of unit positions"></div>
+<div id="head" class="panel">
+  <h1>__HEADING__</h1>
+  <div id="date">&nbsp;</div>
+  <div class="counts" id="counts"></div>
+  <div class="filters" role="group" aria-label="Show">
+    <button class="chip" id="f-union" aria-pressed="true">Union</button>
+    <button class="chip" id="f-conf" aria-pressed="true">Confederate</button>
+    <button class="chip" id="f-est" aria-pressed="true">Estimated positions</button>
+  </div>
+  <div class="filters" id="focus" role="group" aria-label="Go to"></div>
+  <div id="legend">
+    <div><span class="sw" style="background:var(--union)"></span>Union regiment, battery or company</div>
+    <div><span class="sw" style="background:var(--conf)"></span>Confederate</div>
+    <div>Solid: a source places it there that day. Faint: between two known places, or its last known place.</div>
+    <div>Zoomed in on a battlefield: regiments stand at their monuments, and a brigade's regiments are joined as its line.</div>
+  </div>
+  <div id="sub">__SUB__</div>
+</div>
+<div id="detail" class="panel" aria-live="polite"></div>
+<div id="bar" class="panel">
+  <button id="play" aria-label="Play">Play</button>
+  <input id="slider" type="range" min="0" max="0" value="0" aria-label="Day">
+  <div id="ticks"></div>
+</div>
+<div id="tip"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
+<script>
+const DATA = /*DATA*/;
+const BASE = /*BASEMAP*/;
+const TERRAIN = /*TERRAIN*/;   // [{name, corners, png (data URI), minzoom}]
+const FOCUS = /*FOCUS*/;       // [{name, bounds}] places to jump to
+const START = new Date(DATA.start + "T12:00:00Z");
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const dayDate = i => new Date(START.getTime() + i * 864e5);
+const fmt = i => { const d = dayDate(i); return `${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`; };
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+// a stable spread for units sharing a place: inside the place's precision radius, at most 4 km
+function hash(n) { let x = Math.sin(n * 12.9898) * 43758.5453; return x - Math.floor(x); }
+const off = {};
+DATA.units.forEach(u => { off[u.id] = [hash(u.id), hash(u.id + 7.1)]; });
+const byDay = Array.from({length: DATA.days}, () => []);
+DATA.units.forEach((u, k) => u.track.forEach(t => byDay[t[0]] && byDay[t[0]].push([k, t])));
+
+const show = {union: true, conf: true, est: true};
+function features(day) {
+  const out = [], stack = {};
+  for (const [k, t] of byDay[day] || []) { const key = t[1].toFixed(3) + "," + t[2].toFixed(3); stack[key] = (stack[key] || 0) + 1; }
+  for (const [k, t] of byDay[day] || []) {
+    const u = DATA.units[k];
+    if (u.side === "Union" ? !show.union : !show.conf) continue;
+    if (t[3] > 0 && !show.est) continue;
+    const [h1, h2] = off[u.id];
+    // units at one point spread over a disc that grows with their number: a battlefield of 600 regiments is ~6 km across
+    const n = stack[t[1].toFixed(3) + "," + t[2].toFixed(3)];
+    // a monument or marker (precision under 500 m) is drawn where it stands; other points spread
+    const r = (t[4] <= 500 ? 25 : Math.min(Math.max(Math.min(t[4] || 2000, 3000), 220 * Math.sqrt(n)), 6500)) * Math.sqrt(h1) / 111000;
+    const lat = t[1] + r * Math.sin(2 * Math.PI * h2), lon = t[2] + r * Math.cos(2 * Math.PI * h2) / Math.cos(t[1] * Math.PI / 180);
+    out.push({type: "Feature", geometry: {type: "Point", coordinates: [lon, lat]},
+      properties: {k, side: u.side === "Union" ? 0 : 1, st: t[3], name: u.name, where: t[5], fine: t[4] <= 500 ? 1 : 0}});
+  }
+  return {type: "FeatureCollection", features: out};
+}
+
+const bounds = [[DATA.view[0], DATA.view[1]], [DATA.view[2], DATA.view[3]]];
+const map = new maplibregl.Map({container: "map", bounds, fitBoundsOptions: {padding: 20}, attributionControl: false,
+  style: {version: 8, sources: {}, layers: [{id: "bg", type: "background", paint: {"background-color": css("--water")}}]}});
+map.addControl(new maplibregl.NavigationControl({showCompass: false}), "top-right");
+const attrib = new maplibregl.AttributionControl({compact: true, customAttribution: "Natural Earth; terrain: AWS Terrain Tiles (USGS, SRTM); places: USGS GNIS; monuments: \u00a9 OpenStreetMap contributors (ODbL); Dyer's Compendium, Official Records, Wikipedia, NPS"});
+map.addControl(attrib, "top-right");
+map.once("idle", () => document.querySelectorAll(".maplibregl-ctrl-attrib").forEach(e => e.classList.remove("maplibregl-compact-show")));
+
+const slider = document.getElementById("slider");
+slider.max = DATA.days - 1;
+const labels = [];
+function placeLabels() {
+  labels.forEach(m => m.remove()); labels.length = 0;
+  const z = map.getZoom(), taken = [];
+  BASE.towns.features.forEach((f, i) => {
+    const m = f.properties.mentions;
+    if (i > (z < 7.5 ? 60 : z < 8.5 ? 160 : 400)) return;
+    const p = map.project(f.geometry.coordinates), w = 7 * f.properties.name.length + 8;
+    if (taken.some(q => Math.abs(q.x - p.x) < (q.w + w) / 2 + 4 && Math.abs(q.y - p.y) < 14)) return;   // keep labels apart
+    taken.push({x: p.x + w / 2, y: p.y, w});
+    const el = document.createElement("div"); el.className = "lbl" + (m > 100 ? " big" : ""); el.textContent = f.properties.name;
+    labels.push(new maplibregl.Marker({element: el, anchor: "left", offset: [4, 0]}).setLngLat(f.geometry.coordinates).addTo(map));
+  });
+}
+let evMarkers = [];
+function placeEvents(day) {
+  evMarkers.forEach(m => m.remove()); evMarkers = [];
+  DATA.events.filter(e => e.start <= day && day <= e.end && e.units >= 5).sort((a, b) => b.units - a.units).slice(0, 12).forEach(e => {
+    const el = document.createElement("div"); el.className = "ev"; el.textContent = e.name;
+    evMarkers.push(new maplibregl.Marker({element: el, anchor: "bottom", offset: [0, -6]}).setLngLat([e.lon, e.lat]).addTo(map));
+  });
+}
+// a brigade's regiments placed by monuments on the same day, joined in order along the brigade's long axis
+function brigadeLines(fc) {
+  const groups = {};
+  fc.features.forEach(f => { const u = DATA.units[f.properties.k];
+    if (!f.properties.fine || !u.brig) return; (groups[f.properties.side + "|" + u.brig] ||= []).push(f); });
+  const out = [];
+  for (const [key, fs] of Object.entries(groups)) {
+    if (fs.length < 2) continue;
+    const pts = fs.map(f => f.geometry.coordinates), c = pts[0][1] * Math.PI / 180;
+    const mx = pts.reduce((a, p) => a + p[0], 0) / pts.length, my = pts.reduce((a, p) => a + p[1], 0) / pts.length;
+    let sxx = 0, syy = 0, sxy = 0;
+    pts.forEach(p => { const x = (p[0] - mx) * Math.cos(c), y = p[1] - my; sxx += x * x; syy += y * y; sxy += x * y; });
+    const ang = 0.5 * Math.atan2(2 * sxy, sxx - syy);
+    pts.sort((a, b) => ((a[0] - mx) * Math.cos(c) * Math.cos(ang) + (a[1] - my) * Math.sin(ang)) - ((b[0] - mx) * Math.cos(c) * Math.cos(ang) + (b[1] - my) * Math.sin(ang)));
+    let seg = [pts[0]];
+    const len = q => q.slice(1).reduce((a, p, i) => a + Math.hypot((p[0] - q[i][0]) * Math.cos(c), p[1] - q[i][1]) * 111000, 0);
+    const flush = () => { if (seg.length > 1 && len(seg) < 2000) out.push({type: "Feature", properties: {side: +key[0]}, geometry: {type: "LineString", coordinates: seg}}); };
+    for (let i = 1; i < pts.length; i++) {
+      const d = Math.hypot((pts[i][0] - pts[i - 1][0]) * Math.cos(c), pts[i][1] - pts[i - 1][1]) * 111000;
+      if (d > 500) { flush(); seg = []; }
+      seg.push(pts[i]);
+    }
+    flush();
+  }
+  return {type: "FeatureCollection", features: out};
+}
+let unitMarkers = [];
+function unitLabels(fc) {
+  unitMarkers.forEach(m => m.remove()); unitMarkers = [];
+  if (map.getZoom() < 13.2) return;
+  const b = map.getBounds();
+  fc.features.filter(f => f.properties.fine && b.contains(f.geometry.coordinates)).slice(0, 140).forEach(f => {
+    const el = document.createElement("div"); el.className = "ulbl"; el.textContent = f.properties.name.replace(/ Infantry$/, "");
+    el.style.color = f.properties.side ? "var(--conf)" : "var(--union)";
+    unitMarkers.push(new maplibregl.Marker({element: el, anchor: "left", offset: [6, 0]}).setLngLat(f.geometry.coordinates).addTo(map));
+  });
+}
+function counts(fc) {
+  const c = [[0,0],[0,0]];
+  fc.features.forEach(f => c[f.properties.side][f.properties.st ? 1 : 0]++);
+  document.getElementById("counts").innerHTML =
+    `<span><span class="sw" style="background:var(--union)"></span>Union</span><span>${c[0][0]} placed, ${c[0][1]} estimated</span>` +
+    `<span><span class="sw" style="background:var(--conf)"></span>Confederate</span><span>${c[1][0]} placed, ${c[1][1]} estimated</span>`;
+}
+function render() {
+  const day = +slider.value;
+  document.getElementById("date").textContent = fmt(day);
+  const fc = features(day);
+  if (map.getSource("units")) map.getSource("units").setData(fc);
+  if (map.getSource("lines")) map.getSource("lines").setData(brigadeLines(fc));
+  counts(fc); placeEvents(day); unitLabels(fc);
+}
+map.on("load", () => {
+  map.addSource("states", {type: "geojson", data: BASE.states});
+  map.addSource("rivers", {type: "geojson", data: BASE.rivers});
+  map.addLayer({id: "land", type: "fill", source: "states", paint: {"fill-color": css("--land")}});
+  const dark = css("color-scheme") === "dark" || matchMedia("(prefers-color-scheme: dark)").matches && document.documentElement.dataset.theme !== "light";
+  TERRAIN.forEach((t, i) => {
+    const img = new Image();
+    img.onload = () => {
+      const cv = document.createElement("canvas"); cv.width = img.width; cv.height = img.height;
+      cv.getContext("2d").drawImage(img, 0, 0);
+      map.addSource("terrain" + i, {type: "canvas", canvas: cv, coordinates: t.corners, animate: false});
+      map.addLayer({id: "terrain" + i, type: "raster", source: "terrain" + i, minzoom: t.minzoom || 0,
+        paint: {"raster-opacity": dark ? 0.55 : 0.8, "raster-fade-duration": 0}}, "borders");
+    };
+    img.src = t.png;
+  });
+  map.addLayer({id: "borders", type: "line", source: "states", paint: {"line-color": css("--muted"), "line-width": 0.8, "line-dasharray": [3, 2], "line-opacity": 0.6}});
+  map.addLayer({id: "rivers", type: "line", source: "rivers", paint: {"line-color": css("--water"), "line-width": ["interpolate", ["linear"], ["zoom"], 6, 1, 10, 2.5]}});
+  map.addSource("lines", {type: "geojson", data: {type: "FeatureCollection", features: []}});
+  map.addLayer({id: "lines", type: "line", source: "lines", minzoom: 11.5, layout: {"line-cap": "round", "line-join": "round"},
+    paint: {"line-color": ["match", ["get", "side"], 0, css("--union"), css("--conf")], "line-width": ["interpolate", ["linear"], ["zoom"], 12, 2, 15, 5], "line-opacity": 0.55}});
+  map.addSource("units", {type: "geojson", data: features(0)});
+  map.addLayer({id: "units", type: "circle", source: "units", paint: {
+    "circle-radius": ["interpolate", ["linear"], ["zoom"], 6, 2.2, 9, 3.5, 12, ["case", ["==", ["get", "fine"], 1], 6, 3], 15, ["case", ["==", ["get", "fine"], 1], 8, 3]],
+    "circle-color": ["match", ["get", "side"], 0, css("--union"), css("--conf")],
+    // zoomed into a battlefield, units without a monument or marker fade back so the placed lines read
+    "circle-opacity": ["interpolate", ["linear"], ["zoom"], 11, ["match", ["get", "st"], 0, 0.9, 1, 0.38, 0.2],
+      13, ["case", ["==", ["get", "fine"], 1], ["match", ["get", "st"], 0, 0.95, 0.4], 0.18]],
+    "circle-stroke-width": ["match", ["get", "st"], 0, 0.6, 0], "circle-stroke-color": css("--land")}});
+  map.addLayer({id: "sel", type: "circle", source: "units", filter: ["==", ["get", "k"], -1], paint: {
+    "circle-radius": 9, "circle-color": "rgba(0,0,0,0)", "circle-stroke-width": 2.5, "circle-stroke-color": css("--ink")}});
+  placeLabels(); map.on("moveend", () => { placeLabels(); unitLabels(features(+slider.value)); });
+  ticks(); render();
+});
+function ticks() {
+  const el = document.getElementById("ticks"); el.innerHTML = "";
+  for (let i = 0; i < DATA.days; i++) {
+    const d = dayDate(i);
+    if (d.getUTCDate() === 1 || i === 0) { const s = document.createElement("span"); s.style.left = (100 * i / (DATA.days - 1)) + "%"; s.textContent = MONTHS[d.getUTCMonth()].slice(0, 3) + " " + d.getUTCDate(); el.appendChild(s); }
+  }
+  DATA.events.filter(e => e.units >= 40).forEach(e => { const t = document.createElement("i"); t.style.left = (100 * Math.max(0, e.start) / (DATA.days - 1)) + "%"; t.title = e.name; el.appendChild(t); });
+}
+slider.addEventListener("input", render);
+const fbox = document.getElementById("focus");
+[{name: "Whole campaign", bounds: DATA.view}, ...FOCUS].forEach(f => { const b = document.createElement("button");
+  b.className = "chip"; b.textContent = f.name; b.onclick = () => map.fitBounds([[f.bounds[0], f.bounds[1]], [f.bounds[2], f.bounds[3]]], {padding: 30});
+  fbox.appendChild(b); });
+let timer = null;
+const playBtn = document.getElementById("play");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+playBtn.addEventListener("click", () => {
+  if (timer) { clearInterval(timer); timer = null; playBtn.textContent = "Play"; return; }
+  if (+slider.value >= DATA.days - 1) slider.value = 0;
+  playBtn.textContent = "Pause";
+  timer = setInterval(() => { if (+slider.value >= DATA.days - 1) { playBtn.click(); return; } slider.value = +slider.value + 1; render(); }, reduce ? 900 : 450);
+});
+[["f-union","union"],["f-conf","conf"],["f-est","est"]].forEach(([id, k]) => document.getElementById(id).addEventListener("click", e => {
+  show[k] = !show[k]; e.currentTarget.setAttribute("aria-pressed", show[k]); render(); }));
+const tip = document.getElementById("tip");
+map.on("mousemove", "units", e => { const p = e.features[0].properties; tip.style.display = "block";
+  tip.style.left = (e.point.x + 12) + "px"; tip.style.top = (e.point.y + 12) + "px";
+  tip.textContent = `${p.name} — ${p.st == 0 ? "" : p.st == 1 ? "between " : "last known: "}${p.where}`; map.getCanvas().style.cursor = "pointer"; });
+map.on("mouseleave", "units", () => { tip.style.display = "none"; map.getCanvas().style.cursor = ""; });
+const detail = document.getElementById("detail");
+map.on("click", "units", e => {
+  const k = e.features[0].properties.k, u = DATA.units[k];
+  map.setFilter("sel", ["==", ["get", "k"], k]);
+  const seen = []; let last = null;
+  u.track.forEach(t => { if (t[3] === 0 && t[5] !== last) { seen.push(`${fmt(t[0]).replace(/, \d{4}$/, "")}: ${t[5]}`); last = t[5]; } });
+  detail.innerHTML = `<button class="close" id="dx">Close</button><h2></h2><div class="meta"></div><ol></ol>`;
+  detail.querySelector("h2").textContent = u.name;
+  detail.querySelector(".meta").textContent = `${u.side}${u.branch ? " · " + u.branch : ""} · ${seen.length} placements in this window`;
+  const ol = detail.querySelector("ol"); seen.forEach(s => { const li = document.createElement("li"); li.textContent = s; ol.appendChild(li); });
+  detail.classList.add("on");
+  document.getElementById("dx").onclick = () => { detail.classList.remove("on"); map.setFilter("sel", ["==", ["get", "k"], -1]); };
+});
+</script>
+</body>
+</html>

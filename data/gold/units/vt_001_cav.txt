@@ -1,0 +1,141 @@
+unit: 1st Vermont Cavalry
+side: Union
+db_unit: 2920
+organized: 1861-11-19
+ended: 1865-08-09
+ended_how: mustered out
+sources: Dyer's (witness-voted text)
+complete: yes
+M 1862-04-16 | Advance up the Valley | dyers
+P 1862-04-17 | Mount Jackson | dyers
+P 1862-04-27 | McGaheysville | dyers | Cos. A, D, K
+P 1862-05-07 | Somerville Heights | dyers | Co. B
+P 1862-05-15/1862-06-17 | Operations in Shenandoah Valley | dyers
+P 1862-05-24 | Middletown | dyers
+P 1862-05-25 | First Battle of Winchester | dyers
+M 1862-05-25/1862-05-26 | Retreat to Williamsport | dyers
+P 1862-06-18/1862-06-19 | Near Winchester | dyers
+P 1862-06-29/1862-06-30 | Reconnaissance from Front Royal to Luray | dyers
+P 1862-06-30 | Luray Court House | dyers
+P 1862-07-12 | Culpeper Court House | dyers
+P 1862-07-17 | Gordonsville | dyers
+P 1862-08-02/1862-08-13 | Orange Court House | dyers | August 2 and 13
+P 1862-08-16/1862-09-02 | Pope's Campaign in Northern Virginia | dyers
+P 1862-08-21/1862-08-23 | Fords of the Rappahannock | dyers
+P 1862-08-21 | Kelly's Ford | dyers
+P 1862-09-01 | Liberty Bridge | dyers
+P 1862-09-05 | Aquia Creek | dyers
+P 1862-09-15 | Conrad's Ferry | dyers
+P 1862-09-21 | Orange Court House (third) | dyers
+P 1862-09-22 | Ashby's Gap | dyers
+P 1862-11-08 | Warrenton | dyers
+P 1862-12-28 | Annandale | dyers
+P 1863-01-09 | Fairfax Court House | dyers
+P 1863-02-06/1863-02-14 | Dranesville | dyers | February 6, 9, 13 and 14
+P 1863-02-16 | Goose Creek | dyers
+P 1863-02-19 | Leesburg | dyers
+P 1863-03-02 | Aldie | dyers
+P 1863-03-17 | Herndon Station | dyers
+P 1863-04-01 | Broad Run, Dranesville | dyers
+P 1863-05-11/1863-05-31 | Warrenton | dyers | May 11, 23 and 31
+P 1863-05-30 | Near Greenwich | dyers
+P 1863-06-30 | Littlestown and Hanover | dyers | printed "Littleton"
+P 1863-07-02 | Hunterstown | dyers
+P 1863-07-03 | Gettysburg | dyers
+P 1863-07-04 | Monterey Gap | dyers
+P 1863-07-05 | Smithsburg | dyers
+P 1863-07-06 | Hagerstown | dyers
+P 1863-07-08 | Boonsboro | dyers
+P 1863-07-11/1863-07-13 | Hagerstown (second) | dyers
+P 1863-07-14 | Falling Waters | dyers
+P 1863-08-25 | King George Court House | dyers
+P 1863-09-01 | Lamb's Creek Church | dyers
+P 1863-09-01/1863-09-03 | Expedition to Port Conway | dyers
+M 1863-09-13/1863-09-17 | Advance from the Rappahannock to the Rapidan | dyers
+P 1863-09-13 | Culpeper Court House | dyers
+P 1863-09-14 | Somerville Ford | dyers
+P 1863-09-21/1863-09-23 | Reconnaissance across the Rapidan | dyers
+P 1863-09-26 | Richard's Ford | dyers
+P 1863-10-09/1863-10-22 | Bristoe Campaign | dyers
+P 1863-10-10 | James City | dyers
+P 1863-10-10 | Bethesda Church | dyers
+P 1863-10-11 | Brandy Station and near Culpeper | dyers
+P 1863-10-14/1863-10-19 | Gainesville | dyers | October 14 and 19
+P 1863-10-17/1863-10-18 | Groveton | dyers
+P 1863-10-19 | Catlett's Station and Buckland's Mills | dyers
+P 1863-11-04 | Falmouth | dyers
+M 1863-11-07/1863-11-08 | Advance to the Rappahannock | dyers
+P 1863-11-26/1863-12-02 | Mine Run Campaign | dyers
+P 1863-11-26 | Morton's Ford | dyers
+P 1863-11-26/1863-11-27 | Raccoon Ford | dyers
+P 1864-02-06/1864-02-07 | Demonstration on the Rapidan | dyers
+P 1864-02-28/1864-03-04 | Kilpatrick's Raid on Richmond | dyers
+P 1864-03-01 | Fortifications of Richmond and near Atlee's | dyers
+P 1864-03-02 | Old Church | dyers
+P 1864-05/1864-06 | Campaign from the Rapidan to the James | dyers
+P 1864-05-04 | Near Chancellorsville | dyers
+P 1864-05-05 | Craig's Meeting House | dyers
+P 1864-05-05/1864-05-07 | Wilderness | dyers | Co. M
+P 1864-05-05/1864-05-08 | Todd's Tavern | dyers
+P 1864-05-08 | Alsop's Farm, Spotsylvania | dyers
+P 1864-05-09/1864-05-24 | Sheridan's Raid to James River | dyers
+P 1864-05-09 | North Anna River | dyers
+P 1864-05-11 | Ground Squirrel Church and Yellow Tavern | dyers
+P 1864-05-12 | Brook Church or Richmond Fortifications | dyers
+P 1864-05-26/1864-05-28 | Line of the Pamunkey | dyers
+P 1864-05-27 | Demonstration on Little River | dyers
+P 1864-05-27 | Salem Church | dyers
+P 1864-05-28/1864-05-31 | Totopotomoy | dyers
+P 1864-05-30 | Ashland | dyers
+P 1864-05-31 | Mechump's Creek | dyers
+P 1864-05-31/1864-06-01 | Cold Harbor | dyers
+P 1864-06-01 | Ashland (second) | dyers
+P 1864-06-02 | Gaines' Mill | dyers
+P 1864-06-02 | Totopotomoy (second) | dyers
+P 1864-06-03 | Haw's Shop | dyers
+P 1864-06-03 | Sumner's Upper Bridge | dyers
+P 1864-06-04 | Salem Church (second) | dyers
+P 1864-06-12 | White Oak Swamp | dyers
+P 1864-06-13 | Riddell's Shop | dyers
+P 1864-06-15 | Malvern Hill | dyers
+P 1864-06-22/1864-06-30 | Wilson's Raid on South Side & Danville Railroad | dyers
+P 1864-06-22 | Ream's Station | dyers
+P 1864-06-23 | Near Nottoway Court House | dyers
+P 1864-06-23 | Black and White Station | dyers
+P 1864-06-25 | Staunton River Bridge or Roanoke Station | dyers
+P 1864-06-28/1864-06-29 | Sappony Church or Stony Creek | dyers
+P 1864-06-29 | Ream's Station (second) | dyers
+P 1864-06/1864-08 | Siege of Petersburg | dyers
+P 1864-08-07/1864-11-28 | Sheridan's Shenandoah Valley Campaign | dyers
+P 1864-08-17 | Winchester | dyers
+P 1864-08-25 | Kearneysville | dyers
+P 1864-09-07 | Near Brucetown and Winchester | dyers
+P 1864-09-19 | Battle of Opequon (Third Winchester) | dyers | printed September 20
+P 1864-09-20 | Near Cedarville | dyers
+P 1864-09-21 | Front Royal | dyers
+P 1864-09-22 | Milford | dyers
+P 1864-09-22 | Fisher's Hill | dyers
+P 1864-09-29 | Waynesboro | dyers
+P 1864-10-07 | Columbia Furnace and Back Road | dyers
+P 1864-10-08/1864-10-09 | Tom's Brook | dyers
+P 1864-10-09 | Mount Olive | dyers
+P 1864-10-19 | Battle of Cedar Creek | dyers
+P 1864-11-10 | Near Kernstown | dyers
+P 1864-11-12 | Newtown and Cedar Creek | dyers
+P 1864-11-22 | Rude's Hill | dyers
+P 1864-12-19/1864-12-22 | Expedition to Lacey Springs | dyers
+P 1864-12-21 | Lacey Springs | dyers
+P 1865-02-27/1865-03-25 | Sheridan's Raid | dyers
+P 1865-03-02 | Waynesboro | dyers
+M 1865-03-02 | Occupation of Staunton | dyers
+M 1865-03-03 | Occupation of Charlottesville | dyers
+P 1865-03-28/1865-04-09 | Appomattox Campaign | dyers
+P 1865-03-30/1865-03-31 | Dinwiddie Court House | dyers
+P 1865-04-01 | Five Forks | dyers
+P 1865-04-02 | Scott's Corners | dyers
+P 1865-04-03 | Namozine Church | dyers
+P 1865-04-06 | Sailor's Creek | dyers
+P 1865-04-08 | Appomattox Station | dyers
+P 1865-04-09 | Appomattox Court House | dyers
+P 1865-04-24/1865-04-29 | Expedition to Danville | dyers
+M 1865-05-23 | Grand Review | dyers

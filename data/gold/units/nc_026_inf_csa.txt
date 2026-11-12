@@ -1,0 +1,38 @@
+unit: 26th North Carolina Infantry
+side: Confederate
+db_unit: 5882
+organized: 1861-08-27
+ended: 1865-04-09
+ended_how: surrendered at Appomattox
+sources: NPS (Crute) history CNC0026RI; Wikipedia "26th North Carolina Infantry Regiment" (engagements listed without dates; dated from the events)
+complete: no
+P 1862-03-14 | Battle of New Bern | nps wiki
+P 1862-06-25/1862-07-01 | Seven Days Battles | nps wiki
+P 1862-06-25 | Oak Grove | wiki
+P 1862-07-01 | Malvern Hill | wiki
+P 1862-11-02 | Rawls' Mill | nps wiki
+? 1862-11 | Little Creek | wiki | undated skirmish near Williamston
+P 1862-12-17 | Goldsborough Bridge | nps
+P 1863-03-13/1863-03-14 | Fort Anderson (New Bern) | wiki
+P 1863-03-30/1863-04-20 | Siege of Washington, N.C. | wiki
+? 1863-04 | Barrington's Ferry | wiki
+P 1863-07-01/1863-07-03 | Battle of Gettysburg | nps wiki
+P 1863-07-06/1863-07-14 | Williamsport / Falling Waters | wiki
+P 1863-10-09/1863-10-22 | Bristoe Campaign | wiki
+P 1863-10-14 | Bristoe Station | nps wiki
+P 1864-05-04/1864-06-24 | Overland Campaign | nps wiki
+P 1864-05-05/1864-05-07 | Battle of the Wilderness | wiki
+P 1864-05-08/1864-05-21 | Spotsylvania Court House | wiki
+? 1864-05-11 | Yellow Tavern | wiki | a cavalry fight; Heth's division was not there
+P 1864-05-23/1864-05-26 | North Anna | wiki
+P 1864-05-31/1864-06-12 | Cold Harbor | nps wiki
+P 1864-06-15/1865-04-02 | Siege of Petersburg | nps wiki
+P 1864-08-18/1864-08-21 | Globe Tavern | wiki
+P 1864-08-25 | Second Ream's Station | wiki
+P 1864-09-30/1864-10-02 | Peebles' Farm (Vaughan Road) | wiki
+P 1864-10-27 | Boydton Plank Road | wiki
+P 1864-12-01 | Stony Creek Raid | wiki
+P 1865-02-05/1865-02-07 | Hatcher's Run | wiki
+P 1865-04-01 | Five Forks | wiki
+P 1865-03-29/1865-04-09 | Appomattox Campaign | nps
+P 1865-04-09 | Appomattox Court House | nps wiki

@@ -1,0 +1,39 @@
+unit: 1st Maine Heavy Artillery
+side: Union
+db_unit: 814
+organized: 1862-08-21
+ended: 1865-09-11
+ended_how: mustered out
+sources: Dyer's (witness-voted text)
+complete: yes
+P 1864-05-18/1864-06-15 | Rapidan Campaign (Overland) | dyers
+P 1864-05-19 | Harris' Farm, Fredericksburg Road | dyers
+P 1864-05-23/1864-05-26 | North Anna | dyers
+P 1864-05-26/1864-05-28 | Line of the Pamunkey | dyers
+P 1864-05-28/1864-05-31 | Totopotomoy | dyers
+P 1864-06-01/1864-06-05 | Cold Harbor | dyers
+P 1864-06-05/1864-06-12 | Barker's Mills | dyers
+P 1864-06-16/1864-06-19 | Before Petersburg | dyers
+P 1864-06-18 | Hare's House, Assault on Petersburg | dyers
+P 1864-06-16/1865-04-02 | Siege of Petersburg | dyers
+P 1864-06-22/1864-06-23 | Weldon Railroad (Jerusalem Plank Road) | dyers
+P 1864-07-27/1864-07-29 | Demonstration on north side of James River | dyers
+P 1864-07-27/1864-07-28 | Deep Bottom | dyers
+P 1864-08-13/1864-08-20 | Demonstration on north side of James River (second) | dyers
+P 1864-08-14/1864-08-18 | Strawberry Plains | dyers
+P 1864-09-30/1864-10-02 | Poplar Springs Church | dyers
+P 1864-10-01 | Yellow House | dyers
+P 1864-10-02 | Squirrel Level Road | dyers
+P 1864-10-27/1864-10-28 | Boydton Plank Road, Hatcher's Run | dyers
+P 1864-12-07/1864-12-12 | Warren's Hicksford Raid | dyers
+P 1865-02-05/1865-02-07 | Hatcher's Run | dyers
+P 1865-03-25 | Armstrong House | dyers
+P 1865-03-28/1865-04-09 | Appomattox Campaign | dyers
+P 1865-03-29 | South Side Railroad | dyers
+P 1865-03-29/1865-03-31 | Boydton Road and White Oak Ridge | dyers
+P 1865-04-02 | Fall of Petersburg | dyers
+P 1865-04-05 | Jetersville | dyers
+P 1865-04-06 | Amelia Springs and Sailor's Creek | dyers
+P 1865-04-07 | Farmville | dyers
+P 1865-04-09 | Appomattox Court House | dyers
+M 1865-05-23 | Grand Review | dyers

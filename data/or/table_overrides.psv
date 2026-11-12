@@ -1,0 +1,36 @@
+# table_id|date_start|date_end|event (event name or Wikidata label)|note
+warofrebellion101unit:8569|1862-04-06|1862-04-07|Battle of Shiloh|Union forces at Pittsburg Landing (first copy of the table)
+warofrebellion112unit:38810|1862-06-25|1862-07-01|Seven Days Battles|Confederate forces around Richmond; date was from context
+warofrebellion123unit:49399|1862-08-16|1862-09-02|Northern Virginia Campaign|Pope's operations, Rapidan to Centreville; was linked to the Peninsula retreat
+warofrebellion162unit:49025|1862-10-08|1862-10-08|Battle of Perryville|Army of the Ohio on the day of Perryville
+warofrebellion191unit:15880|1862-09-14|1862-09-17|Maryland Campaign|Army of the Potomac, South Mountain and Antietam; heading date garbled
+warofrebellion191unit:69731|1862-09-04|1862-09-20|Maryland Campaign|ANV during the Maryland Campaign; date was from context
+warofrebellion201unit:14214|1862-12-26|1863-01-05|Battle of Stones River|Army of the Cumberland; year garbled
+warofrebellion201unit:59586|1862-12-31|1863-01-02|Battle of Stones River|Army of Tennessee at Murfreesboro; date was from context
+warofrebellion242unit:11867|1863-05-18|1863-07-04|Siege of Vicksburg|Union forces operating against Vicksburg
+warofrebellion242unit:28658|1863-05-18|1863-07-04|Siege of Vicksburg|Pemberton's Army of Vicksburg
+warofrebellion251unit:12859|1863-05-01|1863-05-06|Chancellorsville campaign|Army of the Potomac May 1-6 (battle mentions sit inside the campaign cluster)
+warofrebellion251unit:67078|1863-05-01|1863-05-06|Chancellorsville campaign|ANV; date was from context (battle mentions sit inside the campaign cluster)
+warofrebellion272unit:24930|1863-07-01|1863-07-03|Battle of Gettysburg|ANV at Gettysburg; heading has no year
+warofrebellion291unit:18645|1863-10-09|1863-10-22|Bristoe Campaign|Army of the Potomac, Bristoe operations
+warofrebellion291unit:35126|1863-10-09|1863-10-22|Bristoe Campaign|ANV, Bristoe operations
+warofrebellion291unit:57124|1863-11-26|1863-12-02|Battle of Mine Run|Army of the Potomac, Mine Run
+warofrebellion291unit:71615|1863-11-26|1863-12-02|Battle of Mine Run|ANV, Mine Run
+warofrebellion301unit:4723|1863-09-19|1863-09-20|Battle of Chickamauga|Army of the Cumberland
+warofrebellion302unit:905|1863-09-19|1863-09-20|Battle of Chickamauga|Army of Tennessee
+warofrebellion312unit:1908|1863-11-23|1863-11-27|Battles for Chattanooga (Chattanooga-Ringgold)|Grant's forces in the Chattanooga campaign
+warofrebellion312unit:54789|1863-11-23|1863-11-27|Battles for Chattanooga (Chattanooga-Ringgold)|Army of Tennessee at Chattanooga
+warofrebellion361unit:9871|1864-05-04|1864-06-12|Overland Campaign|Forces operating against Richmond under Grant
+warofrebellion361unit:101901|1864-05-04|1864-06-12|Overland Campaign|ANV, Overland Campaign
+warofrebellion381unit:8523|1864-05-01|1864-09-08|Atlanta campaign|Sherman's field forces, Atlanta Campaign
+warofrebellion44unit:3891|1864-11-15|1864-12-21|Sherman's March to the Sea|Sherman's forces, Savannah campaign
+warofrebellion451unit:12961|1864-12-15|1864-12-16|Battle of Nashville|Thomas at Nashville
+warofrebellion451unit:59437|1864-11-21|1864-12-27|Franklin–Nashville campaign|Hood's Army of Tennessee
+warofrebellion461unit:53040|1865-03-29|1865-04-09|Appomattox campaign|Grant's forces, Appomattox campaign
+warofrebellion461unit:121099|1865-03-29|1865-04-09|Appomattox campaign|Lee's forces, Appomattox campaign
+warofrebellion471unit:5880|1865-02-01|1865-04-26|Carolinas Campaign|Sherman's forces, January-April 1865
+warofrebellion471unit:90265|1865-03-01|1865-04-26|Carolinas Campaign|Johnston's forces
+warofrebellion491unit:10445|1865-03-17|1865-04-12|Mobile Campaign|Canby's forces operating against Mobile
+warofrebellion521unit:2215|1862-04-06|1862-04-07|Battle of Shiloh|Confederate army at Shiloh (Supplement copy)
+warofrebellion171unit:30258|1862-10-03|1862-10-04|Second Battle of Corinth|Van Dorn's Army of West Tennessee at Corinth; date was from context (Oct 9)
+warofrebellion383unit:50882|1864-04-30|1864-05-06|Atlanta Campaign|Army of Tennessee on April 30, 1864 (heading); context date was April 1865

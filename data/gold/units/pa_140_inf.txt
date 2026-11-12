@@ -1,0 +1,53 @@
+unit: 140th Pennsylvania Infantry
+side: Union
+db_unit: 2708
+organized: 1862-09-08
+ended: 1865-05-31
+ended_how: mustered out
+sources: Dyer's (witness-voted text)
+complete: yes
+P 1863-04-27/1863-05-06 | Chancellorsville Campaign | dyers
+P 1863-05-01/1863-05-05 | Battle of Chancellorsville | dyers
+P 1863-06-11/1863-07-24 | Gettysburg Campaign | dyers
+P 1863-07-01/1863-07-03 | Battle of Gettysburg | dyers
+P 1863-07-05/1863-07-24 | Pursuit of Lee | dyers
+M 1863-09-13/1863-09-17 | Advance from the Rappahannock to the Rapidan | dyers
+P 1863-10-09/1863-10-22 | Bristoe Campaign | dyers
+P 1863-10-14 | Auburn and Bristoe | dyers
+M 1863-11-07/1863-11-08 | Advance to line of the Rappahannock | dyers
+P 1863-11-26/1863-12-02 | Mine Run Campaign | dyers
+P 1864-02-06/1864-02-07 | Demonstration on the Rapidan | dyers
+P 1864-05-04/1864-06-12 | Rapidan Campaign (Overland) | dyers
+P 1864-05-05/1864-05-07 | Battle of the Wilderness | dyers
+P 1864-05-08 | Corbin's Bridge | dyers
+P 1864-05-08/1864-05-21 | Spotsylvania Court House | dyers
+P 1864-05-10 | Po River | dyers
+P 1864-05-12 | Bloody Angle, assault on the Salient | dyers
+P 1864-05-23/1864-05-26 | North Anna River | dyers
+P 1864-05-26/1864-05-28 | Line of the Pamunkey | dyers
+P 1864-05-28/1864-05-31 | Totopotomoy | dyers
+P 1864-06-01/1864-06-12 | Cold Harbor | dyers
+P 1864-06-16/1864-06-18 | Before Petersburg | dyers
+P 1864-06-16/1865-04-02 | Siege of Petersburg | dyers
+P 1864-06-22/1864-06-23 | Jerusalem Plank Road | dyers
+P 1864-07-27/1864-07-29 | Demonstration north of James River | dyers
+P 1864-07-27/1864-07-28 | Deep Bottom | dyers
+P 1864-07-30 | Mine Explosion (Crater) | dyers | reserve
+P 1864-08-13/1864-08-20 | Demonstration north of James River at Deep Bottom | dyers
+P 1864-08-14/1864-08-18 | Strawberry Plains, Deep Bottom | dyers
+P 1864-08-25 | Ream's Station | dyers
+P 1864-12-09/1864-12-10 | Reconnaissance to Hatcher's Run | dyers
+P 1864-12-09 | Hatcher's Run | dyers
+P 1865-02-05/1865-02-07 | Dabney's Mills, Hatcher's Run | dyers
+P 1865-03-25 | Watkins' House | dyers
+P 1865-03-28/1865-04-09 | Appomattox Campaign | dyers
+P 1865-03-29/1865-03-30 | Hatcher's and Gravelly Runs | dyers
+P 1865-03-31 | Boydton Road and White Oak Road | dyers
+P 1865-04-02 | Sutherland Station | dyers
+P 1865-04-02 | Fall of Petersburg | dyers
+P 1865-04-05 | Flat Creek, near Amelia Court House | dyers
+P 1865-04-06 | Sailor's Creek | dyers
+P 1865-04-07 | High Bridge, Farmville | dyers
+P 1865-04-09 | Appomattox Court House | dyers
+M 1865-05-02/1865-05-12 | March to Washington | dyers
+M 1865-05-24 | Grand Review | dyers

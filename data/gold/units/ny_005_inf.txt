@@ -1,0 +1,32 @@
+unit: 5th New York Infantry (Duryee's Zouaves)
+side: Union
+db_unit: 1812
+organized: 1861-05-09
+ended: 1863-05-14
+ended_how: mustered out
+sources: Dyer's (witness-voted text)
+complete: yes
+P 1861-06-10 | Big Bethel | dyers
+P 1861-11-14/1861-11-22 | Expedition through Accomac and Northampton Counties | dyers
+P 1862-04-15/1862-05-04 | Siege of Yorktown | dyers
+P 1862-05-26 | Reconnaissance to near Hanover Court House | dyers
+P 1862-05-27 | Hanover Court House | dyers
+P 1862-05-27/1862-05-29 | Operations about Hanover Court House | dyers
+P 1862-06-05 | New Bridge | dyers
+P 1862-06-13/1862-06-15 | Operations against Stuart | dyers
+P 1862-06-13 | Old Church | dyers
+P 1862-06-25/1862-07-01 | Seven Days Battles | dyers
+P 1862-06-26 | Battle of Mechanicsville | dyers
+P 1862-06-27 | Battle of Gaines' Mill | dyers
+P 1862-06-30 | White Oak Swamp and Turkey Bend | dyers
+P 1862-07-01 | Malvern Hill | dyers
+P 1862-08-28/1862-09-02 | Pope's Campaign in Northern Virginia | dyers
+P 1862-08-30 | Second Battle of Bull Run | dyers
+P 1862-09-06/1862-09-22 | Maryland Campaign | dyers
+P 1862-09-16/1862-09-17 | Battle of Antietam | dyers
+P 1862-09-20 | Shepherdstown Ford | dyers
+M 1862-10-29/1862-11-19 | Movement to Falmouth | dyers
+P 1862-12-12/1862-12-15 | Battle of Fredericksburg | dyers
+M 1863-01-20/1863-01-24 | Mud March | dyers
+P 1863-04-27/1863-05-06 | Chancellorsville Campaign | dyers
+P 1863-05-01/1863-05-05 | Battle of Chancellorsville | dyers

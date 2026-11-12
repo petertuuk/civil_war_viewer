@@ -1,0 +1,5683 @@
+{
+ "about": "Hand-made sample claims (24th Michigan, 21st Ohio, 26th North Carolina), exported from pipeline/load_sample.py, load_21st_ohio.py and load_26th_nc.py. Entities are described, not keyed: build_db resolves them (pipeline/manual_claims.py).",
+ "sources": {
+  "s1": {
+   "title": "24th Michigan Infantry Regiment timeline",
+   "kind": "website",
+   "url": "https://civilwarintheeast.com/us-regiments-batteries/michigan/24th-michigan/",
+   "fetched_at": "2026-11-11T13:43:59",
+   "public_domain": 0,
+   "notes": "Dated service record following Dyer's Compendium"
+  },
+  "s2": {
+   "title": "A Compendium of the War of the Rebellion (Dyer, 1908)",
+   "kind": "compendium",
+   "citation": "Vol. 3, Michigan infantry",
+   "public_domain": 1
+  },
+  "s3": {
+   "title": "Hand-entered coordinates for schema test",
+   "kind": "manual",
+   "public_domain": 0
+  },
+  "s4": {
+   "title": "Dyer's Compendium, Ohio infantry (generalstaff.org transcription)",
+   "kind": "compendium",
+   "url": "https://generalstaff.org/WFA/Dyers/OH_Inf_US.htm",
+   "fetched_at": "2026-11-11T13:43:59",
+   "public_domain": 1
+  },
+  "s5": {
+   "title": "21st Ohio Infantry monument, Chickamauga",
+   "kind": "website",
+   "url": "https://www.historicalmarkerproject.com/markers/HMD5Z_21st-ohio-infantry_Chickamauga-GA.html",
+   "fetched_at": "2026-11-11T13:43:59",
+   "public_domain": 0
+  },
+  "s6": {
+   "title": "Hand-entered coordinates, 21st Ohio test",
+   "kind": "manual",
+   "public_domain": 0
+  },
+  "s7": {
+   "title": "26th North Carolina Infantry Regiment timeline",
+   "kind": "website",
+   "url": "https://civilwarintheeast.com/confederate-regiments/north-carolina/26th-north-carolina-infantry-regiment/",
+   "fetched_at": "2026-11-11T13:43:59",
+   "public_domain": 0,
+   "notes": "Modern compilation from regimental histories; not public domain"
+  },
+  "s8": {
+   "title": "Hand-entered coordinates, 26th NC test",
+   "kind": "manual",
+   "public_domain": 0
+  }
+ },
+ "claims": [
+  {
+   "type": "known_as",
+   "source": "s1",
+   "span": "24th Michigan Infantry",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "unit",
+   "entity": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "name": "24th Michigan Infantry",
+   "name_type": "standard"
+  },
+  {
+   "type": "known_as",
+   "source": "s1",
+   "span": "24th Mich. Inf.",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "unit",
+   "entity": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "name": "24th Mich. Inf.",
+   "name_type": "abbreviation"
+  },
+  {
+   "type": "known_as",
+   "source": "s1",
+   "span": "Detroit and Wayne County Regiment",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "unit",
+   "entity": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "name": "Detroit and Wayne County Regiment",
+   "name_type": "nickname"
+  },
+  {
+   "type": "known_as",
+   "source": "s1",
+   "span": "Campaign from the Rapidan to the James River",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Overland Campaign",
+    "kind": "campaign"
+   },
+   "name": "Campaign from the Rapidan to the James River",
+   "name_type": "alias"
+  },
+  {
+   "type": "known_as",
+   "source": "s1",
+   "span": "Weldon Railroad",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Globe Tavern",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "name": "Weldon Railroad",
+   "name_type": "union"
+  },
+  {
+   "type": "known_as",
+   "source": "s1",
+   "span": "Hatcher's Run",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Boydton Plank Road",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "name": "Hatcher's Run",
+   "name_type": "alias"
+  },
+  {
+   "type": "known_as",
+   "source": "s1",
+   "span": "Burgess Mill",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Boydton Plank Road",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "name": "Burgess Mill",
+   "name_type": "alias"
+  },
+  {
+   "type": "commanded",
+   "source": "s1",
+   "span": "Col. Henry A. Morrow",
+   "confidence": 0.9,
+   "status": "accepted",
+   "person_mention": "Col. Henry A. Morrow",
+   "person": {
+    "name": "Henry A. Morrow",
+    "side": "Union"
+   },
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "date_start": "1862-08-15",
+   "date_precision": "day"
+  },
+  {
+   "type": "commanded",
+   "source": "s1",
+   "span": "Capt. Albert M. Edwards assumes command",
+   "confidence": 0.9,
+   "status": "accepted",
+   "person_mention": "Capt. Albert M. Edwards",
+   "person": {
+    "name": "Albert M. Edwards",
+    "side": "Union"
+   },
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "date_start": "1863-07-01",
+   "date_precision": "day"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s1",
+   "span": "Attached to Defences of Washington",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "parent_mention": "Defences of Washington",
+   "parent": {
+    "display_name": "Defenses of Washington",
+    "echelon": "department",
+    "side": "Union"
+   },
+   "date_start": "1862-08-29",
+   "date_precision": "day"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s1",
+   "span": "Attached to 1st Brigade, 1st Division, 1st Corps, Army of the Potomac",
+   "confidence": 0.9,
+   "status": "accepted",
+   "note": "Iron Brigade was numbered 4th Brigade at this date in other sources; numbering conflict",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "parent_mention": "1st Brigade, 1st Division, 1st Corps, Army of the Potomac",
+   "parent": {
+    "display_name": "Iron Brigade",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "date_start": "1862-10-01",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s1",
+   "span": "Attached to 4th Brigade, 1st Division, 1st Corps",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "parent_mention": "4th Brigade, 1st Division, 1st Corps",
+   "parent": {
+    "display_name": "Iron Brigade",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "date_start": "1862-11-01",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s1",
+   "span": "Attached to 1st Brigade, 1st Division, 1st Corps",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "parent_mention": "1st Brigade, 1st Division, 1st Corps",
+   "parent": {
+    "display_name": "Iron Brigade",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "date_start": "1863-06-01",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s1",
+   "span": "Attached to 1st Brigade, 4th Division, 5th Corps",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "parent_mention": "1st Brigade, 4th Division, 5th Corps",
+   "parent": {
+    "display_name": "Iron Brigade",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "date_start": "1864-03-01",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s1",
+   "span": "Attached to 3rd Brigade, 3rd Division, 5th Corps",
+   "confidence": 0.9,
+   "status": "pending",
+   "note": "Reorganization; which canonical brigade?",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "parent_mention": "3rd Brigade, 3rd Division, 5th Corps",
+   "date_start": "1864-08-01",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s1",
+   "span": "Attached to 1st Brigade, 3rd Division, 5th Corps",
+   "confidence": 0.9,
+   "status": "pending",
+   "note": "Reorganization; which canonical brigade?",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "parent_mention": "1st Brigade, 3rd Division, 5th Corps",
+   "date_start": "1864-09-01",
+   "date_precision": "month"
+  },
+  {
+   "type": "unit_at",
+   "source": "s1",
+   "span": "Organized at Detroit, mustered in",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "place_mention": "Detroit",
+   "place": {
+    "display_name": "Detroit",
+    "kind": "town",
+    "state": "MI",
+    "lat": 42.331,
+    "lon": -83.046,
+    "precision_m": 3000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1862-08-15",
+   "date_end": "1862-08-15",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s1",
+   "span": "Washington, D.C. 1862-08-29",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "place_mention": "Washington, D.C.",
+   "place": {
+    "display_name": "Washington",
+    "kind": "town",
+    "state": "DC",
+    "lat": 38.895,
+    "lon": -77.036,
+    "precision_m": 5000.0
+   },
+   "presence": "arrived",
+   "portion": "whole",
+   "date_start": "1862-08-29",
+   "date_end": "1862-08-29",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s1",
+   "span": "Frederick, Md. 1862-10-01",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "place_mention": "Frederick, Md.",
+   "place": {
+    "display_name": "Frederick",
+    "kind": "town",
+    "state": "MD",
+    "lat": 39.414,
+    "lon": -77.411,
+    "precision_m": 2000.0
+   },
+   "presence": "arrived",
+   "portion": "whole",
+   "date_start": "1862-10-01",
+   "date_end": "1862-10-01",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s1",
+   "span": "Sharpsburg, Md. 1862-10-06",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "place_mention": "Sharpsburg, Md.",
+   "place": {
+    "display_name": "Sharpsburg",
+    "kind": "town",
+    "state": "MD",
+    "lat": 39.458,
+    "lon": -77.749,
+    "precision_m": 2000.0
+   },
+   "presence": "arrived",
+   "portion": "whole",
+   "date_start": "1862-10-06",
+   "date_end": "1862-10-06",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s1",
+   "span": "Warrenton, Va. 1862-10-20",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "place_mention": "Warrenton, Va.",
+   "place": {
+    "display_name": "Warrenton",
+    "kind": "town",
+    "state": "VA",
+    "lat": 38.714,
+    "lon": -77.795,
+    "precision_m": 2000.0
+   },
+   "presence": "en_route",
+   "portion": "whole",
+   "date_start": "1862-10-20",
+   "date_end": "1862-11-06",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s1",
+   "span": "Richmond, Fredericksburg & Aquia Creek Railroad 1862-11-25",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "place_mention": "Richmond, Fredericksburg & Aquia Creek Railroad",
+   "place": {
+    "display_name": "Richmond, Fredericksburg & Potomac Railroad (Aquia Creek section)",
+    "kind": "railroad",
+    "state": "VA",
+    "lat": 38.39,
+    "lon": -77.43,
+    "precision_m": 10000.0,
+    "geometry_json": "{\"type\":\"LineString\",\"coordinates\":[[-77.40,38.47],[-77.46,38.30]]}"
+   },
+   "presence": "along",
+   "portion": "whole",
+   "date_start": "1862-11-25",
+   "date_end": "1862-12-06",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s1",
+   "span": "Falmouth 1862-12-06",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "place_mention": "Falmouth",
+   "place": {
+    "display_name": "Falmouth",
+    "kind": "town",
+    "state": "VA",
+    "lat": 38.324,
+    "lon": -77.468,
+    "precision_m": 1500.0
+   },
+   "presence": "en_route",
+   "portion": "whole",
+   "date_start": "1862-12-06",
+   "date_end": "1862-12-11",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s1",
+   "span": "Pursuit of Lee to Manassas Gap",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "place_mention": "Manassas Gap, Va.",
+   "place": {
+    "display_name": "Manassas Gap",
+    "kind": "other",
+    "state": "VA",
+    "lat": 38.92,
+    "lon": -78.08,
+    "precision_m": 5000.0
+   },
+   "presence": "en_route",
+   "portion": "whole",
+   "date_start": "1863-07-05",
+   "date_end": "1863-07-24",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s1",
+   "span": "Detached to Springfield, Ill.; escort at Lincoln funeral",
+   "confidence": 0.7,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "place_mention": "Springfield, Ill.",
+   "place": {
+    "display_name": "Springfield",
+    "kind": "town",
+    "state": "IL",
+    "lat": 39.799,
+    "lon": -89.644,
+    "precision_m": 3000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1865-04-01",
+   "date_end": "1865-04-30",
+   "date_precision": "month"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Battle of Fredericksburg 1862-12-12..1862-12-15",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Battle of Fredericksburg",
+   "event": {
+    "name": "Battle of Fredericksburg",
+    "kind": "battle"
+   },
+   "portion": "whole",
+   "date_start": "1862-12-12",
+   "date_end": "1862-12-15",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Battle of Fredericksburg at fredericksburg",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Battle of Fredericksburg",
+   "event": {
+    "name": "Battle of Fredericksburg",
+    "kind": "battle"
+   },
+   "place_mention": "fredericksburg",
+   "place": {
+    "display_name": "Fredericksburg",
+    "kind": "town",
+    "state": "VA",
+    "lat": 38.303,
+    "lon": -77.461,
+    "precision_m": 2000.0
+   },
+   "date_start": "1862-12-12",
+   "date_end": "1862-12-15",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Mud March 1863-01-20..1863-01-24",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Mud March",
+   "event": {
+    "name": "Mud March",
+    "kind": "march"
+   },
+   "portion": "whole",
+   "date_start": "1863-01-20",
+   "date_end": "1863-01-24",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Chancellorsville Campaign 1863-04-27..1863-05-06",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Chancellorsville Campaign",
+   "event": {
+    "name": "Chancellorsville Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-04-27",
+   "date_end": "1863-05-06",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Fitzhugh's Crossing 1863-04-29..1863-04-30",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Fitzhugh's Crossing",
+   "event": {
+    "name": "Fitzhugh's Crossing",
+    "kind": "engagement",
+    "parent": "Chancellorsville Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-04-29",
+   "date_end": "1863-04-30",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Fitzhugh's Crossing at fitzhugh",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Fitzhugh's Crossing",
+   "event": {
+    "name": "Fitzhugh's Crossing",
+    "kind": "engagement",
+    "parent": "Chancellorsville Campaign"
+   },
+   "place_mention": "fitzhugh",
+   "place": {
+    "display_name": "Fitzhugh's Crossing",
+    "kind": "ford",
+    "state": "VA",
+    "lat": 38.27,
+    "lon": -77.43,
+    "precision_m": 2000.0
+   },
+   "date_start": "1863-04-29",
+   "date_end": "1863-04-30",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Battle of Chancellorsville 1863-05-02..1863-05-05",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Battle of Chancellorsville",
+   "event": {
+    "name": "Battle of Chancellorsville",
+    "kind": "battle",
+    "parent": "Chancellorsville Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-05-02",
+   "date_end": "1863-05-05",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Battle of Chancellorsville at chancellorsville",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Battle of Chancellorsville",
+   "event": {
+    "name": "Battle of Chancellorsville",
+    "kind": "battle",
+    "parent": "Chancellorsville Campaign"
+   },
+   "place_mention": "chancellorsville",
+   "place": {
+    "display_name": "Chancellorsville",
+    "kind": "crossroads",
+    "state": "VA",
+    "lat": 38.311,
+    "lon": -77.635,
+    "precision_m": 2000.0
+   },
+   "date_start": "1863-05-02",
+   "date_end": "1863-05-05",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Gettysburg Campaign 1863-06-11..1863-07-24",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Gettysburg Campaign",
+   "event": {
+    "name": "Gettysburg Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-06-11",
+   "date_end": "1863-07-24",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Battle of Gettysburg 1863-07-01..1863-07-03",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Battle of Gettysburg",
+   "event": {
+    "name": "Battle of Gettysburg",
+    "kind": "battle",
+    "parent": "Gettysburg Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-07-01",
+   "date_end": "1863-07-03",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s1",
+   "span": "Battle of Gettysburg: losses",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Battle of Gettysburg",
+   "event": {
+    "name": "Battle of Gettysburg",
+    "kind": "battle",
+    "parent": "Gettysburg Campaign"
+   },
+   "scope": "event",
+   "casualties_total": 363
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Battle of Gettysburg at gettysburg",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Battle of Gettysburg",
+   "event": {
+    "name": "Battle of Gettysburg",
+    "kind": "battle",
+    "parent": "Gettysburg Campaign"
+   },
+   "place_mention": "gettysburg",
+   "place": {
+    "display_name": "Gettysburg",
+    "kind": "town",
+    "state": "PA",
+    "lat": 39.831,
+    "lon": -77.231,
+    "precision_m": 2000.0
+   },
+   "date_start": "1863-07-01",
+   "date_end": "1863-07-03",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Bristoe Campaign 1863-10-09..1863-10-22",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Bristoe Campaign",
+   "event": {
+    "name": "Bristoe Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-10-09",
+   "date_end": "1863-10-22",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Haymarket 1863-10-19..1863-10-19",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Haymarket",
+   "event": {
+    "name": "Haymarket",
+    "kind": "engagement",
+    "parent": "Bristoe Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-10-19",
+   "date_end": "1863-10-19",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Haymarket at haymarket",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Haymarket",
+   "event": {
+    "name": "Haymarket",
+    "kind": "engagement",
+    "parent": "Bristoe Campaign"
+   },
+   "place_mention": "haymarket",
+   "place": {
+    "display_name": "Haymarket",
+    "kind": "town",
+    "state": "VA",
+    "lat": 38.812,
+    "lon": -77.636,
+    "precision_m": 2000.0
+   },
+   "date_start": "1863-10-19",
+   "date_end": "1863-10-19",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Mine Run Campaign 1863-11-26..1863-12-02",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Mine Run Campaign",
+   "event": {
+    "name": "Mine Run Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-11-26",
+   "date_end": "1863-12-02",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Mine Run Campaign at mine_run",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Mine Run Campaign",
+   "event": {
+    "name": "Mine Run Campaign",
+    "kind": "campaign"
+   },
+   "place_mention": "mine_run",
+   "place": {
+    "display_name": "Mine Run",
+    "kind": "river",
+    "state": "VA",
+    "lat": 38.33,
+    "lon": -77.79,
+    "precision_m": 5000.0
+   },
+   "date_start": "1863-11-26",
+   "date_end": "1863-12-02",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Campaign from the Rapidan to the James River 1864-05-04..1864-06-15",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Campaign from the Rapidan to the James River",
+   "event": {
+    "name": "Overland Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-05-04",
+   "date_end": "1864-06-15",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Battle of the Wilderness 1864-05-05..1864-05-07",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Battle of the Wilderness",
+   "event": {
+    "name": "Battle of the Wilderness",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-05-05",
+   "date_end": "1864-05-07",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Battle of the Wilderness at wilderness",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Battle of the Wilderness",
+   "event": {
+    "name": "Battle of the Wilderness",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "place_mention": "wilderness",
+   "place": {
+    "display_name": "The Wilderness",
+    "kind": "region",
+    "state": "VA",
+    "lat": 38.31,
+    "lon": -77.75,
+    "precision_m": 4000.0
+   },
+   "date_start": "1864-05-05",
+   "date_end": "1864-05-07",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Spotsylvania Court House 1864-05-08..1864-05-21",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Spotsylvania Court House",
+   "event": {
+    "name": "Battle of Spotsylvania Court House",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-05-08",
+   "date_end": "1864-05-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Spotsylvania Court House at spotsylvania",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Spotsylvania Court House",
+   "event": {
+    "name": "Battle of Spotsylvania Court House",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "place_mention": "spotsylvania",
+   "place": {
+    "display_name": "Spotsylvania Court House",
+    "kind": "town",
+    "state": "VA",
+    "lat": 38.201,
+    "lon": -77.589,
+    "precision_m": 2000.0
+   },
+   "date_start": "1864-05-08",
+   "date_end": "1864-05-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "North Anna River (Jericho Mills) 1864-05-23..1864-05-26",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "North Anna River (Jericho Mills)",
+   "event": {
+    "name": "Battle of North Anna",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-05-23",
+   "date_end": "1864-05-26",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "North Anna River (Jericho Mills) at jericho_mills",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "North Anna River (Jericho Mills)",
+   "event": {
+    "name": "Battle of North Anna",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "place_mention": "jericho_mills",
+   "place": {
+    "display_name": "Jericho Mills",
+    "kind": "ford",
+    "state": "VA",
+    "lat": 37.93,
+    "lon": -77.53,
+    "precision_m": 3000.0
+   },
+   "date_start": "1864-05-23",
+   "date_end": "1864-05-26",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Totopotomoy 1864-05-28..1864-05-31",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Totopotomoy",
+   "event": {
+    "name": "Battle of Totopotomoy Creek",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-05-28",
+   "date_end": "1864-05-31",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Totopotomoy at totopotomoy",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Totopotomoy",
+   "event": {
+    "name": "Battle of Totopotomoy Creek",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "place_mention": "totopotomoy",
+   "place": {
+    "display_name": "Totopotomoy Creek",
+    "kind": "river",
+    "state": "VA",
+    "lat": 37.67,
+    "lon": -77.33,
+    "precision_m": 4000.0
+   },
+   "date_start": "1864-05-28",
+   "date_end": "1864-05-31",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Cold Harbor 1864-06-01..1864-06-12",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Cold Harbor",
+   "event": {
+    "name": "Battle of Cold Harbor",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-06-01",
+   "date_end": "1864-06-12",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Cold Harbor at cold_harbor",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Cold Harbor",
+   "event": {
+    "name": "Battle of Cold Harbor",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "place_mention": "cold_harbor",
+   "place": {
+    "display_name": "Cold Harbor",
+    "kind": "crossroads",
+    "state": "VA",
+    "lat": 37.59,
+    "lon": -77.29,
+    "precision_m": 2000.0
+   },
+   "date_start": "1864-06-01",
+   "date_end": "1864-06-12",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Siege of Petersburg 1864-06-16..1865-04-02",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Siege of Petersburg",
+   "event": {
+    "name": "Siege of Petersburg",
+    "kind": "siege"
+   },
+   "portion": "whole",
+   "date_start": "1864-06-16",
+   "date_end": "1865-04-02",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Siege of Petersburg at petersburg",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Siege of Petersburg",
+   "event": {
+    "name": "Siege of Petersburg",
+    "kind": "siege"
+   },
+   "place_mention": "petersburg",
+   "place": {
+    "display_name": "Petersburg",
+    "kind": "town",
+    "state": "VA",
+    "lat": 37.227,
+    "lon": -77.402,
+    "precision_m": 3000.0
+   },
+   "date_start": "1864-06-16",
+   "date_end": "1865-04-02",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Weldon Railroad 1864-08-18..1864-08-21",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Weldon Railroad",
+   "event": {
+    "name": "Battle of Globe Tavern",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "portion": "whole",
+   "date_start": "1864-08-18",
+   "date_end": "1864-08-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Weldon Railroad at globe_tavern",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Weldon Railroad",
+   "event": {
+    "name": "Battle of Globe Tavern",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "place_mention": "globe_tavern",
+   "place": {
+    "display_name": "Globe Tavern",
+    "kind": "crossroads",
+    "state": "VA",
+    "lat": 37.17,
+    "lon": -77.4,
+    "precision_m": 2000.0
+   },
+   "date_start": "1864-08-18",
+   "date_end": "1864-08-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Boydton Plank Road, Hatcher's Run 1864-10-27..1864-10-28",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Boydton Plank Road, Hatcher's Run",
+   "event": {
+    "name": "Battle of Boydton Plank Road",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "portion": "whole",
+   "date_start": "1864-10-27",
+   "date_end": "1864-10-28",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s3",
+   "span": "Boydton Plank Road, Hatcher's Run at burgess_mill",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Boydton Plank Road, Hatcher's Run",
+   "event": {
+    "name": "Battle of Boydton Plank Road",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "place_mention": "burgess_mill",
+   "place": {
+    "display_name": "Burgess Mill",
+    "kind": "crossroads",
+    "state": "VA",
+    "lat": 37.12,
+    "lon": -77.5,
+    "precision_m": 3000.0
+   },
+   "date_start": "1864-10-27",
+   "date_end": "1864-10-28",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s1",
+   "span": "Escort at funeral of President Lincoln 1865-04-01..1865-05-31",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Escort at funeral of President Lincoln",
+   "event": {
+    "name": "Lincoln funeral",
+    "kind": "political"
+   },
+   "portion": "whole",
+   "date_start": "1865-04-01",
+   "date_end": "1865-05-31",
+   "date_precision": "month"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s2",
+   "span": "Regiment lost during service 12 Officers and 177 Enlisted men killed and mortally wounded and 3 Officers and 136 Enlisted men by disease",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "scope": "whole_service",
+   "killed": 189,
+   "died_disease": 139
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Camp Taylor, Cleveland, Tenn. 1861-04-27",
+   "confidence": 0.3,
+   "status": "pending",
+   "note": "Dyer prints 'Cleveland, Tenn.'; an Ohio regiment in April 1861 must be Cleveland, Ohio. Place left unresolved for review; candidates: cleveland_oh (likely), cleveland_tn",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry (3 months)",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Camp Taylor, Cleveland, Tenn.",
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1861-04-27",
+   "date_end": "1861-04-27",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Gallipolis, Ohio 1861-05-23",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry (3 months)",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Gallipolis, Ohio",
+   "place": {
+    "display_name": "Gallipolis",
+    "kind": "town",
+    "state": "OH",
+    "lat": 38.81,
+    "lon": -82.202,
+    "precision_m": 2000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1861-05-23",
+   "date_end": "1861-07-06",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Scary Creek 1861-07-17..1861-07-17",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry (3 months)",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Scary Creek",
+   "event": {
+    "name": "Battle of Scary Creek",
+    "kind": "engagement"
+   },
+   "portion": "whole",
+   "date_start": "1861-07-17",
+   "date_end": "1861-07-17",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Scary Creek at scary_creek",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Scary Creek",
+   "event": {
+    "name": "Battle of Scary Creek",
+    "kind": "engagement"
+   },
+   "place_mention": "scary_creek",
+   "place": {
+    "display_name": "Scary Creek",
+    "kind": "river",
+    "state": "WV",
+    "lat": 38.38,
+    "lon": -81.83,
+    "precision_m": 3000.0
+   },
+   "date_start": "1861-07-17",
+   "date_end": "1861-07-17",
+   "date_precision": "day"
+  },
+  {
+   "type": "succeeded_by",
+   "source": "s4",
+   "span": "Mustered out Aug 12, 1861; reorganized for three years at Findlay",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio (3 months)",
+   "unit": {
+    "display_name": "21st Ohio Infantry (3 months)",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "successor_mention": "21st Ohio (3 years)",
+   "successor": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "kind": "reorganized",
+   "succession_date": "1861-09-19",
+   "date_precision": "day"
+  },
+  {
+   "type": "known_as",
+   "source": "s4",
+   "span": "21st Ohio Infantry",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "unit",
+   "entity": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "name": "21st Ohio Infantry",
+   "name_type": "standard"
+  },
+  {
+   "type": "known_as",
+   "source": "s4",
+   "span": "21st Ohio Volunteer Infantry",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "unit",
+   "entity": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "name": "21st Ohio Volunteer Infantry",
+   "name_type": "alias"
+  },
+  {
+   "type": "known_as",
+   "source": "s5",
+   "span": "Sirwell's Brigade",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "unit",
+   "entity": {
+    "display_name": "3rd Brigade, 2nd Division, XIV Corps",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "name": "Sirwell's Brigade",
+   "name_type": "nickname"
+  },
+  {
+   "type": "known_as",
+   "source": "s4",
+   "span": "3rd Brigade, 2nd Division, Center 14th Army Corps",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "unit",
+   "entity": {
+    "display_name": "3rd Brigade, 2nd Division, XIV Corps",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "name": "3rd Brigade, 2nd Division, Center 14th Army Corps",
+   "name_type": "official"
+  },
+  {
+   "type": "known_as",
+   "source": "s4",
+   "span": "Stone's River",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Stones River",
+    "kind": "battle"
+   },
+   "name": "Stone's River",
+   "name_type": "alias"
+  },
+  {
+   "type": "known_as",
+   "source": "s4",
+   "span": "Murfreesboro",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Stones River",
+    "kind": "battle"
+   },
+   "name": "Murfreesboro",
+   "name_type": "confederate"
+  },
+  {
+   "type": "known_as",
+   "source": "s4",
+   "span": "Mission Ridge",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Missionary Ridge",
+    "kind": "battle",
+    "parent": "Chattanooga Campaign"
+   },
+   "name": "Mission Ridge",
+   "name_type": "alias"
+  },
+  {
+   "type": "known_as",
+   "source": "s4",
+   "span": "Kenesaw",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Kennesaw Mountain",
+    "kind": "battle",
+    "parent": "Atlanta Campaign"
+   },
+   "name": "Kenesaw",
+   "name_type": "alias"
+  },
+  {
+   "type": "known_as",
+   "source": "s4",
+   "span": "Pittinger's Raid on Georgia State Railroad",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Andrews' Raid (Great Locomotive Chase)",
+    "kind": "expedition"
+   },
+   "name": "Pittinger's Raid on Georgia State Railroad",
+   "name_type": "alias"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s4",
+   "span": "Attached to Thomas' Command, Army of the Ohio, to 1861-11",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "parent_mention": "Thomas' Command, Army of the Ohio",
+   "parent": {
+    "display_name": "Thomas' Command, Army of the Ohio",
+    "echelon": "department",
+    "side": "Union"
+   },
+   "date_end": "1861-11",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s4",
+   "span": "Attached to 9th Brigade, Army of the Ohio, to 1861-12",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "parent_mention": "9th Brigade, Army of the Ohio",
+   "parent": {
+    "display_name": "9th Brigade, Army of the Ohio",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "date_end": "1861-12",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s4",
+   "span": "Attached to 9th Brigade, 3rd Division, Army of the Ohio, to 1862-07",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "parent_mention": "9th Brigade, 3rd Division, Army of the Ohio",
+   "parent": {
+    "display_name": "9th Brigade, Army of the Ohio",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "date_end": "1862-07",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s4",
+   "span": "Attached to 7th Independent Brigade, Army of the Ohio, to 1862-09",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "parent_mention": "7th Independent Brigade, Army of the Ohio",
+   "parent": {
+    "display_name": "7th Independent Brigade, Army of the Ohio",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "date_end": "1862-09",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s4",
+   "span": "Attached to 3rd Brigade, 2nd Division, Center 14th Army Corps, Army of the Cumberland, to 1863-01",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "parent_mention": "3rd Brigade, 2nd Division, Center 14th Army Corps, Army of the Cumberland",
+   "parent": {
+    "display_name": "3rd Brigade, 2nd Division, XIV Corps",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "date_end": "1863-01",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s4",
+   "span": "Attached to 3rd Brigade, 2nd Division, 14th Army Corps, to 1863-10",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "parent_mention": "3rd Brigade, 2nd Division, 14th Army Corps",
+   "parent": {
+    "display_name": "3rd Brigade, 2nd Division, XIV Corps",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "date_end": "1863-10",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s4",
+   "span": "Attached to 3rd Brigade, 1st Division, 14th Army Corps, to 1865-06",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "parent_mention": "3rd Brigade, 1st Division, 14th Army Corps",
+   "parent": {
+    "display_name": "3rd Brigade, 1st Division, XIV Corps",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "date_end": "1865-06",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s4",
+   "span": "Attached to 1st Brigade, 1st Division, 14th Army Corps, to 1865-07",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "parent_mention": "1st Brigade, 1st Division, 14th Army Corps",
+   "parent": {
+    "display_name": "1st Brigade, 1st Division, XIV Corps",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Union"
+   },
+   "date_end": "1865-07",
+   "date_precision": "month"
+  },
+  {
+   "type": "commanded",
+   "source": "s5",
+   "span": "Lt. Col. Dwella M. Stoughton commanding",
+   "confidence": 0.9,
+   "status": "accepted",
+   "person_mention": "Lt. Col. Dwella M. Stoughton",
+   "person": {
+    "name": "Dwella M. Stoughton",
+    "side": "Union"
+   },
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "date_start": "1863-09-19",
+   "date_end": "1863-09-20",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Findlay, Ohio 1861-09-19",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Findlay, Ohio",
+   "place": {
+    "display_name": "Findlay (Camp Vance)",
+    "kind": "camp",
+    "state": "OH",
+    "lat": 41.044,
+    "lon": -83.65,
+    "precision_m": 3000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1861-09-19",
+   "date_end": "1861-09-19",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Nicholasville, Ky. 1861-10-02",
+   "confidence": 0.9,
+   "status": "accepted",
+   "note": "Dyer: 'Left State for Nicholasville' — the date is departure from Ohio, not arrival",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Nicholasville, Ky.",
+   "place": {
+    "display_name": "Nicholasville",
+    "kind": "town",
+    "state": "KY",
+    "lat": 37.881,
+    "lon": -84.573,
+    "precision_m": 2000.0
+   },
+   "presence": "departed",
+   "portion": "whole",
+   "date_start": "1861-10-02",
+   "date_end": "1861-10-02",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Ivy's Mountain, Ky. 1861-11-08..1861-11-08",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Ivy's Mountain, Ky.",
+   "event": {
+    "name": "Battle of Ivy Mountain",
+    "kind": "engagement"
+   },
+   "portion": "whole",
+   "date_start": "1861-11-08",
+   "date_end": "1861-11-08",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Ivy's Mountain, Ky. at ivy_mountain",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Ivy's Mountain, Ky.",
+   "event": {
+    "name": "Battle of Ivy Mountain",
+    "kind": "engagement"
+   },
+   "place_mention": "ivy_mountain",
+   "place": {
+    "display_name": "Ivy Mountain",
+    "kind": "other",
+    "state": "KY",
+    "lat": 37.62,
+    "lon": -82.62,
+    "precision_m": 5000.0
+   },
+   "date_start": "1861-11-08",
+   "date_end": "1861-11-08",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Bacon Creek and Green River, Ky. 1861-12-01",
+   "confidence": 0.9,
+   "status": "accepted",
+   "note": "Duty along a stretch of two rivers; one representative point",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Bacon Creek and Green River, Ky.",
+   "place": {
+    "display_name": "Bacon Creek",
+    "kind": "river",
+    "state": "KY",
+    "lat": 37.37,
+    "lon": -85.9,
+    "precision_m": 5000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1861-12-01",
+   "date_end": "1862-02-10",
+   "date_precision": "month"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Nashville 1862-02-25",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Nashville",
+   "place": {
+    "display_name": "Nashville",
+    "kind": "town",
+    "state": "TN",
+    "lat": 36.162,
+    "lon": -86.781,
+    "precision_m": 3000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1862-02-25",
+   "date_end": "1862-03-17",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Huntsville, Ala. 1862-04-11",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Huntsville, Ala.",
+   "place": {
+    "display_name": "Huntsville",
+    "kind": "town",
+    "state": "AL",
+    "lat": 34.73,
+    "lon": -86.586,
+    "precision_m": 2000.0
+   },
+   "presence": "arrived",
+   "portion": "whole",
+   "date_start": "1862-04-11",
+   "date_end": "1862-04-11",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Pittinger's Raid on Georgia State Railroad 1862-04-07..1862-04-12",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Pittinger's Raid on Georgia State Railroad",
+   "event": {
+    "name": "Andrews' Raid (Great Locomotive Chase)",
+    "kind": "expedition"
+   },
+   "portion": "detachment",
+   "portion_detail": "Volunteers from several companies",
+   "date_start": "1862-04-07",
+   "date_end": "1862-04-12",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Pittinger's Raid on Georgia State Railroad at wa_rr",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Pittinger's Raid on Georgia State Railroad",
+   "event": {
+    "name": "Andrews' Raid (Great Locomotive Chase)",
+    "kind": "expedition"
+   },
+   "place_mention": "wa_rr",
+   "place": {
+    "display_name": "Western & Atlantic Railroad",
+    "kind": "railroad",
+    "state": "GA",
+    "lat": 34.4,
+    "lon": -84.9,
+    "precision_m": 40000.0,
+    "geometry_json": "{\"type\":\"LineString\",\"coordinates\":[[-84.39,33.75],[-84.62,34.02],[-84.95,34.77],[-85.31,35.05]]}"
+   },
+   "date_start": "1862-04-07",
+   "date_end": "1862-04-12",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Athens, Ala. 1862-05-28",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Athens, Ala.",
+   "place": {
+    "display_name": "Athens",
+    "kind": "town",
+    "state": "AL",
+    "lat": 34.803,
+    "lon": -86.972,
+    "precision_m": 2000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1862-05-28",
+   "date_end": "1862-08-28",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Nashville (siege) 1862-09-12",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Nashville (siege)",
+   "place": {
+    "display_name": "Nashville",
+    "kind": "town",
+    "state": "TN",
+    "lat": 36.162,
+    "lon": -86.781,
+    "precision_m": 3000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1862-09-12",
+   "date_end": "1862-11-07",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Stone's River 1862-12-30..1863-01-03",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Stone's River",
+   "event": {
+    "name": "Battle of Stones River",
+    "kind": "battle"
+   },
+   "portion": "whole",
+   "date_start": "1862-12-30",
+   "date_end": "1863-01-03",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Stone's River at stones_river",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Stone's River",
+   "event": {
+    "name": "Battle of Stones River",
+    "kind": "battle"
+   },
+   "place_mention": "stones_river",
+   "place": {
+    "display_name": "Stones River (Murfreesboro)",
+    "kind": "battlefield",
+    "state": "TN",
+    "lat": 35.876,
+    "lon": -86.432,
+    "precision_m": 2000.0
+   },
+   "date_start": "1862-12-30",
+   "date_end": "1863-01-03",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Murfreesboro 1863-01-04",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Murfreesboro",
+   "place": {
+    "display_name": "Murfreesboro",
+    "kind": "town",
+    "state": "TN",
+    "lat": 35.846,
+    "lon": -86.392,
+    "precision_m": 2000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1863-01-04",
+   "date_end": "1863-06-23",
+   "date_precision": "month"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Tullahoma (Middle Tennessee) Campaign 1863-06-23..1863-07-07",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Tullahoma (Middle Tennessee) Campaign",
+   "event": {
+    "name": "Tullahoma Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-06-23",
+   "date_end": "1863-07-07",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Chickamauga Campaign 1863-08-16..1863-09-22",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Chickamauga Campaign",
+   "event": {
+    "name": "Chickamauga Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-08-16",
+   "date_end": "1863-09-22",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Chickamauga 1863-09-19..1863-09-21",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Chickamauga",
+   "event": {
+    "name": "Battle of Chickamauga",
+    "kind": "battle",
+    "parent": "Chickamauga Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-09-19",
+   "date_end": "1863-09-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Chickamauga at chickamauga",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Chickamauga",
+   "event": {
+    "name": "Battle of Chickamauga",
+    "kind": "battle",
+    "parent": "Chickamauga Campaign"
+   },
+   "place_mention": "chickamauga",
+   "place": {
+    "display_name": "Chickamauga battlefield",
+    "kind": "battlefield",
+    "state": "GA",
+    "lat": 34.92,
+    "lon": -85.26,
+    "precision_m": 3000.0
+   },
+   "date_start": "1863-09-19",
+   "date_end": "1863-09-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Chattanooga (siege) 1863-09-24",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Chattanooga (siege)",
+   "place": {
+    "display_name": "Chattanooga",
+    "kind": "town",
+    "state": "TN",
+    "lat": 35.046,
+    "lon": -85.309,
+    "precision_m": 3000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1863-09-24",
+   "date_end": "1863-11-23",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Mission Ridge 1863-11-25..1863-11-25",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Mission Ridge",
+   "event": {
+    "name": "Battle of Missionary Ridge",
+    "kind": "battle",
+    "parent": "Chattanooga Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-11-25",
+   "date_end": "1863-11-25",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Mission Ridge at missionary_ridge",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Mission Ridge",
+   "event": {
+    "name": "Battle of Missionary Ridge",
+    "kind": "battle",
+    "parent": "Chattanooga Campaign"
+   },
+   "place_mention": "missionary_ridge",
+   "place": {
+    "display_name": "Missionary Ridge",
+    "kind": "other",
+    "state": "TN",
+    "lat": 35.02,
+    "lon": -85.26,
+    "precision_m": 3000.0
+   },
+   "date_start": "1863-11-25",
+   "date_end": "1863-11-25",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Veterans on furlough, Ohio 1864-01-01",
+   "confidence": 0.6,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Veterans on furlough, Ohio",
+   "place": {
+    "display_name": "Ohio (veteran furlough)",
+    "kind": "region",
+    "state": "OH",
+    "lat": 40.4,
+    "lon": -82.9,
+    "precision_m": 150000.0
+   },
+   "presence": "present",
+   "portion": "veterans",
+   "portion_detail": "Reenlisted veterans on veteran furlough",
+   "date_start": "1864-01-01",
+   "date_end": "1864-03-31",
+   "date_precision": "month"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Reconnaissance to Dalton, Ga. (non-veterans) 1864-02-22",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Reconnaissance to Dalton, Ga. (non-veterans)",
+   "place": {
+    "display_name": "Rocky Face Ridge, near Dalton",
+    "kind": "other",
+    "state": "GA",
+    "lat": 34.8,
+    "lon": -84.99,
+    "precision_m": 5000.0
+   },
+   "presence": "present",
+   "portion": "non_veterans",
+   "date_start": "1864-02-22",
+   "date_end": "1864-02-27",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Atlanta Campaign 1864-05-01..1864-09-08",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Atlanta Campaign",
+   "event": {
+    "name": "Atlanta Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-05-01",
+   "date_end": "1864-09-08",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Resaca 1864-05-14..1864-05-15",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Resaca",
+   "event": {
+    "name": "Battle of Resaca",
+    "kind": "battle",
+    "parent": "Atlanta Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-05-14",
+   "date_end": "1864-05-15",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Resaca at resaca",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Resaca",
+   "event": {
+    "name": "Battle of Resaca",
+    "kind": "battle",
+    "parent": "Atlanta Campaign"
+   },
+   "place_mention": "resaca",
+   "place": {
+    "display_name": "Resaca",
+    "kind": "town",
+    "state": "GA",
+    "lat": 34.58,
+    "lon": -84.94,
+    "precision_m": 2000.0
+   },
+   "date_start": "1864-05-14",
+   "date_end": "1864-05-15",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Assault on Kenesaw 1864-06-27..1864-06-27",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Assault on Kenesaw",
+   "event": {
+    "name": "Battle of Kennesaw Mountain",
+    "kind": "battle",
+    "parent": "Atlanta Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-06-27",
+   "date_end": "1864-06-27",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Assault on Kenesaw at kennesaw",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Assault on Kenesaw",
+   "event": {
+    "name": "Battle of Kennesaw Mountain",
+    "kind": "battle",
+    "parent": "Atlanta Campaign"
+   },
+   "place_mention": "kennesaw",
+   "place": {
+    "display_name": "Kennesaw Mountain",
+    "kind": "other",
+    "state": "GA",
+    "lat": 33.98,
+    "lon": -84.58,
+    "precision_m": 2000.0
+   },
+   "date_start": "1864-06-27",
+   "date_end": "1864-06-27",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Peach Tree Creek 1864-07-19..1864-07-20",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Peach Tree Creek",
+   "event": {
+    "name": "Battle of Peachtree Creek",
+    "kind": "battle",
+    "parent": "Atlanta Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-07-19",
+   "date_end": "1864-07-20",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Peach Tree Creek at peachtree",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Peach Tree Creek",
+   "event": {
+    "name": "Battle of Peachtree Creek",
+    "kind": "battle",
+    "parent": "Atlanta Campaign"
+   },
+   "place_mention": "peachtree",
+   "place": {
+    "display_name": "Peachtree Creek",
+    "kind": "river",
+    "state": "GA",
+    "lat": 33.81,
+    "lon": -84.4,
+    "precision_m": 2000.0
+   },
+   "date_start": "1864-07-19",
+   "date_end": "1864-07-20",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Siege of Atlanta 1864-07-22..1864-08-25",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Siege of Atlanta",
+   "event": {
+    "name": "Siege of Atlanta",
+    "kind": "siege",
+    "parent": "Atlanta Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-07-22",
+   "date_end": "1864-08-25",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Siege of Atlanta at atlanta",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Siege of Atlanta",
+   "event": {
+    "name": "Siege of Atlanta",
+    "kind": "siege",
+    "parent": "Atlanta Campaign"
+   },
+   "place_mention": "atlanta",
+   "place": {
+    "display_name": "Atlanta",
+    "kind": "town",
+    "state": "GA",
+    "lat": 33.749,
+    "lon": -84.388,
+    "precision_m": 3000.0
+   },
+   "date_start": "1864-07-22",
+   "date_end": "1864-08-25",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Operations against Hood ... April 29 to November 3",
+   "confidence": 0.2,
+   "status": "pending",
+   "note": "Source date impossible (April precedes the Atlanta Campaign it follows); likely September 29. Needs a date-sanity check in the pipeline",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Operations against Hood in North Georgia",
+   "portion": "whole",
+   "date_start": "1864-04-29",
+   "date_end": "1864-11-03",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "March to the sea 1864-11-15..1864-12-10",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "March to the sea",
+   "event": {
+    "name": "Sherman's March to the Sea",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-11-15",
+   "date_end": "1864-12-10",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Siege of Savannah 1864-12-10..1864-12-21",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Siege of Savannah",
+   "event": {
+    "name": "Siege of Savannah",
+    "kind": "siege",
+    "parent": "Sherman's March to the Sea"
+   },
+   "portion": "whole",
+   "date_start": "1864-12-10",
+   "date_end": "1864-12-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Siege of Savannah at savannah",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Siege of Savannah",
+   "event": {
+    "name": "Siege of Savannah",
+    "kind": "siege",
+    "parent": "Sherman's March to the Sea"
+   },
+   "place_mention": "savannah",
+   "place": {
+    "display_name": "Savannah",
+    "kind": "town",
+    "state": "GA",
+    "lat": 32.081,
+    "lon": -81.091,
+    "precision_m": 3000.0
+   },
+   "date_start": "1864-12-10",
+   "date_end": "1864-12-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Campaign of the Carolinas 1865-01-01..1865-04-26",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Campaign of the Carolinas",
+   "event": {
+    "name": "Carolinas Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1865-01-01",
+   "date_end": "1865-04-26",
+   "date_precision": "month"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Taylor's Hole Creek, Averysboro, N.C. 1865-03-16..1865-03-16",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Taylor's Hole Creek, Averysboro, N.C.",
+   "event": {
+    "name": "Battle of Averasboro",
+    "kind": "battle",
+    "parent": "Carolinas Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1865-03-16",
+   "date_end": "1865-03-16",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Taylor's Hole Creek, Averysboro, N.C. at averasboro",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Taylor's Hole Creek, Averysboro, N.C.",
+   "event": {
+    "name": "Battle of Averasboro",
+    "kind": "battle",
+    "parent": "Carolinas Campaign"
+   },
+   "place_mention": "averasboro",
+   "place": {
+    "display_name": "Averasboro",
+    "kind": "crossroads",
+    "state": "NC",
+    "lat": 35.31,
+    "lon": -78.67,
+    "precision_m": 3000.0
+   },
+   "date_start": "1865-03-16",
+   "date_end": "1865-03-16",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Bentonville, N.C. 1865-03-19..1865-03-21",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Bentonville, N.C.",
+   "event": {
+    "name": "Battle of Bentonville",
+    "kind": "battle",
+    "parent": "Carolinas Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1865-03-19",
+   "date_end": "1865-03-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Bentonville, N.C. at bentonville",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Bentonville, N.C.",
+   "event": {
+    "name": "Battle of Bentonville",
+    "kind": "battle",
+    "parent": "Carolinas Campaign"
+   },
+   "place_mention": "bentonville",
+   "place": {
+    "display_name": "Bentonville",
+    "kind": "crossroads",
+    "state": "NC",
+    "lat": 35.3,
+    "lon": -78.32,
+    "precision_m": 2000.0
+   },
+   "date_start": "1865-03-19",
+   "date_end": "1865-03-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Raleigh 1865-04-14",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Raleigh",
+   "place": {
+    "display_name": "Raleigh",
+    "kind": "town",
+    "state": "NC",
+    "lat": 35.78,
+    "lon": -78.639,
+    "precision_m": 3000.0
+   },
+   "presence": "arrived",
+   "portion": "whole",
+   "date_start": "1865-04-14",
+   "date_end": "1865-04-14",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s4",
+   "span": "Grand Review 1865-05-24..1865-05-24",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "event_mention": "Grand Review",
+   "event": {
+    "name": "Grand Review of the Armies",
+    "kind": "political"
+   },
+   "portion": "whole",
+   "date_start": "1865-05-24",
+   "date_end": "1865-05-24",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s6",
+   "span": "Grand Review at washington",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Grand Review",
+   "event": {
+    "name": "Grand Review of the Armies",
+    "kind": "political"
+   },
+   "place_mention": "washington",
+   "place": {
+    "display_name": "Washington",
+    "kind": "town",
+    "state": "DC",
+    "lat": 38.895,
+    "lon": -77.036,
+    "precision_m": 5000.0
+   },
+   "date_start": "1865-05-24",
+   "date_end": "1865-05-24",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s4",
+   "span": "Louisville, Ky. 1865-06-01",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "place_mention": "Louisville, Ky.",
+   "place": {
+    "display_name": "Louisville",
+    "kind": "town",
+    "state": "KY",
+    "lat": 38.253,
+    "lon": -85.759,
+    "precision_m": 3000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1865-06-01",
+   "date_end": "1865-07-25",
+   "date_precision": "month"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s4",
+   "span": "Regiment lost during service 6 Officers and 166 Enlisted men killed and mortally wounded and 2 Officers and 218 Enlisted men by disease. Total 392",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "21st Ohio",
+   "unit": {
+    "display_name": "21st Ohio Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "OH",
+    "number": 21,
+    "side": "Union"
+   },
+   "scope": "whole_service",
+   "killed": 172,
+   "died_disease": 220,
+   "casualties_total": 392
+  },
+  {
+   "type": "known_as",
+   "source": "s7",
+   "span": "26th North Carolina Infantry",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "unit",
+   "entity": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "name": "26th North Carolina Infantry",
+   "name_type": "standard"
+  },
+  {
+   "type": "known_as",
+   "source": "s7",
+   "span": "26th Regiment North Carolina Troops",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "unit",
+   "entity": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "name": "26th Regiment North Carolina Troops",
+   "name_type": "official"
+  },
+  {
+   "type": "known_as",
+   "source": "s7",
+   "span": "McPherson's Woods",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "place",
+   "entity": {
+    "display_name": "Herbst Woods",
+    "kind": "battlefield",
+    "state": "PA",
+    "lat": 39.835,
+    "lon": -77.248,
+    "precision_m": 300.0
+   },
+   "name": "McPherson's Woods",
+   "name_type": "alias"
+  },
+  {
+   "type": "known_as",
+   "source": "s7",
+   "span": "King's School House",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Oak Grove",
+    "kind": "battle",
+    "parent": "Seven Days Battles"
+   },
+   "name": "King's School House",
+   "name_type": "confederate"
+  },
+  {
+   "type": "known_as",
+   "source": "s7",
+   "span": "Jones' Farm",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Peebles' Farm",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "name": "Jones' Farm",
+   "name_type": "confederate"
+  },
+  {
+   "type": "known_as",
+   "source": "s7",
+   "span": "Pegram's Farm",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Peebles' Farm",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "name": "Pegram's Farm",
+   "name_type": "alias"
+  },
+  {
+   "type": "known_as",
+   "source": "s7",
+   "span": "Squirrel Level Road",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Peebles' Farm",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "name": "Squirrel Level Road",
+   "name_type": "alias"
+  },
+  {
+   "type": "known_as",
+   "source": "s7",
+   "span": "Burgess' Mill",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Boydton Plank Road",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "name": "Burgess' Mill",
+   "name_type": "confederate"
+  },
+  {
+   "type": "known_as",
+   "source": "s7",
+   "span": "Hatcher's Run",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "event",
+   "entity": {
+    "name": "Battle of Hatcher's Run",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "name": "Hatcher's Run",
+   "name_type": "standard"
+  },
+  {
+   "type": "known_as",
+   "source": "s7",
+   "span": "District of Pimlico",
+   "confidence": 0.9,
+   "status": "accepted",
+   "entity_type": "unit",
+   "entity": {
+    "display_name": "District of Pamlico",
+    "echelon": "department",
+    "branch": "mixed",
+    "side": "Confederate"
+   },
+   "name": "District of Pimlico",
+   "name_type": "alias"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s7",
+   "span": "26th NC: Department of North Carolina",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "parent_mention": "Department of North Carolina",
+   "parent": {
+    "display_name": "Department of North Carolina",
+    "echelon": "department",
+    "branch": "mixed",
+    "side": "Confederate"
+   },
+   "date_start": "1861-09",
+   "date_end": "1861-12",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s7",
+   "span": "26th NC: District of Pamlico, Dept. of N.C.",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "parent_mention": "District of Pamlico, Dept. of N.C.",
+   "parent": {
+    "display_name": "District of Pamlico",
+    "echelon": "department",
+    "branch": "mixed",
+    "side": "Confederate"
+   },
+   "date_start": "1862-01",
+   "date_end": "1862-03",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s7",
+   "span": "District of Pamlico: Dept. of N.C.",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "District of Pamlico",
+   "unit": {
+    "display_name": "District of Pamlico",
+    "echelon": "department",
+    "branch": "mixed",
+    "side": "Confederate"
+   },
+   "parent_mention": "Dept. of N.C.",
+   "parent": {
+    "display_name": "Department of North Carolina",
+    "echelon": "department",
+    "branch": "mixed",
+    "side": "Confederate"
+   },
+   "date_start": "1862-01",
+   "date_end": "1862-06",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s7",
+   "span": "26th NC: French's-Ransom's Brigade",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "parent_mention": "French's-Ransom's Brigade",
+   "parent": {
+    "display_name": "French's / Ransom's Brigade",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Confederate"
+   },
+   "date_start": "1862-03",
+   "date_end": "1862-09",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s7",
+   "span": "26th NC: Pettigrew's Brigade",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "parent_mention": "Pettigrew's Brigade",
+   "parent": {
+    "display_name": "Pettigrew's Brigade",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Confederate"
+   },
+   "date_start": "1862-09",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s7",
+   "span": "Pettigrew's Brigade: Heth's Division",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "Pettigrew's Brigade",
+   "unit": {
+    "display_name": "Pettigrew's Brigade",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Confederate"
+   },
+   "parent_mention": "Heth's Division",
+   "parent": {
+    "display_name": "Heth's Division",
+    "echelon": "division",
+    "branch": "mixed",
+    "side": "Confederate"
+   },
+   "date_start": "1863-06",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s7",
+   "span": "Heth's Division: 3rd Corps",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "Heth's Division",
+   "unit": {
+    "display_name": "Heth's Division",
+    "echelon": "division",
+    "branch": "mixed",
+    "side": "Confederate"
+   },
+   "parent_mention": "3rd Corps",
+   "parent": {
+    "display_name": "Third Corps, Army of Northern Virginia",
+    "echelon": "corps",
+    "branch": "mixed",
+    "side": "Confederate"
+   },
+   "date_start": "1863-06",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s7",
+   "span": "Third Corps: Army of Northern Virginia",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "Third Corps",
+   "unit": {
+    "display_name": "Third Corps, Army of Northern Virginia",
+    "echelon": "corps",
+    "branch": "mixed",
+    "side": "Confederate"
+   },
+   "parent_mention": "Army of Northern Virginia",
+   "parent": {
+    "display_name": "Army of Northern Virginia",
+    "echelon": "army",
+    "branch": "mixed",
+    "side": "Confederate"
+   },
+   "date_start": "1863-06",
+   "date_precision": "month"
+  },
+  {
+   "type": "subordinate_to",
+   "source": "s7",
+   "span": "Pettigrew's Brigade, French's Command, Dept. of NC and Southern Va.",
+   "confidence": 0.9,
+   "status": "pending",
+   "note": "Brigade's parent was a shifting regional command ('French's Command', 'D. H. Hill's command', 'Dept. of Richmond'); each needs its own department unit",
+   "unit_mention": "Pettigrew's Brigade",
+   "unit": {
+    "display_name": "Pettigrew's Brigade",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Confederate"
+   },
+   "parent_mention": "French's Command",
+   "date_start": "1862-09",
+   "date_end": "1863-02",
+   "date_precision": "month"
+  },
+  {
+   "type": "commanded",
+   "source": "s7",
+   "span": "Col. Zebulon B. Vance",
+   "confidence": 0.9,
+   "status": "accepted",
+   "person_mention": "Col. Zebulon B. Vance",
+   "person": {
+    "name": "Zebulon B. Vance",
+    "side": "Confederate"
+   },
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "date_start": "1861-08-27",
+   "date_end": "1862-09-08",
+   "date_precision": "day"
+  },
+  {
+   "type": "commanded",
+   "source": "s7",
+   "span": "Col. Henry K. Burgwyn",
+   "confidence": 0.9,
+   "status": "accepted",
+   "person_mention": "Col. Henry K. Burgwyn",
+   "person": {
+    "name": "Henry K. Burgwyn Jr.",
+    "side": "Confederate"
+   },
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "date_start": "1862-09-08",
+   "date_end": "1863-07-01",
+   "date_precision": "day"
+  },
+  {
+   "type": "commanded",
+   "source": "s7",
+   "span": "Lt. Col. John T. Jones",
+   "confidence": 0.6,
+   "status": "accepted",
+   "note": "Source says Jones 'led the brigade' after the July 1 losses; a regimental officer commanding a brigade temporarily",
+   "person_mention": "Lt. Col. John T. Jones",
+   "person": {
+    "name": "John T. Jones",
+    "side": "Confederate"
+   },
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "Pettigrew's Brigade",
+    "echelon": "brigade",
+    "branch": "infantry",
+    "side": "Confederate"
+   },
+   "date_start": "1863-07-03",
+   "date_end": "1863-07-03",
+   "date_precision": "day"
+  },
+  {
+   "type": "commanded",
+   "source": "s7",
+   "span": "Col. John R. Lane",
+   "confidence": 0.9,
+   "status": "accepted",
+   "person_mention": "Col. John R. Lane",
+   "person": {
+    "name": "John R. Lane",
+    "side": "Confederate"
+   },
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "date_start": "1863-11",
+   "date_precision": "month"
+  },
+  {
+   "type": "commanded",
+   "source": "s7",
+   "span": "Maj. James T. Adams",
+   "confidence": 0.9,
+   "status": "accepted",
+   "person_mention": "Maj. James T. Adams",
+   "person": {
+    "name": "James T. Adams",
+    "side": "Confederate"
+   },
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "date_start": "1865-03-15",
+   "date_end": "1865-04-09",
+   "date_precision": "month"
+  },
+  {
+   "type": "commanded",
+   "source": "s7",
+   "span": "Thomas J. Cureton",
+   "confidence": 0.5,
+   "status": "accepted",
+   "note": "Led the regiment while Adams commanded the brigade: overlapping command periods",
+   "person_mention": "Thomas J. Cureton",
+   "person": {
+    "name": "Thomas J. Cureton",
+    "side": "Confederate"
+   },
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "date_start": "1865-03",
+   "date_end": "1865-04",
+   "date_precision": "month"
+  },
+  {
+   "type": "unit_at",
+   "source": "s7",
+   "span": "Crabtree, near Raleigh 1861-08-27",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "place_mention": "Crabtree, near Raleigh",
+   "place": {
+    "display_name": "Camp Crabtree, near Raleigh",
+    "kind": "camp",
+    "state": "NC",
+    "lat": 35.82,
+    "lon": -78.7,
+    "precision_m": 4000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1861-08-27",
+   "date_end": "1861-08-27",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s7",
+   "span": "Fort Macon 1861-09-02",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "place_mention": "Fort Macon",
+   "place": {
+    "display_name": "Fort Macon",
+    "kind": "fort",
+    "state": "NC",
+    "lat": 34.698,
+    "lon": -76.678,
+    "precision_m": 500.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1861-09-02",
+   "date_end": "1861-11-30",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s7",
+   "span": "Winter quarters, Morehead City-Carolina City 1861-12-01",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "place_mention": "Winter quarters, Morehead City-Carolina City",
+   "place": {
+    "display_name": "Between Morehead City and Carolina City",
+    "kind": "camp",
+    "state": "NC",
+    "lat": 34.72,
+    "lon": -76.75,
+    "precision_m": 4000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1861-12-01",
+   "date_end": "1862-02-28",
+   "date_precision": "month"
+  },
+  {
+   "type": "unit_at",
+   "source": "s7",
+   "span": "Richmond 1863-05-01",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "place_mention": "Richmond",
+   "place": {
+    "display_name": "Richmond",
+    "kind": "town",
+    "state": "VA",
+    "lat": 37.541,
+    "lon": -77.436,
+    "precision_m": 4000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1863-05-01",
+   "date_end": "1863-06-15",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "New Bern 1862-03-14..1862-03-14",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "New Bern",
+   "event": {
+    "name": "Battle of New Bern",
+    "kind": "battle"
+   },
+   "portion": "whole",
+   "date_start": "1862-03-14",
+   "date_end": "1862-03-14",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "New Bern: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "New Bern",
+   "event": {
+    "name": "Battle of New Bern",
+    "kind": "battle"
+   },
+   "scope": "event",
+   "casualties_total": 87
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "New Bern at new_bern",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "New Bern",
+   "event": {
+    "name": "Battle of New Bern",
+    "kind": "battle"
+   },
+   "place_mention": "new_bern",
+   "place": {
+    "display_name": "New Bern",
+    "kind": "town",
+    "state": "NC",
+    "lat": 35.108,
+    "lon": -77.044,
+    "precision_m": 3000.0
+   },
+   "date_start": "1862-03-14",
+   "date_end": "1862-03-14",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Seven Days 1862-06-25..1862-07-01",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Seven Days",
+   "event": {
+    "name": "Seven Days Battles",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1862-06-25",
+   "date_end": "1862-07-01",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Seven Days: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Seven Days",
+   "event": {
+    "name": "Seven Days Battles",
+    "kind": "campaign"
+   },
+   "scope": "event",
+   "killed": 6,
+   "wounded": 40
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "King's School House 1862-06-25..1862-06-25",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "King's School House",
+   "event": {
+    "name": "Battle of Oak Grove",
+    "kind": "battle",
+    "parent": "Seven Days Battles"
+   },
+   "portion": "whole",
+   "date_start": "1862-06-25",
+   "date_end": "1862-06-25",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "King's School House: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "King's School House",
+   "event": {
+    "name": "Battle of Oak Grove",
+    "kind": "battle",
+    "parent": "Seven Days Battles"
+   },
+   "scope": "event",
+   "killed": 2,
+   "wounded": 5
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "King's School House at oak_grove",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "King's School House",
+   "event": {
+    "name": "Battle of Oak Grove",
+    "kind": "battle",
+    "parent": "Seven Days Battles"
+   },
+   "place_mention": "oak_grove",
+   "place": {
+    "display_name": "King's School House",
+    "kind": "crossroads",
+    "state": "VA",
+    "lat": 37.53,
+    "lon": -77.31,
+    "precision_m": 2000.0
+   },
+   "date_start": "1862-06-25",
+   "date_end": "1862-06-25",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Malvern Hill 1862-07-01..1862-07-01",
+   "confidence": 0.9,
+   "status": "accepted",
+   "note": "Child losses (2+7 killed) exceed the Seven Days total (6 killed): sources disagree or overlap",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Malvern Hill",
+   "event": {
+    "name": "Battle of Malvern Hill",
+    "kind": "battle",
+    "parent": "Seven Days Battles"
+   },
+   "portion": "whole",
+   "date_start": "1862-07-01",
+   "date_end": "1862-07-01",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Malvern Hill: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Malvern Hill",
+   "event": {
+    "name": "Battle of Malvern Hill",
+    "kind": "battle",
+    "parent": "Seven Days Battles"
+   },
+   "scope": "event",
+   "killed": 7,
+   "wounded": 53,
+   "missing_captured": 1
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Malvern Hill at malvern_hill",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Malvern Hill",
+   "event": {
+    "name": "Battle of Malvern Hill",
+    "kind": "battle",
+    "parent": "Seven Days Battles"
+   },
+   "place_mention": "malvern_hill",
+   "place": {
+    "display_name": "Malvern Hill",
+    "kind": "battlefield",
+    "state": "VA",
+    "lat": 37.41,
+    "lon": -77.25,
+    "precision_m": 2000.0
+   },
+   "date_start": "1862-07-01",
+   "date_end": "1862-07-01",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "New Bern and Washington Campaign 1863-03-01..1863-04-30",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "New Bern and Washington Campaign",
+   "event": {
+    "name": "New Bern and Washington Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-03-01",
+   "date_end": "1863-04-30",
+   "date_precision": "month"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "New Bern and Washington Campaign: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "New Bern and Washington Campaign",
+   "event": {
+    "name": "New Bern and Washington Campaign",
+    "kind": "campaign"
+   },
+   "scope": "event",
+   "killed": 7,
+   "wounded": 11,
+   "missing_captured": 71
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Blount's Creek 1863-04-11..1863-04-11",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Blount's Creek",
+   "event": {
+    "name": "Blount's Creek",
+    "kind": "engagement",
+    "parent": "New Bern and Washington Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-04-11",
+   "date_end": "1863-04-11",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Blount's Creek at blounts_creek",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Blount's Creek",
+   "event": {
+    "name": "Blount's Creek",
+    "kind": "engagement",
+    "parent": "New Bern and Washington Campaign"
+   },
+   "place_mention": "blounts_creek",
+   "place": {
+    "display_name": "Blount's Creek",
+    "kind": "river",
+    "state": "NC",
+    "lat": 35.42,
+    "lon": -77.08,
+    "precision_m": 4000.0
+   },
+   "date_start": "1863-04-11",
+   "date_end": "1863-04-11",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Gettysburg Campaign 1863-06-15..1863-07-14",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Gettysburg Campaign",
+   "event": {
+    "name": "Gettysburg Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-06-15",
+   "date_end": "1863-07-14",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Gettysburg 1863-07-01..1863-07-03",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Gettysburg",
+   "event": {
+    "name": "Battle of Gettysburg",
+    "kind": "battle",
+    "parent": "Gettysburg Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-07-01",
+   "date_end": "1863-07-03",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Gettysburg: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Gettysburg",
+   "event": {
+    "name": "Battle of Gettysburg",
+    "kind": "battle",
+    "parent": "Gettysburg Campaign"
+   },
+   "scope": "event",
+   "strength": 843,
+   "killed": 172,
+   "wounded": 443,
+   "missing_captured": 72,
+   "casualties_total": 687
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Herbst Woods 1863-07-01..1863-07-01",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Herbst Woods",
+   "event": {
+    "name": "Fight at Herbst Woods (July 1)",
+    "kind": "engagement",
+    "parent": "Battle of Gettysburg"
+   },
+   "portion": "whole",
+   "date_start": "1863-07-01",
+   "date_end": "1863-07-01",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Herbst Woods: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Herbst Woods",
+   "event": {
+    "name": "Fight at Herbst Woods (July 1)",
+    "kind": "engagement",
+    "parent": "Battle of Gettysburg"
+   },
+   "scope": "event",
+   "killed": 86,
+   "wounded": 502,
+   "casualties_total": 588
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Herbst Woods at herbst_woods",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Herbst Woods",
+   "event": {
+    "name": "Fight at Herbst Woods (July 1)",
+    "kind": "engagement",
+    "parent": "Battle of Gettysburg"
+   },
+   "place_mention": "herbst_woods",
+   "place": {
+    "display_name": "Herbst Woods",
+    "kind": "battlefield",
+    "state": "PA",
+    "lat": 39.835,
+    "lon": -77.248,
+    "precision_m": 300.0
+   },
+   "date_start": "1863-07-01",
+   "date_end": "1863-07-01",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Herbst Woods (opponent named in 26th NC source) 1863-07-01..1863-07-01",
+   "confidence": 0.8,
+   "status": "accepted",
+   "note": "Claim about the 24th Michigan extracted from a 26th NC source; opponents are recorded by sharing the sub-battle event, not by a separate claim type",
+   "unit_mention": "24th Michigan",
+   "unit": {
+    "display_name": "24th Michigan Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "MI",
+    "number": 24,
+    "side": "Union"
+   },
+   "event_mention": "Herbst Woods (opponent named in 26th NC source)",
+   "event": {
+    "name": "Fight at Herbst Woods (July 1)",
+    "kind": "engagement",
+    "parent": "Battle of Gettysburg"
+   },
+   "portion": "whole",
+   "date_start": "1863-07-01",
+   "date_end": "1863-07-01",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Pickett's Charge 1863-07-03..1863-07-03",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Pickett's Charge",
+   "event": {
+    "name": "Pickett's Charge (July 3)",
+    "kind": "engagement",
+    "parent": "Battle of Gettysburg"
+   },
+   "portion": "whole",
+   "date_start": "1863-07-03",
+   "date_end": "1863-07-03",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Pickett's Charge: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Pickett's Charge",
+   "event": {
+    "name": "Pickett's Charge (July 3)",
+    "kind": "engagement",
+    "parent": "Battle of Gettysburg"
+   },
+   "scope": "event",
+   "casualties_total": 99
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Pickett's Charge at cemetery_ridge",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Pickett's Charge",
+   "event": {
+    "name": "Pickett's Charge (July 3)",
+    "kind": "engagement",
+    "parent": "Battle of Gettysburg"
+   },
+   "place_mention": "cemetery_ridge",
+   "place": {
+    "display_name": "Cemetery Ridge (the stone wall)",
+    "kind": "battlefield",
+    "state": "PA",
+    "lat": 39.812,
+    "lon": -77.235,
+    "precision_m": 300.0
+   },
+   "date_start": "1863-07-03",
+   "date_end": "1863-07-03",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Falling Waters 1863-07-10..1863-07-10",
+   "confidence": 0.9,
+   "status": "accepted",
+   "note": "Source dates this July 10; the action at Falling Waters was July 14. Date conflict for review",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Falling Waters",
+   "event": {
+    "name": "Falling Waters",
+    "kind": "engagement",
+    "parent": "Gettysburg Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-07-10",
+   "date_end": "1863-07-10",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Falling Waters: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Falling Waters",
+   "event": {
+    "name": "Falling Waters",
+    "kind": "engagement",
+    "parent": "Gettysburg Campaign"
+   },
+   "scope": "event",
+   "wounded": 2,
+   "missing_captured": 59
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Falling Waters at falling_waters",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Falling Waters",
+   "event": {
+    "name": "Falling Waters",
+    "kind": "engagement",
+    "parent": "Gettysburg Campaign"
+   },
+   "place_mention": "falling_waters",
+   "place": {
+    "display_name": "Falling Waters",
+    "kind": "town",
+    "state": "WV",
+    "lat": 39.58,
+    "lon": -77.89,
+    "precision_m": 3000.0
+   },
+   "date_start": "1863-07-10",
+   "date_end": "1863-07-10",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Bristoe Campaign 1863-10-09..1863-11-07",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Bristoe Campaign",
+   "event": {
+    "name": "Bristoe Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-10-09",
+   "date_end": "1863-11-07",
+   "date_precision": "month"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Bristoe Station 1863-10-14..1863-10-14",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Bristoe Station",
+   "event": {
+    "name": "Battle of Bristoe Station",
+    "kind": "battle",
+    "parent": "Bristoe Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-10-14",
+   "date_end": "1863-10-14",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Bristoe Station: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Bristoe Station",
+   "event": {
+    "name": "Battle of Bristoe Station",
+    "kind": "battle",
+    "parent": "Bristoe Campaign"
+   },
+   "scope": "event",
+   "killed": 19,
+   "wounded": 76,
+   "missing_captured": 84
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Bristoe Station at bristoe",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Bristoe Station",
+   "event": {
+    "name": "Battle of Bristoe Station",
+    "kind": "battle",
+    "parent": "Bristoe Campaign"
+   },
+   "place_mention": "bristoe",
+   "place": {
+    "display_name": "Bristoe Station",
+    "kind": "town",
+    "state": "VA",
+    "lat": 38.72,
+    "lon": -77.54,
+    "precision_m": 2000.0
+   },
+   "date_start": "1863-10-14",
+   "date_end": "1863-10-14",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Mine Run Campaign 1863-11-26..1863-12-02",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Mine Run Campaign",
+   "event": {
+    "name": "Mine Run Campaign",
+    "kind": "campaign"
+   },
+   "portion": "whole",
+   "date_start": "1863-11-26",
+   "date_end": "1863-12-02",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Wilderness 1864-05-05..1864-05-06",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Wilderness",
+   "event": {
+    "name": "Battle of the Wilderness",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-05-05",
+   "date_end": "1864-05-06",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Wilderness: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Wilderness",
+   "event": {
+    "name": "Battle of the Wilderness",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "scope": "event",
+   "killed": 13,
+   "wounded": 15,
+   "missing_captured": 20
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Spotsylvania Court House 1864-05-08..1864-05-21",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Spotsylvania Court House",
+   "event": {
+    "name": "Battle of Spotsylvania Court House",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-05-08",
+   "date_end": "1864-05-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Spotsylvania Court House: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Spotsylvania Court House",
+   "event": {
+    "name": "Battle of Spotsylvania Court House",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "scope": "event",
+   "killed": 6,
+   "wounded": 15
+  },
+  {
+   "type": "unit_at",
+   "source": "s7",
+   "span": "Detached to gather corn for artillery horses 1864-05-08",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "place_mention": "Detached to gather corn for artillery horses",
+   "place": {
+    "display_name": "Spotsylvania Court House",
+    "kind": "town",
+    "state": "VA",
+    "lat": 38.201,
+    "lon": -77.589,
+    "precision_m": 2000.0
+   },
+   "presence": "present",
+   "portion": "detachment",
+   "portion_detail": "Detail sent to gather corn",
+   "date_start": "1864-05-08",
+   "date_end": "1864-05-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "North Anna 1864-05-22..1864-05-26",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "North Anna",
+   "event": {
+    "name": "Battle of North Anna",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-05-22",
+   "date_end": "1864-05-26",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "North Anna: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "North Anna",
+   "event": {
+    "name": "Battle of North Anna",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "scope": "event",
+   "missing_captured": 2
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Cold Harbor 1864-06-01..1864-06-03",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Cold Harbor",
+   "event": {
+    "name": "Battle of Cold Harbor",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1864-06-01",
+   "date_end": "1864-06-03",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Cold Harbor: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Cold Harbor",
+   "event": {
+    "name": "Battle of Cold Harbor",
+    "kind": "battle",
+    "parent": "Overland Campaign"
+   },
+   "scope": "event",
+   "killed": 6,
+   "wounded": 10
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Siege of Petersburg 1864-06-15..1865-04-02",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Siege of Petersburg",
+   "event": {
+    "name": "Siege of Petersburg",
+    "kind": "siege"
+   },
+   "portion": "whole",
+   "date_start": "1864-06-15",
+   "date_end": "1865-04-02",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Globe Tavern 1864-08-21..1864-08-21",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Globe Tavern",
+   "event": {
+    "name": "Battle of Globe Tavern",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "portion": "whole",
+   "date_start": "1864-08-21",
+   "date_end": "1864-08-21",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Reams' Station 1864-08-25..1864-08-25",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Reams' Station",
+   "event": {
+    "name": "Second Battle of Reams Station",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "portion": "whole",
+   "date_start": "1864-08-25",
+   "date_end": "1864-08-25",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Reams' Station: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Reams' Station",
+   "event": {
+    "name": "Second Battle of Reams Station",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "scope": "event",
+   "killed": 1,
+   "wounded": 18
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Reams' Station at reams",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Reams' Station",
+   "event": {
+    "name": "Second Battle of Reams Station",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "place_mention": "reams",
+   "place": {
+    "display_name": "Reams Station",
+    "kind": "crossroads",
+    "state": "VA",
+    "lat": 37.1,
+    "lon": -77.41,
+    "precision_m": 2000.0
+   },
+   "date_start": "1864-08-25",
+   "date_end": "1864-08-25",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Jones' Farm & Squirrel Level Road 1864-09-30..1864-10-02",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Jones' Farm & Squirrel Level Road",
+   "event": {
+    "name": "Battle of Peebles' Farm",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "portion": "whole",
+   "date_start": "1864-09-30",
+   "date_end": "1864-10-02",
+   "date_precision": "day"
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Jones' Farm & Squirrel Level Road at peebles",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Jones' Farm & Squirrel Level Road",
+   "event": {
+    "name": "Battle of Peebles' Farm",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "place_mention": "peebles",
+   "place": {
+    "display_name": "Peebles' Farm",
+    "kind": "battlefield",
+    "state": "VA",
+    "lat": 37.18,
+    "lon": -77.47,
+    "precision_m": 2000.0
+   },
+   "date_start": "1864-09-30",
+   "date_end": "1864-10-02",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Burgess' Mill 1864-10-27..1864-10-27",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Burgess' Mill",
+   "event": {
+    "name": "Battle of Boydton Plank Road",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "portion": "whole",
+   "date_start": "1864-10-27",
+   "date_end": "1864-10-27",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Hatcher's Run 1865-02-05..1865-02-07",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Hatcher's Run",
+   "event": {
+    "name": "Battle of Hatcher's Run",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "portion": "whole",
+   "date_start": "1865-02-05",
+   "date_end": "1865-02-07",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Hatcher's Run: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Hatcher's Run",
+   "event": {
+    "name": "Battle of Hatcher's Run",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "scope": "event",
+   "killed": 2,
+   "wounded": 3
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Hatcher's Run at hatchers_run",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Hatcher's Run",
+   "event": {
+    "name": "Battle of Hatcher's Run",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "place_mention": "hatchers_run",
+   "place": {
+    "display_name": "Hatcher's Run (Dabney's Mill)",
+    "kind": "battlefield",
+    "state": "VA",
+    "lat": 37.14,
+    "lon": -77.48,
+    "precision_m": 2000.0
+   },
+   "date_start": "1865-02-05",
+   "date_end": "1865-02-07",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Fort Stedman 1865-03-25..1865-03-25",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Fort Stedman",
+   "event": {
+    "name": "Battle of Fort Stedman",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "portion": "whole",
+   "date_start": "1865-03-25",
+   "date_end": "1865-03-25",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Fort Stedman: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Fort Stedman",
+   "event": {
+    "name": "Battle of Fort Stedman",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "scope": "event",
+   "missing_captured": 6
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Fort Stedman at fort_stedman",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Fort Stedman",
+   "event": {
+    "name": "Battle of Fort Stedman",
+    "kind": "battle",
+    "parent": "Siege of Petersburg"
+   },
+   "place_mention": "fort_stedman",
+   "place": {
+    "display_name": "Fort Stedman",
+    "kind": "fort",
+    "state": "VA",
+    "lat": 37.235,
+    "lon": -77.367,
+    "precision_m": 500.0
+   },
+   "date_start": "1865-03-25",
+   "date_end": "1865-03-25",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Five Forks 1865-04-01..1865-04-01",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Five Forks",
+   "event": {
+    "name": "Battle of Five Forks",
+    "kind": "battle",
+    "parent": "Appomattox Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1865-04-01",
+   "date_end": "1865-04-01",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Five Forks: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Five Forks",
+   "event": {
+    "name": "Battle of Five Forks",
+    "kind": "battle",
+    "parent": "Appomattox Campaign"
+   },
+   "scope": "event",
+   "wounded": 1,
+   "missing_captured": 1
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Five Forks at five_forks",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Five Forks",
+   "event": {
+    "name": "Battle of Five Forks",
+    "kind": "battle",
+    "parent": "Appomattox Campaign"
+   },
+   "place_mention": "five_forks",
+   "place": {
+    "display_name": "Five Forks",
+    "kind": "crossroads",
+    "state": "VA",
+    "lat": 37.14,
+    "lon": -77.62,
+    "precision_m": 1500.0
+   },
+   "date_start": "1865-04-01",
+   "date_end": "1865-04-01",
+   "date_precision": "day"
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Final assault on Petersburg 1865-04-02..1865-04-02",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Final assault on Petersburg",
+   "event": {
+    "name": "Third Battle of Petersburg",
+    "kind": "battle",
+    "parent": "Appomattox Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1865-04-02",
+   "date_end": "1865-04-02",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Final assault on Petersburg: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Final assault on Petersburg",
+   "event": {
+    "name": "Third Battle of Petersburg",
+    "kind": "battle",
+    "parent": "Appomattox Campaign"
+   },
+   "scope": "event",
+   "wounded": 2,
+   "missing_captured": 42
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Final assault on Petersburg at petersburg",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Final assault on Petersburg",
+   "event": {
+    "name": "Third Battle of Petersburg",
+    "kind": "battle",
+    "parent": "Appomattox Campaign"
+   },
+   "place_mention": "petersburg",
+   "place": {
+    "display_name": "Petersburg",
+    "kind": "town",
+    "state": "VA",
+    "lat": 37.227,
+    "lon": -77.402,
+    "precision_m": 3000.0
+   },
+   "date_start": "1865-04-02",
+   "date_end": "1865-04-02",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_at",
+   "source": "s7",
+   "span": "Amelia Court House 1865-04-04",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "place_mention": "Amelia Court House",
+   "place": {
+    "display_name": "Amelia Court House",
+    "kind": "town",
+    "state": "VA",
+    "lat": 37.34,
+    "lon": -77.98,
+    "precision_m": 2000.0
+   },
+   "presence": "present",
+   "portion": "whole",
+   "date_start": "1865-04-04",
+   "date_end": "1865-04-04",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Amelia Court House: 9 captured",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "date_start": "1865-04-04",
+   "date_end": "1865-04-04",
+   "date_precision": "day",
+   "scope": "at_date",
+   "missing_captured": 9
+  },
+  {
+   "type": "participated",
+   "source": "s7",
+   "span": "Appomattox Court House 1865-04-09..1865-04-09",
+   "confidence": 0.9,
+   "status": "accepted",
+   "note": "Surrendered 10 officers and 120 men: strength at surrender",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Appomattox Court House",
+   "event": {
+    "name": "Surrender at Appomattox Court House",
+    "kind": "political",
+    "parent": "Appomattox Campaign"
+   },
+   "portion": "whole",
+   "date_start": "1865-04-09",
+   "date_end": "1865-04-09",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "Appomattox Court House: numbers",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "event_mention": "Appomattox Court House",
+   "event": {
+    "name": "Surrender at Appomattox Court House",
+    "kind": "political",
+    "parent": "Appomattox Campaign"
+   },
+   "scope": "event",
+   "strength": 130,
+   "wounded": 1
+  },
+  {
+   "type": "event_at",
+   "source": "s8",
+   "span": "Appomattox Court House at appomattox",
+   "confidence": 0.9,
+   "status": "accepted",
+   "event_mention": "Appomattox Court House",
+   "event": {
+    "name": "Surrender at Appomattox Court House",
+    "kind": "political",
+    "parent": "Appomattox Campaign"
+   },
+   "place_mention": "appomattox",
+   "place": {
+    "display_name": "Appomattox Court House",
+    "kind": "town",
+    "state": "VA",
+    "lat": 37.377,
+    "lon": -78.796,
+    "precision_m": 1500.0
+   },
+   "date_start": "1865-04-09",
+   "date_end": "1865-04-09",
+   "date_precision": "day"
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "May 1864: recruited back to 760 men",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "date_start": "1864-05-01",
+   "date_end": "1864-05-31",
+   "date_precision": "month",
+   "scope": "at_date",
+   "strength": 760
+  },
+  {
+   "type": "unit_numbers",
+   "source": "s7",
+   "span": "274 killed or died of wounds, 332 died of disease, 775 captured, 70 died in captivity",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "scope": "whole_service",
+   "killed": 274,
+   "missing_captured": 775,
+   "died_disease": 332,
+   "died_captivity": 70
+  },
+  {
+   "type": "unit_at",
+   "source": "s7",
+   "span": "Regimental band captured, taken to City Point 1865-04-03",
+   "confidence": 0.9,
+   "status": "accepted",
+   "unit_mention": "26th NC",
+   "unit": {
+    "display_name": "26th North Carolina Infantry",
+    "echelon": "regiment",
+    "branch": "infantry",
+    "state": "NC",
+    "number": 26,
+    "side": "Confederate"
+   },
+   "place_mention": "Regimental band captured, taken to City Point",
+   "place": {
+    "display_name": "City Point",
+    "kind": "town",
+    "state": "VA",
+    "lat": 37.31,
+    "lon": -77.28,
+    "precision_m": 2000.0
+   },
+   "presence": "present",
+   "portion": "detachment",
+   "portion_detail": "Regimental band",
+   "date_start": "1865-04-03",
+   "date_end": "1865-04-03",
+   "date_precision": "day"
+  }
+ ]
+}

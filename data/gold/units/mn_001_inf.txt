@@ -1,0 +1,71 @@
+unit: 1st Minnesota Infantry
+side: Union
+db_unit: 1088
+organized: 1861-04-29
+ended: 1865-07-15
+ended_how: mustered out (regiment 1864-04-29; battalion 1865-07-15)
+sources: Dyer's (witness-voted text)
+complete: yes
+M 1861-07-16/1861-07-21 | Advance on Manassas | dyers
+P 1861-07-21 | First Battle of Bull Run | dyers
+P 1861-10-11/1861-10-23 | Operations about Ball's Bluff | dyers
+P 1861-10-21 | Battle of Ball's Bluff | dyers
+P 1861-10-21 | Leesburg Road | dyers | 2 companies
+P 1861-10-22 | Goose Creek and near Edward's Ferry | dyers
+M 1862-02-25/1862-03-15 | Advance toward Winchester | dyers
+P 1862-04-05/1862-05-04 | Siege of Yorktown | dyers
+P 1862-05-07 | West Point | dyers
+M 1862-05-09/1862-05-23 | Advance to the Chickahominy | dyers
+P 1862-05-31/1862-06-01 | Battle of Fair Oaks (Seven Pines) | dyers
+P 1862-06-25/1862-07-01 | Seven Days Battles | dyers
+P 1862-06-29 | Peach Orchard, Allen's Farm and Savage Station | dyers
+P 1862-06-30 | White Oak Swamp and Glendale | dyers
+P 1862-07-01 | Malvern Hill | dyers
+P 1862-08-05 | Malvern Hill (second) | dyers
+M 1862-09-01/1862-09-02 | Cover Pope's retreat to Washington | dyers
+P 1862-09-01 | Near Chantilly and Flint Hill | dyers | printed "Flint River"
+P 1862-09-02 | Vienna | dyers
+P 1862-09-06/1862-09-22 | Maryland Campaign | dyers
+P 1862-09-14 | South Mountain | dyers
+P 1862-09-16/1862-09-17 | Battle of Antietam | dyers
+P 1862-10-16/1862-10-17 | Reconnaissance to Charlestown | dyers
+M 1862-10-30/1862-11-17 | March up Loudoun Valley to Falmouth | dyers
+P 1862-12-12/1862-12-15 | Battle of Fredericksburg | dyers
+P 1863-04-27/1863-05-06 | Chancellorsville Campaign | dyers
+P 1863-04-29/1863-05-02 | Operations about Franklin's Crossing | dyers
+P 1863-05-03 | Marye's Heights, Fredericksburg | dyers
+P 1863-05-03/1863-05-04 | Salem Heights | dyers
+P 1863-05-04 | Banks' Ford | dyers
+P 1863-06-12/1863-07-24 | Gettysburg Campaign | dyers
+P 1863-06-25 | Haymarket | dyers
+P 1863-07-01/1863-07-03 | Battle of Gettysburg | dyers
+P 1863-07-05/1863-07-24 | Pursuit of Lee to Manassas Gap | dyers
+M 1863-08-15/1863-09-16 | Draft riots duty, New York | dyers
+P 1863-10-09/1863-10-22 | Bristoe Campaign | dyers
+P 1863-10-14 | Bristoe Station | dyers
+M 1863-11-07/1863-11-08 | Advance to line of the Rappahannock | dyers
+P 1863-11-26/1863-12-02 | Mine Run Campaign | dyers
+P 1863-11-27 | Robertson's Tavern | dyers
+P 1863-11-28/1863-11-30 | Mine Run | dyers
+P 1864-06-16/1864-06-18 | Assaults on Petersburg | dyers | battalion
+P 1864-06-16/1865-04-02 | Siege of Petersburg | dyers | battalion
+P 1864-06-22/1864-06-23 | Jerusalem Plank Road | dyers | battalion
+P 1864-07-27/1864-07-29 | Demonstration north of the James | dyers | battalion
+P 1864-07-27/1864-07-28 | Deep Bottom | dyers | battalion
+P 1864-08-13/1864-08-20 | Demonstration north of the James (second) | dyers | battalion
+P 1864-08-14/1864-08-18 | Strawberry Plains | dyers | battalion
+P 1864-08-25 | Weldon Railroad (Ream's Station) | dyers | battalion
+P 1864-10-27/1864-10-29 | Boydton Plank Road, Hatcher's Run | dyers | battalion
+P 1864-12-07/1864-12-11 | Raid on Weldon Railroad | dyers | battalion
+P 1865-02-05/1865-02-07 | Dabney's Mills, Hatcher's Run | dyers | battalion
+P 1865-03-25 | Watkins' House | dyers | battalion
+P 1865-03-28/1865-04-09 | Appomattox Campaign | dyers | battalion
+P 1865-03-29/1865-03-31 | Hatcher's Run, Boydton Road | dyers | battalion
+P 1865-03-31 | Crow's House | dyers | battalion
+P 1865-04-02 | Sutherland Station and fall of Petersburg | dyers | battalion
+P 1865-04-03/1865-04-09 | Pursuit of Lee | dyers | battalion
+P 1865-04-06 | Sailor's Creek | dyers | battalion
+P 1865-04-07 | High Bridge and Farmville | dyers | battalion
+P 1865-04-09 | Appomattox Court House | dyers | battalion
+M 1865-05-02/1865-05-12 | March to Washington | dyers
+M 1865-05-23 | Grand Review | dyers

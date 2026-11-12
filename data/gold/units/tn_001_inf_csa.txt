@@ -1,0 +1,18 @@
+unit: 1st Tennessee Infantry (Maney's / Feild's)
+side: Confederate
+db_unit: 6245
+organized: 1861-05-09
+ended: 1865-04-26
+ended_how: surrendered with Johnston (Wikipedia gives disbanded May 1, 1865)
+sources: Wikipedia "1st Tennessee Infantry Regiment" (undated list; dated from the events); no NPS history
+complete: no
+P 1861-09-12/1861-09-15 | Cheat Mountain | wiki
+P 1862-04-06/1862-04-07 | Battle of Shiloh | wiki
+P 1862-10-08 | Battle of Perryville | wiki
+P 1862-12-31/1863-01-02 | Battle of Stones River | wiki
+P 1863-09-19/1863-09-20 | Battle of Chickamauga | wiki
+P 1863-11-23/1863-11-25 | Battles for Chattanooga | wiki
+P 1864-06-27 | Kennesaw Mountain | wiki
+P 1864-11-30 | Battle of Franklin | wiki
+P 1864-12-15/1864-12-16 | Battle of Nashville | wiki
+P 1865-03-19/1865-03-21 | Battle of Bentonville | wiki

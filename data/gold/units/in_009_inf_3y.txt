@@ -1,0 +1,68 @@
+unit: 9th Indiana Infantry (3 years)
+side: Union
+db_unit: 434
+same_as: 7428
+organized: 1861-09-05
+ended: 1865-09-28
+ended_how: mustered out
+sources: Dyer's (witness-voted text; "Rockcastle 87 River" is OCR noise)
+complete: yes
+P 1861-10-03/1861-10-04 | Greenbrier River | dyers
+P 1861-12-11/1861-12-13 | Expedition to Camp Baldwin | dyers
+P 1861-12-12 | Greenbrier River (second) | dyers
+P 1861-12-13 | Camp Allegheny | dyers
+P 1862-04-06/1862-04-07 | Battle of Shiloh | dyers
+P 1862-04-29/1862-05-30 | Advance on and siege of Corinth | dyers
+P 1862-05-31/1862-06-12 | Pursuit to Booneville | dyers
+M 1862-08-17/1862-09-26 | March to Louisville in pursuit of Bragg | dyers
+P 1862-10-01/1862-10-22 | Pursuit of Bragg to Loudon | dyers
+P 1862-10-08 | Battle of Perryville | dyers
+P 1862-10-11 | Danville | dyers
+P 1862-10-16 | Wild Cat Mountain, Big Rockcastle River, near Mt. Vernon | dyers
+P 1862-10-17 | Wild Cat | dyers
+P 1862-10-18 | Rockcastle River and Nelson's Cross Roads | dyers
+P 1862-10-20 | Pittman's Cross Roads | dyers | printed "Pittman's Forks"
+M 1862-12-26/1862-12-30 | Advance on Murfreesboro | dyers
+P 1862-12-26/1862-12-27 | La Vergne | dyers
+P 1862-12-27 | Stewart's Creek | dyers
+P 1862-12-30/1863-01-03 | Battle of Stones River | dyers
+P 1863-01-24 | Woodbury | dyers
+P 1863-04-02 | Expedition from Readyville to Woodbury | dyers
+P 1863-06-23/1863-07-07 | Tullahoma Campaign | dyers
+P 1863-08-16/1863-09-22 | Chickamauga Campaign | dyers
+P 1863-09-11/1863-09-13 | Lee and Gordon's Mills | dyers
+P 1863-09-19/1863-09-20 | Battle of Chickamauga | dyers
+P 1863-09-22/1863-11-23 | Siege of Chattanooga | dyers
+P 1863-09-22/1863-09-27 | Before Chattanooga | dyers
+P 1863-10-26/1863-10-29 | Reopening Tennessee River | dyers
+P 1863-11-23/1863-11-27 | Chattanooga-Ringgold Campaign | dyers
+P 1863-11-23/1863-11-24 | Lookout Mountain | dyers
+P 1863-11-25 | Missionary Ridge | dyers
+P 1863-11-27 | Ringgold Gap, Taylor's Ridge | dyers
+P 1864-05-01/1864-09-08 | Atlanta Campaign | dyers
+P 1864-05-06/1864-05-07 | Tunnel Hill | dyers
+P 1864-05-08/1864-05-13 | Demonstration on Rocky Face Ridge and Dalton | dyers
+P 1864-05-08/1864-05-09 | Buzzard's Roost Gap | dyers
+P 1864-05-13 | Near Dalton | dyers
+P 1864-05-14/1864-05-15 | Battle of Resaca | dyers
+P 1864-05-18/1864-05-19 | Near Kingston | dyers
+P 1864-05-19/1864-05-24 | Cassville | dyers | May 19 and 24
+P 1864-05-25/1864-06-05 | Operations on line of Pumpkin Vine Creek (Dallas, New Hope Church, Allatoona Hills) | dyers
+P 1864-06-10/1864-07-02 | Operations about Marietta and against Kennesaw Mountain | dyers
+P 1864-06-11/1864-06-14 | Pine Hill | dyers
+P 1864-06-15/1864-06-17 | Lost Mountain | dyers
+P 1864-06-27 | Assault on Kennesaw | dyers
+P 1864-07-04 | Ruff's Station, Smyrna Camp Ground | dyers
+P 1864-07-05/1864-07-17 | Chattahoochee River | dyers
+P 1864-07-19/1864-07-20 | Peachtree Creek | dyers
+P 1864-07-22/1864-08-25 | Siege of Atlanta | dyers
+M 1864-08-25/1864-08-30 | Flank movement on Jonesboro | dyers
+P 1864-08-31/1864-09-01 | Battle of Jonesboro | dyers
+P 1864-09-02/1864-09-06 | Lovejoy Station | dyers
+P 1864-09-29/1864-11-03 | Operations against Hood in North Georgia and North Alabama | dyers
+P 1864-11/1864-12 | Nashville Campaign | dyers
+P 1864-11-24/1864-11-27 | Columbia, Duck River | dyers
+P 1864-11-30 | Battle of Franklin | dyers
+P 1864-12-15/1864-12-16 | Battle of Nashville | dyers
+P 1864-12-17/1864-12-28 | Pursuit of Hood to the Tennessee River | dyers
+P 1865-03-15/1865-04-22 | Operations in East Tennessee | dyers

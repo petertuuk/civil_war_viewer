@@ -1,0 +1,298 @@
+[
+ {
+  "type": "unit_at",
+  "mention": "Findlay, Ohio",
+  "date_start": "1861-09-19",
+  "date_end": "1861-09-19",
+  "presence": "present",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Nicholasville, Ky.",
+  "date_start": "1861-10-02",
+  "date_end": "1861-10-02",
+  "presence": "departed",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Bacon Creek and Green River, Ky.",
+  "date_start": "1861-12-01",
+  "date_end": "1862-02-10",
+  "presence": "present",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Nashville",
+  "date_start": "1862-02-25",
+  "date_end": "1862-03-17",
+  "presence": "present",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Huntsville, Ala.",
+  "date_start": "1862-04-11",
+  "date_end": "1862-04-11",
+  "presence": "arrived",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Athens, Ala.",
+  "date_start": "1862-05-28",
+  "date_end": "1862-08-28",
+  "presence": "present",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Nashville (siege)",
+  "date_start": "1862-09-12",
+  "date_end": "1862-11-07",
+  "presence": "present",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Murfreesboro",
+  "date_start": "1863-01-04",
+  "date_end": "1863-06-23",
+  "presence": "present",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Chattanooga (siege)",
+  "date_start": "1863-09-24",
+  "date_end": "1863-11-23",
+  "presence": "present",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Veterans on furlough, Ohio",
+  "date_start": "1864-01-01",
+  "date_end": "1864-03-31",
+  "presence": "present",
+  "portion": "veterans"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Reconnaissance to Dalton, Ga. (non-veterans)",
+  "date_start": "1864-02-22",
+  "date_end": "1864-02-27",
+  "presence": "present",
+  "portion": "non_veterans"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Raleigh",
+  "date_start": "1865-04-14",
+  "date_end": "1865-04-14",
+  "presence": "arrived",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Louisville, Ky.",
+  "date_start": "1865-06-01",
+  "date_end": "1865-07-25",
+  "presence": "present",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Ivy's Mountain, Ky.",
+  "date_start": "1861-11-08",
+  "date_end": "1861-11-08",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Pittinger's Raid on Georgia State Railroad",
+  "date_start": "1862-04-07",
+  "date_end": "1862-04-12",
+  "portion": "detachment"
+ },
+ {
+  "type": "participated",
+  "mention": "Stone's River",
+  "date_start": "1862-12-30",
+  "date_end": "1863-01-03",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Tullahoma (Middle Tennessee) Campaign",
+  "date_start": "1863-06-23",
+  "date_end": "1863-07-07",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Chickamauga Campaign",
+  "date_start": "1863-08-16",
+  "date_end": "1863-09-22",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Chickamauga",
+  "date_start": "1863-09-19",
+  "date_end": "1863-09-21",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Mission Ridge",
+  "date_start": "1863-11-25",
+  "date_end": "1863-11-25",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Atlanta Campaign",
+  "date_start": "1864-05-01",
+  "date_end": "1864-09-08",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Resaca",
+  "date_start": "1864-05-14",
+  "date_end": "1864-05-15",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Assault on Kenesaw",
+  "date_start": "1864-06-27",
+  "date_end": "1864-06-27",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Peach Tree Creek",
+  "date_start": "1864-07-19",
+  "date_end": "1864-07-20",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Siege of Atlanta",
+  "date_start": "1864-07-22",
+  "date_end": "1864-08-25",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Operations against Hood in North Georgia",
+  "date_start": "1864-04-29",
+  "date_end": "1864-11-03",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "March to the sea",
+  "date_start": "1864-11-15",
+  "date_end": "1864-12-10",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Siege of Savannah",
+  "date_start": "1864-12-10",
+  "date_end": "1864-12-21",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Campaign of the Carolinas",
+  "date_start": "1865-01-01",
+  "date_end": "1865-04-26",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Taylor's Hole Creek, Averysboro, N.C.",
+  "date_start": "1865-03-16",
+  "date_end": "1865-03-16",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Bentonville, N.C.",
+  "date_start": "1865-03-19",
+  "date_end": "1865-03-21",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Grand Review",
+  "date_start": "1865-05-24",
+  "date_end": "1865-05-24",
+  "portion": "whole"
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "Thomas' Command, Army of the Ohio",
+  "date_start": null,
+  "date_end": "1861-11"
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "9th Brigade, Army of the Ohio",
+  "date_start": null,
+  "date_end": "1861-12"
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "9th Brigade, 3rd Division, Army of the Ohio",
+  "date_start": null,
+  "date_end": "1862-07"
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "7th Independent Brigade, Army of the Ohio",
+  "date_start": null,
+  "date_end": "1862-09"
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "3rd Brigade, 2nd Division, Center 14th Army Corps, Army of the Cumberland",
+  "date_start": null,
+  "date_end": "1863-01"
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "3rd Brigade, 2nd Division, 14th Army Corps",
+  "date_start": null,
+  "date_end": "1863-10"
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "3rd Brigade, 1st Division, 14th Army Corps",
+  "date_start": null,
+  "date_end": "1865-06"
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "1st Brigade, 1st Division, 14th Army Corps",
+  "date_start": null,
+  "date_end": "1865-07"
+ },
+ {
+  "type": "unit_numbers",
+  "scope": "whole_service",
+  "mention": null,
+  "strength": null,
+  "killed": 172,
+  "wounded": null,
+  "missing_captured": null,
+  "died_disease": 220,
+  "casualties_total": 392
+ }
+]

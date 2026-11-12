@@ -1,0 +1,55 @@
+unit: 20th Maine Infantry
+side: Union
+db_unit: 845
+organized: 1862-08-29
+ended: 1865-07-16
+ended_how: mustered out
+sources: Dyer's p. 1226 (witness-voted text; "Upperville and Upperville" checked on page image: printed so)
+complete: yes
+P 1862-09-16/1862-09-17 | Battle of Antietam | dyers
+P 1862-09-19 | Shepherdstown | dyers
+M 1862-10/1862-11 | Advance to Falmouth | dyers
+P 1862-12-12/1862-12-15 | Battle of Fredericksburg | dyers
+P 1862-12-20/1862-12-30 | Expedition to Richards and Ellis Fords | dyers
+M 1863-01-20/1863-01-24 | Mud March | dyers
+P 1863-04-27/1863-05-06 | Chancellorsville Campaign | dyers
+P 1863-05-01/1863-05-05 | Battle of Chancellorsville | dyers
+P 1863-06-12/1863-07-24 | Gettysburg Campaign | dyers
+P 1863-06-17 | Aldie | dyers
+P 1863-06-21 | Upperville | dyers | printed "Upperville and Upperville"
+P 1863-06-24 | Middleburg | dyers
+P 1863-07-01/1863-07-03 | Battle of Gettysburg | dyers
+P 1863-07-05/1863-07-24 | Pursuit of Lee to Manassas Gap | dyers
+P 1863-10-09/1863-10-22 | Bristoe Campaign | dyers
+M 1863-11-07/1863-11-08 | Advance to line of the Rappahannock | dyers
+P 1863-11-07 | Rappahannock Station | dyers
+P 1863-11-26/1863-12-02 | Mine Run Campaign | dyers
+P 1864-05-03/1864-06-15 | Campaign from the Rapidan to the James | dyers
+P 1864-05-05/1864-05-07 | Battle of the Wilderness | dyers
+P 1864-05-08 | Laurel Hill | dyers
+P 1864-05-08/1864-05-21 | Spotsylvania Court House | dyers | printed as Spottsylvania May 8-12 and Spottsylvania C. H. May 12-21
+P 1864-05-23/1864-05-26 | North Anna River | dyers
+P 1864-05-23 | Jericho Mills | dyers
+P 1864-05-26/1864-05-28 | Line of the Pamunkey | dyers
+P 1864-05-28/1864-05-31 | Totopotomoy | dyers
+P 1864-06-01/1864-06-03 | Cold Harbor | dyers
+P 1864-06-01/1864-06-03 | Bethesda Church | dyers
+P 1864-06-16/1864-06-19 | Before Petersburg | dyers
+P 1864-06-16/1865-04-02 | Siege of Petersburg | dyers
+P 1864-06-21/1864-06-23 | Weldon Railroad | dyers
+P 1864-07-30 | Mine Explosion (Crater) | dyers | reserve
+P 1864-08-18/1864-08-21 | Six Mile House, Weldon Railroad (Globe Tavern) | dyers
+P 1864-09-29/1864-10-02 | Poplar Springs Church, Peebles' Farm | dyers
+P 1864-10-27/1864-10-28 | Hatcher's Run (Boydton Plank Road) | dyers
+P 1864-12-07/1864-12-11 | Warren's Hicksford Raid | dyers
+P 1865-02-05/1865-02-07 | Dabney's Mills, Hatcher's Run | dyers
+P 1865-03-28/1865-04-09 | Appomattox Campaign | dyers
+P 1865-03-29 | White Oak Road | dyers
+P 1865-03-30 | Quaker Road | dyers
+P 1865-03-30/1865-03-31 | Boydton Road | dyers
+P 1865-04-01 | Five Forks | dyers
+P 1865-04-05 | Amelia Court House | dyers
+P 1865-04-06 | High Bridge | dyers
+P 1865-04-09 | Appomattox Court House | dyers
+M 1865-05-02/1865-05-12 | March to Washington | dyers
+M 1865-05-23 | Grand Review | dyers

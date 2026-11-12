@@ -1,0 +1,35 @@
+unit: 33rd Virginia Infantry (Stonewall Brigade)
+side: Confederate
+db_unit: 6988
+organized: 1861-04-17
+ended: 1865-04-09
+ended_how: surrendered at Appomattox
+sources: NPS (Crute) history CVA0033RI; Wikipedia "33rd Virginia Infantry Regiment"
+complete: no
+P 1861-07-21 | First Battle of Bull Run | nps wiki
+P 1862-01 | Romney expedition (operations toward Martinsburg) | wiki
+P 1862-03-23 | First Battle of Kernstown | nps wiki
+P 1862-03/1862-06 | Jackson's Valley Campaign | nps wiki
+? 1862-05-08 | McDowell | wiki | held in reserve
+P 1862-05-23 | Front Royal | wiki
+P 1862-05-25 | First Battle of Winchester | wiki
+P 1862-06-09 | Port Republic | wiki
+P 1862-06-25/1862-07-01 | Seven Days Battles | nps wiki
+P 1862-06-27 | Gaines' Mill | wiki
+P 1862-07-01 | Malvern Hill | nps wiki
+P 1862-08-09 | Cedar Mountain | nps wiki
+P 1862-08-26/1862-08-27 | Manassas Junction raid | wiki
+P 1862-08-28 | Groveton (Brawner's Farm) | wiki
+P 1862-08-28/1862-08-30 | Second Battle of Bull Run | nps wiki
+P 1862-09-17 | Battle of Antietam | nps wiki
+P 1862-12-11/1862-12-15 | Battle of Fredericksburg | wiki
+P 1863-05-01/1863-05-04 | Battle of Chancellorsville | nps wiki
+P 1863-07-01/1863-07-03 | Battle of Gettysburg | nps wiki
+P 1864-05-05/1864-05-07 | Battle of the Wilderness | wiki
+P 1864-05-08/1864-05-21 | Spotsylvania Court House | wiki
+P 1864-05-31/1864-06-12 | Cold Harbor | nps
+P 1864-06/1864-10 | Early's Valley Campaign of 1864 | nps wiki
+P 1865-02-05/1865-02-07 | Hatcher's Run | wiki
+? 1865-03-02 | Waynesboro | wiki | the brigade remnant was at Petersburg by then
+P 1865-03-25 | Fort Stedman | wiki
+P 1865-03-29/1865-04-09 | Appomattox Campaign | nps wiki

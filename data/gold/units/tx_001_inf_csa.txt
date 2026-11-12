@@ -1,0 +1,24 @@
+unit: 1st Texas Infantry (Hood's Texas Brigade)
+side: Confederate
+db_unit: 6515
+organized: 1861
+ended: 1865-04-09
+ended_how: surrendered at Appomattox
+sources: general knowledge of Hood's Texas Brigade (NPS history not loaded under this code; Wikipedia fetch pending): battle-level only
+complete: no
+P 1862-05-07 | Eltham's Landing | know
+P 1862-05-31/1862-06-01 | Seven Pines | know
+P 1862-06-27 | Gaines' Mill | know
+P 1862-08-28/1862-08-30 | Second Battle of Bull Run | know
+P 1862-09-17 | Battle of Antietam | know
+P 1862-12-11/1862-12-15 | Battle of Fredericksburg | know
+P 1863-04-11/1863-05-04 | Siege of Suffolk | know
+P 1863-07-01/1863-07-03 | Battle of Gettysburg | know
+P 1863-09-19/1863-09-20 | Battle of Chickamauga | know
+P 1863-11-04/1863-12-04 | Knoxville Campaign | know
+P 1864-05-05/1864-05-07 | Battle of the Wilderness | know
+P 1864-05-08/1864-05-21 | Spotsylvania Court House | know
+P 1864-05-31/1864-06-12 | Cold Harbor | know
+P 1864-06-15/1865-04-02 | Siege of Petersburg | know
+P 1864-10-07 | Darbytown Road | know
+P 1865-04-09 | Appomattox Court House | know

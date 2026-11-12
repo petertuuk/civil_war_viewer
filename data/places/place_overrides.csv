@@ -1,0 +1,26 @@
+place_key,lat,lon,precision_m,note
+washington|DC,38.8951,-77.0364,3000,city centre; GNIS lists the District's places by name only
+"washington, d. c|DC",38.8951,-77.0364,3000,
+georgetown|DC,38.9097,-77.0654,1500,
+alexandria|VA,38.8048,-77.0469,2000,
+white house|VA,37.5765,-77.0306,2000,White House Landing on the Pamunkey (New Kent Co.); GNIS's only White House in VA is in Page Co.
+zanesville|OH,39.9403,-82.0132,2000,Muskingum Co.
+sacketts harbor|NY,43.9462,-76.1191,2000,Sackets Harbor (Jefferson Co.)
+georgetown|SC,33.3768,-79.2945,2000,Georgetown Co. (port)
+point pleasant|VA,38.8445,-82.1371,2000,"Point Pleasant, Mason Co., W. Va."
+concord|NC,35.4088,-80.5795,3000,Cabarrus Co. (county seat)
+smithfield|VA,36.9824,-76.6311,2000,Isle of Wight Co.
+newburg|NY,41.5034,-74.0104,2000,Newburgh (Orange Co.)
+chicago|IL,41.8781,-87.6298,4000,city; Camp Douglas on its south side
+madison|WI,43.0747,-89.3842,3000,Camp Randall
+davenport|IA,41.5236,-90.5776,3000,
+albany|NY,42.6526,-73.7562,3000,
+camp butler|IL,39.8197,-89.5487,1500,near Springfield
+fort snelling|MN,44.8928,-93.1808,1500,
+readville|MA,42.2384,-71.1323,1500,Camp Meigs
+barrancas|FL,30.3486,-87.2964,1500,Fort Barrancas
+fort barrancas|FL,30.3486,-87.2964,1500,
+vaughan|VA,37.1680,-77.4500,4000,Vaughan Road southwest of Petersburg (GNIS has only Vaughan, N.C.)
+new bridge|VA,37.5700,-77.3200,2000,New Bridge on the Chickahominy (Seven Days)
+white post|VA,39.0590,-78.1000,2000,"White Post, Clarke Co."
+youngs point|LA,32.4265,-91.0115,2000,"Young's Point, Madison Parish (Vicksburg canal camps); not in GNIS"

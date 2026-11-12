@@ -1,0 +1,24 @@
+unit: Washington Artillery Battalion (Louisiana)
+side: Confederate
+db_unit: 5107
+organized: 1861-05-26
+ended: 1865-04-09
+ended_how: surrendered at Appomattox (5th Company: Mobile, April 1865)
+sources: NPS (Crute) history CLAWASHBA; Wikipedia "Washington Artillery"
+complete: no
+P 1861-07-21 | First Battle of Bull Run | nps wiki
+P 1862-05-31/1862-06-01 | Seven Pines | nps
+P 1862-04-06/1862-04-07 | Battle of Shiloh | nps wiki | 5th Company
+P 1862-09-06/1862-09-22 | Maryland Campaign | nps
+P 1862-09-17 | Battle of Antietam | wiki
+P 1862-10-08 | Battle of Perryville | wiki | 5th Company
+P 1862-12-11/1862-12-15 | Battle of Fredericksburg | nps wiki
+P 1862-12-31/1863-01-02 | Battle of Stones River | nps | 5th Company
+P 1863-07-01/1863-07-03 | Battle of Gettysburg | nps wiki
+P 1863-09-19/1863-09-20 | Battle of Chickamauga | nps wiki | 5th Company
+P 1864-05-16 | Drewry's Bluff | nps
+P 1864-05-31/1864-06-12 | Cold Harbor | nps wiki
+P 1864-06-15/1865-04-02 | Siege of Petersburg | nps
+P 1864-12-15/1864-12-16 | Battle of Nashville | nps | 5th Company
+P 1865-03-29/1865-04-09 | Appomattox Campaign | nps
+P 1865-03/1865-04 | Defence of Mobile | nps | 5th Company

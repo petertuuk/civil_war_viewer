@@ -1,0 +1,36 @@
+unit: 33rd Illinois Infantry
+side: Union
+db_unit: 247
+organized: 1861-09-03
+ended: 1865-11-24
+ended_how: mustered out
+sources: Dyer's (witness-voted text)
+complete: yes
+P 1861-10-12/1861-10-25 | Expedition to Fredericktown | dyers
+P 1861-10-15 | Big River Bridge, near Potosi | dyers
+P 1861-10-21 | Fredericktown | dyers
+P 1862-03-23/1862-05-10 | Steele's Expedition to White River | dyers
+M 1862-04-05/1862-05-03 | March to Batesville | dyers
+M 1862-05-25/1862-07-14 | March to Helena | dyers
+P 1862-07-07 | Hill's Plantation, Cache River | dyers
+P 1862-08-02 | Totten's Plantation | dyers
+P 1862-09-24 | Prentiss and Bolivar | dyers
+P 1862-09-28 | Friar's Point | dyers
+P 1862-12/1863-03 | Campaign in Southeast Missouri | dyers
+P 1863-04-25/1863-04-30 | Movement on Bruinsburg and turning Grand Gulf | dyers
+P 1863-05-01 | Battle of Port Gibson | dyers
+P 1863-05-16 | Battle of Champion Hill | dyers
+P 1863-05-17 | Big Black River Bridge | dyers
+P 1863-05-18/1863-07-04 | Siege of Vicksburg | dyers
+P 1863-05-19/1863-05-22 | Assaults on Vicksburg | dyers
+M 1863-07-04 | Surrender of Vicksburg | dyers
+M 1863-07-05/1863-07-10 | Advance on Jackson | dyers
+P 1863-07-10/1863-07-17 | Siege of Jackson | dyers
+P 1863-10-03/1863-11-10 | Western Louisiana Campaign | dyers
+P 1863-11-17 | Capture of Mustang Island | dyers
+P 1863-11-27/1863-11-30 | Fort Esperanza | dyers
+P 1865-03-18/1865-04-12 | Campaign against Mobile | dyers
+P 1865-03-26/1865-04-08 | Siege of Spanish Fort and Fort Blakely | dyers
+P 1865-04-09 | Assault and capture of Fort Blakely | dyers
+M 1865-04-12 | Occupation of Mobile | dyers
+M 1865-04-13/1865-04-25 | March to Montgomery | dyers

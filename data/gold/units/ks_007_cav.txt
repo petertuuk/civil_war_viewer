@@ -1,0 +1,89 @@
+unit: 7th Kansas Cavalry
+side: Union
+db_unit: 658
+organized: 1861-10-28
+ended: 1865-09-29
+ended_how: mustered out
+sources: Dyer's (witness-voted text)
+complete: yes
+P 1861-10-21 | Spring Hill, Mo. | dyers | 1 company
+P 1861-11-11 | Little Blue | dyers | Cos. A, B, H
+P 1861-11-20 | Little Santa Fe | dyers
+P 1861-11-20 | Independence, Little Blue | dyers | detachment
+P 1862-01-09 | Columbus, Mo. | dyers
+P 1862-07-27/1862-07-29 | Expedition from Rienzi to Ripley | dyers
+P 1862-08-04/1862-08-07 | Reconnaissance to Jacinto and Bay Springs | dyers
+P 1862-08-18/1862-08-21 | Reconnaissance from Rienzi to Bay Springs | dyers | printed "Hay Springs"
+P 1862-08-20 | Marietta and Bay Springs | dyers
+P 1862-08-27 | Kossuth | dyers
+P 1862-09-09/1862-09-18 | Rienzi | dyers | September 9 and 18
+P 1862-09-19 | Battle of Iuka | dyers | Cos. B, E
+P 1862-10-01 | Ruckersville | dyers | detachment
+P 1862-10-02 | Baldwyn | dyers
+P 1862-10-03/1862-10-04 | Battle of Corinth | dyers
+P 1862-10-05/1862-10-12 | Pursuit to Ripley | dyers
+P 1862-10-06 | Ruckersville (second) | dyers
+P 1862-10-31/1863-01-10 | Grant's Central Mississippi Campaign | dyers
+P 1862-11-02 | Capture of Ripley | dyers
+P 1862-11-02 | Orizaba | dyers
+P 1862-11-05 | Jumpertown | dyers
+P 1862-11-08/1862-11-09 | Reconnaissance from La Grange | dyers
+P 1862-11-08 | Lamar and Coldwater | dyers
+P 1862-11-13/1862-11-29 | Holly Springs | dyers | November 13, 28 and 29
+P 1862-11-26/1862-11-30 | Waterford or Lumpkin's Mill | dyers
+P 1862-12-01/1862-12-03 | About Oxford | dyers
+P 1862-12-02 | Tallahatchie | dyers
+P 1862-12-04 | Water Valley | dyers
+P 1862-12-05 | Coffeeville | dyers
+P 1863-01-03 | Joinerville | dyers
+P 1863-01-27 | Near Germantown | dyers
+P 1863-01-28 | Near Yorkville | dyers | 1 company
+P 1863-02-22 | Tuscumbia | dyers
+P 1863-03-08/1863-03-16 | Expedition to Collierville, La Fayette and Moscow | dyers
+P 1863-03-15 | La Fayette Depot | dyers
+P 1863-03-16 | Moscow | dyers
+P 1863-04-01 | Germantown | dyers
+P 1863-04-02/1863-04-06 | Scout in Beaver Creek Swamp | dyers
+P 1863-04-15/1863-05-08 | Dodge's Expedition into Northern Alabama | dyers
+P 1863-04-22 | Rock Cut, near Tuscumbia | dyers
+P 1863-04-23 | Tuscumbia, Dickson Station and Leighton | dyers
+P 1863-04-27 | Town Creek | dyers
+P 1863-05-02/1863-05-08 | Expedition from Burnsville to Tupelo | dyers
+P 1863-05-05 | Tupelo | dyers
+P 1863-05-26/1863-05-31 | Expedition to Florence | dyers
+P 1863-05-28 | Florence | dyers
+P 1863-05-30 | Hamburg Landing | dyers
+P 1863-07-09/1863-07-14 | Iuka | dyers | July 9 and 14
+P 1863-08-16 | Near Corinth | dyers
+P 1863-08-27/1863-10-01 | Expedition into West Tennessee | dyers
+P 1863-09-30 | Swallow Bluff | dyers | Cos. A, C
+P 1863-10-04/1863-10-17 | Operations in North Mississippi and West Tennessee against Chalmers | dyers
+P 1863-10-12 | Ingraham's Mills, near Byhalia | dyers
+P 1863-10-13 | Wyatt's, Tallahatchie River | dyers
+P 1863-11-03/1863-11-05 | Operations on Memphis & Charleston Railroad | dyers
+P 1863-11-28/1863-12-10 | Operations on Memphis & Charleston Railroad against Lee's attack | dyers
+P 1863-11-28 | Molino | dyers
+P 1863-12-01/1863-12-04 | Ripley | dyers | December 1 and 4
+P 1863-12-24 | Jack's Creek | dyers
+P 1864-05-02 | Near Memphis | dyers | detachment
+P 1864-06-09 | La Fayette | dyers
+P 1864-07-05/1864-07-18 | Smith's Expedition to Tupelo | dyers
+P 1864-07-09 | King's Creek | dyers
+P 1864-07-11/1864-07-12 | Pontotoc | dyers
+P 1864-07-13/1864-07-14 | Battle of Tupelo | dyers
+P 1864-07-15 | Old Town Creek | dyers
+P 1864-07-16 | Ellistown | dyers
+P 1864-07-25 | Tupelo | dyers
+P 1864-08-01/1864-08-30 | Smith's Expedition to Oxford | dyers
+P 1864-08-07/1864-08-09 | Tallahatchie River | dyers
+P 1864-08-09/1864-08-19 | Hurricane Creek | dyers | August 9, 13, 14, 16, 19
+P 1864-09-30/1864-11-26 | Pursuit of Price through Missouri | dyers
+P 1864-10-21 | Little Blue | dyers
+P 1864-10-22 | Independence | dyers
+P 1864-10-23 | Big Blue and State Line, Westport | dyers
+P 1864-10-25 | Mine Creek, Little Osage River | dyers
+P 1864-12-07 | Moselle Bridge, near Franklin | dyers | Co. E
+P 1865-03-03/1865-03-07 | Expedition from Bloomfield into Dunklin County | dyers
+P 1865-03-03/1865-03-07 | Skirmishes near Bloomfield | dyers | March 3 and 7
+P 1865-03-04 | Dunklin County | dyers
+P 1865-04-15 | McKenzie's Creek, near Patterson | dyers

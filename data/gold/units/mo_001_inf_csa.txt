@@ -1,0 +1,19 @@
+unit: 1st Missouri Infantry (Confederate), later 1st and 4th Consolidated
+side: Confederate
+db_unit: 5158
+same_as: 5159
+organized: 1861-06-22
+ended: 1865-04-09
+ended_how: surrendered at Fort Blakeley
+sources: Wikipedia "1st Missouri Infantry Regiment (Confederate)"; consolidated with the 4th Missouri November 7, 1862 (db 5159)
+complete: no
+P 1862-04-06/1862-04-07 | Battle of Shiloh | wiki
+P 1862-10-03/1862-10-04 | Second Battle of Corinth | wiki
+P 1863-05-16 | Battle of Champion Hill | wiki
+P 1863-05-18/1863-07-04 | Siege of Vicksburg | know | the consolidated regiment was captured at Vicksburg with Cockrell's brigade
+P 1864-05-07/1864-09-02 | Atlanta Campaign | wiki
+P 1864-05-25/1864-05-28 | New Hope Church | wiki
+P 1864-06-27 | Kennesaw Mountain | wiki
+P 1864-10-05 | Allatoona | wiki
+P 1864-11-30 | Battle of Franklin | wiki
+P 1865-04-02/1865-04-09 | Siege of Fort Blakeley | wiki

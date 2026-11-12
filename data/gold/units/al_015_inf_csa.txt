@@ -1,0 +1,22 @@
+unit: 15th Alabama Infantry
+side: Confederate
+db_unit: 3675
+organized: 1861-08
+ended: 1865-04-09
+ended_how: surrendered at Appomattox
+sources: NPS (Crute) history CAL0015RI; battles dated from the events
+complete: no
+P 1862-05/1862-06 | Jackson's Valley Campaign | nps
+P 1862-06-08 | Cross Keys | nps
+P 1862-06-09 | Port Republic | nps
+P 1862-06-25/1862-07-01 | Seven Days Battles | nps
+P 1862-08-28/1862-08-30 | Second Battle of Bull Run | nps
+P 1862-09-17 | Battle of Antietam | nps
+P 1863-04-11/1863-05-04 | Siege of Suffolk | nps
+P 1863-07-01/1863-07-03 | Battle of Gettysburg | nps
+P 1863-09-19/1863-09-20 | Battle of Chickamauga | nps
+P 1863-11-04/1863-12-04 | Knoxville Campaign | nps
+P 1864-05-05/1864-05-07 | Battle of the Wilderness | nps
+P 1864-05-31/1864-06-12 | Cold Harbor | nps
+P 1864-06-15/1865-04-02 | Siege of Petersburg | nps
+P 1865-04-09 | Appomattox Court House | nps

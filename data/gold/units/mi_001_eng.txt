@@ -1,0 +1,39 @@
+unit: 1st Michigan Engineers and Mechanics
+side: Union
+db_unit: 1030
+organized: 1861-10-29
+ended: 1865-09-22
+ended_how: mustered out
+sources: Dyer's (witness-voted text)
+complete: yes
+P 1862-01-19 | Mill Springs | dyers | Cos. D, F, G
+M 1862-02-14/1862-02-15 | Advance on Bowling Green | dyers
+M 1862-02-15 | Occupation of Bowling Green | dyers | Cos. C, H
+M 1862-02-14/1862-02-28 | Advance on Nashville | dyers
+P 1862-04-29/1862-05-30 | Advance on and siege of Corinth | dyers
+P 1862-05-09 | Near Corinth | dyers
+P 1862-06/1862-08 | Buell's Campaign in Northern Alabama and Middle Tennessee | dyers
+M 1862-09-16/1862-09-26 | March to Louisville | dyers
+P 1862-10-01/1862-10-22 | Pursuit of Bragg into Kentucky | dyers
+P 1862-10-08 | Battle of Perryville | dyers | Cos. A, C, H
+P 1862-12-31/1863-01-03 | Battle of Stones River | dyers
+P 1863-01-01 | La Vergne | dyers
+P 1863-10-06 | Chattanooga | dyers
+P 1863-10-26/1863-10-29 | Reopening Tennessee River | dyers
+P 1863-10-27 | Brown's Ferry | dyers
+P 1864-11-15/1864-12-10 | March to the Sea | dyers
+P 1864-12-10/1864-12-21 | Siege of Savannah | dyers
+P 1865-01/1865-04 | Campaign of the Carolinas | dyers
+P 1865-02-09 | South Edisto River | dyers
+P 1865-02-12/1865-02-13 | North Edisto River | dyers
+P 1865-02-16/1865-02-17 | Columbia | dyers
+P 1865-03-11 | Fayetteville | dyers
+P 1865-03-16 | Averasboro | dyers
+P 1865-03-19/1865-03-21 | Battle of Bentonville | dyers
+P 1864-12-05/1864-12-12 | Siege of Murfreesboro | dyers | Cos. L, M
+P 1864-12-15 | Near Murfreesboro | dyers | Cos. L, M
+M 1865-03-24 | Occupation of Goldsboro | dyers
+M 1865-04-10/1865-04-14 | Advance on Raleigh | dyers
+M 1865-04-14 | Occupation of Raleigh | dyers
+P 1865-04-26 | Bennett's House (surrender of Johnston) | dyers
+M 1865-05-24 | Grand Review | dyers

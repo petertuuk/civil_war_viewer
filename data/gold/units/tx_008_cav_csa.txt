@@ -1,0 +1,19 @@
+unit: 8th Texas Cavalry (Terry's Texas Rangers)
+side: Confederate
+db_unit: 6565
+organized: 1861-08
+ended: 1865-04-26
+ended_how: declined surrender with the Army of Tennessee; went home in small groups
+sources: NPS (Crute) history CTX0008RC; Wikipedia "8th Texas Cavalry Regiment"
+complete: no
+P 1861-12-17 | Woodsonville (Rowlett's Station) | wiki
+P 1862-04-06/1862-04-07 | Battle of Shiloh | nps wiki
+P 1862-12-31/1863-01-02 | Battle of Stones River (Murfreesboro) | nps wiki
+P 1863-09-19/1863-09-20 | Battle of Chickamauga | nps wiki
+P 1863-11-23/1863-11-25 | Battles for Chattanooga | wiki
+P 1863-11-04/1863-12-04 | Knoxville Campaign | nps wiki
+P 1864-05-07/1864-09-02 | Atlanta Campaign | nps wiki
+P 1864-07-30 | Brown's Mill (McCook's raid) | wiki
+P 1864-11-15/1864-12-21 | Savannah Campaign (harassing Sherman) | nps wiki
+P 1865-02/1865-04 | Carolinas Campaign | nps
+P 1865-03-19/1865-03-21 | Battle of Bentonville | wiki

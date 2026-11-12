@@ -1,0 +1,32 @@
+unit: 1st Kansas Colored Infantry (79th USCT, New)
+side: Union
+db_unit: 673
+same_as: 3311
+organized: 1863-01-13
+ended: 1865-10-01
+ended_how: mustered out
+sources: Dyer's 1st Kansas Colored Infantry and 79th USCT (New) (witness-voted text)
+complete: yes
+P 1862-10-27 | Island Mound, Mo. | dyers
+P 1862-10-29 | Island Mound (second) | dyers
+P 1862-11-28 | Butler, Mo. | dyers
+P 1863-05-16/1863-05-19 | Scout from Creek Agency to Jasper County | dyers | detachment
+P 1863-05-18 | Sherwood, Mo. | dyers
+P 1863-05-24 | Bush Creek | dyers
+P 1863-05-28 | Near Fort Gibson | dyers
+P 1863-06-06 | Shawneetown, Kan. | dyers | detachment
+P 1863-07-01/1863-07-02 | First Battle of Cabin Creek | dyers
+P 1863-07-17 | Honey Springs (Elk Creek) | dyers
+P 1863-07-27 | Lawrence, Kan. | dyers | detachment
+P 1863-08-14 | Near Sherwood | dyers
+P 1864-02-12 | Horse Head Creek | dyers
+P 1864-03-20 | Roseville Creek | dyers
+P 1864-03-23/1864-05-03 | Steele's Camden Expedition | dyers
+P 1864-04-09/1864-04-12 | Prairie D'Ane | dyers
+P 1864-04-18 | Poison Spring | dyers
+P 1864-04-30 | Jenkins' Ferry | dyers
+P 1864-09-16 | Fort Gibson | dyers
+P 1864-09-19 | Second Battle of Cabin Creek | dyers
+P 1864-11-19 | Timber Hill | dyers
+P 1865-01-08 | Ivey's Ford | dyers
+P 1865-01-18 | Clarksville, Ark. | dyers

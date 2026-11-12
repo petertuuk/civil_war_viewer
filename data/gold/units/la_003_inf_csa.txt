@@ -1,0 +1,13 @@
+unit: 3rd Louisiana Infantry
+side: Confederate
+db_unit: 4893
+organized: 1861-05
+ended: 1865
+ended_how: disbanded early 1865
+sources: NPS (Crute) history CLA0003RI; dated from the events (Wikipedia fetch pending)
+complete: no
+P 1861-08-10 | Battle of Wilson's Creek | nps
+P 1862-03-07/1862-03-08 | Battle of Pea Ridge (Elkhorn Tavern) | nps
+P 1862-09-19 | Battle of Iuka | nps
+P 1862-10-03/1862-10-04 | Second Battle of Corinth | nps
+P 1863-05-18/1863-07-04 | Siege of Vicksburg | nps

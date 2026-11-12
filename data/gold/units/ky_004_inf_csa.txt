@@ -1,0 +1,16 @@
+unit: 4th Kentucky Infantry (Orphan Brigade), later mounted
+side: Confederate
+db_unit: 4795
+organized: 1861-09
+ended: 1865-04-26
+ended_how: surrendered
+sources: NPS (Crute) history CKY0004RIT; dated from the events (Wikipedia fetch pending)
+complete: no
+P 1862-04-06/1862-04-07 | Battle of Shiloh | nps
+P 1862-08-05 | Battle of Baton Rouge | nps
+P 1863-05/1863-07 | Jackson (Vicksburg Campaign / Siege of Jackson) | nps | Crute: "active at ... Jackson"
+P 1862-12-31/1863-01-02 | Battle of Stones River (Murfreesboro) | nps
+P 1863-09-19/1863-09-20 | Battle of Chickamauga | nps
+P 1864-05-07/1864-09-02 | Atlanta Campaign | nps
+P 1864-12-10/1864-12-21 | Defence of Savannah | nps
+P 1865-02/1865-04 | Carolinas Campaign | nps | "ended the war in North Carolina"

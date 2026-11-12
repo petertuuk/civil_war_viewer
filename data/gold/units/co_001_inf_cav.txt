@@ -1,0 +1,43 @@
+unit: 1st Colorado Infantry, later 1st Colorado Cavalry
+side: Union
+db_unit: 36
+same_as: 40
+organized: 1861-08-26
+ended: 1865-11-18
+ended_how: mustered out
+sources: Dyer's 1st Colorado Infantry and 1st Colorado Cavalry (witness-voted text); Valverde not included: Dyer's gives it to the 2nd Colorado's Co. B (Dodd's company)
+complete: yes
+P 1862-03-26 | Apache Canyon | dyers
+P 1862-03-28 | Glorieta Pass (Pigeon's Ranch) | dyers
+P 1862-04-15 | Peralta | dyers
+P 1863-07-07 | Grand Pass, Fort Halleck | dyers | detachment
+P 1864-04-08/1864-04-23 | Expedition from Denver to Republican River | dyers | Co. D
+P 1864-04-12 | Near Fremont's Orchard | dyers | Cos. C, H
+P 1864-04-14/1864-04-18 | Expedition from Camp Sanborn to Beaver Creek | dyers | Cos. C, H
+P 1864-04-16 | Big Bushes, Smoky Hill | dyers | Cos. C, H
+P 1864-05-03 | Cedar Bluffs | dyers | Co. C
+P 1864-05-09/1864-05-10 | Scout from American Ranch to Cedar Bluffs | dyers
+P 1864-08-03/1864-11-04 | Scout from Fort Sumner | dyers | Cos. A, B, G
+P 1864-08-04/1864-09-05 | Scout from Fort Union | dyers
+P 1864-08-07 | Affair near Fort Lyon | dyers
+P 1864-08-11 | Near Sand Creek | dyers | Cos. D, G, K, L
+P 1864-08-12/1864-08-16 | Scout on Fort Union Road, near Fort Garland | dyers | detachment
+P 1864-08-22 | Atkins' Ranch | dyers
+P 1864-09-25 | Walnut Creek | dyers | Cos. L, M
+P 1864-10-09 | Fort Lyon | dyers
+P 1864-11-06/1864-11-16 | Affairs near Fort Lyon | dyers
+P 1864-11-25 | Pawnee Fork | dyers | 1 company
+P 1864-11-29 | Sand Creek | dyers | Cos. C, D, E, G, H, K
+P 1865-01-07 | Valley Station and Julesburg | dyers
+P 1865-01-14/1865-01-25 | Operations on Overland Stage Route between Denver and Julesburg | dyers | Co. C
+P 1865-01-14 | Valley Station | dyers | Co. C
+P 1865-01-14 | Godfrey's Ranch | dyers | detachment
+P 1865-01-15 | Morrison's or American Ranch and Wisconsin Ranch | dyers
+P 1865-01-20 | Point of Rocks or Nine-Mile Ridge, near Fort Larned | dyers
+P 1865-01-25 | Gittrell's Ranch | dyers
+P 1865-01-26 | Moore's Ranch | dyers
+P 1865-01-27 | Lillian Springs Ranch | dyers
+P 1865-01-28 | Near Valley Station | dyers | Co. C
+P 1865-06-04/1865-06-10 | Operations against Indians near Fort Collins | dyers | Co. D
+P 1865-06-17/1865-06-19 | Expedition from Denver to Fort Halleck | dyers | Co. D
+P 1865-06-24/1865-06-30 | Operations about Rock Creek Station | dyers | Cos. A, D

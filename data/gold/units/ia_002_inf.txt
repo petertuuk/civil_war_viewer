@@ -1,0 +1,62 @@
+unit: 2nd Iowa Infantry
+side: Union
+db_unit: 609
+organized: 1861-05-27
+ended: 1865-07-12
+ended_how: mustered out
+sources: Dyer's (witness-voted text)
+complete: yes
+P 1861-10-02/1861-10-12 | Expedition to Charleston, Mo. | dyers
+P 1862-02-14/1862-02-16 | Investment and capture of Fort Donelson | dyers
+P 1862-04-06/1862-04-07 | Battle of Shiloh | dyers
+P 1862-04-29/1862-05-30 | Advance on and siege of Corinth | dyers
+M 1862-09-18/1862-09-22 | March to Iuka | dyers
+P 1862-10-03/1862-10-04 | Battle of Corinth | dyers
+P 1862-10-05/1862-10-12 | Pursuit to Ruckersville | dyers
+P 1862-11-28 | Little Brier Creek | dyers
+P 1862-12-09/1862-12-14 | Expedition to intercept Forrest | dyers
+P 1862-12-12 | Little Brier Creek (second) | dyers
+P 1862-12-18/1863-01-03 | Dodge's Expedition to intercept Forrest | dyers
+P 1863-01-26 | Expedition to Hamburg | dyers
+P 1863-02-25/1863-02-27 | Expedition to Jacinto | dyers
+P 1863-04-15/1863-05-02 | Dodge's Expedition into Northern Alabama | dyers
+P 1863-04-16/1863-04-17 | Bear Creek | dyers
+P 1863-04-23/1863-04-24 | Tuscumbia | dyers
+P 1863-04-27/1863-04-28 | Town Creek | dyers
+P 1864-05-01/1864-09-08 | Atlanta Campaign | dyers
+M 1864-05-05/1864-05-13 | Movements on Resaca | dyers
+P 1864-05-10/1864-05-12 | Snake Creek Gap | dyers
+P 1864-05-14/1864-05-15 | Battle of Resaca | dyers
+P 1864-05-15 | Ley's Ferry, Oostanaula River | dyers
+P 1864-05-16 | Rome Cross Roads | dyers
+P 1864-05-25/1864-06-05 | Operations on line of Pumpkin Vine Creek (Dallas, New Hope Church, Allatoona Hills) | dyers
+P 1864-06-10/1864-07-02 | Operations about Marietta and against Kennesaw Mountain | dyers
+P 1864-07-04 | Nickajack Creek | dyers
+P 1864-07-06/1864-07-17 | Chattahoochee River | dyers
+P 1864-07-19 | Decatur | dyers
+P 1864-07-22 | Battle of Atlanta | dyers
+P 1864-07-22/1864-08-25 | Siege of Atlanta | dyers
+P 1864-08-04 | Skirmish on picket line | dyers
+M 1864-08-25/1864-08-30 | Flank movement on Jonesboro | dyers
+P 1864-08-30 | Flint River Station | dyers
+P 1864-08-31/1864-09-01 | Battle of Jonesboro | dyers
+P 1864-09-02/1864-09-06 | Lovejoy Station | dyers
+P 1864-10-12/1864-10-13 | Reconnaissance and skirmishes on Cave Springs Road | dyers
+P 1864-11-15/1864-12-10 | March to the Sea | dyers
+P 1864-12-04 | Little Ogeechee River | dyers
+P 1864-12-07 | Jenks' Station | dyers
+P 1864-12-10/1864-12-21 | Siege of Savannah | dyers
+P 1865-01/1865-04 | Campaign of the Carolinas | dyers
+P 1865-01-31/1865-02-05 | Sister's Ferry, Savannah River | dyers
+P 1865-02-09 | South Edisto River | dyers
+P 1865-02-12/1865-02-13 | North Edisto River | dyers
+P 1865-02-15 | Congaree Creek | dyers
+P 1865-02-16/1865-02-17 | Columbia | dyers
+P 1865-02-26 | Lynch's Creek | dyers
+P 1865-03-20/1865-03-21 | Battle of Bentonville | dyers
+M 1865-03-24 | Occupation of Goldsboro | dyers
+M 1865-04-10/1865-04-13 | Advance on Raleigh | dyers
+M 1865-04-14 | Occupation of Raleigh | dyers
+P 1865-04-26 | Bennett's House (surrender of Johnston) | dyers
+M 1865-04-29/1865-05-20 | March to Washington | dyers
+M 1865-05-24 | Grand Review | dyers

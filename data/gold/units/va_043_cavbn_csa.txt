@@ -1,0 +1,13 @@
+unit: 43rd Battalion Virginia Cavalry (Mosby's Rangers)
+side: Confederate
+db_unit: 7246
+organized: 1863-06-10
+ended: 1865-04-21
+ended_how: disbanded
+sources: general knowledge (Wikipedia fetch pending); database unit 7246 "Mosby's Regiment, Virginia Cavalry (Partisan Rangers)" (NPS CVAMOSBRC)
+complete: no
+P 1863-03-09 | Fairfax Court House raid (capture of Stoughton) | know | before formal muster
+P 1863-04-01 | Miskel Farm | know | before formal muster
+P 1864-07-06 | Mount Zion Church | know
+P 1864-08-13 | Berryville wagon train raid | know
+P 1864-10-14 | Greenback Raid | know

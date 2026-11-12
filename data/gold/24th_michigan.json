@@ -1,0 +1,285 @@
+[
+ {
+  "type": "unit_at",
+  "mention": "Detroit",
+  "date_start": "1862-08-15",
+  "date_end": "1862-08-15",
+  "presence": "present",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Washington, D.C.",
+  "date_start": "1862-08-29",
+  "date_end": "1862-08-29",
+  "presence": "arrived",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Frederick, Md.",
+  "date_start": "1862-10-01",
+  "date_end": "1862-10-01",
+  "presence": "arrived",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Sharpsburg, Md.",
+  "date_start": "1862-10-06",
+  "date_end": "1862-10-06",
+  "presence": "arrived",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Warrenton, Va.",
+  "date_start": "1862-10-20",
+  "date_end": "1862-11-06",
+  "presence": "en_route",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Richmond, Fredericksburg & Aquia Creek Railroad",
+  "date_start": "1862-11-25",
+  "date_end": "1862-12-06",
+  "presence": "along",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Falmouth",
+  "date_start": "1862-12-06",
+  "date_end": "1862-12-11",
+  "presence": "en_route",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Manassas Gap, Va.",
+  "date_start": "1863-07-05",
+  "date_end": "1863-07-24",
+  "presence": "en_route",
+  "portion": "whole"
+ },
+ {
+  "type": "unit_at",
+  "mention": "Springfield, Ill.",
+  "date_start": "1865-04-01",
+  "date_end": "1865-04-30",
+  "presence": "present",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Battle of Fredericksburg",
+  "date_start": "1862-12-12",
+  "date_end": "1862-12-15",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Mud March",
+  "date_start": "1863-01-20",
+  "date_end": "1863-01-24",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Chancellorsville Campaign",
+  "date_start": "1863-04-27",
+  "date_end": "1863-05-06",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Fitzhugh's Crossing",
+  "date_start": "1863-04-29",
+  "date_end": "1863-04-30",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Battle of Chancellorsville",
+  "date_start": "1863-05-02",
+  "date_end": "1863-05-05",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Gettysburg Campaign",
+  "date_start": "1863-06-11",
+  "date_end": "1863-07-24",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Battle of Gettysburg",
+  "date_start": "1863-07-01",
+  "date_end": "1863-07-03",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Bristoe Campaign",
+  "date_start": "1863-10-09",
+  "date_end": "1863-10-22",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Haymarket",
+  "date_start": "1863-10-19",
+  "date_end": "1863-10-19",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Mine Run Campaign",
+  "date_start": "1863-11-26",
+  "date_end": "1863-12-02",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Campaign from the Rapidan to the James River",
+  "date_start": "1864-05-04",
+  "date_end": "1864-06-15",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Battle of the Wilderness",
+  "date_start": "1864-05-05",
+  "date_end": "1864-05-07",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Spotsylvania Court House",
+  "date_start": "1864-05-08",
+  "date_end": "1864-05-21",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "North Anna River (Jericho Mills)",
+  "date_start": "1864-05-23",
+  "date_end": "1864-05-26",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Totopotomoy",
+  "date_start": "1864-05-28",
+  "date_end": "1864-05-31",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Cold Harbor",
+  "date_start": "1864-06-01",
+  "date_end": "1864-06-12",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Siege of Petersburg",
+  "date_start": "1864-06-16",
+  "date_end": "1865-04-02",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Weldon Railroad",
+  "date_start": "1864-08-18",
+  "date_end": "1864-08-21",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Boydton Plank Road, Hatcher's Run",
+  "date_start": "1864-10-27",
+  "date_end": "1864-10-28",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Escort at funeral of President Lincoln",
+  "date_start": "1865-04-01",
+  "date_end": "1865-05-31",
+  "portion": "whole"
+ },
+ {
+  "type": "participated",
+  "mention": "Herbst Woods (opponent named in 26th NC source)",
+  "date_start": "1863-07-01",
+  "date_end": "1863-07-01",
+  "portion": "whole"
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "Defences of Washington",
+  "date_start": "1862-08-29",
+  "date_end": null
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "1st Brigade, 1st Division, 1st Corps, Army of the Potomac",
+  "date_start": "1862-10-01",
+  "date_end": null
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "4th Brigade, 1st Division, 1st Corps",
+  "date_start": "1862-11-01",
+  "date_end": null
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "1st Brigade, 1st Division, 1st Corps",
+  "date_start": "1863-06-01",
+  "date_end": null
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "1st Brigade, 4th Division, 5th Corps",
+  "date_start": "1864-03-01",
+  "date_end": null
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "3rd Brigade, 3rd Division, 5th Corps",
+  "date_start": "1864-08-01",
+  "date_end": null
+ },
+ {
+  "type": "subordinate_to",
+  "mention": "1st Brigade, 3rd Division, 5th Corps",
+  "date_start": "1864-09-01",
+  "date_end": null
+ },
+ {
+  "type": "unit_numbers",
+  "scope": "event",
+  "mention": "Battle of Gettysburg",
+  "strength": null,
+  "killed": null,
+  "wounded": null,
+  "missing_captured": null,
+  "died_disease": null,
+  "casualties_total": 363
+ },
+ {
+  "type": "unit_numbers",
+  "scope": "whole_service",
+  "mention": null,
+  "strength": null,
+  "killed": 189,
+  "wounded": null,
+  "missing_captured": null,
+  "died_disease": 139,
+  "casualties_total": null
+ }
+]

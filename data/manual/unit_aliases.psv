@@ -1,0 +1,15 @@
+# Named Confederate units the order-of-battle matcher can't place (no state in the name, or several namesakes).
+# Applied to Official Records and Wikipedia placements that have no unit code. pattern is a Python regex (case-sensitive),
+# tried on the unit name as printed (no "|" in a pattern: one line per alternative); "not" lists
+# words that must be absent, separated by ";".
+# pattern|not|side|unit_code|note
+\bWashington Artillery\b|Georgia;South Carolina;Tennessee|Confederate|CLAWASHBA|Washington Artillery of New Orleans (battalion; companies listed separately)
+^Cobb['’]s Legion||Confederate|CGACOBBL|
+^Phill?ip['’]?s['’]? (?:\(Georgia\) )?Legion||Confederate|CGAPHILL|
+^Hampton(?:['’]s)? Legion||Confederate|CSCHAMPL|
+^Holcombe Legion||Confederate|CSCHOLCL|
+^Jeff\.? Davis (?:\(Mississippi\) )?Legion||Confederate|CMSJEFFLC|
+^Palmetto (?:\(South Carolina\) )?Sharpshooters||Confederate|CSCPALMRS|
+Mosby['’]s||Confederate|CVAMOSBRC|43rd Battalion Virginia Cavalry (Mosby's Rangers)
+Robert G\.? Mosby||Confederate|CVAMOSBRC|the command listed under its commander
+43r?d (?:Virginia )?Battalion||Confederate|CVAMOSBRC|

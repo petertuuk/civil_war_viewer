@@ -1,0 +1,65 @@
+# Where the troops of a Confederate command region were, for Official Records organization tables that list units
+# under a district or department instead of a post. Used by pipeline/or_stations.py.
+# pattern: regexes separated by ";" (case-insensitive) on a header (division/corps line) or the table heading
+# scope:   optional regex the table heading must also match (blank = any)
+# place|state: the region's headquarters town, located with data/places/geocoded.csv or GNIS ("Name@lat,lon" when GNIS has several)
+# radius_km: how far the region's troops spread from it (drawn as the position's precision)
+# Regions wider than ~120 km (a whole department or state) are left out on purpose: no position is better than a wrong one.
+# dates:   optional 7th field "YYYY-MM-DD..YYYY-MM-DD": only tables dated in that window (field-army snapshots in camp or
+#          winter quarters; the army's cavalry is not placed by these)
+# who:     optional 8th field "cavalry": the line places only the army's cavalry and horse artillery (camps wider, apart)
+# pattern|scope|place|state|radius_km|note|dates|who
+Department of Richmond;Richmond Defenses;Department of Henrico||Richmond|VA|20|Richmond garrison (Elzey, Winder, Ransom)
+Artillery Defenses|Richmond|Richmond|VA|15|artillery defenses of Richmond
+Defenses of Wilmington;District of the Cape Fear||Wilmington|NC|35|Whiting's command: Wilmington and the Cape Fear forts
+Defenses of Petersburg||Petersburg|VA|15|
+Department of the Peninsula;Forces at Williamsburg||Yorktown|VA|30|Magruder's Peninsula line, 1861-62
+District of the Gulf;Department of the Gulf|Maury|Mobile|AL|35|Maury's command at Mobile, 1863-65 (the CS Department of the Gulf)
+Forts Morgan and Gaines||Fort Morgan|AL|15|mouth of Mobile Bay
+Department of East Tennessee||Knoxville|TN|120|Knoxville headquarters; troops spread through East Tennessee (Cumberland Gap to Chattanooga): coarse
+James Island||James Island|SC|8|
+Sullivan's Island||Sullivans Island|SC|6|
+Morris Island||Morris Island|SC|4|
+Castle Pinckney and Fort Ripley||Charleston|SC|5|Charleston harbor forts
+First Military District|South Carolina|Charleston|SC|25|Charleston and its harbor (Ripley)
+Seventh Military District|South Carolina|Charleston|SC|20|James Island and Saint Andrew's (Taliaferro), 1864
+First Sub-Division|South Carolina|Charleston|SC|15|sub-divisions of the First Military District, around Charleston
+Second Sub-Division|South Carolina|Charleston|SC|15|
+Third Sub-Division|South Carolina|Charleston|SC|15|
+Fourth Sub-Division|South Carolina|Charleston|SC|10|
+Fifth Sub-Division|South Carolina|Charleston|SC|10|
+Second Military District|South Carolina|Adams Run|SC|40|between the Stono and the Combahee (headquarters Adams Run)
+Third Military District|South Carolina|Pocotaligo|SC|40|Combahee to the Savannah (headquarters Pocotaligo / McPhersonville)
+Grahamville Sub-District||Grahamville|SC|15|
+Fourth Military District|South Carolina|Georgetown@33.3768,-79.2945|SC|50|Georgetown and the Santee (Trapier)
+Georgetown and Vicinity||Georgetown@33.3768,-79.2945|SC|20|
+District of Georgia||Savannah|GA|35|Savannah and the Georgia coast (Mercer, McLaws)
+District of East Florida||Lake City|FL|70|
+District of Middle Florida||Tallahassee|FL|60|
+Army of Northern Virginia||Richmond|VA|30|ANV around Richmond after the Seven Days (July 23, 1862 table)|1862-07-03..1862-08-10
+Army of Northern Virginia||Orange Court House@38.2454,-78.1100|VA|35|ANV on the Rapidan line (Orange Court House to Gordonsville), after Gettysburg|1863-08-01..1863-10-08
+Army of Northern Virginia||Orange Court House@38.2454,-78.1100|VA|35|ANV winter quarters on the Rapidan, 1863-64|1863-12-01..1864-05-03
+Army of Northern Virginia||Petersburg|VA|40|ANV in the Richmond-Petersburg lines|1864-10-01..1865-03-31
+Army of Tennessee|Polk|Murfreesboro|TN|25|Polk's corps at Murfreesboro before Stones River (about Nov. 29, 1862)|1862-11-20..1862-12-25
+Army of Tennessee||Tullahoma|TN|40|Bragg's army on the Duck River line (Shelbyville - Wartrace - Tullahoma)|1863-01-06..1863-06-23
+Department of Tennessee|Bragg|Chattanooga|TN|40|Bragg's army at Chattanooga before Chickamauga|1863-07-07..1863-09-07
+Army of Tennessee||Chattanooga|TN|25|Army of Tennessee besieging Chattanooga (Missionary Ridge, Lookout Mountain)|1863-09-25..1863-11-24
+Army of Tennessee||Dalton|GA|25|Army of Tennessee winter quarters at Dalton|1863-12-01..1864-05-06
+Army of Tennessee||Tupelo|MS|30|Army of Tennessee at Tupelo after Nashville|1865-01-10..1865-02-15
+East Tennessee|Longstreet|Knoxville|TN|15|Longstreet besieging Knoxville (Nov. 30, 1863 table)|1863-11-17..1863-12-04
+East Tennessee|Longstreet|Russellville@36.2550,-83.1960|TN|40|Longstreet's winter quarters (Russellville - Morristown - Greeneville)|1863-12-05..1864-03-31
+in and around Jackson||Jackson|MS|30|Johnston's army of relief around Jackson and Canton, June 1863|1863-06-01..1863-07-01
+Valley District||New Market|VA|30|Early's Army of the Valley District at New Market after Cedar Creek|1864-10-25..1864-12-20
+Organization of the Confederate Forces||Dalton|GA|25|Army of Tennessee at Dalton on April 30, 1864 (v.38 pt.3 table, heading names no army)|1864-04-25..1864-05-06
+Army of Northern Virginia||Richmond|VA|40|ANV cavalry around Richmond after the Seven Days|1862-07-03..1862-08-10|cavalry
+Army of Northern Virginia||Orange Court House@38.2454,-78.1100|VA|50|Stuart's cavalry on the Rappahannock-Rapidan line|1863-08-01..1863-10-08|cavalry
+Army of Northern Virginia||Orange Court House@38.2454,-78.1100|VA|70|Stuart's cavalry in winter, spread for forage (Charlottesville to Fredericksburg)|1863-12-01..1864-05-03|cavalry
+Army of Northern Virginia||Petersburg|VA|60|Hampton's cavalry on the Petersburg flanks (Stony Creek, Belfield, north side)|1864-10-01..1865-03-31|cavalry
+Army of Tennessee||Shelbyville@35.4834,-86.4603|TN|80|Wheeler (McMinnville) and Forrest / Van Dorn (Columbia, Spring Hill) screening the Duck River line|1863-01-06..1863-06-23|cavalry
+Army of Tennessee||Chattanooga|TN|50|Wheeler's cavalry around Chattanooga|1863-09-25..1863-11-24|cavalry
+Army of Tennessee||Dalton|GA|40|Wheeler's cavalry around Dalton and Tunnel Hill|1863-12-01..1864-05-06|cavalry
+Army of Tennessee||Tupelo|MS|60|cavalry with the army after Nashville (Verona, Tupelo)|1865-01-10..1865-02-15|cavalry
+East Tennessee|Longstreet|Russellville@36.2550,-83.1960|TN|50|Longstreet's cavalry (Martin, Armstrong) in East Tennessee|1863-12-05..1864-03-31|cavalry
+in and around Jackson||Jackson|MS|50|W. H. Jackson's cavalry with Johnston's army of relief|1863-06-01..1863-07-01|cavalry
+Valley District||New Market|VA|50|Early's cavalry (Lomax, Rosser) in the Valley|1864-10-25..1864-12-20|cavalry
+Organization of the Confederate Forces||Dalton|GA|40|Wheeler's cavalry at Dalton, April 30, 1864|1864-04-25..1864-05-06|cavalry

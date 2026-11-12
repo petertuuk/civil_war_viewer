@@ -1,0 +1,21 @@
+unit: 21st Mississippi Infantry
+side: Confederate
+db_unit: 5554
+organized: 1861-10
+ended: 1865-04-09
+ended_how: surrendered at Appomattox
+sources: NPS (Crute) history CMS0021RI; dated from the events (Wikipedia fetch pending)
+complete: no
+P 1862-06-25/1862-07-01 | Seven Days Battles | nps
+P 1862-09-17 | Battle of Antietam | nps
+P 1862-12-11/1862-12-15 | Battle of Fredericksburg | nps
+P 1863-05-01/1863-05-04 | Battle of Chancellorsville | nps
+P 1863-07-01/1863-07-03 | Battle of Gettysburg | nps
+P 1863-09-19/1863-09-20 | Battle of Chickamauga | nps
+P 1863-11-04/1863-12-04 | Knoxville Campaign | nps
+P 1864-05-05/1864-05-07 | Battle of the Wilderness | nps
+P 1864-05-08/1864-05-21 | Spotsylvania Court House | nps
+P 1864-05-31/1864-06-12 | Cold Harbor | nps
+P 1864-08/1864-10 | Early's Shenandoah Valley operations | nps
+P 1865-03-29/1865-04-09 | Appomattox Campaign | nps
+P 1865-04-06 | Sailor's Creek | nps
