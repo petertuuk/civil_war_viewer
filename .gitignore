@@ -63,3 +63,6 @@ _to_delete*/
 /viewer/war_template_built.txt
 /viewer/data/
 /viewer/war/data/
+
+# ---- website build (pipeline/build_site.py; published to the gh-pages branch) ----
+/site/
