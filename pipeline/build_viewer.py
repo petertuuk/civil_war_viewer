@@ -9,8 +9,19 @@ from pathlib import Path
 ORD = r"(\d+)(St|Nd|Rd|Th|D)"
 
 
+# Dyer's headings with OCR damage that the ordinal rule cannot repair (checked by hand against the unit's nickname)
+OCR_FIX = {"New York 5 Nd Regiment Infantry": "New York 52nd Regiment Infantry",        # 52nd NY, "German Rangers"
+           "New York Ls2Nd Regiment Infantry": "New York 182nd Regiment Infantry",      # 182nd NY, the 69th N.Y.N.G.
+           "U.S. Colored Troops I25Th Regiment Infantry": "U.S. Colored Troops 125th Regiment Infantry"}
+
+
 def pretty(name):
-    n = re.sub(r"\s*\.?\s*[—–-]+\s*", " ", name).strip(" .")
+    for bad, good in OCR_FIX.items():
+        if name.startswith(bad):
+            name = good + name[len(bad):]
+    n = re.sub(r"\s*\.?\s*[—–-]+\s*", " ", name).strip(" .,")
+    n = re.sub(r"\b(\d+) (Th|St|Nd|Rd)\b", r"\1\2", n)          # "5 Th" -> "5Th" (lowercased below)
+    n = re.sub(r"\s{2,}", " ", n)
     n = re.sub(r"(['’])S\b", r"\1s", n).replace('."', '"')
     n = re.sub(r"\b(\d+)(St|Nd|Rd|Th)\b", lambda m: m.group(1) + m.group(2).lower(), n)
     m = re.match(r"^U\.S\. Regular Army Battery \"?([A-M])\"?,? (\d+\w+) Artillery", n)
