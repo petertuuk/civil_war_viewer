@@ -14,13 +14,19 @@
   --panel: rgba(250, 251, 248, 0.94); --union: #2c5d9b; --conf: #a3402c; --event: #1f2a30;
   --display: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif; --body: "IBM Plex Sans", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --pol: #7b4fa6; --soc: #23806a; --cmd: #1f2a30; --bat: #9a7b4f;
+  --thE: #cdd6de; --thW: #e5d7bd; --thT: #d3dfc8; --thS: #c9e0dc; --thP: #dedede;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --land: #232a2c; --water: #142026; --ink: #e6e9e4; --muted: #9aa6a8; --line: #3b4548;
-  --panel: rgba(24, 30, 32, 0.93); --union: #6f9ee0; --conf: #e07a5f; --event: #f2efe6; color-scheme: dark; } }
+  --panel: rgba(24, 30, 32, 0.93); --union: #6f9ee0; --conf: #e07a5f; --event: #f2efe6; color-scheme: dark;
+  --pol: #b99be0; --soc: #6fcfb0; --cmd: #e6e9e4; --bat: #cdb27f;
+  --thE: #34444f; --thW: #4f4430; --thT: #364a31; --thS: #2b4a47; --thP: #3a3a3a; } }
 :root[data-theme="dark"] {
   --land: #232a2c; --water: #142026; --ink: #e6e9e4; --muted: #9aa6a8; --line: #3b4548;
-  --panel: rgba(24, 30, 32, 0.93); --union: #6f9ee0; --conf: #e07a5f; --event: #f2efe6; color-scheme: dark; }
+  --panel: rgba(24, 30, 32, 0.93); --union: #6f9ee0; --conf: #e07a5f; --event: #f2efe6; color-scheme: dark;
+  --pol: #b99be0; --soc: #6fcfb0; --cmd: #e6e9e4; --bat: #cdb27f;
+  --thE: #34444f; --thW: #4f4430; --thT: #364a31; --thS: #2b4a47; --thP: #3a3a3a; }
 html, body { height: 100%; margin: 0; }
 body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); overflow: hidden; }
 #map { position: absolute; inset: 0; }
@@ -56,6 +62,38 @@ body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); o
 .ctl { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 .tz { padding: 2px 9px; min-width: 28px; }
 #moved { font-size: 12.5px; color: var(--muted); }
+#bar > .ctl:first-child { grid-row: 4; grid-column: 1; } #slider { grid-row: 4; grid-column: 2; }
+#bar > .ctl[role="group"] { grid-row: 5; grid-column: 1; } #ticks { grid-row: 5; }
+/* campaign bars (CWSAC campaigns, by theater) and the activity strip (share of each side's placed units on the move) */
+#camps { grid-row: 2; grid-column: 2; position: relative; height: calc(var(--clanes, 3) * 13px); margin-top: 2px; }
+#camps div { position: absolute; height: 12px; border-radius: 3px; font: 10px/12px var(--body); color: var(--ink); padding: 0 4px;
+  box-sizing: border-box; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; opacity: .9; }
+#camps div:hover { opacity: 1; outline: 1px solid var(--ink); }
+.th-E { background: var(--thE); } .th-W { background: var(--thW); } .th-T { background: var(--thT); } .th-S { background: var(--thS); } .th-P, .th-\? { background: var(--thP); }
+#act { grid-row: 3; grid-column: 2; width: 100%; height: 30px; display: block; cursor: crosshair; margin-bottom: -4px; }
+#grip { position: absolute; top: 3px; left: 50%; width: 40px; height: 5px; margin-left: -20px; border-radius: 3px; background: var(--line);
+  cursor: ns-resize; touch-action: none; }
+#grip:hover, #grip.on { background: var(--muted); }
+#marks { grid-row: 1; grid-column: 2; position: relative; height: calc(14px + var(--lrows, 3) * 13px); margin-bottom: -6px; }
+/* persistent labels for the main events: up to three rows above the marks, each with a leader line down to its mark */
+#marks b { position: absolute; bottom: 4px; border-left: 1px solid; padding-left: 3px; box-sizing: border-box; pointer-events: none;
+  font: 500 10.5px/12px var(--body); white-space: nowrap; color: var(--ink); opacity: .9; }
+#marks b span { pointer-events: auto; cursor: pointer; display: block; background: var(--panel); padding-right: 2px; }
+#marks b span:hover { text-decoration: underline; }
+#marks b.l2 { color: var(--muted); font-weight: 400; }
+#marks b.past { opacity: .55; }
+#marks i { position: absolute; bottom: 0; width: 3px; height: 8px; margin-left: -1.5px; border-radius: 1px; cursor: pointer; opacity: .85; }
+#marks i.l1 { height: 13px; }
+#marks i.span { margin-left: 0; height: 5px; bottom: 1px; opacity: .55; }
+#marks i:hover, #marks i:focus-visible { opacity: 1; outline: 2px solid var(--ink); outline-offset: 1px; }
+.k-politics { background: var(--pol); } .k-society { background: var(--soc); } .k-command { background: var(--cmd); } .k-battle { background: var(--bat); }
+#ctx { display: grid; gap: 2px; font-size: 12.5px; }
+#ctx:empty { display: none; }
+.cx { border: 0; background: none; color: var(--ink); font: inherit; padding: 0; text-align: left; cursor: pointer; }
+.cx:hover { text-decoration: underline; text-decoration-color: var(--line); }
+.cxsw { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 6px; vertical-align: 0; }
+.cxnote { color: var(--muted); padding: 2px 0 4px 14px; }
+.cxnote a { color: inherit; }
 #moved:empty { display: none; }
 #ticks i { position: absolute; top: -4px; width: 2px; height: 8px; background: var(--event); opacity: .6; }
 .lbl { font: 500 11px var(--body); color: var(--muted); white-space: nowrap; pointer-events: none; text-shadow: 0 0 3px var(--land), 0 0 3px var(--land); }
@@ -91,8 +129,9 @@ body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); o
   #head { max-width: none; right: 56px; gap: 5px; padding: 10px 12px; } #date { font-size: 24px; }
   #head .filters, #head #more { display: none; } #head.open .filters { display: flex; } #head.open #more { display: block; }
   #mtoggle { display: inline-block; }
-  #bar { grid-template-columns: 1fr; padding: 10px 12px; } #ticks { grid-column: 1; }
-  #detail { left: 12px; right: 12px; width: auto; top: auto; bottom: 128px; max-height: 42vh; overflow: auto; box-sizing: border-box; }
+  #bar { grid-template-columns: 1fr; padding: 10px 12px; } #bar > * { grid-row: auto !important; grid-column: 1 !important; }
+  #marks { --lrows: 2; } #act { height: 20px; } #camps { --clanes: 2; } #grip { display: none; }
+  #detail { left: 12px; right: 12px; width: auto; top: auto; bottom: 250px; max-height: 42vh; overflow: auto; box-sizing: border-box; }
 }
 </style>
 </head>
@@ -102,6 +141,7 @@ body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); o
   <div id="loading" style="font-size:12px;color:var(--muted)">Loading…</div>
   <h1>The Civil War, day by day</h1>
   <div id="date">&nbsp;</div>
+  <div id="ctx" aria-live="polite"></div>
   <div class="counts" id="counts"></div>
   <div id="moved" aria-live="polite"></div>
   <button class="chip" id="mtoggle" aria-expanded="false" aria-controls="head">Filters and places</button>
@@ -121,6 +161,7 @@ body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); o
     <div>Solid: a source places it there that day. Faint: an estimate: between two known places, its last known place, a long posting (“duty at Washington till March”), or where its brigade or its campaign was that day.</div>
     <div>Zoomed out, a larger circle is a brigade: three or more of its regiments within about 40 km of each other. Zoom in or turn off “Group brigades” to see them one by one.</div>
     <div>Trails: drag across the timeline below the slider, or pick a length, to see where units moved over those days; each line ends in an arrow where the unit was on the last day, and units on the same route share one, thicker line. Dashed: partly estimated. Dotted and faint: a step faster than a march (over 50 km a day), such as a move by rail or river, or a doubtful placement. Zoom the timeline with − and +, or the mouse wheel over it, to pick a few days or a whole campaign.</div>
+    <div>Marks above the timeline: <span class="cxsw k-battle"></span>battles (the National Park Service's classes, the most decisive shown first), <span class="cxsw k-politics"></span>politics, <span class="cxsw k-society"></span>society, <span class="cxsw k-command"></span>command and strategy. Zoom the timeline in for more of them; click one to go to that day. The best-known events are named above their marks (lesser ones too once you zoom in to a year or so; names already passed are faint). The line under the date names what is under way or just happened. Below the marks: campaigns, shaded by theater (<span class="cxsw th-E"></span>Eastern, <span class="cxsw th-W"></span>Western, <span class="cxsw th-T"></span>Trans-Mississippi, <span class="cxsw th-S"></span>Lower Seaboard; from the National Park Service's battle list, dated by their first and last battles; click one to zoom to it), and the share of each side's placed units that moved 8 km or more since the day before (Union above the line, Confederate below; hover for the numbers). Drag the small bar at the top of the panel to make the timeline taller or shorter.</div>
     <div>Click a unit for where the sources place it through the year, each with its source.</div>
     <div>Zoomed in on a battlefield: regiments stand at their monuments, and a brigade's regiments are joined as its line.</div>
   </div>
@@ -134,6 +175,10 @@ body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); o
   <select id="span" aria-label="Trails: show where units moved over the days before this one" class="chip"><option value="0">No trails</option><option value="3">Trails: 3 days</option>
     <option value="7">Trails: 1 week</option><option value="14">Trails: 2 weeks</option><option value="30">Trails: 1 month</option><option value="91">Trails: 3 months</option>
     <option id="span-c" value="-1" hidden>Trails: custom</option></select></div>
+  <div id="grip" title="Drag to make the timeline taller or shorter (double-click: default)" role="separator" aria-label="Timeline height"></div>
+  <div id="marks" role="group" aria-label="Events on the timeline"></div>
+  <div id="camps" role="group" aria-label="Campaigns"></div>
+  <canvas id="act" aria-label="Units on the move each day"></canvas>
   <input id="slider" type="range" min="0" max="0" value="0" aria-label="Day">
   <div class="ctl" role="group" aria-label="Timeline zoom"><button class="chip tz" id="tz-out" aria-label="Zoom the timeline out" title="Zoom the timeline out">−</button>
     <button class="chip tz" id="tz-in" aria-label="Zoom the timeline in" title="Zoom the timeline in">+</button>
@@ -304,7 +349,8 @@ async function render() {
   draw();
   counts(fc); placeEvents(day, Y); unitLabels(fc);
   if (selId >= 0) showUnit(selId, false);
-  drawBand(); drawTrails(day, t);
+  drawBand(); drawTrails(day, t); ctxLine(day);
+  document.querySelectorAll("#marks b").forEach(e => e.classList.toggle("past", +e.dataset.d <= day));
   saveHash();
   const ny = yearOf(Math.min(NDAYS - 1, day + 40)); if (ny !== yearOf(day)) year(ny);   // prefetch
 }
@@ -318,28 +364,13 @@ map.on("load", async () => {
   map.addLayer({id: "borders", type: "line", source: "states", paint: {"line-color": css("--muted"), "line-width": 0.8, "line-dasharray": [3, 2], "line-opacity": 0.6}});
   map.addLayer({id: "rivers", type: "line", source: "rivers", paint: {"line-color": css("--water"), "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.6, 8, 1.5, 11, 2.5]}});
   const dark = matchMedia("(prefers-color-scheme: dark)").matches && document.documentElement.dataset.theme !== "light" || document.documentElement.dataset.theme === "dark";
-  // Live relief: AWS Terrain Tiles (terrarium) drawn by MapLibre's hillshade, sharpening with zoom (USGS 3DEP ~10 m in the US).
-  // Reachable when the page is served from localhost or a web host; the claude.ai artifact sandbox blocks it, so the
-  // pre-rendered images below stay as the fallback (and as the relief at low zoom either way).
-  const DEM = "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png";
-  let live = false;
-  try { const r = await fetch(DEM.replace("{z}/{x}/{y}", "10/292/391")); live = r.ok; } catch (e) {}
-  const LIVE_Z = 7.5;
-  for (const [i, [name, mz]] of (live ? [["terrain_war", 0]] : [["terrain_war", 0], ["terrain_gettysburg", 10]]).entries()) {
+  for (const [i, [name, mz]] of [["terrain_war", 0], ["terrain_gettysburg", 10]].entries()) {
     const meta = await (await fetch(`data/${name}.json`)).json();
     const img = new Image();
     img.onload = () => { const cv = document.createElement("canvas"); cv.width = img.width; cv.height = img.height; cv.getContext("2d").drawImage(img, 0, 0);
       map.addSource(name, {type: "canvas", canvas: cv, coordinates: meta.corners, animate: false});
-      map.addLayer({id: name, type: "raster", source: name, minzoom: mz, maxzoom: live ? LIVE_Z + 0.5 : 24, paint: {"raster-opacity": dark ? 0.55 : 0.8, "raster-fade-duration": 0}}, map.getLayer("hillshade") ? "hillshade" : "borders"); };
+      map.addLayer({id: name, type: "raster", source: name, minzoom: mz, paint: {"raster-opacity": dark ? 0.55 : 0.8, "raster-fade-duration": 0}}, "borders"); };
     img.src = `data/${name}.png`;
-  }
-  if (live) {
-    map.addSource("dem", {type: "raster-dem", tiles: [DEM], encoding: "terrarium", tileSize: 256, maxzoom: 15});
-    map.addLayer({id: "hillshade", type: "hillshade", source: "dem", minzoom: LIVE_Z, paint: {
-      "hillshade-exaggeration": dark ? 0.7 : 0.8, "hillshade-illumination-direction": 315, "hillshade-illumination-anchor": "map",
-      "hillshade-shadow-color": dark ? "rgba(0,0,0,0.85)" : "rgba(60,50,40,0.75)",
-      "hillshade-highlight-color": dark ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.6)",
-      "hillshade-accent-color": dark ? "rgba(0,0,0,0.3)" : "rgba(50,40,30,0.25)"}}, "borders");
   }
   map.addSource("lines", {type: "geojson", data: {type: "FeatureCollection", features: []}});
   map.addLayer({id: "lines", type: "line", source: "lines", minzoom: 11.5, layout: {"line-cap": "round", "line-join": "round"},
@@ -361,7 +392,7 @@ map.on("load", async () => {
   UNITS = (await (await fetch("data/units.json")).json()).units;
   placeLabels(); map.on("moveend", () => { placeLabels(); if (cur) { placeEvents(cur.day, cur.Y); unitLabels(cur.fc); } saveHash(); });
   map.on("zoomend", () => { if (cur && wasGrouped !== (show.group && map.getZoom() < GROUP_ZOOM)) draw(); });
-  trailLayers(); setWindow(W0, W1); await loadHash(); await render();
+  trailLayers(); await loadBackdrop(); setWindow(W0, W1); await loadHash(); await render();
   if (selId >= 0) showUnit(selId, true);
 });
 slider.addEventListener("input", render);
@@ -571,7 +602,7 @@ function setWindow(a, b) {
   const v = +slider.value; slider.min = W0; slider.max = W1; slider.value = Math.min(W1, Math.max(W0, v));
   const zoomed = W1 - W0 < NDAYS - 1;
   ["tz-l", "tz-r", "tz-all"].forEach(i => document.getElementById(i).hidden = !zoomed);
-  ticks(); drawBand();
+  ticks(); drawBand(); marks();
   return +slider.value !== v;
 }
 function setDay(d) {
@@ -630,7 +661,7 @@ document.getElementById("tz-out").onclick = () => zoomTimeline(2);
 document.getElementById("tz-l").onclick = () => panTimeline(-0.5);
 document.getElementById("tz-r").onclick = () => panTimeline(0.5);
 document.getElementById("tz-all").onclick = () => { setWindow(0, NDAYS - 1); render(); };
-addEventListener("resize", () => ticks());
+addEventListener("resize", () => { ticks(); marks(); });
 
 // ---- trails: each unit's route over the interval, with an arrowhead where it ended; units on the same route share one line
 const kmOf = pts => pts.slice(1).reduce((a, p, i) => { const q = pts[i], c = Math.cos(p[1] * Math.PI / 180);
@@ -712,6 +743,173 @@ const trailTip = p => `${p.n === 1 ? UNITS[+String(p.ids).split(",")[1]][0] : p.
 for (const l of TRAIL_LAYERS) {
   map.on("mousemove", l, e => { if (!map.queryRenderedFeatures(e.point, {layers: ["units", "groups"]}).length) showTip(e, trailTip(e.features[0].properties)); });
   map.on("mouseleave", l, () => { tip.style.display = "none"; map.getCanvas().style.cursor = ""; });
+}
+// ---- backdrop: political, social and command events and the CWSAC battles, as marks on the timeline and a line under the date
+let BACK = [], ctxOpen = null;
+const KIND = {politics: "Politics", society: "Society", command: "Command and strategy", battle: "Battle"};
+const markLevel = () => { const w = W1 - W0; return w > 600 ? 1 : w > 120 ? 2 : 3; };
+// short names for the timeline labels (the full name is in the tooltip and the line under the date)
+const SHORTN = {"Lincoln calls for 75,000 volunteers": "75,000 volunteers", "Confederate conscription": "Confederate draft",
+  "Lee takes command of the Army of Northern Virginia": "Lee takes command", "Preliminary Emancipation Proclamation": "Emancipation announced",
+  "Emancipation Proclamation takes effect": "Emancipation", "Union Enrollment Act: the draft": "Union draft",
+  "Vicksburg surrenders": "Vicksburg falls", "New York City draft riots": "Draft riots", "Grant made lieutenant general": "Grant to command",
+  "Sherman's March to the Sea": "March to the Sea", "House passes the 13th Amendment": "13th Amendment passes",
+  "Lee surrenders at Appomattox": "Appomattox", "Johnston surrenders at Bennett Place": "Bennett Place",
+  "Spotsylvania Court House": "Spotsylvania", "First Fredericksburg": "Fredericksburg", "Petersburg (Apr 1865)": "Petersburg breakthrough"};
+const TOPN = new Set(["Fort Sumter fired on", "First Manassas", "Shiloh", "Antietam", "Emancipation Proclamation takes effect", "Gettysburg",
+  "Vicksburg surrenders", "Chickamauga", "Chattanooga", "Wilderness", "Atlanta falls", "Lincoln reelected", "Sherman's March to the Sea",
+  "Lee surrenders at Appomattox", "Lincoln assassinated", "Second Manassas", "Fredericksburg", "First Fredericksburg", "Chancellorsville"]);
+const shortName = t => SHORTN[t] || t.replace(/\s*\([^)]*\)$/, "");
+let measureCtx = null;
+const textW = t => { measureCtx ||= document.createElement("canvas").getContext("2d");
+  measureCtx.font = "500 10.5px " + css("--body"); return measureCtx.measureText(t).width + 8; };
+function markLabels(el, w, lv) {
+  // level-1 events always, level-2 ones once the timeline is zoomed in to under ~20 months; placed in date order within
+  // each level, lowest free row first; one that fits no row keeps only its mark
+  const W = el.clientWidth || 800, rows = +getComputedStyle(el).getPropertyValue("--lrows") || 3;
+  const spans = Array.from({length: rows}, () => []);   // text extents per row
+  // a leader from a higher row passes behind the labels below it (lower rows are drawn on top, on the panel's colour)
+  const fits = (x, tw, r) => spans[r].every(([a, b]) => x + tw + 4 <= a || x >= b + 4);
+  const day = +slider.value, pick = [];
+  // the best-known events first, so a crowded stretch keeps Antietam or Appomattox rather than a lesser neighbour
+  for (const pass of ["top", 1, 2]) {
+    if (pass === 2 && lv < 2) break;
+    BACK.forEach((it, i) => { if (it[1] < W0 || it[0] > W1) return;
+      const top = TOPN.has(it[4]);
+      if (pass === "top" ? top : it[3] === pass && !top) pick.push([it, i]); });
+  }
+  for (const [it, i] of pick) {
+    const x = (Math.max(it[0], W0) - W0) / w * W, t = shortName(it[4]), tw = textW(t);
+    if (x + tw > W + 2) continue;
+    let r = 0; while (r < rows && !fits(x, tw, r)) r++;
+    if (r === rows) continue;
+    spans[r].push([x, x + tw]);
+    const b = document.createElement("b"), s = document.createElement("span");
+    b.className = (it[3] > 1 && !TOPN.has(it[4]) ? "l2" : "") + (it[0] > day ? "" : " past"); b.dataset.d = it[0];
+    b.style.left = x + "px"; b.style.zIndex = rows - r; b.style.height = (14 + r * 13 + 8) + "px"; b.style.borderColor = css({politics: "--pol", society: "--soc", command: "--cmd", battle: "--bat"}[it[2]]);
+    s.textContent = t; s.title = `${rng(it[0], it[1])}, ${yearOf(it[0])}: ${it[4]}`;
+    s.onclick = () => { ctxOpen = i; setDay(it[0]); render(); };
+    b.appendChild(s); el.appendChild(b);
+  }
+}
+let CAMPS = [], ACT = null;
+const TH = {E: "Eastern", W: "Western", T: "Trans-Mississippi", S: "Lower Seaboard", P: "Pacific Coast"};
+// campaign names: CWSAC's, with a shorter form for narrow bars ("Grant's Overland Campaign" -> "Overland")
+const CAMPN = {"Grant's Operations Against Vicksburg": "Vicksburg Campaign", "Federal Penetration up the Cumberland and Tennessee Rivers": "Cumberland and Tennessee Rivers",
+  "Joint Operations Against New Madrid, Island No. 10, and Memphis": "Island No. 10 and Memphis", "Operations to Control Missouri": "Missouri, 1861",
+  "Confederate Heartland Offensive": "Kentucky Campaign", "Expedition to, and Capture of, New Orleans": "Capture of New Orleans",
+  "Operations Against Fort Fisher and Wilmington": "Fort Fisher and Wilmington", "Chattanooga-Ringgold Campaign": "Chattanooga Campaign",
+  "Operations in Charleston Harbor": "Fort Sumter"};
+const campName = n => CAMPN[n] || n;
+const campShort = n => n.replace(/^(Grant's|Sheridan's|Jackson's|Sibley's|Price's) /, m => m === "Sheridan's " || m === "Jackson's " ? m : "")
+  .replace(/ (Campaign|Operations|Expedition)$/, "").replace(/^Siege of /, "");
+function campBars(lv) {
+  // campaigns by level as the marks; in up to --clanes lanes, the higher-level and larger ones (more battles) first
+  const el = document.getElementById("camps"); if (!el) return; el.innerHTML = "";
+  const W = el.clientWidth || 800, w = Math.max(1, W1 - W0), lanes = +getComputedStyle(el).getPropertyValue("--clanes") || 3;
+  const used = Array.from({length: lanes}, () => []);
+  const pick = CAMPS.filter(c => c[2] <= lv && c[1] >= W0 && c[0] <= W1).sort((a, b) => a[2] - b[2] || b[6] - a[6] || a[0] - b[0]);
+  for (const c of pick) {
+    const x0 = (Math.max(c[0], W0) - W0) / w * W, x1 = Math.max(x0 + 4, (Math.min(c[1] + 1, W1) - W0) / w * W);
+    const r = used.findIndex(u => u.every(([a, b]) => x1 + 2 <= a || x0 >= b + 2)); if (r < 0) continue;
+    used[r].push([x0, x1]);
+    const d = document.createElement("div"); d.className = "th-" + c[4];
+    d.style.left = x0 + "px"; d.style.width = (x1 - x0) + "px"; d.style.top = (r * 13) + "px";
+    const nm = campName(c[3]); d.textContent = textW(nm) - 2 <= x1 - x0 ? nm : textW(campShort(nm)) - 2 <= x1 - x0 ? campShort(nm) : "";
+    d.title = `${c[3]} (${TH[c[4]] || "other"} theater), ${rng(c[0], c[1])}, ${yearOf(c[0])}${yearOf(c[1]) !== yearOf(c[0]) ? "–" + yearOf(c[1]) : ""}: ${c[6]} battle${c[6] > 1 ? "s" : ""} on the NPS list. Click to zoom to it.`;
+    d.onclick = () => { const m = Math.max(3, (c[1] - c[0]) * 0.15); setWindow(c[0] - m, c[1] + m); setDay(c[0]); render(); };
+    el.appendChild(d);
+  }
+}
+function drawAct() {
+  const cv = document.getElementById("act"); if (!cv || !ACT) return;
+  const W = cv.clientWidth || 800, H = cv.clientHeight || 22, dpr = devicePixelRatio || 1;
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+  const g = cv.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
+  const w = Math.max(1, W1 - W0), mid = H / 2, cap = 0.4;            // 40% of a side on the move fills its half
+  for (const [side, sign, col] of [[0, -1, css("--union")], [1, 1, css("--conf")]]) {
+    g.fillStyle = col; g.globalAlpha = 0.6; g.beginPath(); g.moveTo(0, mid);
+    for (let x = 0; x <= W; x++) {
+      const a = Math.floor(W0 + x / W * w), b = Math.max(a, Math.floor(W0 + (x + 1) / W * w) - 1);
+      let mv = 0, pl = 0; for (let d = a; d <= Math.min(b, ACT.length - 1); d++) { mv += ACT[d][2 + side]; pl += ACT[d][side]; }
+      const f = pl ? Math.min(1, mv / pl / cap) : 0;
+      g.lineTo(x, mid + sign * f * (mid - 1));
+    }
+    g.lineTo(W, mid); g.closePath(); g.fill();
+  }
+  g.globalAlpha = 1; g.fillStyle = css("--line"); g.fillRect(0, Math.round(mid), W, 1);
+}
+const actEl = document.getElementById("act");
+actEl.addEventListener("mousemove", e => { if (!ACT) return; const d = dayAtX(e.clientX), a = ACT[d]; if (!a) return;
+  tip.style.display = "block";
+  tip.textContent = `${md(d)}, ${yearOf(d)}: ${a[2].toLocaleString()} of ${a[0].toLocaleString()} Union and ${a[3].toLocaleString()} of ${a[1].toLocaleString()} Confederate units placed moved 8 km or more`;
+  tip.style.left = Math.min(innerWidth - 290, e.clientX + 10) + "px"; tip.style.top = (actEl.getBoundingClientRect().top - 52) + "px"; });
+actEl.addEventListener("mouseleave", () => { tip.style.display = "none"; });
+actEl.addEventListener("click", e => { setDay(dayAtX(e.clientX)); render(); });
+// timeline height: the grip sets the number of label rows (1-8), remembered in this browser
+const marksEl = document.getElementById("marks"), grip = document.getElementById("grip");
+try { const r = +localStorage.getItem("cwv.lrows"); if (r >= 1 && r <= 8) { marksEl.style.setProperty("--lrows", r);
+  if (r > 4) document.getElementById("camps").style.setProperty("--clanes", 4); } } catch (e) {}
+let gdrag = null;
+grip.addEventListener("pointerdown", e => { gdrag = {y: e.clientY, r: +getComputedStyle(marksEl).getPropertyValue("--lrows") || 3};
+  grip.setPointerCapture(e.pointerId); grip.classList.add("on"); });
+grip.addEventListener("pointermove", e => { if (!gdrag) return;
+  const r = Math.max(1, Math.min(8, gdrag.r + Math.round((gdrag.y - e.clientY) / 13)));
+  if (r !== +marksEl.style.getPropertyValue("--lrows")) { marksEl.style.setProperty("--lrows", r);
+    document.getElementById("camps").style.setProperty("--clanes", r > 4 ? 4 : 3); marks(); } });
+grip.addEventListener("pointerup", () => { if (!gdrag) return; gdrag = null; grip.classList.remove("on");
+  try { localStorage.setItem("cwv.lrows", marksEl.style.getPropertyValue("--lrows")); } catch (e) {} });
+grip.addEventListener("dblclick", () => { marksEl.style.removeProperty("--lrows"); document.getElementById("camps").style.removeProperty("--clanes");
+  try { localStorage.removeItem("cwv.lrows"); } catch (e) {} marks(); });
+function marks() {
+  const el = document.getElementById("marks"); if (!el) return; el.innerHTML = "";
+  const w = Math.max(1, W1 - W0), lv = markLevel();
+  markLabels(el, w, lv); campBars(lv); drawAct();
+  BACK.forEach((it, i) => {
+    const [d0, d1, kind, level] = it; if (level > lv || d1 < W0 || d0 > W1) return;
+    const m = document.createElement("i"), long = d1 - d0 >= 3;
+    m.className = "k-" + kind + (long ? " span" : "") + (level === 1 ? " l1" : "");
+    m.style.left = (100 * (Math.max(d0, W0) - W0) / w) + "%";
+    if (long) m.style.width = Math.max(0.3, 100 * (Math.min(d1, W1) - Math.max(d0, W0)) / w) + "%";
+    m.setAttribute("role", "button"); m.tabIndex = 0; m.setAttribute("aria-label", `${rng(d0, d1)} ${yearOf(d0)}: ${it[4]}`);
+    m.onmouseenter = e => { tip.style.display = "block"; tip.textContent = `${rng(d0, d1)}, ${yearOf(d0)}: ${it[4]}`;
+      const r = m.getBoundingClientRect(); tip.style.left = Math.min(innerWidth - 290, r.left) + "px"; tip.style.top = (r.top - 34) + "px"; };
+    m.onmouseleave = () => { tip.style.display = "none"; };
+    const go = () => { tip.style.display = "none"; ctxOpen = i; setDay(d0); render(); };
+    m.onclick = go; m.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } };
+    el.appendChild(m);
+  });
+}
+function ctxLine(day) {
+  const el = document.getElementById("ctx"); if (!el) return;
+  // what is under way or just happened: events of the last two weeks and ongoing spans; battles only while they last
+  const lv = Math.max(2, markLevel());
+  let hits = BACK.map((it, i) => [it, i]).filter(([it, i]) => i === ctxOpen ? it[0] <= day + 0 && day <= Math.max(it[1], it[0]) + 30 :
+    it[3] <= lv && it[0] <= day && (it[2] === "battle" ? day <= it[1] : day <= Math.max(it[1], it[0] + 14)));
+  hits.sort((a, b) => (b[1] === ctxOpen) - (a[1] === ctxOpen) || b[0][0] - a[0][0] || a[0][3] - b[0][3]);
+  hits = hits.slice(0, 3);
+  el.innerHTML = "";
+  hits.forEach(([it, i]) => {
+    const row = document.createElement("div"), b = document.createElement("button");
+    b.className = "cx"; b.setAttribute("aria-expanded", i === ctxOpen);
+    const sw = document.createElement("span"); sw.className = "cxsw k-" + it[2];
+    b.append(sw, `${rng(it[0], it[1])} · ${it[4]}`);
+    b.onclick = () => { ctxOpen = ctxOpen === i ? null : i; ctxLine(+slider.value); };
+    row.appendChild(b);
+    if (i === ctxOpen) {
+      const n = document.createElement("div"); n.className = "cxnote";
+      n.append(`${KIND[it[2]]}. ${it[5] || ""} `);
+      if (it[6]) { const a = document.createElement("a"); a.href = it[6]; a.target = "_blank"; a.rel = "noopener";
+        a.textContent = it[6].includes("wikipedia") ? "Wikipedia" : "NPS"; n.append(a); }
+      row.appendChild(n);
+    }
+    el.appendChild(row);
+  });
+}
+async function loadBackdrop() {
+  try { const j = await (await fetch("data/backdrop.json")).json(); BACK = j.items; CAMPS = j.campaigns || []; } catch (e) { BACK = []; }
+  try { ACT = (await (await fetch("data/activity.json")).json()).days; } catch (e) { ACT = null; }
+  marks();
 }
 </script>
 </body>
