@@ -24,6 +24,7 @@ def main(pl, battles, d2n_path, events_dir, out_path):
             eid = B.get(r["battle"], {}).get("event_id")
             e = E.get(eid, {})
             code = nps_links.resolve_ambiguous(r.get("unit_code")) or ""
+            picked = (r.get("unit_code") or "").startswith("AMBIGUOUS:") and bool(code)     # tagged like a namesake pick
             if not code:
                 code = nps_links.alias_code(r["unit"], r["side"]) or ""      # data/manual/unit_aliases.psv
             uid = (code2dyer.get(code) or f"nps:{code}") if code and code[0] in "UC" and not code.startswith("AMB") else None
@@ -33,7 +34,7 @@ def main(pl, battles, d2n_path, events_dir, out_path):
             base = {"unit_id": uid, "unit_mention": r["unit"], "side": r["side"], "source": "Wikipedia",
                     "source_ref": f"{r['title']} (rev {r['revid']})", "source_span": r["title"],
                     "date_start": e.get("date_start"), "date_end": e.get("date_end"), "date_precision": "day" if e else None,
-                    "confidence": 0.8, "extracted_by": "wikitext:oob_v1" + (":namesake" if r.get("namesake_note") else ""),
+                    "confidence": 0.8, "extracted_by": "wikitext:oob_v1" + (":namesake" if r.get("namesake_note") or picked else ""),
                     "license": "CC BY-SA 4.0"}
             if r.get("portion"):
                 base["portion"] = r["portion"]

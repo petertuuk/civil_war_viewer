@@ -16,15 +16,9 @@ from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from common import first_day as d  # noqa: E402
 import nps_links  # noqa: E402
 from anchor_events import words_of  # noqa: E402
-
-
-def d(s):
-    try:
-        return date.fromisoformat((s or "")[:10]) if s and len(s) >= 10 else (date(int(s[:4]), int(s[5:7]), 1) if s else None)
-    except ValueError:
-        return None
 
 
 def main(ar, wdp, d2n, events_dir, out_path):

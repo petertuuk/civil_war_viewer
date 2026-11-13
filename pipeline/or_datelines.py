@@ -21,13 +21,17 @@ TWENTIETH CORPS, Atlanta, Ga., September 23, 1864." puts that command's headquar
    place far (> 300 km) from the book's other headings gives way to a namesake near them that Dyer's regiments were at.
 4. (members) Brigade / division / corps headings do not place: company / detachment rows of the table; a unit whose
    own clear positions within 10 days (ROUTE_DAYS: Dyer's route from unit_tracks.jsonl, post lines, NPS histories)
-   are all beyond rail / boat reach of the place; for a "Detachment ..." heading, a unit with no position within
-   150 km then ("Detachment Nineteenth Army Corps, Near Leesburg": the divisions left in Louisiana).
+   are all too fast to reach from the place (common.too_fast, the test of fast_jumps.py); a unit whose last position before and first after (each within 30
+   days) are within 100 km of each other and over 300 km from the place (it stayed put), or the place is over 300 km from both and a 600 km
+   detour from the way between them (it moved elsewhere); for a "Detachment ..." heading, a unit with no position within
+   150 km then ("Detachment Nineteenth Army Corps, Near Leesburg": the divisions left in Louisiana); a Union unit that
+   Dyer's attachments put only in other numbered corps that month (the Oct. 31, 1863 Gulf table files Nineteenth
+   Corps regiments under the Thirteenth).
 
-Writes data/or/datelines.jsonl (every heading, resolved or not, with the reason) and data/manual/or_datelines.json
+Writes data/or/datelines.jsonl (every heading, resolved or not, with the reason) and data/derived/or_datelines.json
 (manual claims format). Usage: python pipeline/or_datelines.py <dir of OR text files> data/or/volumes.json \
     data/or/placements.jsonl data/or/tables.jsonl data/places/geocoded.csv data/external/gnis/gnis_index.tsv \
-    data/external/acw_battle_data/nps_units.csv data/or/datelines.jsonl data/manual/or_datelines.json
+    data/external/acw_battle_data/nps_units.csv data/or/datelines.jsonl data/derived/or_datelines.json
 """
 import csv, difflib, json, re, sys
 from bisect import bisect_left
@@ -37,6 +41,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from gnis_index import norm  # noqa: E402
+from common import gnis_by_name_state, km, too_fast  # noqa: E402
 from or_stations import split_place, SAME, ABBR  # noqa: E402
 
 MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
@@ -120,6 +125,7 @@ def clean_place(pl):
 TABLE_DAYS, TABLE_FAR = 45, 120   # a command's table within TABLE_DAYS of the heading; up to TABLE_FAR only for units
                                   # the command also holds in a table on the other side of the heading's date
 ROUTE_DAYS = 10             # a unit's own positions this near in time test a command heading
+BRACKET_DAYS = 30           # ... and its last position before / first after, if both in the same place
 PREC = {"regiment": 2000, "brigade": 4000, "division": 10000, "corps": 25000}
 CONF = {"regiment": 0.65, "brigade": 0.6, "division": 0.5, "corps": 0.4}
 
@@ -358,11 +364,7 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
             geo_mn[(norm(g["name"]), g["state"])] = mn
             if mn >= 40 and mn > famous.get(norm(g["name"]), ("", 0))[1]:
                 famous[norm(g["name"])] = (g["state"], mn)
-    G = defaultdict(list)
-    for line in open(gnis_p, encoding="utf-8"):
-        nm, st, lat, lon, cl, *_ = line.rstrip("\n").split("\t")
-        if cl in ("Populated Place", "Military", "Civil", "Island", "Locale", "Crossing", "Gap"):
-            G[(nm, st)].append((float(lat), float(lon), cl))
+    G = gnis_by_name_state(gnis_p, ("Populated Place", "Military", "Civil", "Island", "Locale", "Crossing", "Gap"))
 
     stats = Counter()
     G2 = defaultdict(list)                       # name -> every (state, lat, lon, class): for namesakes by context
@@ -376,16 +378,16 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
     def locate(name, st, ctx=None):
         a = ALIAS.get(norm(name))
         if a and (not st or st in SAME.get(a[3], [a[3]])):
-            if not ctx or ((a[0] - ctx[0]) * 111) ** 2 + ((a[1] - ctx[1]) * 89) ** 2 < 250 ** 2:
+            if not ctx or km(a[:2], ctx) < 250:
                 return (a[0], a[1], a[2]), a[3]
         r = locate0(name, st)
         # a stateless famous place far from the book's context: a namesake near the context that Dyer's regiments
         # were at (>= 10 mentions: "Winchester" in a Tennessee volume is Winchester, Tenn.) replaces it; otherwise it is
         # kept (GNIS hamlets lost to it: "Vicksburg", Ga.), and the per-unit route test below drops the units that
         # were not there ("Auburn" in a Vicksburg volume stays Auburn, Va.: no Fifteenth Corps unit is placed)
-        if r and ctx and not st and ((r[0][0] - ctx[0]) * 111) ** 2 + ((r[0][1] - ctx[1]) * 89) ** 2 > 300 ** 2:
+        if r and ctx and not st and km(r[0][:2], ctx) > 300:
             ns = [(k[1], v) for k, v in geo.items() if k[0] == norm(name) and geo_mn.get(k, 0) >= 10
-                  and ((v[0] - ctx[0]) * 111) ** 2 + ((v[1] - ctx[1]) * 89) ** 2 <= 150 ** 2]
+                  and km(v[:2], ctx) <= 150]
             if len(ns) == 1:
                 stats["famous place far from the book's context: used namesake Dyer's regiments were at"] += 1
                 return (ns[0][1], ns[0][0])
@@ -396,13 +398,11 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
         cs = [c for c in G2.get(norm(name), []) if sts is None or c[0] in sts]
         if not cs:
             return None
-        def km(a, b):
-            return ((a[0] - b[0]) * 111) ** 2 + ((a[1] - b[1]) * 111 * 0.8) ** 2
         best = min(cs, key=lambda c: km((c[1], c[2]), ctx))
-        d1 = km((best[1], best[2]), ctx) ** 0.5
+        d1 = km((best[1], best[2]), ctx)
         if d1 > 120:
             return None
-        others = [km((c[1], c[2]), ctx) ** 0.5 for c in cs if km((c[1], c[2]), (best[1], best[2])) > 30 ** 2]
+        others = [km((c[1], c[2]), ctx) for c in cs if km((c[1], c[2]), (best[1], best[2])) > 30]
         if others and min(others) < 2 * d1 + 40:
             return None                          # another namesake nearly as near: leave it
         stats["place by context among namesakes"] += 1
@@ -451,6 +451,27 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
                     tracks[c["unit"]["nps_code"]].append((t, t, 0, c["place"]["lat"], c["place"]["lon"]))
     for k in tracks:
         tracks[k].sort()
+    # Dyer's attachments ("1st Brigade, 3rd Division, 19th Army Corps ... 1864-06 to 1864-08"): the numbered corps a
+    # Union unit was in, by NPS code: a corps heading does not place a unit Dyer's puts in other corps only that month
+    dyer_corps = defaultdict(list)
+    dcp = Path(pl_p).parents[1] / "dyers/claims_rules.jsonl"
+    if dcp.exists():
+        def mday(s, end=False):
+            p_ = (s or "").split("-")
+            if len(p_) < 2 or not p_[0].isdigit():
+                return None
+            y, mo = int(p_[0]), int(p_[1])
+            if len(p_) == 3:
+                return (date(y, mo, int(p_[2])) - D0_).days
+            return ((date(y + (mo == 12), mo % 12 + 1, 1) if end else date(y, mo, 1)) - D0_).days - (1 if end else 0)
+        for l in open(dcp, encoding="utf-8"):
+            r = json.loads(l)
+            if r["claim_type"] != "subordinate_to" or r["unit_id"] not in d2n:
+                continue
+            ns = {int(x) for x in re.findall(r"\b(\d{1,2})(?:st|nd|rd|th|d)\s+(?:Army\s+)?Corps\b", r.get("parent_mention") or "")}
+            a0, a1 = mday(r.get("date_start")), mday(r.get("date_end") or r.get("date_start"), True)
+            if ns and a0 is not None and a1 is not None:
+                dyer_corps[d2n[r["unit_id"]]].append((a0, a1, ns))
 
     def vote(name, st, codes, d):
         sts = SAME.get(st, [st]) if st else None
@@ -569,9 +590,9 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
                 l2 = locate(n2, s2 or st, ctx_b)
                 if not l2:
                     continue
-                if not loc or ((loc[0][0] - l2[0][0]) * 111) ** 2 + ((loc[0][1] - l2[0][1]) * 89) ** 2 > 50 ** 2:
+                if not loc or km(loc[0][:2], l2[0][:2]) > 50:
                     alt = locate(name, st or l2[1], (l2[0][0], l2[0][1]))
-                    if alt and ((alt[0][0] - l2[0][0]) * 111) ** 2 + ((alt[0][1] - l2[0][1]) * 89) ** 2 <= 50 ** 2:
+                    if alt and km(alt[0][:2], l2[0][:2]) <= 50:
                         loc = alt
                     else:
                         loc = ((l2[0][0], l2[0][1], max(l2[0][2], 5000)), l2[1])
@@ -580,7 +601,7 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
             pending = not loc                   # try the commanded units' routes once the command is known
             (lat, lon, gp), pst = loc if loc else ((None, None, None), None)
             sides = [side] if side else ["Union", "Confederate"]
-            units, how = None, None
+            units, how, head_corps = None, None, None
             if use_signer:
                 sg = signer(L, j)
                 if not sg or not sg[0]:
@@ -664,6 +685,7 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
                 if found[0] != "ok":
                     done(f"command {found[0]}"); continue
                 _, side, tid, td, hit = found
+                head_corps = spec.get("corps", (None,))[0]
                 units = [(r["unit_code"], r["unit"]) for r in hit]
                 how = f"{low} in table {tid} ({td.isoformat()})"
                 if abs((td - d).days) > TABLE_DAYS:
@@ -707,12 +729,32 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
                     t = (d - D0_).days
                     pts = [(max(0, a[0] - t, t - a[1]), a) for a in tracks.get(code) or ()]
                     pts = [(dt, a) for dt, a in pts if dt <= ROUTE_DAYS]
-                    far = [dt for dt, a in pts if
-                           (((a[3] - lat) * 111) ** 2 + ((a[4] - lon) * 89) ** 2) ** 0.5 > 150 + 250 * (max(2, dt) + a[2]) + prec / 1000]
+                    far = [dt for dt, a in pts if too_fast(km(a[3:5], (lat, lon)), dt + a[2], prec / 1000)]
                     if pts and len(far) == len(pts):
                         stats["member skipped: its own route is elsewhere"] += 1; continue
+                    if head_corps and side == "Union":
+                        att = [ns for a0, a1, ns in dyer_corps.get(code, ()) if a0 <= t <= a1]
+                        if att and not any(head_corps in ns for ns in att):
+                            stats["member skipped: Dyer's puts it in another corps then"] += 1; continue
+                    # stayed put: the unit's last position before and first after (each within BRACKET_DAYS) are
+                    # within 100 km of each other and the heading's place is over 300 km from them ("Thirteenth Army
+                    # Corps, Steamship McClellan": headquarters sailed for Texas, the divisions stayed in Louisiana); likewise
+                    # when the two positions differ but the heading is a 600 km detour from the way between them
+                    tr = tracks.get(code) or ()
+                    bef = [a for a in tr if a[1] < t and t - a[1] <= BRACKET_DAYS]
+                    aft = [a for a in tr if a[0] > t and a[0] - t <= BRACKET_DAYS]
+                    if bef and aft:
+                        pa_, na_ = bef[-1], aft[0]
+                        d_ba, d_bp, d_pa = km(pa_[3:5], na_[3:5]), km(pa_[3:5], (lat, lon)), km((lat, lon), na_[3:5])
+                        if min(d_bp, d_pa) > 300 + prec / 1000:
+                            if d_ba <= 100:
+                                stats["member skipped: stayed elsewhere (positions before and after)"] += 1; continue
+                            # or moved between them without going near the heading: the 5th Iowa at Cherokee, Ala.,
+                            # Oct. 29, 1863 and Chattanooga Nov. 20 was not with the Seventeenth Corps at Vicksburg
+                            if d_bp + d_pa - d_ba > 600:
+                                stats["member skipped: moved elsewhere (positions before and after)"] += 1; continue
                     if detached and not any(
-                            (((a[3] - lat) * 111) ** 2 + ((a[4] - lon) * 89) ** 2) ** 0.5 <= 150 for dt, a in pts):
+                            km(a[3:5], (lat, lon)) <= 150 for dt, a in pts):
                         stats["member skipped: detachment heading, unit's route not near"] += 1; continue
                 keep.append((code, nm))
             if not keep:

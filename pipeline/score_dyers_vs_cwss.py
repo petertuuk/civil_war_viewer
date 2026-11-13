@@ -14,6 +14,8 @@ and the mention shares a distinctive word with the battle name or its Wikipedia 
 import collections, csv, json, re, sys
 from datetime import date, timedelta
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
+from common import first_day as d  # noqa: E402
 
 ST = {"ALABAMA": "AL", "ARKANSAS": "AR", "CALIFORNIA": "CA", "COLORADO": "CO", "CONNECTICUT": "CT", "DAKOTA": "DT",
       "DELAWARE": "DE", "DISTRICT OF COLUMBIA": "DC", "FLORIDA": "FL", "GEORGIA": "GA", "ILLINOIS": "IL", "INDIANA": "IN",
@@ -32,15 +34,6 @@ SPELL = {"spottsylvania": "spotsylvania", "jonesboro": "jonesborough", "opequan"
 STOP = set("church old new battle battles of the at and near on in to engagement action actions skirmish siege assault assaults "
            "combat operations campaign creek river run station court house ford mills hill farm road cross roads "
            "pa va md tenn ga miss ala ky la mo ark n c s".split())
-
-
-def d(s):
-    s = (s or "")[:10]
-    s = s + "-01" if len(s) == 7 else s
-    try:
-        return date.fromisoformat(s)
-    except ValueError:
-        return None
 
 
 def words(s):

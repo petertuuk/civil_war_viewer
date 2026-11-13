@@ -4,7 +4,7 @@ The browser derives the rest: a day covered by a segment is "known" (or "loose" 
 such as "duty at Washington till March"), a gap of up to 21 days between segments is "moving" (linear), and up to
 10 days after the last segment is "stale". Day numbers count from 1861-01-01.
 
-Choice of fix for a day (same rule as tracks.py, plus: a coarse fix, precision >= 10 km, such as a corps headquarters
+Choice of fix for a day (same rule as the retired tracks.py, plus: a coarse fix, precision >= 10 km, such as a corps headquarters
 or a district, only when nothing finer covers the day): day precision first, then short spans, then monument-grade
 precision (<= 500 m), whole unit, source rank, confidence, shortest span. "En route"/"along" claims count on
 arrival only; campaigns (> 20 days) are not positions, sieges are (drawn solid).
@@ -22,24 +22,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from build_viewer import pretty  # noqa: E402
+from common import parse_date as d, km  # noqa: E402
 
 D0 = date(1861, 1, 1)
 D1 = date(1865, 12, 31)
 RANK = {"compendium": 3, "official_records": 4, "website": 2, "government_list": 2, "manual": 1}
-
-
-def d(s, end=False):
-    if not s:
-        return None
-    p = [int(x) for x in s[:10].split("-")]
-    try:
-        if len(p) == 3:
-            return date(*p)
-        if len(p) == 2:
-            return (date(p[0] + (p[1] == 12), p[1] % 12 + 1, 1) - timedelta(days=1)) if end else date(p[0], p[1], 1)
-        return date(p[0], 12, 31) if end else date(p[0], 1, 1)
-    except ValueError:
-        return date(p[0], p[1], 28)
 
 
 def fixes_by_event_dates(db, evloc, ename):
@@ -243,8 +230,83 @@ def backdrop(out, evs):
         if x[2] == "battle" and dup[x[4]] > 1:           # two CWSAC entries named "Petersburg": add the month
             x[4] += " (" + (D0 + timedelta(days=x[0])).strftime("%b %Y") + ")"
     items.sort(key=lambda x: (x[0], x[3]))
-    json.dump({"items": items}, open(out / "backdrop.json", "w", encoding="utf-8"), separators=(",", ":"), ensure_ascii=False)
+    # campaigns (CWSAC): dates from their battles' first and last days; level 1 with a class A battle, 2 with a class B,
+    # 3 otherwise; theater E(astern), W(estern), T(rans-Mississippi), S (Lower Seaboard), P(acific)
+    camps = defaultdict(list)
+    for r in (csv.DictReader(open(cw, encoding="utf-8")) if cw.exists() else []):
+        if r["start_date"] and r["campaign"]:
+            camps[r["campaign"]].append(r)
+    cc = cw.parent / "cwsac_campaigns.csv"
+    th = {r["campaign"]: r["theater"] for r in csv.DictReader(open(cc, encoding="utf-8"))} if cc.exists() else {}
+    campaigns = []
+    for name, rs in camps.items():
+        sig = [r["significance"] for r in rs]
+        if not any(x in "ABC" for x in sig):
+            continue
+        a = min(date.fromisoformat(r["start_date"][:10]) for r in rs)
+        b = max(date.fromisoformat((r["end_date"] or r["start_date"])[:10]) for r in rs)
+        lv = 1 if "A" in sig else 2 if "B" in sig else 3
+        short = __import__("re").sub(r"\s*\[[^\]]*\]$", "", name)
+        campaigns.append([(a - D0).days, (b - D0).days, lv, short, (th.get(name) or "?")[0], sig.count("A"), len(rs)])
+    campaigns.sort()
+    json.dump({"items": items, "campaigns": campaigns}, open(out / "backdrop.json", "w", encoding="utf-8"),
+              separators=(",", ":"), ensure_ascii=False)
+    print("campaigns:", len(campaigns))
     print("backdrop items:", len(items), "battles:", sum(1 for x in items if x[2] == "battle"))
+
+
+def locate(segs, day, Y):
+    """The viewer's locate() (index.html): [lat, lon, state] on a day, or None. state 4 = with its brigade or campaign."""
+    import bisect
+    starts = Y["_starts"].get(id(segs))
+    if starts is None:
+        starts = Y["_starts"][id(segs)] = [s[0] for s in segs]
+    i = bisect.bisect_right(starts, day) - 1
+    if i >= 0 and segs[i][0] <= day <= segs[i][1]:
+        f = Y["fixes"][segs[i][2]]
+        return f[0] / 1e4, f[1] / 1e4, 4 if f[4] >= 2 else 3 if f[4] else 0
+    prev = segs[i] if i >= 0 else None
+    nxt = segs[i + 1] if i + 1 < len(segs) else None
+    if prev and nxt and nxt[0] - prev[1] <= 21:
+        a, b = Y["fixes"][prev[2]], Y["fixes"][nxt[2]]
+        w = (day - prev[1]) / (nxt[0] - prev[1])
+        return (a[0] + w * (b[0] - a[0])) / 1e4, (a[1] + w * (b[1] - a[1])) / 1e4, 1
+    if prev and day - prev[1] <= 10:
+        a = Y["fixes"][prev[2]]
+        return a[0] / 1e4, a[1] / 1e4, 2
+    return None
+
+
+def activity(out, min_km=8):
+    """viewer/war/data/activity.json for the timeline's activity strip: per day, how many Union and Confederate units
+    were placed (all kinds) and how many moved min_km or more since the day before, as the map draws them (8 km: the trails' threshold).
+    {"min_km": 8, "days": [[union_placed, conf_placed, union_moved, conf_moved], ...]} from 1861-01-01."""
+    units = json.load(open(out / "units.json", encoding="utf-8"))["units"]
+    side = {int(k): v[1] for k, v in units.items()}
+    years = {}
+    for y in range(1861, 1866):
+        Y = json.load(open(out / f"y{y}.json", encoding="utf-8"))
+        Y["_starts"] = {}
+        years[y] = Y
+    nd = (date(1865, 12, 31) - D0).days + 1
+    days = [[0, 0, 0, 0] for _ in range(nd)]
+    for d in range(nd):
+        Y = years[(D0 + timedelta(days=d)).year]
+        Yp = years[(D0 + timedelta(days=d - 1)).year] if d else None
+        for uid, segs in Y["seg"].items():
+            sd = side.get(int(uid))
+            if sd is None:
+                continue
+            p = locate(segs, d, Y)
+            if not p:
+                continue
+            days[d][sd] += 1
+            sp = Yp["seg"].get(uid) if Yp else None
+            q = locate(sp, d - 1, Yp) if sp else None
+            if q and km(p[:2], q[:2]) >= min_km:
+                days[d][2 + sd] += 1
+    json.dump({"min_km": min_km, "days": days}, open(out / "activity.json", "w"), separators=(",", ":"))
+    print("activity: peak moved", max(x[2] + x[3] for x in days))
 
 
 def main(dbp, outdir):
@@ -401,6 +463,7 @@ def main(dbp, outdir):
         json.dump(doc, open(p, "w", encoding="utf-8"), separators=(",", ":"))
         sizes[y] = (len(seg), len(fixtab), len(ev), p.stat().st_size)
     backdrop(out, evs)
+    activity(out)
     print("units with positions:", len(units))
     for y, (nu, nf, ne, sz) in sizes.items():
         print(f"  {y}: units {nu}, fixes {nf}, events {ne}, {sz/1e6:.1f} MB")

@@ -22,15 +22,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from gnis_index import norm  # noqa: E402
+from common import km, gnis_by_name  # noqa: E402
 
 FAR_KM, NEAR_KM, SHARE, WIN, MIN_T2 = 250, 80, 0.8, 3, 3   # WIN: days either side (units moved fast by rail)
 CLASSES = {"Populated Place", "Locale", "Crossing", "Military", "Gap", "Summit", "Ridge", "Stream", "Island", "Civil"}
-
-
-def km(a, b):
-    la1, lo1, la2, lo2 = map(math.radians, (a[0], a[1], b[0], b[1]))
-    h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
-    return 12742 * math.asin(math.sqrt(min(1, h)))
 
 
 def d(s):
@@ -75,11 +70,7 @@ def written_state(name):
 
 def main(db, gnis_p, out_p):
     c = sqlite3.connect(db)
-    G = defaultdict(list)
-    for line in open(gnis_p, encoding="utf-8"):
-        nm, st, lat, lon, cl, *_ = line.rstrip("\n").split("\t")
-        if cl in CLASSES:
-            G[nm].append((st, float(lat), float(lon), cl))
+    G = gnis_by_name(gnis_p, CLASSES)
     ev = {}            # event id -> (claim id, place id, name, place name, lat, lon, d0, d1, source)
     for cid, eid, en, pid, pn, la, lo, ds, de, how in c.execute("""
             select a.claim_id, e.id, e.display_name, p.id, p.display_name, p.lat, p.lon, a.date_start, a.date_end, k.extracted_by

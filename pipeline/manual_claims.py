@@ -1,4 +1,4 @@
-"""Load hand-made or uploaded claims (data/manual/*.json) into the claims database, resolving the entities they
+"""Load hand-made or uploaded claims (data/manual/*.json; generated ones in the same format: data/derived/*.json) into the claims database, resolving the entities they
 describe against what build_db.py has already loaded.
 
 File format (one JSON object per file):
@@ -160,10 +160,12 @@ class Resolver:
 
 def load(P, cur, side, xref, events, ev_id, person_of, source, claim, n):
     """Called from build_db.main after all other claims are in. Returns nothing; counts into n."""
-    files = sorted((Path(P) / "data/manual").glob("*.json"))
+    # hand-made claim files (data/manual) and generated ones in the same format (data/derived), in file-name order
+    files = sorted([*(Path(P) / "data/manual").glob("*.json"), *(Path(P) / "data/derived").glob("*.json")], key=lambda f: f.name)
     for f in files:
         doc = json.load(open(f, encoding="utf-8"))
-        R = Resolver(cur, side, xref, events, ev_id, person_of, f"created from manual source data/manual/{f.name}")
+        rel = f"data/{f.parent.name}/{f.name}"
+        R = Resolver(cur, side, xref, events, ev_id, person_of, f"created from manual source {rel}")
         src = {k: source(s["title"], s.get("kind") or "manual", s.get("citation"), s.get("url"),
                          int(s.get("public_domain") or 0), s.get("notes")) for k, s in doc["sources"].items()}
         for c in doc["claims"]:
@@ -188,7 +190,7 @@ def load(P, cur, side, xref, events, ev_id, person_of, source, claim, n):
                     cols[need] = (c[col] or {}).get("display_name") or (c[col] or {}).get("name") or ""
             if t == "unit_at" and "place_mention" not in cols: cols["place_mention"] = (c.get("place") or {}).get("display_name", "")
             cid = claim(t, src[c["source"]], c.get("span"), c.get("confidence", 0.9), c.get("extracted_by") or "manual",
-                        f"data/manual/{f.name}", TABLE[t], **cols)
+                        rel, TABLE[t], **cols)
             status = c.get("status", "accepted") if not missing else "pending"
             note = "; ".join(x for x in (c.get("note"), ("unresolved: " + ", ".join(missing)) if missing else None) if x) or None
             cur.execute("UPDATE claim SET status=?, review_note=? WHERE id=?", (status, note, cid))

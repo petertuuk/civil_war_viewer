@@ -22,6 +22,8 @@ members; regiments = distinct units across members.
 import collections, glob, json, re, sys
 from datetime import date
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
+from common import first_day as d  # noqa: E402
 
 GAP_DAYS = 2
 
@@ -40,16 +42,6 @@ def theater(ll, log):
         return (lat, -lon) + tuple(ll[2:])
     log["coordinates outside the theater dropped"] += 1
     return None
-
-
-def d(s):
-    s = (s or "")[:10]
-    if len(s) == 7:
-        s += "-01"
-    try:
-        return date.fromisoformat(s)
-    except ValueError:
-        return None
 
 
 class UF:

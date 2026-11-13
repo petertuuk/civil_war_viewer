@@ -52,7 +52,8 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from geocode import forms, SAME, km  # noqa: E402
+from geocode import forms, SAME  # noqa: E402
+from common import km, day_num as day, D0, gnis_by_name, too_fast  # noqa: E402
 from gnis_index import norm  # noqa: E402
 
 MARGIN = 1.0
@@ -63,24 +64,8 @@ CLASS_COST = {"Populated Place": 0.0, "Military": 0.0, "geocoded": 0.0, "Locale"
               "Civil": 0.3, "Gap": 0.5, "Summit": 0.8, "Ridge": 0.8, "Island": 0.5, "Stream": 1.0}
 PREC = {"Populated Place": 2000, "Military": 1500, "geocoded": 3000, "Locale": 3000, "Crossing": 2000, "Civil": 10000,
         "Gap": 2000, "Summit": 3000, "Ridge": 5000, "Island": 3000, "Stream": 15000}
-D0 = date(1861, 1, 1)
 import os
 DEBUG_UNIT = os.environ.get("RM_DEBUG")
-
-
-def day(s, end=False):
-    """'1862-10' -> day number (mid-month), '1862-10-05' -> that day; (number, slack days)."""
-    if not s:
-        return None, 0
-    p = s[:10].split("-")
-    try:
-        if len(p) == 3:
-            return (date(int(p[0]), int(p[1]), int(p[2])) - D0).days, 0
-        if len(p) == 2:
-            return (date(int(p[0]), int(p[1]), 15) - D0).days, 15
-        return (date(int(p[0]), 7, 1) - D0).days, 180
-    except ValueError:
-        return None, 0
 
 
 HOME = {"alabama": "AL", "arkansas": "AR", "california": "CA", "colorado": "CO", "connecticut": "CT", "dakota": "SD",
@@ -111,14 +96,37 @@ def step(a, b, ta, tb, slack):
     return dk / 500 + max(0.0, dk - (150 + 250 * t)) / 100
 
 
+OUT_DAYS, OUT_SHARE = 10, 0.6
+AREA_KINDS = ("campaign", "operation", "expedition", "march", "siege")   # areas, not points (as fast_jumps.py)
+
+
+def out_of_reach(eid, ll, e0, e1, tracks, exclude=None, units=None, both=False):
+    """How many of an event's units (with a clear position within OUT_DAYS before or after it) cannot have been at ll:
+    over 300 km from the position before and the one after and faster than 250 km a day (fast_jumps.py's test). Returns
+    (out of reach, units tested). A unit fails when either side fails (both=True: both sides; one side tested when it
+    has only one)."""
+    n_imp = n_used = 0
+    for u in units if units is not None else ():
+        tr = [a for a in tracks.get(u) or [] if exclude is None or (a[5] if len(a) > 5 else None) != exclude]
+        prv = [a for a in tr if a[1] <= e0 and e0 - a[1] <= OUT_DAYS]
+        nxt = [a for a in tr if a[0] >= e1 and a[0] - e1 <= OUT_DAYS]
+        if not prv and not nxt:
+            continue
+        n_used += 1
+        # the jump test of fast_jumps.py: over 300 km and faster than 250 km a day (the same day counts as one)
+        far = [too_fast(km(a[3:5], ll), e0 - a[1] + a[2]) for a in prv[-1:]] + \
+              [too_fast(km(ll, b[3:5]), b[0] - e1 + b[2]) for b in nxt[:1]]
+        if (all(far) if both else any(far)):
+            n_imp += 1
+    return n_imp, n_used
+
+
 def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
     places_dir, dyers_dir, events_dir = Path(places_dir), Path(dyers_dir), Path(events_dir)
     geo = {g["place_key"]: g for g in csv.DictReader(open(places_dir / "geocoded.csv", encoding="utf-8"))}
     G = defaultdict(list)
-    for line in open(gnis_p, encoding="utf-8"):
-        nm, st, lat, lon, cl, *_ = line.rstrip("\n").split("\t")
-        if cl in CLASS_COST:
-            G[nm].append((st, float(lat), float(lon), cl))
+    for nm, cs in gnis_by_name(gnis_p, CLASS_COST).items():
+        G[nm] += cs
     for k, g in geo.items():                     # geocoded places by name too (overrides: Chicago, White House Landing)
         if g["lat"] and g["method"] in ("override", "seed", "gnis") and g["state"]:
             for f in forms(g["name"])[:1]:
@@ -158,6 +166,8 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
             continue                            # build_db uses the first place of a mention
         seen.add(key)
         t0, sl = day(m.get("date"))
+        if m.get("arrival"):                    # a move: at its destination on the arrival date ("Moved to Memphis,
+            t0, sl = day(m["arrival"])          # thence march to Chattanooga, Sept. 27-Nov. 20" is Chattanooga on Nov. 20)
         if t0 is None:
             continue
         pk = m["place_key"]; st = pk.split("|")[1]; g = geo.get(pk)
@@ -223,7 +233,7 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
     for u in clear_tr:
         clear_tr[u].sort(key=lambda a: a[0])
     suspects = {}
-    for eid in evsmall:
+    for eid in evloc:
         lat, lon, ds, de = evloc[eid]
         e0, _ = day(ds); e1, _ = day(de)
         if e0 is None:
@@ -237,8 +247,15 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
                 a, b = prv[-1], nxt[0]
                 dets.append(step(a[3:5], (lat, lon), a[1], e0, a[2]) + step((lat, lon), b[3:5], e1, b[0], b[2])
                             - step(a[3:5], b[3:5], a[1], b[0], a[2] + b[2]))
-        if (len(dets) >= 2 and sum(dets) / len(dets) > SUSPECT_DETOUR) or (len(dets) == 1 and dets[0] > 2 * SUSPECT_DETOUR):
-            suspects[eid] = round(sum(dets) / len(dets), 2)
+        if eid in evsmall:
+            if (len(dets) >= 2 and sum(dets) / len(dets) > SUSPECT_DETOUR) or (len(dets) == 1 and dets[0] > 2 * SUSPECT_DETOUR):
+                suspects[eid] = round(sum(dets) / len(dets), 2)
+        elif ev_dates.get(eid, {}).get("kind") not in AREA_KINDS and e1 - e0 <= 7:
+            # a larger event: suspect when most of its units cannot reach it at all (out_of_reach)
+            n_imp, n_used = out_of_reach(eid, (lat, lon), e0, e1, clear_tr, exclude=eid, units=ev_units.get(eid, ()))
+            if n_used >= 3 and n_imp >= OUT_SHARE * n_used:
+                suspects[eid] = round(sorted(dets)[len(dets) // 2], 2) if dets else 99.0
+    n_large_suspects = sum(1 for e in suspects if e not in evsmall)
     for l in open(dyers_dir / "claims_rules.jsonl", encoding="utf-8"):
         c = json.loads(l)
         if c["claim_type"] != "participated":
@@ -337,13 +354,13 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
             g = m["g"] or {}
             # the place geocode.py would give this mention (pooled over all units: "Alexandria" with no state is a
             # median near Petersburg; Fort Rice, Dakota is GNIS's only Fort Rice): impossible for this unit when it is
-            # beyond rail / boat reach (150 + 250 km a day, as in step()) of the nearest anchor on each side
+            # too fast to reach from the nearest anchor on each side (common.too_fast, the test of fast_jumps.py)
             # (anchors within 30 days count; a far one says little)
             def impossible(p):
                 ends = [(max(0, os_[x][0] - o[0], o[0] - os_[x][1]), os_[x]) for x in pa + na]   # days outside its span
                 # same day: only a located event counts (Dyer's lists a unit's moves under one date)
                 ends = [(dt, e) for dt, e in ends if dt <= 30 and (dt > 0 or e[5] is None)]
-                return bool(ends) and all(km(e[4][0][1:3], p) > 150 + 250 * (max(2, dt) + e[2] + o[2]) for dt, e in ends)
+                return bool(ends) and all(too_fast(km(e[4][0][1:3], p), dt + e[2] + o[2]) for dt, e in ends)
             if DEBUG_UNIT and unit == DEBUG_UNIT:
                 print("DBG", m.get("date"), m["raw"], m.get("state_source"), g.get("lat"), [ (os_[x][0], os_[x][1], os_[x][4][0][1:3]) for x in pa+na], o[0], margin, reach_ok, len(C[i]))
             # only geocode.py's pooled 'context' medians: a lone GNIS namesake that is impossible here is as often right
@@ -489,6 +506,74 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
                      "class": cs[b][3], "margin": round(min(margin, 99), 2), "units": used, "candidates": len(cs),
                      "place_key": pk, "moved_km": None if moved is None else round(moved), "was": "none" if was is None else g["method"],
                      "replaces_coords": eid in suspects})
+    # an event the vote leaves where it was (its suspect coordinates, or the pooled place of its name that build_db.py
+    # would use: "Flint River Station" at the Flint River's mouth, "Blountsville" in Montgomery Co., Tenn.) is not
+    # placed at all when most of its units cannot reach that place (2+ units tested): was 'off_route', no coordinates
+    placed = {r["event_id"] for r in eout}
+    track2 = defaultdict(list, {u: list(v) for u, v in track.items()})     # + the events the vote just placed
+    for r in eout:
+        t0_, sl_ = day(r["date"])
+        if t0_ is not None:
+            for u in ev_units.get(r["event_id"], ()):
+                track2[u].append((t0_, t0_, sl_, r["lat"], r["lon"], r["event_id"]))
+    for u in track2:
+        track2[u].sort(key=lambda a: a[0])
+    for eid, e in evinfo.items():
+        if eid in placed or e.get("kind") in AREA_KINDS:
+            continue
+        ll = None
+        if eid in suspects:
+            ll = (e["lat"], e["lon"])
+        else:
+            for (nm_, st_, gs_, pk_), _ in evnames.get(eid, Counter()).most_common(3):
+                g = geo.get(pk_) or {}
+                est_ = e.get("state")
+                if g.get("lat") and est_ and g.get("state") and g["state"] != est_ and {g["state"], est_} != {"VA", "WV"}:
+                    continue
+                if g.get("lat") and g.get("method") in ("gnis", "override", "seed"):
+                    ll = (float(g["lat"]), float(g["lon"])); break
+        if ll is None:
+            continue
+        e0, _ = day(e["date_start"]); e1, _ = day(e.get("date_end") or e["date_start"])
+        if e0 is None or (e1 or e0) - e0 > 7:
+            continue                     # a long operation is an area, not a point (as fast_jumps.py)
+        n_imp, n_used = out_of_reach(eid, ll, e0, e1 if e1 is not None else e0, track2, units=ev_units.get(eid, ()))
+        if n_used >= 2 and n_imp >= OUT_SHARE * n_used:
+            est["not placed: its place is out of its units' reach"] += 1
+            eout.append({"event_id": eid, "event": e["name"], "date": e["date_start"], "name": e["name"], "state": None,
+                         "lat": None, "lon": None, "precision_m": None, "class": None, "margin": None, "units": n_used,
+                         "candidates": None, "place_key": None, "moved_km": None, "was": "off_route",
+                         "out_of_reach": n_imp, "replaces_coords": eid in suspects})
+    # a unit matched to an event it cannot have fought: its clear positions within OUT_DAYS before and after agree with
+    # each other (within 150 km) and both fail the jump test against the event (the 11th Illinois, in Louisiana, matched
+    # to Jonesborough, Ga.): data/places/participation_off_route.jsonl; build_db.py unlinks that participation
+    evpt = {eid: (v[0], v[1]) for eid, v in evloc.items() if eid not in suspects}
+    for r in eout:
+        if r["lat"] is not None:
+            evpt[r["event_id"]] = (r["lat"], r["lon"])
+    off_part = []
+    for eid, ll in evpt.items():
+        e = ev_dates.get(eid)
+        if not e or e.get("kind") in AREA_KINDS:
+            continue
+        e0, _ = day(e["date_start"]); e1, _ = day(e.get("date_end") or e["date_start"])
+        if e0 is None or (e1 or e0) - e0 > 7:
+            continue
+        e1 = e1 if e1 is not None else e0
+        for u in ev_units.get(eid, ()):
+            tr = [a for a in clear_tr.get(u) or [] if (a[5] if len(a) > 5 else None) != eid]
+            prv = [a for a in tr if a[1] <= e0 and e0 - a[1] <= OUT_DAYS]
+            nxt = [a for a in tr if a[0] >= e1 and a[0] - e1 <= OUT_DAYS]
+            if not prv or not nxt:
+                continue
+            a, b = prv[-1], nxt[0]
+            if km(a[3:5], b[3:5]) <= 150 and out_of_reach(eid, ll, e0, e1, {u: [a, b]}, units=[u], both=True)[0]:
+                off_part.append({"unit": u, "event_id": eid, "event": e["name"], "date": e["date_start"],
+                                 "before": [round(a[3], 3), round(a[4], 3)], "after": [round(b[3], 3), round(b[4], 3)]})
+    with open(Path(out_p).with_name("participation_off_route.jsonl"), "w", encoding="utf-8") as fo:
+        for r in off_part:
+            fo.write(json.dumps(r, ensure_ascii=False) + "\n")
+    est["participations off the unit's route (unlinked)"] = len(off_part)
     # a suspect Wikidata match that the vote moves far away was a different action of the same name (the Great Hanging at
     # Gainesville, Texas for Dyer's Gainesville, Va.): merge_events.py detaches it on the next build (Dyer's own name, no
     # Wikidata coordinates). Entries carry forward while the event stays detached; delete a line to undo one.
@@ -509,7 +594,7 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
                 det.append(dict(r, clusters=e["clusters"]))
     for r in eout:
         e = allev[r["event_id"]]
-        if r["replaces_coords"] and e.get("wikidata") and (r["moved_km"] or 0) > 100:
+        if r["replaces_coords"] and r["lat"] is not None and e.get("wikidata") and (r["moved_km"] or 0) > 100:
             det.append({"wikidata": e["wikidata"], "clusters": e["clusters"], "wikidata_name": e["name"],
                         "dyer_name": e.get("dyer_name"), "date": e["date_start"], "units": r["units"],
                         "mean_detour": suspects.get(r["event_id"]), "moved_km": r["moved_km"],
@@ -521,14 +606,14 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
     for eid, dt in sorted(suspects.items(), key=lambda a: -a[1]):
         e = allev[eid]
         stats[f"  suspect {eid} {e['date_start']} {e['name']} ({e.get('coord_source')}, mean detour {dt}): "
-              f"{'re-placed' if any(r['event_id'] == eid for r in eout) else 'kept'}"] = 1
+              f"{next(('not placed' if r['lat'] is None else 're-placed') for r in eout if r['event_id'] == eid) if any(r['event_id'] == eid for r in eout) else 'kept'}"] = 1
     with open(Path(out_p).with_name("event_resolution.jsonl"), "w", encoding="utf-8") as fo:
         for r in eout:
             fo.write(json.dumps(r, ensure_ascii=False) + "\n")
     # unit tracks for other resolvers (or_datelines.py): anchors, confident resolutions, events placed by the vote
     for r in eout:
         t0, sl = day(r["date"])
-        if t0 is not None:
+        if t0 is not None and r["lat"] is not None:
             for u in ev_units.get(r["event_id"], ()):
                 track[u].append((t0, t0, sl, r["lat"], r["lon"]))
     with open(Path(out_p).with_name("unit_tracks.jsonl"), "w", encoding="utf-8") as fo:
@@ -537,8 +622,9 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
                                                        for a in sorted(tr)]}) + "\n")
     for k, v in est.items():
         stats["events: " + k] = v
-    stats["events: suspect coordinates (small events, units far away)"] = len(suspects)
-    stats["events: suspects re-placed by the vote"] = sum(1 for r in eout if r["replaces_coords"])
+    stats["events: suspect coordinates (small events, units far away)"] = len(suspects) - n_large_suspects
+    stats["events: larger events suspect (most units out of reach)"] = n_large_suspects
+    stats["events: suspects re-placed by the vote"] = sum(1 for r in eout if r["replaces_coords"] and r["lat"] is not None)
     rep = [f"{k}: {v}" for k, v in stats.most_common()]
     open(rep_p, "w").write("\n".join(rep) + "\n")
     print("\n".join(rep))

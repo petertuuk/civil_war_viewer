@@ -12,10 +12,10 @@ located wins:
             and a spread radius). Precision = that radius.
 Field-army tables (Army of Northern Virginia, Army of Tennessee) name no posts or regions and yield nothing here.
 
-Writes data/manual/or_stations.json (manual claims format, loaded by build_db through manual_claims.py) and prints counts.
+Writes data/derived/or_stations.json (manual claims format, loaded by build_db through manual_claims.py) and prints counts.
 Usage: python pipeline/or_stations.py data/or/placements.jsonl data/or/tables.jsonl data/manual/or_regions.psv \
            data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/external/acw_battle_data/nps_units.csv \
-           data/manual/or_stations.json
+           data/derived/or_stations.json
 """
 import csv, json, re, sys
 from collections import Counter, defaultdict
@@ -23,6 +23,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from gnis_index import norm  # noqa: E402
+from common import gnis_by_name_state  # noqa: E402
 
 ABBR = {"va": "VA", "w. va": "WV", "w.va": "WV", "n. c": "NC", "n.c": "NC", "s. c": "SC", "s.c": "SC", "ga": "GA", "fla": "FL",
         "ala": "AL", "miss": "MS", "la": "LA", "tex": "TX", "ark": "AR", "tenn": "TN", "ky": "KY", "mo": "MO", "md": "MD",
@@ -64,11 +65,7 @@ def main(pl_p, tables_p, regions_p, geocoded_p, gnis_p, units_p, out_p):
             geo[(norm(g["name"]), g["state"])] = (float(g["lat"]), float(g["lon"]), int(float(g["precision_m"])))
             if int(g["mentions"] or 0) >= 40:
                 famous.add(norm(g["name"]))
-    G = defaultdict(list)
-    for line in open(gnis_p, encoding="utf-8"):
-        nm, st, lat, lon, cl, *_ = line.rstrip("\n").split("\t")
-        if cl in ("Populated Place", "Military", "Civil", "Island", "Locale"):
-            G[(nm, st)].append((float(lat), float(lon), cl))
+    G = gnis_by_name_state(gnis_p, ("Populated Place", "Military", "Civil", "Island", "Locale"))
     ustate = {u["unit_code"]: u["state"] for u in csv.DictReader(open(units_p, encoding="utf-8"))}
     STABBR = {"Alabama": "AL", "Arkansas": "AR", "Florida": "FL", "Georgia": "GA", "Kentucky": "KY", "Louisiana": "LA",
               "Mississippi": "MS", "Missouri": "MO", "North Carolina": "NC", "South Carolina": "SC", "Tennessee": "TN",

@@ -1,18 +1,15 @@
 """Check resolved Dyer's mentions (data/places/mention_resolution.jsonl) against independent positions of the same unit
 within 10 days: Official Records letter headings (to 25 km: up to corps level) and posts, and the NPS histories
-(data/manual/or_datelines.json, or_stations.json, nps_confederate_histories.json). For mentions that moved, the old and
+(data/derived/or_datelines.json, or_stations.json, nps_confederate_histories.json). For mentions that moved, the old and
 new locations are both scored: share within 150 km of the nearest independent position.
 Usage: python pipeline/validate_mention_resolution.py data/places/mention_resolution.jsonl data/places/geocoded.csv \
-    data/scores/dyer_to_nps.csv data/manual"""
+    data/scores/dyer_to_nps.csv data/derived"""
 import csv, json, math, sys
 from collections import Counter, defaultdict
 from datetime import date
-
-
-def km(a, b):
-    la1, lo1, la2, lo2 = map(math.radians, (a[0], a[1], b[0], b[1]))
-    h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
-    return 12742 * math.asin(math.sqrt(min(1, h)))
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
+from common import km  # noqa: E402
 
 
 def dn(s):

@@ -22,12 +22,14 @@ desktop.ini
 *.db-journal
 *.sqlite
 
-# ---- Big source documents in the project root ----
+# ---- Big source documents (in sources/, read by segment_dyers / parse_event_index) ----
+/sources/
 /08697590_*
 /dyers_compendium.pdf
 /dyers_compendium.txt
 
 # ---- Backups and scratch ----
+/_archive/
 *_before_*
 _before_*/
 _to_delete*/

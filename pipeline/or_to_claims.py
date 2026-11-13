@@ -116,6 +116,9 @@ def main(pl_path, tables_path, d2n_path, events_dir, out_path):
             r["date_start"], r["date_end"] = overrides[r["table_id"]][:2]
             t = dict(t, date_source="heading")              # hand-checked
         code = nps_links.resolve_ambiguous(r.get("unit_code")) or ""
+        # a namesake chosen here (the one field regiment) is a pick too: tagged ':namesake' like resolve_namesakes.py's,
+        # so the next build's namesake evidence does not count it (untagged, it made picks flip between builds)
+        picked = (r.get("unit_code") or "").startswith("AMBIGUOUS:") and bool(code)
         if not code:
             code = nps_links.alias_code(r["unit"], r["side"]) or ""      # data/manual/unit_aliases.psv
         bat = nps_links.battery_from_code(code, r.get("portion"), code2dyer) if code else None
@@ -132,7 +135,7 @@ def main(pl_path, tables_path, d2n_path, events_dir, out_path):
         base = {"unit_id": uid, "unit_mention": r["unit"], "side": r["side"], "source": "OR Ser. I",
                 "source_ref": f"{t.get('volume')} ({r['table_id']})", "source_span": r["heading"],
                 "date_start": r["date_start"], "date_end": r["date_end"], "date_precision": "day" if r["date_start"] else None,
-                "confidence": conf, "extracted_by": "regex:or_org_v1" + (":namesake" if r.get("namesake_note") else "")}
+                "confidence": conf, "extracted_by": "regex:or_org_v1" + (":namesake" if r.get("namesake_note") or picked else "")}
         if r.get("portion"):
             base["portion"] = r["portion"]                    # e.g. "battery E" of an artillery regiment
         if r.get("consolidated_from"):

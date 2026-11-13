@@ -16,20 +16,13 @@ Usage: python pipeline/brigade_inference.py civil_war.db [report.txt]
 import json, re, sqlite3, sys, time
 from collections import Counter, defaultdict
 from datetime import date, timedelta
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
+from common import parse_date as d  # noqa: E402
 
 TITLE = "Pipeline inference: brigade companions (brigade_inference.py)"
 GAP = timedelta(days=270)        # longest stretch between two placements bridged
 NEAR = timedelta(days=45)        # around a single placement
-
-
-def d(s):
-    if not s:
-        return None
-    p = [int(x) for x in s[:10].split("-")]
-    try:
-        return date(p[0], p[1] if len(p) > 1 else 1, p[2] if len(p) > 2 else 1)
-    except ValueError:
-        return date(p[0], p[1], 28)
 
 
 def bkey(path_json, mention):
@@ -50,9 +43,9 @@ def main(dbp, rep=None):
         cur.execute(f"DELETE FROM claim WHERE source_id IN ({','.join(map(str, old))})")
         cur.execute(f"DELETE FROM source WHERE id IN ({','.join(map(str, old))})")
     # placements -> brigade snapshots: (source, table/article, brigade) at a date
-    snaps = defaultdict(lambda: {"units": set(), "date": None})
-    for sid, loc, uid, pm, pj, ds in cur.execute("""
-            SELECT c.source_id, c.locator, x.unit_id, x.parent_mention, x.parent_path_json, x.date_start
+    snaps = defaultdict(lambda: {"units": set(), "date": None, "picked": set()})
+    for sid, loc, uid, pm, pj, ds, xb in cur.execute("""
+            SELECT c.source_id, c.locator, x.unit_id, x.parent_mention, x.parent_path_json, x.date_start, c.extracted_by
             FROM claim_subordinate_to x JOIN claim c ON c.id=x.claim_id JOIN source s ON s.id=c.source_id
             WHERE s.kind IN ('official_records','website') AND x.unit_id IS NOT NULL AND x.date_start IS NOT NULL"""):
         b = bkey(pj, pm)
@@ -61,11 +54,13 @@ def main(dbp, rep=None):
         k = (sid, loc.split(" (")[0] if loc else "", b, ds[:10])
         snaps[k]["units"].add(uid)
         snaps[k]["date"] = d(ds)
+        if "namesake" in (xb or ""):
+            snaps[k]["picked"].add(uid)     # in this brigade by a namesake pick, not by the source's own text
     by_unit = defaultdict(list)
     for k, s in snaps.items():
         if len(s["units"]) >= 3:
             for u in s["units"]:
-                by_unit[u].append((s["date"], s["units"]))
+                by_unit[u].append((s["date"], s["units"], u in s["picked"]))
     # participation (not inferred), events with dates
     part = defaultdict(set)
     busy_days = defaultdict(set)    # unit -> days (+-2) of its dated claims: a unit already somewhere is not inferred
@@ -118,18 +113,18 @@ def main(dbp, rep=None):
             continue
         ss.sort(key=lambda x: x[0])
         stretches = []
-        for i, (t1, m1) in enumerate(ss):
-            stretches.append((t1 - NEAR, t1 + NEAR, m1 - {u}))
+        for i, (t1, m1, p1) in enumerate(ss):
+            stretches.append((t1 - NEAR, t1 + NEAR, m1 - {u}, p1))
             if i + 1 < len(ss):
-                t2, m2 = ss[i + 1]
+                t2, m2, p2 = ss[i + 1]
                 a, b = m1 - {u}, m2 - {u}
                 if a and b and len(a & b) / len(a | b) >= 0.4 and t2 - t1 <= GAP:
-                    stretches.append((t1, t2, a & b))
+                    stretches.append((t1, t2, a & b, p1 or p2))
         mine = set(part.get(u, ()))
         covered = set(mine)
         for e in mine:
             covered |= below(e)
-        for a, b, comp in stretches:
+        for a, b, comp, picked in stretches:
             if len(comp) < 2:
                 continue
             for e in events_between(a, b):
@@ -142,7 +137,7 @@ def main(dbp, rep=None):
                     continue                      # already placed at something on those days (often the same battle under another name)
                 if below(e) & mine:
                     continue                      # the unit has a battle inside this campaign already
-                inferred.setdefault(u, {})[e] = (len(with_e), len(comp))
+                inferred.setdefault(u, {})[e] = (len(with_e), len(comp), picked)
     now = time.strftime("%Y-%m-%dT%H:%M:%S")
     cur.execute("INSERT INTO source(title, kind, citation, fetched_at, public_domain, notes) VALUES (?,?,?,?,?,?)",
                 (TITLE, "manual", "Brigade placements in the Official Records and Wikipedia orders of battle", now, 1,
@@ -151,11 +146,14 @@ def main(dbp, rep=None):
     names = dict(cur.execute("SELECT id, display_name FROM event"))
     n = 0
     for u, es in inferred.items():
-        for e, (k, m) in es.items():
+        for e, (k, m, picked) in es.items():
             ds = evd[e].isoformat()
+            # ':namesake' when the unit's place in the brigade came from a namesake pick: resolve_namesakes.py does not
+            # count it as evidence on the next build (counted, it made picks flip between builds)
             cur.execute("""INSERT INTO claim(claim_type, source_id, source_span, confidence, extracted_by, extracted_at, status, review_note, locator)
-                           VALUES ('participated', ?, ?, 0.5, 'inference:brigade_v1', ?, 'pending', ?, ?)""",
-                        (sid, f"{k} of {m} brigade companions at {names.get(e)}", now,
+                           VALUES ('participated', ?, ?, 0.5, ?, ?, 'pending', ?, ?)""",
+                        (sid, f"{k} of {m} brigade companions at {names.get(e)}",
+                         "inference:brigade_v1" + (":namesake" if picked else ""), now,
                          "inferred from brigade companions; check", f"event {e}"))
             cur.execute("""INSERT INTO claim_participated(claim_id, unit_mention, unit_id, event_mention, event_id, portion, date_start, date_end, date_precision)
                            VALUES (?, ?, ?, ?, ?, 'whole', ?, ?, 'day')""", (cur.lastrowid, str(u), u, names.get(e) or "", e, ds, ds))

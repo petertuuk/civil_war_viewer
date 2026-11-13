@@ -35,6 +35,15 @@ def norm(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
+def index_lines(path):
+    """The index's lines, then data/external/gnis/gnis_extra.tsv beside it if present (forts GNIS lacks, from
+    pipeline/forts_gazetteer.py)."""
+    yield from open(path, encoding="utf-8")
+    extra = Path(path).with_name("gnis_extra.tsv")
+    if extra.exists():
+        yield from open(extra, encoding="utf-8")
+
+
 def main(gdir, out):
     gdir = Path(gdir)
     feats = {}

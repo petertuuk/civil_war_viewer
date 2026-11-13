@@ -12,7 +12,7 @@ positions within 60 days are over 400 km from the row's brigade-mates (the famou
 a "3d Arkansas" in a western table is another unit). If several are, the
 one whose own positions within 60 days lie within 200 km of the row's brigade-mates (their positions within 30 days)
 is taken when every other one is 400 km or more away. A linked row is relinked when Wikipedia places its code in another brigade
-then and exactly one namesake beside the row's brigade-mates, or when its code has no evidence around that date and
+then and exactly one namesake beside the row's brigade-mates (OR rows only), or when its code has no evidence around that date and
 the pick is clear. (Brigade-mates alone were tried first: an ambiguous code never appears
 linked, so it has no brigade history to compare.) Wikipedia orders of battle decide first: a candidate listed in a brigade with one of the row's brigade-mates within
 180 days is taken (if it is the only such candidate); one listed then only in brigades without any of them is ruled
@@ -32,6 +32,9 @@ Usage: python pipeline/resolve_namesakes.py data/or/placements.jsonl data/extern
 import csv, json, math, re, sys
 from collections import Counter, defaultdict
 from datetime import date
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
+from common import km  # noqa: E402
 
 
 
@@ -40,12 +43,6 @@ def dn(s):
         return date.fromisoformat((s or "")[:10]).toordinal()
     except ValueError:
         return None
-
-
-def km(a, b):
-    la1, lo1, la2, lo2 = map(math.radians, (a[0], a[1], b[0], b[1]))
-    h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
-    return 12742 * math.asin(math.sqrt(min(1, h)))
 
 
 def base(code):
@@ -188,7 +185,9 @@ def main(pl_p, units_p, db_p, rep_p, battles_p=None, events_p=None):
             if pick:
                 r["unit_code"] = pick; r["namesake_note"] = "picked: " + why
                 stats[f"ambiguous picked ({r['side']})"] += 1
-        elif wk.get(c_) == "inconsistent" and len(cons) == 1 and cons[0] != c_:
+        elif not wikimode and wk.get(c_) == "inconsistent" and len(cons) == 1 and cons[0] != c_:
+            # (OR rows only: with both sources relinking by each other's brigades, a pair of relinks - 1st Tennessee,
+            # 1862 - undid each other on alternate builds; the Wikipedia rows keep their default link)
             # a default link (parse_or_all.py takes the code without a suffix) that Wikipedia contradicts while it
             # places exactly one namesake beside this row's brigade-mates
             r["unit_code"] = cons[0]; r["namesake_note"] = f"relinked from {c_} (the other source places it in another brigade then): " + why

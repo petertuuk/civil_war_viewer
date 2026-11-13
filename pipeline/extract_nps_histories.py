@@ -9,9 +9,9 @@ becomes a unit_at claim. Places are located like Dyer's places (data/places/geoc
 named state, else the unit's state); a state or region alone is not a position. "Surrendered on <date>" with no
 place takes the army's surrender place for that date (Appomattox, Greensboro, Citronelle, Gainesville).
 
-Writes data/manual/nps_confederate_histories.json (manual claims format; loaded by build_db via manual_claims.py)
+Writes data/derived/nps_confederate_histories.json (manual claims format; loaded by build_db via manual_claims.py)
 and a report. Usage: python pipeline/extract_nps_histories.py data/nps/units.jsonl data/places/geocoded.csv \
-    data/external/gnis/gnis_index.tsv data/manual/nps_confederate_histories.json
+    data/external/gnis/gnis_index.tsv data/derived/nps_confederate_histories.json
 """
 import csv, json, re, sys
 from collections import Counter, defaultdict
@@ -19,6 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from gnis_index import norm  # noqa: E402
+from common import gnis_by_name_state  # noqa: E402
 
 MON = "January|February|March|April|May|June|July|August|September|October|November|December"
 MN = {m: i + 1 for i, m in enumerate(MON.split("|"))}
@@ -78,11 +79,7 @@ def main(units_p, geocoded_p, gnis_p, out_p):
             mn = int(g["mentions"] or 0)
             if mn >= 40 and mn > famous.get(norm(g["name"]), ("", 0))[1]:
                 famous[norm(g["name"])] = (g["state"], mn)     # "Vicksburg" alone is Vicksburg, Miss.
-    G = defaultdict(list)
-    for line in open(gnis_p, encoding="utf-8"):
-        nm, st, lat, lon, cl, *_ = line.rstrip("\n").split("\t")
-        if cl in ("Populated Place", "Military", "Civil", "Crossing", "Gap", "Island"):
-            G[(nm, st)].append((float(lat), float(lon), cl))
+    G = gnis_by_name_state(gnis_p, ("Populated Place", "Military", "Civil", "Crossing", "Gap", "Island"))
 
     def locate(name, st, explicit, text_states):
         if not explicit and norm(name) in famous:

@@ -23,9 +23,9 @@ units (Tennessee's 1st, 2nd...) is skipped.
    Lindsley and Brewer; most unconfirmed ones read right in a hand sample (other sources are incomplete).
 3. One participated claim per unit and event (the first sentence that names it is the span), confidence 0.5
    (narratives also mention battles their unit only heard of).
-Writes data/manual/state_histories.json (manual claims format) and data/scores/state_histories_report.txt.
+Writes data/derived/state_histories.json (manual claims format) and data/scores/state_histories_report.txt.
 Usage: python pipeline/extract_state_histories.py data/external/state_histories data/events/events.jsonl \
-    data/external/acw_battle_data/nps_units.csv data/manual/state_histories.json data/scores/state_histories_report.txt
+    data/external/acw_battle_data/nps_units.csv data/derived/state_histories.json data/scores/state_histories_report.txt
 """
 import csv, json, re, sys
 from collections import Counter, defaultdict

@@ -16,6 +16,7 @@ Usage:
     python pipeline/extract_dyers.py data/dyers/units.jsonl data/dyers/claims_rules.jsonl
 """
 import json
+from datetime import date
 import re
 import sys
 from collections import Counter
@@ -200,6 +201,23 @@ def classify(desc):
     if d.startswith(MOVE_WORDS) or re.match(r"(?:moved|ordered|marched) (?:by|via|through)", d):
         return "unit_at", "en_route"
     return "participated", None
+
+
+def move_legs(place):
+    """'Memphis, thence march to Chattanooga, Tenn' -> ['Memphis', 'Chattanooga, Tenn'];
+    'Washington, D. C., via Richmond, Va' -> ['Richmond, Va', 'Washington, D. C.'] (places passed through come first);
+    'Jefferson City, Mo., and to Warsaw, Mo' -> ['Jefferson City, Mo.', 'Warsaw, Mo']."""
+    main, via = (re.split(r",?\s+via\.?\s*", place, maxsplit=1) + [""])[:2]
+    legs = [x.strip(" ,.") for x in re.split(r",?\s*(?:and\s+)?thence\s+(?:(?:by\s+\w+|march|marched|moved|move|"
+                                             r"movement|returned|ordered|proceeded|embarked)\s+)?(?:to|for)?\s*|"
+                                             r",?\s+and\s+to\s+", main)]
+    legs = [x for x in legs if len(x) > 1]
+    vias = [x.strip(" ,.") for x in re.split(r",?\s+and\s+", via)] if via else []
+    vias = [v for v in vias if len(v) > 1 and not re.match(
+        r"(?i)(the\s+)?(\w+\s+)?(river|bayou|railroad|r\.\s*r)\b|(rail(road)?|steamer|transports?|water|sea|land|canal)\b", v)]
+    if not legs:
+        return [place]
+    return legs[:-1] + vias + legs[-1:]
 
 
 def place_from(desc):
@@ -434,9 +452,30 @@ def extract(unit):
                 place = last_place
             if presence == "en_route" and d0 and d0 == d1:
                 presence = "arrived"
-            last_place = place
-            add("unit_at", span, it["conf"], place_mention=place, presence=presence, portion=portion,
-                date_start=d0, date_end=d1, date_precision=prec, note=note)
+            legs = move_legs(place) if presence in ("en_route", "arrived") else [place]
+            last_place = legs[-1]
+            if len(legs) == 1:
+                add("unit_at", span, it["conf"], place_mention=place, presence=presence, portion=portion,
+                    date_start=d0, date_end=d1, date_precision=prec, note=note)
+            else:
+                # a move in stages ("Movement to Memphis, thence march to Chattanooga, Tenn September 27-November 20";
+                # "March to Washington via Richmond"): the last stage carries the move's dates (arrival at the end, as
+                # before for a one-place move); the earlier stages are kept, undated, as the places passed through
+                n = len(legs)
+                for k, leg in enumerate(legs, 1):
+                    if k == n:
+                        add("unit_at", span, it["conf"], place_mention=leg, presence=presence, portion=portion,
+                            date_start=d0, date_end=d1, date_precision=prec, note=note, leg=f"{k}/{n}")
+                        continue
+                    # earlier stages have no date of their own: the move's first date is when it left the place
+                    # before ("At Clifton, Tenn., January 16. Movement to Washington, thence to Fort Fisher, January
+                    # 16-February 9" reached Washington ten days later), and spreading the stages evenly over the dates
+                    # put them weeks off ("to Memphis, thence march to Chattanooga" took days, then a month)
+                    ds = None
+                    add("unit_at", span, it["conf"] * 0.8, place_mention=leg, presence="arrived" if ds else "en_route",
+                        portion=portion, date_start=ds, date_end=ds, date_precision=prec if ds else None,
+                        note=((note + "; ") if note else "") + f"stage {k} of {n} of a move, no date of its own",
+                        leg=f"{k}/{n}")
         else:
             parts = [p.strip() for p in re.split(r";\s*", desc) if p.strip()]
             add("participated", span, it["conf"], event_mention=parts[-1] if parts else desc, portion=portion,

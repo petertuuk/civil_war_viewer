@@ -5,6 +5,8 @@ Official Records letter headings and stations, NPS and state histories, monument
 fought in (event_at, events up to 7 days, campaigns left out). In date order, a step from one position to the next is a
 fast jump when it is over 300 km and faster than 250 km a day (rail and steamer moves are allowed; the same day counts
 as one day, month-precision dates get 15 days of slack). A unit's first 45 days are left out (the trip to the front).
+A move ("March to Louisville, Aug. 31-Sept. 26", presence en_route) puts the unit at its destination on arrival, as
+export_war does; a stay ending in a month only ("duty there till July") ends on the 1st of that month.
 
 For each jump the likely wrong end is named when the positions on either side say so: the end whose removal makes
 its neighbours a possible move while the other end's removal does not ('a' or 'b'); 'unclear' otherwise. Support is
@@ -16,35 +18,17 @@ Usage: python pipeline/fast_jumps.py civil_war.db data/scores/fast_jumps.csv dat
 import csv, math, sqlite3, sys
 from collections import Counter, defaultdict
 from datetime import date
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
+from common import km, day_num as day, D0, too_fast, MIN_KM, MAX_KMDAY  # noqa: E402
 
-D0 = date(1861, 1, 1)
-MIN_KM, MAX_KMDAY, START_DAYS, PREC_MAX = 300, 250, 45, 25000
-
-
-def day(s):
-    if not s:
-        return None, 0
-    p = s[:10].split("-")
-    try:
-        if len(p) == 3:
-            return (date(int(p[0]), int(p[1]), int(p[2])) - D0).days, 0
-        if len(p) == 2:
-            return (date(int(p[0]), int(p[1]), 15) - D0).days, 15
-    except ValueError:
-        pass
-    return None, 0
-
-
-def km(a, b):
-    la1, lo1, la2, lo2 = map(math.radians, (a[0], a[1], b[0], b[1]))
-    h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
-    return 12742 * math.asin(math.sqrt(h))
+START_DAYS, PREC_MAX = 45, 25000
 
 
 def fast(a, b):
     d = km(a["ll"], b["ll"])
     t = max(1, b["t0"] - a["t1"] + a["sl"] + b["sl"])
-    return d > MIN_KM and d / t > MAX_KMDAY, d, t
+    return too_fast(d, t), d, t
 
 
 def main(dbp, out_csv, out_txt):
@@ -52,16 +36,20 @@ def main(dbp, out_csv, out_txt):
     uname = dict(db.execute("SELECT id, display_name FROM unit"))
     src = dict(db.execute("SELECT id, title FROM source"))
     obs = defaultdict(list)
-    for uid, ds, de, la, lo, pm, pl, span, sid, xb, pid in db.execute("""
+    for uid, ds, de, la, lo, pm, pl, span, sid, xb, pid, pres in db.execute("""
         SELECT u.unit_id, u.date_start, u.date_end, p.lat, p.lon, p.precision_m, u.place_mention, c.source_span,
-               c.source_id, c.extracted_by, p.display_name
+               c.source_id, c.extracted_by, p.display_name, u.presence
         FROM claim_unit_at u JOIN claim c ON c.id=u.claim_id JOIN place p ON p.id=u.place_id
         WHERE u.unit_id IS NOT NULL AND p.lat IS NOT NULL AND u.portion='whole' AND c.status!='rejected'"""):
         if (pm or 99999) > PREC_MAX:
             continue
-        t0, sl = day(ds); t1, _ = day(de or ds)
+        t0, sl = day(ds); t1, sl1 = day(de or ds)
+        if t1 is not None and sl1:
+            t1 -= sl1                   # "duty there till July": left in July, as early as the 1st
         if t0 is None:
             continue
+        if pres in ("en_route", "along") and t1 and t1 > t0:
+            t0 = t1                     # at the destination on arrival, as export_war places it
         obs[uid].append({"t0": t0, "t1": max(t0, t1 or t0) if not sl else t0, "sl": sl, "ll": (la, lo), "date": ds,
                          "place": pid or pl, "src": f"{src.get(sid, '')} [{xb}]", "span": (span or "")[:140]})
     # located events (short ones) the unit fought in

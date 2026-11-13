@@ -163,7 +163,9 @@ def main(dyers_dir, events_dir, out_dir):
             if src == "explicit":
                 last_state[r["unit_id"]] = st
             mentions.append({"name": name, "state": st, "state_source": src, "source": "unit_at", "ctx_state": ctx,
-                             "unit": r["unit_id"], "date": r.get("date_start"), "raw": r["place_mention"][:80]})
+                             "unit": r["unit_id"], "date": r.get("date_start"), "raw": r["place_mention"][:80],
+                             **({"arrival": r["date_end"]} if r.get("presence") == "en_route" and r.get("date_end")
+                                and r.get("date_end") != r.get("date_start") else {})})
     # state context for events: where were the event's regiments (unit_at, within 30 days)?
     from datetime import date as _date
     def _d(s):

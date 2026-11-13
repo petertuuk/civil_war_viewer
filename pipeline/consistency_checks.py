@@ -22,6 +22,7 @@ sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent))
 from collections import Counter, defaultdict
 from datetime import date, timedelta
 from pathlib import Path
+from common import km  # noqa: E402
 
 
 def d(s):
@@ -32,12 +33,6 @@ def d(s):
         return date(p[0], p[1] if len(p) > 1 else 1, p[2] if len(p) > 2 else 1)
     except ValueError:
         return None
-
-
-def km(a, b):
-    la1, lo1, la2, lo2 = map(math.radians, (a[0], a[1], b[0], b[1]))
-    h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
-    return 12742 * math.asin(math.sqrt(h))
 
 
 def main(dbp, root, out_txt, out_csv):

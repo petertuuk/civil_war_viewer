@@ -203,6 +203,12 @@ def main(proj, db_path):
         cur.execute(f"INSERT INTO {table} ({','.join(cols)}) VALUES ({','.join('?' * len(cols))})", tuple(cols.values()))
         return cid
     PORT = {"whole", "detachment", "companies", "veterans", "non_veterans"}
+    # Dyer's participations its unit cannot have been at (resolve_mentions.py: clear positions before and after agree,
+    # both out of reach of the event): left unlinked to the event
+    off_part = set()
+    opp = P / "data/places/participation_off_route.jsonl"
+    if opp.exists():
+        off_part = {(r["unit"], r["event_id"]) for r in map(json.loads, open(opp, encoding="utf-8"))}
 
     # ---------- Dyer's claims ----------
     m2c = {}
@@ -214,7 +220,10 @@ def main(proj, db_path):
         loc = f"p. {c.get('page')}" if c.get("page") else None
         common = dict(date_start=c.get("date_start"), date_end=c.get("date_end"), date_precision=c.get("date_precision"))
         if t == "participated":
-            e = ev_id.get(c2e.get(m2c.get((c["unit_id"], c.get("event_mention"), c.get("date_start")))))
+            eid_ = c2e.get(m2c.get((c["unit_id"], c.get("event_mention"), c.get("date_start"))))
+            e = ev_id.get(eid_)
+            if e and (c["unit_id"], eid_) in off_part:
+                e = None; n["dyer participated unlinked: off the unit's route"] += 1
             claim(t, S_DYER, c["source_span"], c["confidence"], "regex:dyers_v1", loc, "claim_participated", unit_mention=um, unit_id=uid,
                   event_mention=c.get("event_mention") or "", event_id=e, portion=c.get("portion") if c.get("portion") in PORT else "whole", **common)
             n["dyer participated linked" if e else "dyer participated unlinked"] += 1
@@ -307,7 +316,9 @@ def main(proj, db_path):
     for e in events:
         eid = ev_id[e["event_id"]]
         r = ev_res.get(e["event_id"])          # for an event with coordinates: only when they were suspect (replaces_coords)
-        if r:
+        if r and r["lat"] is None:             # its place is out of its units' reach: not placed (resolve_mentions.py)
+            n["event not placed: out of its units' reach"] += 1
+        elif r:
             cur.execute("INSERT INTO place(display_name, kind, state, lat, lon, precision_m, notes) VALUES (?,?,?,?,?,?,?)",
                         (r["name"], "town", r["state"], r["lat"], r["lon"], r["precision_m"],
                          f"resolve_mentions.py: chosen by the routes of {r['units']} units ({r['class']}, margin {r['margin']}, "
@@ -380,7 +391,7 @@ def main(proj, db_path):
                   date_precision=prec)
             n["battle positions (monuments)"] += 1
 
-    # ---------- manual / uploaded claims (data/manual/*.json, see manual_claims.py) ----------
+    # ---------- manual / uploaded claims (data/manual/*.json, generated data/derived/*.json; see manual_claims.py) ----------
     import manual_claims
     manual_claims.load(P, cur, side, xref, events, ev_id, person_of, source, claim, n)
 

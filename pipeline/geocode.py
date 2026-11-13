@@ -21,6 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from gnis_index import norm  # noqa: E402
+from common import km, gnis_rows  # noqa: E402
 
 SPELL = {"sumpter": "sumter", "colliersville": "collierville", "moorefleld": "moorefield", "spottsylvania": "spotsylvania",
          "kenesaw": "kennesaw", "chattahoochie": "chattahoochee", "opequan": "opequon", "fortress monroe": "fort monroe",
@@ -44,12 +45,6 @@ PREC = {"Populated Place": 2000, "Civil": 10000, "Military": 1500, "Crossing": 1
         "Stream": 15000, "Ridge": 8000, "Valley": 15000, "Island": 3000, "Swamp": 5000, "Range": 15000}
 TOWNISH = {"Populated Place", "Military", "Civil"}
 RANK = {"Populated Place": 0, "Military": 1, "Crossing": 1, "Gap": 2, "Summit": 2, "Civil": 3, "Ridge": 3, "Stream": 4}
-
-
-def km(a, b):
-    la1, lo1, la2, lo2 = map(math.radians, (a[0], a[1], b[0], b[1]))
-    h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
-    return 12742 * math.asin(math.sqrt(min(1, h)))
 
 
 def forms(name):
@@ -86,9 +81,8 @@ def main(places_dir, gnis_path, events_dir):
     places_dir = Path(places_dir)
     inv = list(csv.DictReader(open(places_dir / "places_inventory.csv", encoding="utf-8")))
     G = defaultdict(list)
-    for line in open(gnis_path, encoding="utf-8"):
-        nm, st, lat, lon, cl, co, fid, raw, kind = line.rstrip("\n").split("\t")
-        G[nm].append((st, float(lat), float(lon), cl, co, fid, raw, kind))
+    for nm, st, lat, lon, cl, co, fid, raw, kind in gnis_rows(gnis_path):
+        G[nm].append((st, lat, lon, cl, co, fid, raw, kind))
     # context: places the same regiment was at within 30 days
     seq = defaultdict(list)
     for l in open(places_dir / "place_mentions.jsonl", encoding="utf-8"):

@@ -2,13 +2,19 @@
 # Rebuild everything downstream of the cleaned Dyer's text. Run from the project folder:
 #   bash pipeline/rebuild.sh [stage ...]     stages: units dyers events links or datelines db checks war (default: dyers events links or datelines db checks)
 # GNIS index: python3 pipeline/gnis_index.py <unzipped GNIS dir> data/external/gnis/gnis_index.tsv (once; see that file)
-# The remote-device shell allows ~170 s per call: run one or two stages per call there.
-set -e
+# Forts GNIS lacks: python3 pipeline/forts_gazetteer.py data/external/forts data/external/gnis/gnis_index.tsv data/external/gnis/gnis_extra.tsv (read with the index by gnis_index.index_lines)
+# The remote-device shell allows ~170 s per call: run one or two stages per call there. Stages whose inputs have not
+# changed since their last good run are skipped (pipeline/stamps.py); FORCE=1 bash pipeline/rebuild.sh ... runs them anyway.
+set -eo pipefail   # a failing step stops the rebuild even when piped into tail
+export PYTHONHASHSEED=0   # same inputs, same outputs (set and dict-of-set order otherwise varies run to run: ties, examples)
 W=data/wikidata/wikidata_civil_war_events_v2_enriched.json
 DB=${DB:-$HOME/db/civil_war.db}
 stages=${@:-dyers events links or datelines db checks}
+stages=$(echo " $stages " | sed 's/ db / db_build db_finish /g')   # db = db_build + db_finish
 for s in $stages; do
   echo "== $s"
+  # skip a stage whose inputs have not changed since its last good run (pipeline/stamps.py; FORCE=1 runs everything)
+  if python3 pipeline/stamps.py check "$s"; then echo "   inputs unchanged since its last run: skipped"; continue; fi
   case $s in
     units)
       python3 pipeline/fix_units.py data/dyers/units.jsonl data/dyers/unit_overrides.jsonl data/nps_us/units.jsonl data/dyers/units_fixed.jsonl
@@ -34,20 +40,25 @@ for s in $stages; do
       python3 pipeline/compare_oob.py data/wikipedia/oob_placements.jsonl data/or/claims_or.jsonl data/events data/wikipedia data/scores/oob_vs_or.txt | tail -1
       python3 pipeline/wikipedia_to_claims.py data/wikipedia/oob_placements.jsonl data/wikipedia/oob_battles.json data/scores/dyer_to_nps.csv data/events data/wikipedia/claims_wikipedia.jsonl | tail -1
       python3 pipeline/wp_regiment_claims.py data/wikipedia/regiments data/events data/external/acw_battle_data/nps_units.csv data/scores/dyer_to_nps.csv data/wikipedia/claims_wp_regiments.jsonl | tail -1
-      python3 pipeline/or_stations.py data/or/placements.jsonl data/or/tables.jsonl data/manual/or_regions.psv data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/external/acw_battle_data/nps_units.csv data/manual/or_stations.json | tail -1
-      python3 pipeline/extract_nps_histories.py data/nps/units.jsonl data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/manual/nps_confederate_histories.json | tail -1
-      python3 pipeline/extract_state_histories.py data/external/state_histories data/events/events.jsonl data/external/acw_battle_data/nps_units.csv data/manual/state_histories.json data/scores/state_histories_report.txt | tail -1
+      python3 pipeline/or_stations.py data/or/placements.jsonl data/or/tables.jsonl data/manual/or_regions.psv data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/external/acw_battle_data/nps_units.csv data/derived/or_stations.json | tail -1
+      python3 pipeline/extract_nps_histories.py data/nps/units.jsonl data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/derived/nps_confederate_histories.json | tail -1
+      python3 pipeline/extract_state_histories.py data/external/state_histories data/events/events.jsonl data/external/acw_battle_data/nps_units.csv data/derived/state_histories.json data/scores/state_histories_report.txt | tail -1
       python3 pipeline/nps_battles_to_claims.py data/external/acw_battle_data $W data/scores/dyer_to_nps.csv data/events data/nps/claims_nps_battles.jsonl | tail -1
       python3 pipeline/check_confederate.py data/or/claims_or.jsonl data/events data/external/acw_battle_data data/nps/units.jsonl data/scores/confederate_check.txt | tail -1 ;;
     datelines)   # ~105 s: run it alone
-      [ -d ~/or/txt ] && python3 pipeline/or_datelines.py ~/or/txt data/or/volumes.json data/or/placements.jsonl data/or/tables.jsonl data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/external/acw_battle_data/nps_units.csv data/or/datelines.jsonl data/manual/or_datelines.json | tail -1 || echo "or_datelines skipped: no OR texts in ~/or/txt (kept data/manual/or_datelines.json)"
-      [ -f ~/db/civil_war.db ] && python3 pipeline/validate_datelines.py ~/db/civil_war.db data/manual/or_datelines.json | head -6 ;;
-    db)
-      mkdir -p "$(dirname "$DB")"; rm -f "$DB"
-      (cd pipeline && python3 build_db.py .. "$DB" | tail -2)
-      python3 pipeline/event_context_check.py "$DB" data/external/gnis/gnis_index.tsv data/scores/event_relocations.csv
-      python3 pipeline/brigade_inference.py "$DB" data/scores/brigade_inference.txt | tail -1
-      python3 pipeline/score_gold.py "$DB" data/gold/units data/events/events.jsonl data/scores/gold_scores.txt data/scores/gold_detail.jsonl | head -4 ;;
+      [ -d ~/or/txt ] && python3 pipeline/or_datelines.py ~/or/txt data/or/volumes.json data/or/placements.jsonl data/or/tables.jsonl data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/external/acw_battle_data/nps_units.csv data/or/datelines.jsonl data/derived/or_datelines.json | tail -1 || echo "or_datelines skipped: no OR texts in ~/or/txt (kept data/derived/or_datelines.json)"
+      [ -f ~/db/civil_war.db ] && python3 pipeline/validate_datelines.py ~/db/civil_war.db data/derived/or_datelines.json | head -6 ;;
+    db|db_build|db_finish)   # db = db_build + db_finish (~110-170 s together: on a busy machine run the two halves in separate calls)
+      if [ "$s" != db_finish ]; then
+        mkdir -p "$(dirname "$DB")"; rm -f "$DB.new" "$DB.new-journal"
+        (cd pipeline && python3 build_db.py .. "$DB.new" | tail -2)
+        mv -f "$DB.new" "$DB"; rm -f "$DB-journal"     # a build cut off midway never replaces the last good database
+      fi
+      if [ "$s" != db_build ]; then
+        python3 pipeline/event_context_check.py "$DB" data/external/gnis/gnis_index.tsv data/scores/event_relocations.csv
+        python3 pipeline/brigade_inference.py "$DB" data/scores/brigade_inference.txt | tail -1
+        python3 pipeline/score_gold.py "$DB" data/gold/units data/events/events.jsonl data/scores/gold_scores.txt data/scores/gold_detail.jsonl | head -4
+      fi ;;
     war)
       python3 pipeline/export_war.py "$DB" viewer/war/data ;;
     checks)
@@ -56,4 +67,5 @@ for s in $stages; do
       python3 pipeline/consistency_checks.py "$DB" . data/scores/consistency.txt data/scores/review_queue.csv | head -3
       cp "$DB" civil_war.db; echo "copied to civil_war.db" ;;
   esac
+  python3 pipeline/stamps.py save "$s"
 done

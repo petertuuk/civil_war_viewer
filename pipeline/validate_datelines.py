@@ -1,16 +1,13 @@
-"""Check letter-heading claims (data/manual/or_datelines.json) against the same unit's other one-day positions in the
+"""Check letter-heading claims (data/derived/or_datelines.json) against the same unit's other one-day positions in the
 database (unit_at with a single date, not from letter headings; events of <= 3 days with a location). A claim agrees
 when it is within max(50 km, 2 x its precision) of the other position on that day.
-Usage: python pipeline/validate_datelines.py ~/db/civil_war.db data/manual/or_datelines.json [old or_datelines.json]
+Usage: python pipeline/validate_datelines.py ~/db/civil_war.db data/derived/or_datelines.json [old or_datelines.json]
 With an old file: also scores only the claims that are new (unit, day not in the old file)."""
 import json, math, sqlite3, sys
 from collections import Counter, defaultdict
-
-
-def km(a, b):
-    la1, lo1, la2, lo2 = map(math.radians, (a[0], a[1], b[0], b[1]))
-    h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
-    return 12742 * math.asin(math.sqrt(min(1, h)))
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
+from common import km  # noqa: E402
 
 
 def main(db, new_p, old_p=None):
