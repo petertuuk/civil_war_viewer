@@ -388,19 +388,19 @@ map.on("load", async () => {
   const DEM = "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png";
   let live = false;
   try { const r = await fetch(DEM.replace("{z}/{x}/{y}", "10/292/391")); live = r.ok; } catch (e) {}
-  const LIVE_Z = 5.0;
+  const LIVE_Z = 5.0, FADE_Z = 4.5;   // coarse image fades out and the live relief fades in over FADE_Z..LIVE_Z
   for (const [i, [name, mz]] of (live ? [["terrain_war", 0]] : [["terrain_war", 0], ["terrain_gettysburg", 10]]).entries()) {
     const meta = await (await fetch(`data/${name}.json`)).json();
     const img = new Image();
     img.onload = () => { const cv = document.createElement("canvas"); cv.width = img.width; cv.height = img.height; cv.getContext("2d").drawImage(img, 0, 0);
       map.addSource(name, {type: "canvas", canvas: cv, coordinates: meta.corners, animate: false});
-      map.addLayer({id: name, type: "raster", source: name, minzoom: mz, maxzoom: live ? LIVE_Z + 0.5 : 24, paint: {"raster-opacity": dark ? 0.55 : 0.8, "raster-fade-duration": 0}}, map.getLayer("hillshade") ? "hillshade" : "borders"); };
+      map.addLayer({id: name, type: "raster", source: name, minzoom: mz, maxzoom: live ? LIVE_Z : 24, paint: {"raster-opacity": live ? ["interpolate", ["linear"], ["zoom"], FADE_Z, dark ? 0.55 : 0.8, LIVE_Z, 0] : (dark ? 0.55 : 0.8), "raster-fade-duration": 0}}, map.getLayer("hillshade") ? "hillshade" : "borders"); };
     img.src = `data/${name}.png`;
   }
   if (live) {
-    map.addSource("dem", {type: "raster-dem", tiles: [DEM], encoding: "terrarium", tileSize: 256, maxzoom: 15});
-    map.addLayer({id: "hillshade", type: "hillshade", source: "dem", minzoom: LIVE_Z, paint: {
-      "hillshade-exaggeration": dark ? 0.7 : 0.8, "hillshade-illumination-direction": 315, "hillshade-illumination-anchor": "map",
+    map.addSource("dem", {type: "raster-dem", tiles: [DEM], encoding: "terrarium", tileSize: 181, maxzoom: 15});
+    map.addLayer({id: "hillshade", type: "hillshade", source: "dem", minzoom: FADE_Z, paint: {
+      "hillshade-exaggeration": ["interpolate", ["linear"], ["zoom"], FADE_Z, 0, LIVE_Z, dark ? 0.7 : 0.8], "hillshade-illumination-direction": 315, "hillshade-illumination-anchor": "map",
       "hillshade-shadow-color": dark ? "rgba(0,0,0,0.85)" : "rgba(60,50,40,0.75)",
       "hillshade-highlight-color": dark ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.6)",
       "hillshade-accent-color": dark ? "rgba(0,0,0,0.3)" : "rgba(50,40,30,0.25)"}}, "borders");
