@@ -368,13 +368,28 @@ map.on("load", async () => {
   map.addLayer({id: "borders", type: "line", source: "states", paint: {"line-color": css("--muted"), "line-width": 0.8, "line-dasharray": [3, 2], "line-opacity": 0.6}});
   map.addLayer({id: "rivers", type: "line", source: "rivers", paint: {"line-color": css("--water"), "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.6, 8, 1.5, 11, 2.5]}});
   const dark = matchMedia("(prefers-color-scheme: dark)").matches && document.documentElement.dataset.theme !== "light" || document.documentElement.dataset.theme === "dark";
-  for (const [i, [name, mz]] of [["terrain_war", 0], ["terrain_gettysburg", 10]].entries()) {
+  // Live relief: AWS Terrain Tiles (terrarium) drawn by MapLibre's hillshade, sharpening with zoom (USGS 3DEP ~10 m in the US).
+  // Reachable when the page is served from localhost or a web host; the claude.ai artifact sandbox blocks it, so the
+  // pre-rendered images below stay as the fallback (and as the relief at low zoom either way).
+  const DEM = "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png";
+  let live = false;
+  try { const r = await fetch(DEM.replace("{z}/{x}/{y}", "10/292/391")); live = r.ok; } catch (e) {}
+  const LIVE_Z = 5.0;
+  for (const [i, [name, mz]] of (live ? [["terrain_war", 0]] : [["terrain_war", 0], ["terrain_gettysburg", 10]]).entries()) {
     const meta = await (await fetch(`data/${name}.json`)).json();
     const img = new Image();
     img.onload = () => { const cv = document.createElement("canvas"); cv.width = img.width; cv.height = img.height; cv.getContext("2d").drawImage(img, 0, 0);
       map.addSource(name, {type: "canvas", canvas: cv, coordinates: meta.corners, animate: false});
-      map.addLayer({id: name, type: "raster", source: name, minzoom: mz, paint: {"raster-opacity": dark ? 0.55 : 0.8, "raster-fade-duration": 0}}, "borders"); };
+      map.addLayer({id: name, type: "raster", source: name, minzoom: mz, maxzoom: live ? LIVE_Z + 0.5 : 24, paint: {"raster-opacity": dark ? 0.55 : 0.8, "raster-fade-duration": 0}}, map.getLayer("hillshade") ? "hillshade" : "borders"); };
     img.src = `data/${name}.png`;
+  }
+  if (live) {
+    map.addSource("dem", {type: "raster-dem", tiles: [DEM], encoding: "terrarium", tileSize: 256, maxzoom: 15});
+    map.addLayer({id: "hillshade", type: "hillshade", source: "dem", minzoom: LIVE_Z, paint: {
+      "hillshade-exaggeration": dark ? 0.7 : 0.8, "hillshade-illumination-direction": 315, "hillshade-illumination-anchor": "map",
+      "hillshade-shadow-color": dark ? "rgba(0,0,0,0.85)" : "rgba(60,50,40,0.75)",
+      "hillshade-highlight-color": dark ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.6)",
+      "hillshade-accent-color": dark ? "rgba(0,0,0,0.3)" : "rgba(50,40,30,0.25)"}}, "borders");
   }
   map.addSource("lines", {type: "geojson", data: {type: "FeatureCollection", features: []}});
   map.addLayer({id: "lines", type: "line", source: "lines", minzoom: 11.5, layout: {"line-cap": "round", "line-join": "round"},
