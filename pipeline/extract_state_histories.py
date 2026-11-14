@@ -37,7 +37,7 @@ from or_datelines import ordnum  # noqa: E402
 
 BOOKS = {  # file stem -> (state, author style)
     "cu31924092908536": ("NC", "clark"), "cu31924092908544": ("NC", "clark"), "historiesofsever03clar": ("NC", "clark"),
-    "cu31924092908569": ("NC", "clark"), "historiesofsever05clar": ("NC", "clark"), "officialstatisti03miss": ("MS", "rowland"),
+    "cu31924092908569": ("NC", "clark"), "historiesofsever05clar": ("NC", "clark"), "officialstatisti03miss": ("MS", "rowland"), "officialstatisti02miss": ("MS", "rowland"),
     "cu31924032778700": ("TN", "lindsley"), "cu31924028794042": ("AL", "brewer"),
 }
 STATE_NAME = {"NC": "North Carolina", "MS": "Mississippi", "TN": "Tennessee", "AL": "Alabama"}

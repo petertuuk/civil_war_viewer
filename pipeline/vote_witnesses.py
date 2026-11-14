@@ -134,6 +134,7 @@ def vote(ocr_text, nps_text, cwa_text, V, extra=None):
         else:
             st['kept OCR (flagged: numbers)'] += 1
             flags.append({'ocr': ' '.join(ospan), **{k: ' '.join(v) for k, v in cand.items()},
+                          'before': ' '.join(o[max(0, span[0] - 10):span[0]]), 'after': ' '.join(o[span[1]:span[1] + 10]),
                           '_span': span, '_cand': cand})
     # punctuation on words all sources agree on: OCR form unless it looks damaged
     ODD = re.compile(r"[_\"^°«»♦*~|\\]|['`](?=[\d\-]|$)|\d[\-'\"]$|^[\-'\"]")
@@ -174,13 +175,16 @@ def record_problems(unit, text):
     return bad
 
 DECISIONS = {}
+# a decision with 'before' (human review, data/review) is keyed by the OCR words just before the span too, so two
+# flags with the same reading in one unit (an empty insertion point) stay apart; older decisions by unit and reading
+ctx_key = lambda b: ' '.join(norm(t) for t in (b or '').split()[-4:])
 
 def resolve_flags(unit, nps, cwa, V, text, flags):
     """Try each witness reading of a flagged span; keep it only if the unit's record gets strictly better."""
     accepted, left, fixed = {}, [], collections.Counter()
     base = record_problems(unit, text)
     for f in flags:
-        dec = DECISIONS.get((unit['id'], f['ocr']))
+        dec = DECISIONS.get((unit['id'], f['ocr'], ctx_key(f.get('before'))), DECISIONS.get((unit['id'], f['ocr'])))
         if dec is not None:                      # read off the page image (data/dyers/flag_decisions.jsonl)
             accepted[f['_span']] = dec.split()
             text, _, _ = vote(unit['text'], nps, cwa, V, extra=accepted)
@@ -248,7 +252,9 @@ def main(units_p, match_p, nps_p, cwa_p, out_p, *only):
     dp = Path(units_p).parent / 'flag_decisions.jsonl'
     if dp.exists():
         for l in open(dp, encoding='utf-8'):
-            o = json.loads(l); DECISIONS[(o['unit_id'], o['ocr'])] = o['printed']
+            o = json.loads(l)
+            if 'before' in o: DECISIONS[(o['unit_id'], o['ocr'], ctx_key(o['before']))] = o['printed']
+            else: DECISIONS[(o['unit_id'], o['ocr'])] = o['printed']
     tot, rows, allflags = collections.Counter(), [], []
     for u in U:
         m = M.get(u['id'], {})

@@ -14,7 +14,12 @@ those claims' years are solid (printed, or confirmed by a match). Names after 'n
 Only action claims vote (not 'duty at', 'stationed', 'moved to'), and a match needs every word of the Wikidata name (and at most two more), the same campaign/siege
 wording, and a one-word
 name shared by events in different years (Richmond, Columbia, Lexington) does not vote.
-Claims with a printed year are never shifted.
+Claims with a printed year are never shifted, except a printed year out of date order that Wikidata contradicts
+(misprints(), below).
+
+Human review (data/dyers/year_decisions.jsonl, written by review_import.py): a run whose shift was refused for
+date order is shifted anyway when the reviewer said 'shift', and left alone (logged) when they said 'keep'. Runs left
+for review are written to <report>.review.jsonl with their claims and neighbours (review_cases.py makes cards of them).
 
 Usage: python pipeline/fix_years.py claims_rules.jsonl wikidata.json out.jsonl [report.txt]
 """
@@ -40,7 +45,8 @@ def shift(s, k):
 
 
 NOT_ACTION = re.compile(r"^\W*(?:duty|stationed|station|garrison|at|moved|march|marched|ordered|camp|post|"
-                        r"provost|guard|guarding|engaged in|on|joined|left|mustered|reached|arrived|expedition to|near)\b", re.I)
+                        r"provost|guard|guarding|engaged in|on|joined|left|mustered|reached|arrived|expedition to|near|"
+                        r"in (?:the )?(?:district|dept|department|defences|defenses))\b", re.I)   # 'in the District of Baton Rouge': duty, not the battle
 
 
 def votes_for(c, wd, index, ambiguous):
@@ -85,6 +91,41 @@ def votes_for(c, wd, index, ambiguous):
     return out
 
 
+def misprints(u, idx, claims, wd, index, ambiguous, segs, log):
+    """A printed year Dyer's got wrong ('"Mud March," January 20-24, 1865' for 1863, a misprint the NPS and Civil War
+    Archive copies repeat): the narrative runs in date order, so a printed date later than the NEXT printed date
+    (beyond 45 days' slack) is suspect. It is taken as a misprint, and moved with the stretch that carried its year,
+    when one shift k puts the stretch back in order (after the printed date before it, before the next) and the
+    stretch's Wikidata votes are all for k (at least one). Runs in place, before the segment pass."""
+    slack = timedelta(days=45)
+    order = [n for n in idx if claims[n].get("claim_type") in DATED and claims[n].get("date_start")]
+    pr = [i for i, n in enumerate(order) if YEAR.search(claims[n].get("source_span") or "")]
+    for a_, (pi, qi) in enumerate(zip(pr, pr[1:])):
+        p, q = order[pi], order[qi]
+        dp, dq = iso(claims[p]["date_start"]), iso(claims[q]["date_start"])
+        if not dp or not dq or dp <= dq + slack:
+            continue
+        run = [p] + order[pi + 1:qi]
+        prev = iso(claims[order[pr[a_ - 1]]]["date_start"]) if a_ > 0 else None
+        votes = Counter(k for n in run for k, _, _ in votes_for(claims[n], wd, index, ambiguous)[:1])
+        if len(votes) != 1 or 0 in votes:
+            continue
+        k = next(iter(votes))
+        first, last = iso(shift(claims[p]["date_start"], k)), iso(shift(claims[run[-1]]["date_start"], k))
+        if not first or not last or (prev and first + slack < prev) or last > dq + slack:
+            continue
+        note = f"Year corrected by {k:+d}: printed {claims[p]['date_start'][:4]} taken as a misprint (out of order with the next printed date; Wikidata agrees)"
+        for n in run:
+            c = claims[n]
+            c["date_start"] = shift(c["date_start"], k)
+            if c.get("date_end"):
+                c["date_end"] = shift(c["date_end"], k)
+            c["confidence"] = round(max(0.1, c.get("confidence", 0.5) - 0.05), 3)
+            c["note"] = ((c.get("note") or "") + " " + note).strip()
+        segs["misprinted year corrected"] += 1
+        log.append(f"{u}: {len(run)} claims {note} ('{claims[p].get('event_mention')}')")
+
+
 def main(src, wdp, dst, rep=None):
     wd = [e for e in load_wikidata(wdp)]
     index = defaultdict(set)
@@ -94,6 +135,15 @@ def main(src, wdp, dst, rep=None):
     # a one-word name shared by events in different years is ambiguous (Richmond 1862 Ky., 1864-65 Va.)
     ambiguous = {x for x, ii in index.items()
                  if len({wd[i]["lo"].year for i in ii if wd[i]["lo"]}) > 1}
+    dates = {e["label"]: (str(e["lo"]), str(e["hi"] or e["lo"])) for e in wd if e["lo"]}
+    decisions = {}
+    dp = Path(dst).parent / "year_decisions.jsonl"
+    if dp.exists():
+        for l in open(dp, encoding="utf-8"):
+            if l.strip():
+                o = json.loads(l)
+                decisions[(o["unit_id"], o["mention"], o["date"], o["shift"])] = o["decision"]
+    review = []
     claims = [json.loads(l) for l in open(src, encoding="utf-8")]
     by_unit = defaultdict(list)
     for n, c in enumerate(claims):
@@ -104,6 +154,7 @@ def main(src, wdp, dst, rep=None):
             by_unit[c["unit_id"]].append(n)
     shifted, segs, log = 0, Counter(), []
     for u, idx in by_unit.items():
+        misprints(u, idx, claims, wd, index, ambiguous, segs, log)
         seg, segments, prev_y = [], [], None
         solid = {n for n in idx if YEAR.search(claims[n].get("source_span") or "")}
         for n in idx:
@@ -160,13 +211,25 @@ def main(src, wdp, dst, rep=None):
                 a0 = iso(shift(claims[first]["date_start"], k))
                 a1 = iso(shift(claims[last]["date_start"], k))
                 slack = timedelta(days=45)
-                if (before and iso(before[0]) and a0 + slack < iso(before[0])) or \
-                        (after and iso(after[0]) and a1 > iso(after[0]) + slack):
+                key = (u, claims[first].get("event_mention"), claims[first]["date_start"], k)
+                dec = decisions.get(key)
+                if dec == "keep":
+                    segs["kept by review"] += 1
+                    log.append(f"{u}: KEPT by review {k:+d} ({key[1]} {key[2]})")
+                    continue
+                if dec != "shift" and ((before and iso(before[0]) and a0 + slack < iso(before[0])) or
+                                       (after and iso(after[0]) and a1 > iso(after[0]) + slack)):
                     segs["out of order after shift"] += 1
+                    review.append({"unit_id": u, "shift": k, "mention": key[1], "date": key[2],
+                                   "why": {"mention": why[k][0], "event": why[k][1], "dates": dates.get(why[k][1])},
+                                   "votes": dict(v), "before": before, "after": after,
+                                   "claims": [{"mention": claims[n].get("event_mention"), "start": claims[n]["date_start"],
+                                               "end": claims[n].get("date_end"), "span": claims[n].get("source_span")}
+                                              for n, _ in run]})
                     log.append(f"{u}: NOT shifted {k:+d} ({claims[first].get('event_mention')} {claims[first]['date_start']}; before {before} after {after})")
                     continue
                 segs["shifted"] += 1
-                note = f"Year corrected by {k:+d}: '{why[k][0]}' matches {why[k][1]}"
+                note = f"Year corrected by {k:+d}: '{why[k][0]}' matches {why[k][1]}" + (" (human review)" if dec == "shift" else "")
                 for n, _ in run:
                     c = claims[n]
                     c["date_start"] = shift(c["date_start"], k)
@@ -182,6 +245,9 @@ def main(src, wdp, dst, rep=None):
     rpt = [f"segments: {dict(segs)}", f"claims shifted: {shifted}", ""] + log
     if rep:
         open(rep, "w", encoding="utf-8").write("\n".join(rpt) + "\n")
+        with open(Path(rep).with_suffix(".review.jsonl"), "w", encoding="utf-8") as f:
+            for r in review:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
     print("\n".join(rpt[:3]))
 
 

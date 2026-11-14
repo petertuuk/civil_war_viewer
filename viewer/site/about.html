@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About · Civil War, Day by Day</title>
-<meta name="description" content="How the Civil War, Day by Day map is made: its sources, methods, limits, and how to report a problem.">
+<meta name="description" content="How the Civil War, Day by Day map is made: its sources, methods and limits.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="fonts/fonts.css">
 <style>
@@ -30,7 +30,7 @@ small, .small { font-size: 13.5px; color: var(--muted); }
   <h1>About this map</h1>
   <p class="lede">Where every regiment, battery and company of the American Civil War was, day by day, from 1861 to 1865, drawn from the war's own records.</p>
 
-  <div class="note">This is a work in progress. Most positions are extracted from 19th-century texts by software, then checked against each unit's route and against other sources. Mistakes remain: a regiment placed at the wrong town of the same name, a march dated by its start rather than its end, a heading that names a corps one of whose regiments was elsewhere. Every position on the map shows its source; please <a href="https://github.com/petertuuk/civil_war_viewer/issues/new?title=Correction&amp;body=**Unit%20and%20date%3A**%0A%0A**What%20the%20map%20shows%3A**%0A%0A**What%20is%20right%2C%20and%20your%20source%3A**%0A">report what you find</a>.</div>
+  <div class="note">This is a work in progress. Most positions are extracted from 19th-century texts by software, then checked against each unit's route and against other sources. Mistakes remain: a regiment placed at the wrong town of the same name, a march dated by its start rather than its end, a heading that names a corps one of whose regiments was elsewhere. Every position on the map shows its source, so you can check it.</div>
 
   <h2>Reading the map</h2>
   <p>A solid dot is a unit a source places there that day. A faint dot is an estimate: between two known places, its last known place, a long posting (“duty at Washington till March”), or where its brigade or campaign was that day. Click a unit for its positions through the year, each with its source, and use “Report a problem” there to send a correction with the unit and date already filled in. The legend on the map explains trails, brigade circles and the timeline.</p>
@@ -42,7 +42,8 @@ small, .small { font-size: 13.5px; color: var(--muted); }
     <li><b>National Park Service</b>: the <a href="https://www.nps.gov/civilwar/soldiers-and-sailors-database.htm">Soldiers and Sailors Database</a> (unit histories, including Crute’s <i>Units of the Confederate States Army</i>, and units engaged in battles) and the Civil War Sites Advisory Commission’s battle summaries, classes and campaigns, through Jeffrey B. Arnold’s <a href="https://github.com/jrnold/acw_battle_data">acw_battle_data</a> (BSD 3-Clause).</li>
     <li><b>Wikipedia</b>: orders of battle and regiment articles, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Each placement taken from Wikipedia links to its article. <b>Wikidata</b> (CC0) for battles and their dates and places.</li>
     <li><b>State unit histories</b>: Clark’s <i>Histories of the Several Regiments and Battalions from North Carolina</i> (1901), Rowland’s <i>Official and Statistical Register of Mississippi</i> (1908), Lindsley’s <i>Military Annals of Tennessee</i> (1886) and Brewer’s <i>Alabama</i> (1872). Public domain.</li>
-    <li><b>Places</b>: <a href="https://www.usgs.gov/tools/geographic-names-information-system-gnis">USGS Geographic Names Information System</a> (public domain), with OpenStreetMap for the Petersburg and Washington forts and the Gettysburg monuments (© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, ODbL).</li>
+    <li><b>Places</b>: <a href="https://www.usgs.gov/tools/geographic-names-information-system-gnis">USGS Geographic Names Information System</a> (public domain), with OpenStreetMap for the Petersburg and Washington forts and the Gettysburg and Antietam monuments (© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, ODbL).</li>
+    <li><b>Battlefields</b>: regiment positions at Antietam on September 17 from the battle maps of Brian Downey’s <a href="https://antietam.aotw.org/">Antietam on the Web</a> (<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>), placed on the ground by matching them to the Antietam Battlefield Board’s Carman–Cope map as georeferenced on <a href="https://mapwarper.net/">Map Warper</a>. Monument and tablet locations from the National Park Service’s <a href="https://npgallery.nps.gov/">NPGallery</a> Civil War monuments and markers (Shiloh, Vicksburg, Chickamauga, Chattanooga, Antietam) and the ShilohWeb map of the Shiloh tablets and camps. Positions around Atlanta (Kennesaw, Peachtree Creek, Atlanta, Ezra Church, Jonesboro) from the <a href="https://www.georgiahistory.com/">Georgia Historical Society</a>’s historical markers, read by hand and expanded to regiments with the orders of battle.</li>
     <li><b>Base map</b>: <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain); terrain shading from <a href="https://registry.opendata.aws/terrain-tiles/">AWS Terrain Tiles</a> (USGS 3DEP and SRTM elevation data), loaded from Amazon’s public bucket as you zoom. That is the only request the page makes to another site, and it shows today’s ground, not 1863’s.</li>
     <li><b>Timeline events</b>: battles from the NPS lists above; political, social and command events written for this map with links to Wikipedia.</li>
   </ul>
@@ -51,7 +52,7 @@ small, .small { font-size: 13.5px; color: var(--muted); }
   <p>A pipeline reads each source into dated claims (“the 5th Iowa was at Chattanooga on November 20, 1863, per Dyer’s Compendium”), locates the places, links units across sources, and keeps each claim with its source. Where sources conflict or a place name is ambiguous, each unit’s own route decides: a placement that would need an impossible march is set aside. Between known positions, a unit is drawn moving along a straight line, or with its brigade or campaign. The code is open: <a href="https://github.com/petertuuk/civil_war_viewer">github.com/petertuuk/civil_war_viewer</a>.</p>
 
   <h2>Reuse</h2>
-  <p>The underlying records are public domain. Material derived from Wikipedia is shared under CC BY-SA 4.0, and OpenStreetMap data under the ODbL; please credit those sources if you reuse the data.</p>
+  <p>The underlying records are public domain. Material derived from Wikipedia is shared under CC BY-SA 4.0, OpenStreetMap data under the ODbL, and the Antietam positions from Antietam on the Web under CC BY-NC-SA 4.0 (non-commercial use only); please credit those sources if you reuse the data. The code is under the MIT License.</p>
 
   <p class="small">Made by Peter Tuuk, with help from Claude. Fonts: IBM Plex (SIL Open Font License). Map rendering: <a href="https://maplibre.org/">MapLibre GL JS</a> (BSD 3-Clause).</p>
 </main>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dyer's Review Queue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* one card at a time, phone first: scan evidence on top, answers as big buttons below */
+  --bg: #eef0ef;
+  --surface: #fbfbf9;
+  --ink: #1c2229;
+  --muted: #5d6670;
+  --line: #d5d9dc;
+  --accent: #2b4c7e;          /* federal blue */
+  --accent-ink: #ffffff;
+  --mark: #f3c548;            /* same amber as the mark on the scan */
+  --mark-soft: #fbeab4;
+  --good: #2f7a4f;
+  --warn: #9a5b00;
+  --font-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-print: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14181d; --surface: #1c2229; --ink: #e6e9ec; --muted: #9aa4ae; --line: #2f3740;
+    --accent: #7ea3d8; --accent-ink: #0f1620; --mark: #e0b23a; --mark-soft: #4a3d14;
+    --good: #6cc28f; --warn: #e2a64b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14181d; --surface: #1c2229; --ink: #e6e9ec; --muted: #9aa4ae; --line: #2f3740;
+  --accent: #7ea3d8; --accent-ink: #0f1620; --mark: #e0b23a; --mark-soft: #4a3d14;
+  --good: #6cc28f; --warn: #e2a64b; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 16px; line-height: 1.45; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 12px 16px 120px; display: grid; gap: 12px; }
+header { display: grid; gap: 8px; }
+h1 { font-size: 1.15rem; margin: 0; font-weight: 600; text-wrap: balance; }
+.sub { color: var(--muted); font-size: .85rem; }
+.bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--good); width: 0; transition: width .3s; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 4px 11px; font: inherit; font-size: .85rem; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.chip .n { font-variant-numeric: tabular-nums; opacity: .8; margin-left: 4px; }
+.banner { border: 1px solid var(--warn); color: var(--warn); border-radius: 8px; padding: 8px 12px; font-size: .9rem; display: none; gap: 8px; align-items: center; flex-wrap: wrap; }
+.banner.show { display: flex; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 12px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: .85rem; color: var(--muted); }
+.pill { font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; background: var(--mark-soft); color: var(--ink); }
+.pill.year { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+.done { color: var(--good); font-weight: 600; }
+.unit { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin: 0; text-wrap: balance; }
+a { color: var(--accent); }
+.scan { background: #fff; border: 1px solid var(--line); border-radius: 6px; overflow-x: auto; }
+.scan img { display: block; width: 100%; height: auto; cursor: zoom-in; }
+.scan.zoom img { width: 200%; max-width: none; cursor: zoom-out; }
+.hint { font-size: .8rem; color: var(--muted); }
+.q { font-weight: 600; margin: 0; }
+.print { font-family: var(--font-print); font-size: 1rem; line-height: 1.55; }
+mark { background: var(--mark-soft); color: inherit; border-bottom: 2px solid var(--mark); padding: 0 1px; }
+.gap { display: inline-block; min-width: 1.6em; border-bottom: 2px dashed var(--mark); color: var(--muted); font-family: var(--font-ui); font-size: .8em; text-align: center; }
+.opts { display: grid; gap: 8px; }
+.opt { text-align: left; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; padding: 10px 12px; font: inherit; cursor: pointer; display: grid; gap: 4px; }
+.opt:hover { border-color: var(--accent); }
+.opt[aria-pressed="true"] { border-color: var(--good); box-shadow: inset 0 0 0 1px var(--good); }
+.opt .src { font-size: .75rem; color: var(--muted); }
+.opt .k { font-family: var(--font-mono); font-size: .75rem; color: var(--muted); margin-right: 6px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+input[type="text"] { flex: 1 1 200px; min-width: 0; font: inherit; padding: 9px 10px; border-radius: 8px; border: 1.5px solid var(--line); background: var(--bg); color: var(--ink); }
+.btn { font: inherit; border-radius: 8px; padding: 9px 14px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.quiet { border-color: transparent; color: var(--muted); }
+.btn[aria-pressed="true"] { border-color: var(--good); color: var(--good); }
+:focus-visible { outline: 3px solid var(--mark); outline-offset: 2px; }
+.facts { display: grid; gap: 6px; font-size: .92rem; }
+.facts b { font-weight: 600; }
+table { width: 100%; border-collapse: collapse; font-size: .85rem; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 5px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 500; }
+.tablewrap { overflow-x: auto; }
+nav.foot { position: fixed; left: 0; right: 0; bottom: 0; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-top: 1px solid var(--line); }
+nav.foot .in { max-width: 720px; margin: 0 auto; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; gap: 8px; align-items: center; justify-content: space-between; }
+.pos { font-variant-numeric: tabular-nums; color: var(--muted); font-size: .9rem; }
+.empty { text-align: center; color: var(--muted); padding: 40px 0; }
+.saved { font-size: .8rem; color: var(--good); min-height: 1.2em; }
+.saved.err { color: var(--warn); }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Dyer's review queue</h1>
+    <div class="sub" id="summary">Loading cases…</div>
+    <div class="bar" aria-hidden="true"><i id="progress"></i></div>
+    <div class="filters" role="group" aria-label="Show">
+      <button class="chip" id="f-todo" aria-pressed="true">To do<span class="n" id="n-todo"></span></button>
+      <button class="chip" id="f-done" aria-pressed="false">Answered<span class="n" id="n-done"></span></button>
+      <button class="chip" id="f-all" aria-pressed="false">All<span class="n" id="n-all"></span></button>
+      <span style="width:8px"></span>
+      <button class="chip" id="k-any" aria-pressed="true">Both kinds</button>
+      <button class="chip" id="k-ocr" aria-pressed="false">Scan readings<span class="n" id="n-ocr"></span></button>
+      <button class="chip" id="k-year" aria-pressed="false">Years<span class="n" id="n-year"></span></button>
+    </div>
+    <div class="banner" id="banner">
+      <span id="banner-text">Answers can't be saved in this view. Open the page on claude.ai while signed in. Until then they're kept only until you close it.</span>
+      <button class="btn" id="copy">Copy answers</button>
+    </div>
+  </header>
+  <main id="main"><div class="card"><p class="empty">Loading cases…</p></div></main>
+</div>
+<nav class="foot" aria-label="Cards">
+  <div class="in">
+    <button class="btn" id="prev">← Back</button>
+    <span class="pos" id="pos"></span>
+    <button class="btn primary" id="next">Skip →</button>
+  </div>
+</nav>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const fmt = (d) => { if (!d) return "?"; const [y, m, dd] = d.split("-"); return (dd ? +dd + " " : "") + (m ? MONTHS[+m - 1] + " " : "") + y; };
+const shiftYear = (d, k) => d ? String(+d.slice(0, 4) + k) + d.slice(4) : d;
+const tail = (s, n) => s.split(/\s+/).filter(Boolean).slice(-n).join(" ");
+const head = (s, n) => s.split(/\s+/).filter(Boolean).slice(0, n).join(" ");
+
+let cases = [], byId = {}, answers = {}, db = null, show = "todo", kind = "any", view = [], cur = null, trail = [];
+
+function counts() {
+  const done = cases.filter((c) => answers[c.id]).length;
+  $("summary").textContent = `${done} of ${cases.length} answered. Your answers go into the pipeline on the next rebuild.`;
+  $("progress").style.width = (cases.length ? (100 * done / cases.length) : 0) + "%";
+  $("n-todo").textContent = cases.length - done;
+  $("n-done").textContent = done;
+  $("n-all").textContent = cases.length;
+  $("n-ocr").textContent = cases.filter((c) => c.kind === "ocr" && !answers[c.id]).length;
+  $("n-year").textContent = cases.filter((c) => c.kind === "year" && !answers[c.id]).length;
+}
+
+function rebuildView() {
+  view = cases.filter((c) => (kind === "any" || c.kind === kind) &&
+    (show === "all" || (show === "todo" ? !answers[c.id] : !!answers[c.id])));
+}
+
+function go(id, push = true) {
+  if (push && cur && cur !== id) trail.push(cur);
+  cur = id;
+  if (id && location.hash !== "#c-" + id) { try { location.hash = "c-" + id; } catch (e) {} }
+  render();
+}
+
+function nextId(fromId) {
+  rebuildView();
+  if (!view.length) return null;
+  const i = view.findIndex((c) => c.id === fromId);
+  if (i >= 0) return view[(i + 1) % view.length].id === fromId ? null : view[(i + 1) % view.length].id;
+  // the current card left the view (just answered): the first card after it in the full order
+  const j = cases.findIndex((c) => c.id === fromId);
+  const after = view.find((c) => cases.indexOf(c) > j);
+  return (after || view[0]).id;
+}
+
+function render() {
+  counts();
+  rebuildView();
+  const main = $("main");
+  const c = byId[cur];
+  if (!c) {
+    main.innerHTML = `<div class="card"><p class="empty">${show === "todo" ? "Nothing left to do here. Every case in this filter has an answer." : "No cases in this filter."}</p></div>`;
+    $("pos").textContent = "";
+    return;
+  }
+  const i = view.findIndex((x) => x.id === c.id);
+  $("pos").textContent = i >= 0 ? `${i + 1} of ${view.length}` : "answered";
+  const a = answers[c.id];
+  const metaBits = [
+    `<span class="pill ${c.kind}">${c.kind === "ocr" ? "Scan reading" : "Year"}</span>`,
+    c.page ? `<span>Dyer's p. ${esc(c.page)}</span>` : "",
+    c.scan_url ? `<a href="${esc(c.scan_url)}" target="_blank" rel="noopener">Whole page ↗</a>` : "",
+    a ? `<span class="done">Answered</span>` : "",
+  ].join("");
+  main.innerHTML = `<article class="card">
+    <div class="meta">${metaBits}</div>
+    <h2 class="unit">${esc(c.unit)}</h2>
+    ${c.kind === "ocr" ? ocrBody(c, a) : yearBody(c, a)}
+    <div class="row">
+      <input type="text" id="note" placeholder="Note (optional)" value="${esc(a?.note || "")}" aria-label="Note">
+      ${a ? `<button class="btn quiet" id="clear">Clear answer</button>` : ""}
+    </div>
+    <div class="saved" id="saved" role="status"></div>
+  </article>`;
+  wire(c);
+}
+
+function inContext(c, text) {
+  const b = tail(c.before || "", 6), af = head(c.after || "", 6);
+  const mid = text ? `<mark>${esc(text)}</mark>` : `<span class="gap">nothing</span>`;
+  return `<span class="print">${b ? "…" + esc(b) + " " : ""}${mid}${af ? " " + esc(af) + "…" : ""}</span>`;
+}
+
+function ocrBody(c, a) {
+  const img = c.image
+    ? `<div class="scan" id="scan"><img src="${esc(c.image)}" alt="The printed lines from Dyer's Compendium, with the disputed words outlined in amber"></div><div class="hint">Tap the scan to zoom. The amber box (or bar, where a word may be missing) marks the spot.</div>`
+    : `<div class="hint">The spot wasn't found on the scan. Use “Whole page” and look for: ${inContext(c, c.ocr)}</div>`;
+  const opts = c.options.map((o, n) => {
+    const on = a && a.answer !== "cant_tell" && norm(a.printed) === norm(o.text);
+    return `<button class="opt" data-printed="${esc(o.text)}" aria-pressed="${on}">
+      <span>${inContext(c, o.text)}</span>
+      <span class="src"><span class="k">${n + 1}</span>${o.text ? "" : "Nothing printed here · "}${esc(o.sources.join(", "))}</span></button>`;
+  }).join("");
+  const other = a && a.answer === "other" ? a.printed : "";
+  return `${img}
+    <p class="q">What is printed at the marked spot?</p>
+    <div class="opts">${opts}</div>
+    <div class="row">
+      <input type="text" id="other" placeholder="Something else: type it as printed" value="${esc(other)}" aria-label="Type what is printed">
+      <button class="btn" id="other-save" aria-pressed="${!!(a && a.answer === "other")}">Use this</button>
+      <button class="btn" id="cant" aria-pressed="${!!(a && a.answer === "cant_tell")}">Can't tell</button>
+    </div>`;
+}
+
+function yearBody(c, a) {
+  const [pre, run, post] = c.context;
+  const ctx = `<p class="print">${pre ? "…" + esc(pre.slice(-260)) : ""}<mark>${esc(run)}</mark>${post ? esc(post.slice(0, 200)) + "…" : ""}</p>`;
+  const w = c.why || {};
+  const ev = w.dates ? `${fmt(w.dates[0])}${w.dates[1] && w.dates[1] !== w.dates[0] ? " – " + fmt(w.dates[1]) : ""}` : "";
+  const rows = c.claims.map((x) => `<tr><td>${esc(x.mention || x.span || "")}</td><td>${fmt(x.start)}</td><td>${fmt(shiftYear(x.start, c.shift))}</td></tr>`).join("");
+  const sel = (v) => !!(a && a.answer === v);
+  return `${ctx}
+    <div class="facts">
+      <div>The pipeline carried the year forward as <b>${c.year}</b> for the marked stretch.</div>
+      <div>“${esc(w.mention || c.mention)}” matches <b>${esc(w.event || "?")}</b>${ev ? ` (${ev})` : ""} in Wikidata, which would make it <b>${c.to_year}</b>.</div>
+      <div>It was left alone because ${c.to_year} breaks date order with the solid dates around it: before ${fmt(c.before?.[0])}, after ${fmt(c.after?.[0])}.</div>
+    </div>
+    <div class="tablewrap"><table><thead><tr><th>Item</th><th>As read</th><th>If moved</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="q">Which year is right for this stretch?</p>
+    <div class="opts">
+      <button class="opt" data-year="keep" aria-pressed="${sel("keep")}"><span><span class="k">1</span>Keep ${c.year}</span><span class="src">A different fight from the ${esc(w.event || "match")}, or Dyer's own year is right</span></button>
+      <button class="opt" data-year="shift" aria-pressed="${sel("shift")}"><span><span class="k">2</span>Move to ${c.to_year}</span><span class="src">The year tracker slipped; the whole marked stretch moves by ${c.shift > 0 ? "+" : ""}${c.shift}</span></button>
+      <button class="opt" data-year="cant_tell" aria-pressed="${sel("cant_tell")}"><span><span class="k">3</span>Can't tell</span><span class="src">Leave it as it is and flag it</span></button>
+    </div>`;
+}
+
+const norm = (s) => String(s ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+function wire(c) {
+  const scan = $("scan");
+  if (scan) scan.addEventListener("click", () => scan.classList.toggle("zoom"));
+  document.querySelectorAll(".opt[data-printed]").forEach((b) => b.addEventListener("click", () => answer(c, { answer: "reading", printed: b.dataset.printed })));
+  document.querySelectorAll(".opt[data-year]").forEach((b) => b.addEventListener("click", () => answer(c, { answer: b.dataset.year })));
+  const os = $("other-save");
+  if (os) os.addEventListener("click", () => { const v = $("other").value.trim(); if (v) answer(c, { answer: "other", printed: v }); else $("other").focus(); });
+  const ot = $("other");
+  if (ot) ot.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); os.click(); } });
+  const cant = $("cant");
+  if (cant) cant.addEventListener("click", () => answer(c, { answer: "cant_tell" }));
+  const clr = $("clear");
+  if (clr) clr.addEventListener("click", () => clearAnswer(c));
+  const note = $("note");
+  note.addEventListener("change", () => { if (answers[c.id]) answer(c, { ...answers[c.id], note: note.value.trim() }, false); });
+}
+
+function record(c, a) {
+  const r = { case_id: c.id, kind: c.kind, unit_id: c.unit_id, answer: a.answer, note: (a.note ?? $("note")?.value ?? "").trim(), at: new Date().toISOString() };
+  if (c.kind === "ocr") Object.assign(r, { printed: a.answer === "cant_tell" ? null : a.printed, ocr: c.ocr, before: c.before, page: c.page ?? null });
+  else Object.assign(r, { mention: c.mention, date: c.date, shift: c.shift, year: c.year, to_year: c.to_year });
+  return r;
+}
+
+let writing = Promise.resolve();
+function answer(c, a, advance = true) {
+  const r = record(c, a);
+  answers[c.id] = r;
+  const status = $("saved");
+  if (db) {
+    writing = writing.then(() => db.collection("decisions").doc(c.id).set(r))
+      .then(() => { if (status && cur === c.id) { status.className = "saved"; status.textContent = "Saved."; } })
+      .catch((e) => { if (status && cur === c.id) { status.className = "saved err"; status.textContent = "Not saved: " + (e?.message || e?.code || "error") + ". Try again."; } });
+  }
+  if (advance) {
+    const n = nextId(c.id);
+    if (n && n !== c.id) go(n); else render();
+  } else render();
+}
+
+function clearAnswer(c) {
+  delete answers[c.id];
+  if (db) writing = writing.then(() => db.collection("decisions").doc(c.id).delete()).catch(() => {});
+  render();
+}
+
+function setFilter(s, k) {
+  if (s) show = s;
+  if (k) kind = k;
+  ["todo", "done", "all"].forEach((x) => $("f-" + x).setAttribute("aria-pressed", String(show === x)));
+  ["any", "ocr", "year"].forEach((x) => $("k-" + x).setAttribute("aria-pressed", String(kind === x)));
+  rebuildView();
+  if (!view.find((c) => c.id === cur)) cur = view[0]?.id || null;
+  render();
+}
+
+["todo", "done", "all"].forEach((x) => $("f-" + x).addEventListener("click", () => setFilter(x, null)));
+["any", "ocr", "year"].forEach((x) => $("k-" + x).addEventListener("click", () => setFilter(null, x)));
+$("next").addEventListener("click", () => { const n = nextId(cur); if (n) go(n); });
+$("prev").addEventListener("click", () => {
+  if (trail.length) { go(trail.pop(), false); return; }
+  rebuildView(); const i = view.findIndex((c) => c.id === cur);
+  if (i > 0) go(view[i - 1].id, false);
+});
+document.addEventListener("keydown", (e) => {
+  if (e.target.tagName === "INPUT") return;
+  if (e.key === "ArrowRight" || e.key === "j") $("next").click();
+  else if (e.key === "ArrowLeft" || e.key === "k") $("prev").click();
+  else if (/^[1-9]$/.test(e.key)) { const b = document.querySelectorAll(".opt")[+e.key - 1]; if (b) b.click(); }
+});
+window.addEventListener("hashchange", () => { const m = location.hash.match(/^#c-([0-9a-f]+)$/); if (m && byId[m[1]] && m[1] !== cur) go(m[1]); });
+$("copy").addEventListener("click", async () => {
+  const txt = JSON.stringify(Object.values(answers), null, 1);
+  try { await navigator.clipboard.writeText(txt); $("copy").textContent = "Copied"; } catch (e) { $("copy").textContent = "Copy failed"; }
+});
+
+async function start() {
+  try {
+    const res = await fetch("cases.json");
+    const data = await res.json();
+    cases = data.cases; byId = Object.fromEntries(cases.map((c) => [c.id, c]));
+  } catch (e) {
+    $("main").innerHTML = `<div class="card"><p class="empty">The case list didn't load. Reload the page.</p></div>`; return;
+  }
+  const m = location.hash.match(/^#c-([0-9a-f]+)$/);
+  cur = m && byId[m[1]] ? m[1] : cases[0]?.id;
+  render();
+  const t = setTimeout(() => { $("banner").classList.add("show"); }, 10000);
+  try { db = window.claude ? await window.claude.use("db") : null; } catch (e) { db = null; }
+  if (!db) { clearTimeout(t); $("banner").classList.add("show"); return; }
+  db.collection("decisions").onSnapshot((snap) => {
+    clearTimeout(t);
+    if (!snap.metadata.fromCache) $("banner").classList.remove("show");
+    const next = {};
+    snap.docs.forEach((d) => { if (d.exists) next[d.id] = d.data(); });
+    const first = !Object.keys(answers).length;
+    answers = next;
+    if (first && answers[cur] && show === "todo" && !m) { cur = cases.find((c) => !answers[c.id])?.id || cur; }
+    render();
+  }, (e) => {
+    clearTimeout(t);
+    $("banner-text").textContent = "Saving stopped working (" + (e?.code || "error") + "). Answers from now on are kept only until you close the page.";
+    $("banner").classList.add("show"); db = null;
+  });
+}
+start();
+</script>
+</body>
+</html>

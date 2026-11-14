@@ -1,6 +1,8 @@
 #!/bin/bash
 # Rebuild everything downstream of the cleaned Dyer's text. Run from the project folder:
-#   bash pipeline/rebuild.sh [stage ...]     stages: units dyers events links or datelines db checks war (default: dyers events links or datelines db checks)
+#   bash pipeline/rebuild.sh [stage ...]     stages: units dyers events links or datelines db checks war review (default: dyers events links or datelines db checks)
+# Human review: answers from the review page -> data/review/decisions.jsonl -> python3 pipeline/review_import.py data/review/decisions.jsonl,
+#   then units (OCR readings) or dyers (years) and everything after; 'review' remakes the cards (data/review/cases.json, img/).
 # GNIS index: python3 pipeline/gnis_index.py <unzipped GNIS dir> data/external/gnis/gnis_index.tsv (once; see that file)
 # Forts GNIS lacks: python3 pipeline/forts_gazetteer.py data/external/forts data/external/gnis/gnis_index.tsv data/external/gnis/gnis_extra.tsv (read with the index by gnis_index.index_lines)
 # The remote-device shell allows ~170 s per call: run one or two stages per call there. Stages whose inputs have not
@@ -43,6 +45,7 @@ for s in $stages; do
       python3 pipeline/or_stations.py data/or/placements.jsonl data/or/tables.jsonl data/manual/or_regions.psv data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/external/acw_battle_data/nps_units.csv data/derived/or_stations.json | tail -1
       python3 pipeline/extract_nps_histories.py data/nps/units.jsonl data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/derived/nps_confederate_histories.json | tail -1
       python3 pipeline/extract_state_histories.py data/external/state_histories data/events/events.jsonl data/external/acw_battle_data/nps_units.csv data/derived/state_histories.json data/scores/state_histories_report.txt | tail -1
+      python3 pipeline/extract_state_stations.py data/external/state_histories data/external/acw_battle_data/nps_units.csv data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/derived/state_stations.json data/scores/state_stations_report.txt data/events/events.jsonl | grep "units with claims"
       python3 pipeline/nps_battles_to_claims.py data/external/acw_battle_data $W data/scores/dyer_to_nps.csv data/events data/nps/claims_nps_battles.jsonl | tail -1
       python3 pipeline/check_confederate.py data/or/claims_or.jsonl data/events data/external/acw_battle_data data/nps/units.jsonl data/scores/confederate_check.txt | tail -1
       [ -f ~/db/civil_war.db ] && python3 pipeline/battle_monuments.py ~/db/civil_war.db data/external/battles data/battles data/scores/battle_monuments.txt | head -8 || echo "battle_monuments skipped: no database yet" ;;
@@ -62,6 +65,9 @@ for s in $stages; do
       fi ;;
     war)
       python3 pipeline/export_war.py "$DB" viewer/war/data ;;
+    review)   # cards for the review page (artifact "Dyer's Review Queue"); needs the Dyer's scan, not in the work copy
+      SRC=${SOURCES:-$HOME/mnt/civil_war_viewer/sources}
+      python3 pipeline/review_cases.py "$SRC/08697590_3359_djvu.xml" "$SRC/dyers_compendium.pdf" data/review ;;
     checks)
       python3 pipeline/db_checks.py "$DB" > data/scores/db_checks.txt
       python3 pipeline/fast_jumps.py "$DB" data/scores/fast_jumps.csv data/scores/fast_jumps.txt | head -1

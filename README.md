@@ -12,7 +12,7 @@ source"), locates the places, links units across sources, and checks every place
 The claims go into a SQLite database, and the map is a static page that reads JSON exported from it.
 
 Found a mistake? [Open an issue](https://github.com/petertuuk/civil_war_viewer/issues/new) with the unit, the date
-and your source, or use "Report a problem" in a unit's panel on the map.
+and your source.
 
 ## Layout
 
@@ -25,7 +25,13 @@ and your source, or use "Report a problem" in a unit's panel on the map.
 
 ## Licenses and credits
 
-The historical records are in the public domain. Material derived from Wikipedia is CC BY-SA 4.0, OpenStreetMap
-data is © OpenStreetMap contributors (ODbL), and the CWSAC battle data comes through Jeffrey B. Arnold's
-[acw_battle_data](https://github.com/jrnold/acw_battle_data) (BSD 3-Clause). The map uses
+The code is under the [MIT License](LICENSE). The historical records are in the public domain. Material derived from
+Wikipedia is CC BY-SA 4.0, OpenStreetMap data is © OpenStreetMap contributors (ODbL), and the CWSAC battle data comes
+through Jeffrey B. Arnold's [acw_battle_data](https://github.com/jrnold/acw_battle_data) (BSD 3-Clause).
+
+Battlefield positions: Antietam regiment positions from Brian Downey's [Antietam on the Web](https://antietam.aotw.org/)
+battle maps (CC BY-NC-SA 4.0, so data derived from them is non-commercial and share-alike), georeferenced against the
+Antietam Battlefield Board's Carman–Cope map on [Map Warper](https://mapwarper.net/); monument and tablet locations from
+the National Park Service's [NPGallery](https://npgallery.nps.gov/) and the ShilohWeb map of the Shiloh tablets; and
+the [Georgia Historical Society](https://www.georgiahistory.com/)'s historical markers for the Atlanta campaign. The map uses
 [MapLibre GL JS](https://maplibre.org/) (BSD 3-Clause) and IBM Plex fonts (SIL Open Font License 1.1).

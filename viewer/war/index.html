@@ -76,6 +76,15 @@ body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); o
 #grip { position: absolute; top: 3px; left: 50%; width: 40px; height: 5px; margin-left: -20px; border-radius: 3px; background: var(--line);
   cursor: ns-resize; touch-action: none; }
 #grip:hover, #grip.on { background: var(--muted); }
+#grip::before { content: ""; position: absolute; inset: -8px -16px; }    /* a bigger target for fingers */
+/* compact timeline (grip dragged below one label row): 0 = no event labels, one campaign lane; -1 = event marks only;
+   -2 = just the slider and the years. Play and its menus move into one row beside the slider. */
+#bar[data-size="0"] #act { height: 18px; }
+#bar[data-size="-2"] { row-gap: 2px; }
+#bar[data-size="-1"] #camps, #bar[data-size="-1"] #act, #bar[data-size="-2"] #camps, #bar[data-size="-2"] #act,
+#bar[data-size="-2"] #marks { display: none; }
+#bar[data-size="0"] > .ctl:first-child, #bar[data-size="-1"] > .ctl:first-child, #bar[data-size="-2"] > .ctl:first-child {
+  grid-row: 4; flex-direction: row; align-items: center; }
 #marks { grid-row: 1; grid-column: 2; position: relative; height: calc(14px + var(--lrows, 3) * 13px); margin-bottom: -6px; }
 /* persistent labels for the main events: up to three rows above the marks, each with a leader line down to its mark */
 #marks b { position: absolute; bottom: 4px; border-left: 1px solid; padding-left: 3px; box-sizing: border-box; pointer-events: none;
@@ -118,7 +127,6 @@ body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); o
 #detail .now b { font-weight: 600; }
 #detail .src, #detail ol .src { display: block; color: var(--muted); font-size: 11.5px; }
 #detail a { color: inherit; text-decoration-color: var(--line); text-underline-offset: 2px; }
-#detail .report { font-size: 12px; color: var(--muted); }
 #sub a { color: inherit; text-underline-offset: 2px; }
 #detail ol li { margin-bottom: 3px; }
 #detail ol li.est { color: var(--muted); }
@@ -135,7 +143,7 @@ body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); o
   #mtoggle { display: inline-block; }
   #bar { grid-template-columns: 1fr; padding: 10px 12px; } #bar > * { grid-row: auto !important; grid-column: 1 !important; }
   #bar > .ctl:first-child { flex-direction: row; flex-wrap: wrap; align-items: center; }
-  #marks { --lrows: 2; } #act { height: 20px; } #camps { --clanes: 2; } #grip { display: none; }
+  #marks { --lrows: 2; } #act { height: 20px; } #camps { --clanes: 2; }
   #detail { left: 12px; right: 12px; width: auto; top: auto; bottom: 250px; max-height: 42vh; overflow: auto; box-sizing: border-box; }
 }
 </style>
@@ -169,7 +177,7 @@ body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); o
     <div>Click a unit for where the sources place it through the year, each with its source.</div>
     <div>Zoomed in on a battlefield: regiments stand at their monuments, and a brigade's regiments are joined as its line.</div>
   </div>
-  <div id="sub">Positions from Dyer's Compendium, the Official Records, Wikipedia orders of battle, NPS lists and battlefield monuments; places located with USGS GNIS. Many Confederate regiments are placed by their brigade or campaign between battle records. <a href="about.html">About this map, its sources and limits</a> · <a id="report-gen" href="#" target="_blank" rel="noopener">Report a problem</a></div>
+  <div id="sub">Positions from Dyer's Compendium, the Official Records, Wikipedia orders of battle, NPS lists and battlefield monuments; places located with USGS GNIS. Many Confederate regiments are placed by their brigade or campaign between battle records. <a href="about.html">About this map, its sources and limits</a></div>
   </details>
 </div>
 <div id="detail" class="panel" aria-live="polite"></div>
@@ -179,7 +187,7 @@ body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); o
   <select id="span" aria-label="Trails: show where units moved over the days before this one" class="chip"><option value="0">No trails</option><option value="3">Trails: 3 days</option>
     <option value="7">Trails: 1 week</option><option value="14">Trails: 2 weeks</option><option value="30">Trails: 1 month</option><option value="91">Trails: 3 months</option>
     <option id="span-c" value="-1" hidden>Trails: custom</option></select></div>
-  <div id="grip" title="Drag to make the timeline taller or shorter (double-click: default)" role="separator" aria-label="Timeline height"></div>
+  <div id="grip" title="Drag to make the timeline taller or shorter; drag it down to hide layers (double-click: default)" role="separator" aria-label="Timeline height"></div>
   <div id="marks" role="group" aria-label="Events on the timeline"></div>
   <div id="camps" role="group" aria-label="Campaigns"></div>
   <canvas id="act" aria-label="Units on the move each day"></canvas>
@@ -284,7 +292,7 @@ function brigadeLines(fc, Y, day) {
 const map = new maplibregl.Map({container: "map", bounds: [[-95, 29], [-72, 42]], attributionControl: false,
   style: {version: 8, sources: {}, layers: [{id: "bg", type: "background", paint: {"background-color": css("--water")}}]}});
 map.addControl(new maplibregl.NavigationControl({showCompass: false}), "top-right");
-map.addControl(new maplibregl.AttributionControl({compact: true, customAttribution: "Natural Earth; terrain: AWS Terrain Tiles (USGS, SRTM); places: USGS GNIS; monuments: © OpenStreetMap contributors (ODbL); Dyer's Compendium, Official Records, Wikipedia, NPS"}), "top-right");
+map.addControl(new maplibregl.AttributionControl({compact: true, customAttribution: "Natural Earth; terrain: AWS Terrain Tiles (USGS, SRTM); places: USGS GNIS; monuments: © OpenStreetMap contributors (ODbL), NPS, Georgia Historical Society; Antietam positions: Antietam on the Web (CC BY-NC-SA 4.0); Dyer's Compendium, Official Records, Wikipedia, NPS"}), "top-right");
 map.once("idle", () => document.querySelectorAll(".maplibregl-ctrl-attrib").forEach(e => e.classList.remove("maplibregl-compact-show")));
 const slider = document.getElementById("slider"); slider.max = NDAYS - 1; slider.value = dayOf(1861, 7, 21);
 const labels = [];
@@ -310,12 +318,26 @@ function placeEvents(day, Y) {
     evMarkers.push(new maplibregl.Marker({element: el, anchor: "bottom", offset: [0, -6]}).setLngLat([e[5] / 1e4, e[4] / 1e4]).addTo(map));
   });
 }
+// map labels use a short name ("102nd New York", "1st Ohio Battery L"); the full name is in the unit's panel
+function unitShort(n) {
+  let s = n.replace(/\s*\([^)]*\)/g, "").replace(/,?\s*"[^"]{3,}"/g, "").replace(/\s+/g, " ").trim();
+  s = s.replace(/ Reserves Infantry\b/, " Reserves").replace(/ Infantry$/, "").replace(/ Independent Battery\b/, " Battery");
+  if (/Battery/.test(s)) s = s.replace(/,? Light Artillery$/, "").replace(/"([A-Z]+),?"/, "$1");
+  s = s.replace(/\s*\(.*$/, "");     // an unclosed parenthesis left by the OCR
+  return s.length > 34 ? s.slice(0, 32).trim() + "…" : s;
+}
 function unitLabels(fc) {
   unitMarkers.forEach(m => m.remove()); unitMarkers = [];
   if (map.getZoom() < 13.2) return;
-  const b = map.getBounds();
-  fc.features.filter(f => f.properties.fine && b.contains(f.geometry.coordinates)).slice(0, 140).forEach(f => {
-    const el = document.createElement("div"); el.className = "ulbl"; el.textContent = f.properties.name.replace(/ Infantry$/, "");
+  const b = map.getBounds(), taken = [];
+  // sourced positions first, then estimates; a label that would overlap one already placed is left out
+  fc.features.filter(f => f.properties.fine && b.contains(f.geometry.coordinates))
+    .sort((p, q) => (p.properties.st === 0 ? 0 : 1) - (q.properties.st === 0 ? 0 : 1)).forEach(f => {
+    if (unitMarkers.length >= 140) return;
+    const t = unitShort(f.properties.name), p = map.project(f.geometry.coordinates), x0 = p.x + 6, x1 = x0 + 6 * t.length + 4;
+    if (taken.some(r => x0 < r[1] && r[0] < x1 && Math.abs(r[2] - p.y) < 12)) return;
+    taken.push([x0, x1, p.y]);
+    const el = document.createElement("div"); el.className = "ulbl"; el.textContent = t;
     el.style.color = f.properties.side ? "var(--conf)" : "var(--union)";
     unitMarkers.push(new maplibregl.Marker({element: el, anchor: "left", offset: [6, 0]}).setLngLat(f.geometry.coordinates).addTo(map));
   });
@@ -449,16 +471,6 @@ function srcEl(Y, sis, est) {
   if (sis.length > 3) el.append(` and ${sis.length - 3} more`);
   return el;
 }
-// corrections go to GitHub issues, pre-filled with what the map shows and a link back to this view
-const REPORT = "https://github.com/petertuuk/civil_war_viewer/issues/new";
-function reportUrl(title, body) {
-  saveHash();
-  const link = location.href.startsWith("http") ? location.href : "";
-  return REPORT + "?" + new URLSearchParams({title, labels: "correction",
-    body: body + (link ? `**Map link:** ${link}\n` : "") + "\n**What is right, and your source:**\n\n"}).toString();
-}
-document.getElementById("report-gen").addEventListener("click", e => {
-  e.currentTarget.href = reportUrl("Correction", `**Date on the map:** ${cur ? fmt(cur.day) : ""}\n**What looks wrong:**\n`); });
 let detailFor = "";
 function closeDetail() {
   detail.classList.remove("on"); detailFor = ""; const had = selId >= 0; selId = -1; follow = false;
@@ -480,8 +492,7 @@ function showUnit(id, open) {
       if (last && last.lab === lab && s[0] - last.d1 <= 3) { last.d1 = Math.min(s[1], y1); if (!last.si.includes(si)) last.si.push(si); return; }
       last = {d0: Math.max(s[0], y0), d1: Math.min(s[1], y1), lab, si: [si], est: f[4] >= 2}; rows.push(last); });
     detail.innerHTML = `<button class="close" id="dx">Close</button><h2></h2><div class="meta"></div><div class="now"></div>
-      <label class="row"><input type="checkbox" id="follow"> Follow it on the map</label><ol></ol>
-      <a class="report" id="report" href="#" target="_blank" rel="noopener">Report a problem with this unit's positions</a>`;
+      <label class="row"><input type="checkbox" id="follow"> Follow it on the map</label><ol></ol>`;
     detail.querySelector("h2").textContent = u[0];
     const nr = rows.filter(r => !r.est).length;
     detail.querySelector(".meta").textContent = `${u[1] ? "Confederate" : "Union"}${u[2] ? " · " + u[2] : ""} · ${nr} placement${nr === 1 ? "" : "s"} in ${Y.year}` +
@@ -498,9 +509,6 @@ function showUnit(id, open) {
   const now = detail.querySelector(".now"); now.textContent = "";
   const b = document.createElement("b"); b.textContent = fmt(day); now.append(b, ": ");
   if (p) now.append(STATE[p[4]] + p[3], srcEl(Y, p[5], p[4] === 4)); else now.append("no position in the sources near this day");
-  const rp = detail.querySelector("#report");
-  if (rp) rp.href = reportUrl(`${u[0]}, ${fmt(day)}`, `**Unit:** ${u[0]} (${u[1] ? "Confederate" : "Union"})\n**Date:** ${fmt(day)}\n` +
-    `**The map shows:** ${p ? STATE[p[4]] + p[3] + " (" + (srcEl(Y, p[5], p[4] === 4).textContent || "no source") + ")" : "no position"}\n`);
   detail.querySelectorAll("ol li").forEach(li => li.classList.toggle("cur", +li.dataset.d0 <= day && day <= +li.dataset.d1));
   if (follow) center();
 }
@@ -787,7 +795,7 @@ const textW = t => { measureCtx ||= document.createElement("canvas").getContext(
 function markLabels(el, w, lv) {
   // level-1 events always, level-2 ones once the timeline is zoomed in to under ~20 months; placed in date order within
   // each level, lowest free row first; one that fits no row keeps only its mark
-  const W = el.clientWidth || 800, rows = +getComputedStyle(el).getPropertyValue("--lrows") || 3;
+  const lr = getComputedStyle(el).getPropertyValue("--lrows").trim(), W = el.clientWidth || 800, rows = lr === "" ? 3 : +lr;
   const spans = Array.from({length: rows}, () => []);   // text extents per row
   // a leader from a higher row passes behind the labels below it (lower rows are drawn on top, on the panel's colour)
   const fits = (x, tw, r) => spans[r].every(([a, b]) => x + tw + 4 <= a || x >= b + 4);
@@ -867,21 +875,25 @@ actEl.addEventListener("mousemove", e => { if (!ACT) return; const d = dayAtX(e.
   tip.style.left = Math.min(innerWidth - 290, e.clientX + 10) + "px"; tip.style.top = (actEl.getBoundingClientRect().top - 52) + "px"; });
 actEl.addEventListener("mouseleave", () => { tip.style.display = "none"; });
 actEl.addEventListener("click", e => { setDay(dayAtX(e.clientX)); render(); });
-// timeline height: the grip sets the number of label rows (1-8), remembered in this browser
+// timeline height: the grip sets the number of event-label rows (1-8); below one row it sheds layers (0: no labels and
+// one campaign lane; -1: event marks only; -2: just the slider). Remembered in this browser; double-click resets.
 const marksEl = document.getElementById("marks"), grip = document.getElementById("grip");
-try { const r = +localStorage.getItem("cwv.lrows"); if (r >= 1 && r <= 8) { marksEl.style.setProperty("--lrows", r);
-  if (r > 4) document.getElementById("camps").style.setProperty("--clanes", 4); } } catch (e) {}
+const barEl = document.getElementById("bar"), campsEl = document.getElementById("camps");
+function tlSize(s) {
+  if (s === null) { delete barEl.dataset.size; marksEl.style.removeProperty("--lrows"); campsEl.style.removeProperty("--clanes"); return; }
+  barEl.dataset.size = s; marksEl.style.setProperty("--lrows", Math.max(0, s)); campsEl.style.setProperty("--clanes", s > 4 ? 4 : s <= 0 ? 1 : 3);
+}
+const curSize = () => { if (barEl.dataset.size !== undefined) return +barEl.dataset.size;
+  const v = getComputedStyle(marksEl).getPropertyValue("--lrows").trim(); return v === "" ? 3 : +v; };
+try { const v = localStorage.getItem("cwv.lrows"), r = +v; if (v !== null && v !== "" && r >= -2 && r <= 8) tlSize(r); } catch (e) {}
 let gdrag = null;
-grip.addEventListener("pointerdown", e => { gdrag = {y: e.clientY, r: +getComputedStyle(marksEl).getPropertyValue("--lrows") || 3};
-  grip.setPointerCapture(e.pointerId); grip.classList.add("on"); });
+grip.addEventListener("pointerdown", e => { gdrag = {y: e.clientY, r: curSize()}; grip.setPointerCapture(e.pointerId); grip.classList.add("on"); });
 grip.addEventListener("pointermove", e => { if (!gdrag) return;
-  const r = Math.max(1, Math.min(8, gdrag.r + Math.round((gdrag.y - e.clientY) / 13)));
-  if (r !== +marksEl.style.getPropertyValue("--lrows")) { marksEl.style.setProperty("--lrows", r);
-    document.getElementById("camps").style.setProperty("--clanes", r > 4 ? 4 : 3); marks(); } });
+  const r = Math.max(-2, Math.min(8, gdrag.r + Math.round((gdrag.y - e.clientY) / 13)));
+  if (r !== curSize()) { tlSize(r); marks(); } });
 grip.addEventListener("pointerup", () => { if (!gdrag) return; gdrag = null; grip.classList.remove("on");
-  try { localStorage.setItem("cwv.lrows", marksEl.style.getPropertyValue("--lrows")); } catch (e) {} });
-grip.addEventListener("dblclick", () => { marksEl.style.removeProperty("--lrows"); document.getElementById("camps").style.removeProperty("--clanes");
-  try { localStorage.removeItem("cwv.lrows"); } catch (e) {} marks(); });
+  try { localStorage.setItem("cwv.lrows", String(curSize())); } catch (e) {} });
+grip.addEventListener("dblclick", () => { tlSize(null); try { localStorage.removeItem("cwv.lrows"); } catch (e) {} marks(); });
 function marks() {
   const el = document.getElementById("marks"); if (!el) return; el.innerHTML = "";
   const w = Math.max(1, W1 - W0), lv = markLevel();

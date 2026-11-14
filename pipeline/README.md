@@ -24,6 +24,7 @@ Stages in order: `units` → `dyers` → `events` → `links` → `or` → `date
 | `compare_oob.py` | or | Link Wikipedia order-of-battle placements to events, and compare them with the Official Records. |
 | `extract_nps_histories.py` | or | Dated positions from the NPS unit histories of Confederate units (Crute, Units of the Confederate States Army, via the NPS Soldiers and Sailors Database; data/nps/units.jsonl "over… |
 | `extract_state_histories.py` | or | Battle participation from public-domain state unit histories (data/external/state_histories; see its README) |
+| `extract_state_stations.py` | or | Dated positions (camped, stationed, ordered to, at X on a date) from the same state histories; years anchored to battle dates (data/derived/state_stations.json) |
 | `nps_battles_to_claims.py` | or | Confederate battle participation from the NPS Soldiers and Sailors battle unit lists. |
 | `or_stations.py` | or | Positions from Official Records organization tables |
 | `or_to_claims.py` | or | Turn Official Records organization placements into claims. |
@@ -40,6 +41,14 @@ Stages in order: `units` → `dyers` → `events` → `links` → `or` → `date
 | `db_checks.py` | checks | Sanity checks and agreement report on the claims database. |
 | `fast_jumps.py` | checks | Fast jumps |
 | `export_war.py` | war | Whole-war export for the map |
+
+## Human review
+Review page: artifact "Dyer's Review Queue" (https://claude.ai/artifact/Gqs91QQg7PqurevSbEn1uy, slug 804badf5-c8a6-4f20-aba2-58c07997c5d8). One card per case, answers kept in the artifact's db (collection `decisions`, owner-only).
+
+| Script | Stage | What it does |
+|---|---|---|
+| `review_cases.py` | review | Cards from cases the pipeline cannot settle: Dyer's OCR flags (scan crop with the spot marked, readings from OCR/NPS/CWA) and year shifts fix_years.py refused (stretch, matched event, neighbours). Writes data/review/cases.json + img/. |
+| `review_import.py` | by hand | Answers (data/review/decisions.jsonl, dumped from the artifact's db) -> data/dyers/flag_decisions.jsonl (vote_witnesses) and data/dyers/year_decisions.jsonl (fix_years). Then rebuild from units / dyers on, and republish the page's cases.json after `review`. |
 
 ## Shared modules
 

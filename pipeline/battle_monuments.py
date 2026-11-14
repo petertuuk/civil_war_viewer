@@ -55,6 +55,9 @@ SRC = {"npgallery": ("NPS NPGallery: Civil War Monuments and Markers Digital Col
                       "https://historicalmarkers.georgiahistory.com/", 0,
                       "marker coordinates and texts from the Georgia Historical Society's public ArcGIS layer GA_Historical_Markers; "
                       "which formations a marker places at its spot read by Claude (data/external/battles/ga_markers_read.psv)"),
+       "aotw": ("Antietam on the Web (Brian Downey), battle maps of September 17 on the Carman-Cope base (CC BY-NC-SA 4.0)",
+                "https://antietam.aotw.org/maps.php?map_number=main", 0,
+                "CC BY-NC-SA 4.0: attribute Antietam on the Web; unit positions read from the maps' clickable unit areas, maps registered to the Cope-Carman Daybreak map as georeferenced on mapwarper.net (map 47702)"),
        "osm": ("OpenStreetMap contributors: battlefield monuments and markers", "https://www.openstreetmap.org/copyright", 0,
                "ODbL 1.0: attribute OpenStreetMap contributors")}
 
@@ -458,6 +461,124 @@ def ga_markers(src, db, U, rows, stats):
             stats[f"ga {bk} {level}"] += 1
 
 
+AOTW_ST = dict(NAME2ST)
+AOTW_ST.update({"united states": "US", "us": "US"})
+
+
+def aotw(src, U, rows, stats, linked):
+    """Antietam on the Web battle maps (15 maps of September 17 over the Carman-Cope base, about 3 m a pixel, north up):
+    every regiment, battery and brigade drawn on a map is a clickable area (polygon = the unit's bar, rectangle = its
+    label). Map pixels -> ground: one scale for all maps (median of monument-pair ratios), one offset per map (median
+    over its units that have an OSM monument). A unit takes the earliest map that shows it; a brigade area stands for
+    its listed regiments that the same map does not draw."""
+    d = src / "aotw"
+    if not (d / "areas.json").exists():
+        return
+    A = json.load(open(d / "areas.json", encoding="utf-8"))
+    info = {u["id"]: u for u in (json.loads(l) for l in open(d / "units.jsonl", encoding="utf-8"))}
+    pref = linked.get("antietam", set())
+
+    def resolve(u):
+        kind = (u["h"][0] if u["h"] else "")
+        side = "Confederate" if kind.startswith("Confederate") else "Union"
+        nm = u["title"].replace("Antietam: ", "").strip()
+        m = re.match(r"^(\d+)(?:st|nd|rd|th|d) (.+?) Light Artillery, Battery ([A-M])$", nm) or re.match(r"^(\d+)(?:st|nd|rd|th|d) (United States) Artillery, Battery ([A-M])$", nm)
+        if m and AOTW_ST.get(m.group(2).lower()):
+            return U.resolve(side, AOTW_ST[m.group(2).lower()], int(m.group(1)), "artillery", letter=m.group(3), pref=pref)[0]
+        m = re.match(r"^(.+?) Light Artillery, (\d+)(?:st|nd|rd|th|d) Battery$", nm) or re.match(r"^(.+?) Light Artillery, (First) Battery$", nm)
+        if m and AOTW_ST.get(m.group(1).lower()):
+            n = 1 if m.group(2) == "First" else int(m.group(2))
+            return U.resolve(side, AOTW_ST[m.group(1).lower()], n, "artillery", indep=True, pref=pref)[0]
+        m = re.match(r"^([A-Z][\w'’]+)['’]s? \((\w\w)\) Battery", nm)
+        if m:
+            return U.named_battery(side, m.group(2), m.group(1))[0]
+        m = re.match(r"^(\d+)(?:st|nd|rd|th|d) (.+?) (Infantry|Cavalry|Reserves)\b", nm)
+        if m and AOTW_ST.get(m.group(2).lower()):
+            br = {"Infantry": "infantry", "Cavalry": "cavalry", "Reserves": "reserves"}[m.group(3)]
+            st = AOTW_ST[m.group(2).lower()]
+            if br == "reserves":
+                c = [x for x in U.bykey.get((side, st, int(m.group(1))), []) if "Reserve" in x[3]]
+                c = [x for x in c if x[0] in U.dyer] or c
+                return c[0][0] if len(c) == 1 else None
+            hint = re.search(r"\(([A-Z][a-z]+)", nm)
+            return U.resolve(side, st, int(m.group(1)), br, name_hint=hint.group(1) if hint else None, pref=pref)[0]
+        return None
+
+    members = {}
+    for u in info.values():
+        if u["h"] and u["h"][0].endswith("Brigade"):
+            t = u["text"]
+            i = t.find("Units which make up this Brigade:")
+            j = t.find("Maps Showing")
+            names = [x.strip() for x in t[i:j].split("\n")[1:] if x.strip()] if i >= 0 else []
+            members[u["id"]] = names
+    byname = {u["title"].replace("Antietam: ", "").strip(): uid for uid, u in info.items()}
+    # areas -> (map, aotw unit, x, y, is bar)
+    pts = defaultdict(dict)
+    for a in A:
+        m = re.search(r"unit_id=(\d+)", a["href"])
+        if not m:
+            continue
+        k = (a["map"], int(m.group(1)))
+        bar = a["shape"] == "poly"
+        if k not in pts or (bar and not pts[k][2]):
+            pts[k] = (a["x"], a["y"], bar)
+    ours = {k: resolve(u) for k, u in info.items()}
+    stats["aotw: units resolved"] = sum(1 for v in ours.values() if v)
+    # map pixels -> ground: each map registered (SIFT + RANSAC similarity, overlay masked) to the Cope-Carman
+    # "Daybreak" map as warped on mapwarper.net (map 47702), read at web-mercator zoom 16 (georef.json)
+    G = json.load(open(d / "georef.json", encoding="utf-8"))
+    z, X0, Y0 = G["z"], G["X0"], G["Y0"]
+    import math
+
+    def ground(mp, px, py):
+        M = G["maps"][str(mp)]["M"]
+        u = M[0][0] * px + M[0][1] * py + M[0][2]
+        v = M[1][0] * px + M[1][1] * py + M[1][2]
+        n = 2 ** z
+        lon = (X0 + u / 256) / n * 360 - 180
+        lat = math.degrees(math.atan(math.sinh(math.pi * (1 - 2 * (Y0 + v / 256) / n))))
+        return lat, lon
+    mon = defaultdict(list)
+    for r in rows.get("antietam", []):
+        mon[r["unit_id"]].append((r["lat"], r["lon"]))
+    resid = defaultdict(list)
+    for (mp, au), (px, py, bar) in pts.items():
+        u = ours.get(au)
+        if u in mon and str(mp) in G["maps"]:
+            la, lo = ground(mp, px, py)
+            resid[mp].append(km((la, lo), mon[u][0]) * 1000)
+    for mp in sorted(resid):
+        v = sorted(resid[mp])
+        stats[f"aotw: map {mp:02d} ({G['maps'][str(mp)]['inliers']} matches): monuments within {int(v[len(v) // 2])} m (median of {len(v)})"] += 1
+    done = set()
+    for (mp, au), (px, py, bar) in sorted(pts.items()):
+        if str(mp) not in G["maps"] or G["maps"][str(mp)]["inliers"] < 15:
+            stats["aotw: map not registered"] += 1; continue
+        la, lo = ground(mp, px, py)
+        u = info[au]
+        targets, prec = [], 120 if bar else 200
+        if ours.get(au):
+            targets = [ours[au]]
+        elif au in members:
+            drawn = {b for (m2, b) in pts if m2 == mp}
+            for nm in members[au]:
+                b = byname.get(nm)
+                if b is not None and b not in drawn and ours.get(b):
+                    targets.append(ours[b])
+            prec += 200
+        for t in targets:
+            if t in done:                                  # the earliest map wins (maps are in time order)
+                continue
+            done.add(t)
+            rows["antietam_aotw"].append(dict(unit_id=t, lat=round(la, 6), lon=round(lo, 6), precision_m=prec, role="main",
+                                              kind="brigade" if au in members else "regiment", date_start="1862-09-17", date_end="1862-09-17",
+                                              source_span=f"AotW map {mp}: {u['title'].replace('Antietam: ', '')}", source="aotw",
+                                              ref=f"https://antietam.aotw.org/maps.php?map_number={mp}", osm=f"aotw/{mp}/{au}",
+                                              battle="Battle of Antietam", event_id=None))
+            stats["aotw " + ("brigade member" if au in members else "unit")] += 1
+
+
 def main(dbp, srcdir, outdir, report):
     db = sqlite3.connect(dbp)
     src, out = Path(srcdir), Path(outdir)
@@ -487,11 +608,14 @@ def main(dbp, srcdir, outdir, report):
     shiloh(src, U, events, rows, stats, linked)
     antietam(src, U, events, rows, stats, linked)
     ga_markers(src, db, U, rows, stats)
+    aotw(src, U, rows, stats, linked)
     route_trim(db, rows, stats)
     # participation check: units the database already links to the battle (or its siege)
     lines = []
     for bk, rr in sorted(rows.items()):
         ename = BATTLES[bk][0] if bk in BATTLES else rr[0]["battle"]
+        if bk == "antietam_aotw":
+            linked[bk] = linked.get("antietam", set())
         us = {r["unit_id"] for r in rr}
         lk = linked.get(bk, set())
         with open(out / f"{bk}_positions.jsonl", "w", encoding="utf-8") as f:

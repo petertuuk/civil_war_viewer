@@ -376,7 +376,7 @@ def main(proj, db_path):
     #            battle_monuments.py; each row names its source: osm (default), npgallery, shiloh_arcgis) ----------
     S_BP = {}
     BY = {"osm": "osm:battle_positions_v1", "npgallery": "npgallery:battle_monuments_v1", "shiloh_arcgis": "arcgis:battle_monuments_v1",
-          "ga_markers": "claude:battle_monuments_ga_markers_v1"}
+          "ga_markers": "claude:battle_monuments_ga_markers_v1", "aotw": "aotw:battle_monuments_maps_v1"}
     for bp in sorted((P / "data/battles").glob("*_positions.jsonl")) if (P / "data/battles").exists() else []:
         for l in open(bp, encoding="utf-8"):
             r = json.loads(l)

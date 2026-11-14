@@ -15,7 +15,7 @@ import hashlib, json, os, re, sys
 from pathlib import Path
 
 ROOT = Path.cwd()
-ORDER = ["units", "dyers", "events", "links", "or", "datelines", "db_build", "db_finish", "checks", "war"]
+ORDER = ["units", "dyers", "events", "links", "or", "datelines", "db_build", "db_finish", "checks", "war", "review"]
 STAMPS = ROOT / ".rebuild_stamps.json"
 CACHE = Path.home() / ".cache" / "cwv_stamps"
 DB = Path(os.environ.get("DB", str(Path.home() / "db" / "civil_war.db")))

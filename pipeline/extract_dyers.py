@@ -366,8 +366,13 @@ def fix_order(claims):
 
 
 # ------------------------------------------------------------------ main extraction
+MONTH_DOT_YEAR = re.compile(r"\b(January|February|March|April|May|June|July|August|September|October|November|December)\. (18[56]\d)\b")
+
+
 def extract(unit):
-    text = unit["text"]
+    # 'Ordered to Dept. of the Gulf March. 1864': a comma OCR read as a period (131 times in Part III). Read as
+    # 'March. 18' it gave the day 18 and lost the year, so a whole year of service stayed a year early (11th NY Cavalry).
+    text = MONTH_DOT_YEAR.sub(r"\1, \2", unit["text"])
     pre, attach, service, losses = split_sections(text)
     years = YearTracker()
     claims = []
