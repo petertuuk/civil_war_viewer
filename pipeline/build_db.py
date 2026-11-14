@@ -372,24 +372,36 @@ def main(proj, db_path):
             n["part_of " + o["source"]] += 1
             n["part_of preferred"] += int(o["preferred"])
 
-    # ---------- positions inside battles: monuments and markers (data/battles/*_positions.jsonl, battle_positions.py) ----------
-    S_OSM = None
+    # ---------- positions inside battles: monuments and markers (data/battles/*_positions.jsonl: battle_positions.py,
+    #            battle_monuments.py; each row names its source: osm (default), npgallery, shiloh_arcgis) ----------
+    S_BP = {}
+    BY = {"osm": "osm:battle_positions_v1", "npgallery": "npgallery:battle_monuments_v1", "shiloh_arcgis": "arcgis:battle_monuments_v1",
+          "ga_markers": "claude:battle_monuments_ga_markers_v1"}
     for bp in sorted((P / "data/battles").glob("*_positions.jsonl")) if (P / "data/battles").exists() else []:
-        if S_OSM is None:
-            S_OSM = source("OpenStreetMap contributors: battlefield monuments and markers", "website",
-                           "Overpass extract of historic=memorial|monument features (pipeline/battle_positions.py)",
-                           "https://www.openstreetmap.org/copyright", 0, "ODbL 1.0: attribute OpenStreetMap contributors")
         for l in open(bp, encoding="utf-8"):
             r = json.loads(l)
+            sk = r.get("source", "osm")
+            if sk not in S_BP:
+                if sk == "osm":
+                    S_BP[sk] = source("OpenStreetMap contributors: battlefield monuments and markers", "website",
+                                      "Overpass / OSM API extract of historic=memorial|monument features (pipeline/battle_positions.py, battle_monuments.py)",
+                                      "https://www.openstreetmap.org/copyright", 0, "ODbL 1.0: attribute OpenStreetMap contributors")
+                else:
+                    import battle_monuments
+                    t, u, pd, note = battle_monuments.SRC[sk]
+                    S_BP[sk] = source(t, "website", "pipeline/battle_monuments.py", u, pd, note)
             cur.execute("INSERT INTO place(display_name, kind, lat, lon, precision_m, notes) VALUES (?,?,?,?,?,?)",
-                        (r["source_span"], "other", r["lat"], r["lon"], r["precision_m"], f"monument/marker {r['osm']} ({r['battle']})"))
+                        (r["source_span"][:200], "other", r["lat"], r["lon"], r["precision_m"], f"monument/marker {r['osm']} ({r['battle']})"))
             pid = cur.lastrowid
-            prec = "day"
-            claim("unit_at", S_OSM, r["source_span"], 0.85 if r["kind"] != "brigade" else 0.6, "osm:battle_positions_v1",
-                  r["osm"], "claim_unit_at", unit_mention=r["source_span"], unit_id=unit_of(r["unit_key"]), place_mention=r["source_span"],
+            by = BY[sk] if "source" in r or sk != "osm" else BY["osm"]
+            if "source" in r and sk == "osm":
+                by = "osm:battle_monuments_v1"
+            conf = 0.5 if r["kind"] == "division" else 0.6 if r["kind"] == "brigade" else 0.8 if r.get("role") == "camp" else 0.85
+            claim("unit_at", S_BP[sk], r["source_span"], conf, by,
+                  r.get("ref") or r["osm"], "claim_unit_at", unit_mention=r["source_span"], unit_id=unit_of(r["unit_key"]), place_mention=r["source_span"],
                   place_id=pid, presence="present", portion="whole", date_start=r["date_start"], date_end=r["date_end"],
-                  date_precision=prec)
-            n["battle positions (monuments)"] += 1
+                  date_precision="day")
+            n["battle positions (monuments): " + sk] += 1
 
     # ---------- manual / uploaded claims (data/manual/*.json, generated data/derived/*.json; see manual_claims.py) ----------
     import manual_claims

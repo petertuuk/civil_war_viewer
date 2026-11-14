@@ -321,7 +321,7 @@ def main(dbp, outdir):
         loc, by = loc or "", by or ""
         how = ("order of battle" if "or_org" in by or "oob" in by else "letter heading" if "datelines" in by else
                "station list" if "stations" in by else "units engaged" if "nps_battle" in by else
-               "battle list" if "infobox" in by else "monument" if "osm:" in by else "brigade record" if "brigade" in by else "")
+               "battle list" if "infobox" in by else "monument" if ("osm:" in by or "battle_monuments" in by) else "brigade record" if "brigade" in by else "")
         if k == "compendium":
             txt = "Dyer's Compendium" + (", " + loc if loc.startswith("p.") else "")
         elif k == "official_records":
@@ -337,6 +337,11 @@ def main(dbp, outdir):
             txt = t
         if how and how not in txt:
             txt += " (" + how + ")"
+        if how == "monument":                      # link to the monument's own record
+            if loc.startswith("http"):
+                u = loc
+            elif __import__("re").match(r"(node|way|relation)/\d+$", loc):
+                u = "https://www.openstreetmap.org/" + loc
         if by.endswith(":namesake"):
             txt += "; regiment number shared, resolved by brigade"
         key = (txt, u or "")

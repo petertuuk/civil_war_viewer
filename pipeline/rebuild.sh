@@ -44,7 +44,8 @@ for s in $stages; do
       python3 pipeline/extract_nps_histories.py data/nps/units.jsonl data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/derived/nps_confederate_histories.json | tail -1
       python3 pipeline/extract_state_histories.py data/external/state_histories data/events/events.jsonl data/external/acw_battle_data/nps_units.csv data/derived/state_histories.json data/scores/state_histories_report.txt | tail -1
       python3 pipeline/nps_battles_to_claims.py data/external/acw_battle_data $W data/scores/dyer_to_nps.csv data/events data/nps/claims_nps_battles.jsonl | tail -1
-      python3 pipeline/check_confederate.py data/or/claims_or.jsonl data/events data/external/acw_battle_data data/nps/units.jsonl data/scores/confederate_check.txt | tail -1 ;;
+      python3 pipeline/check_confederate.py data/or/claims_or.jsonl data/events data/external/acw_battle_data data/nps/units.jsonl data/scores/confederate_check.txt | tail -1
+      [ -f ~/db/civil_war.db ] && python3 pipeline/battle_monuments.py ~/db/civil_war.db data/external/battles data/battles data/scores/battle_monuments.txt | head -8 || echo "battle_monuments skipped: no database yet" ;;
     datelines)   # ~105 s: run it alone
       [ -d ~/or/txt ] && python3 pipeline/or_datelines.py ~/or/txt data/or/volumes.json data/or/placements.jsonl data/or/tables.jsonl data/places/geocoded.csv data/external/gnis/gnis_index.tsv data/external/acw_battle_data/nps_units.csv data/or/datelines.jsonl data/derived/or_datelines.json | tail -1 || echo "or_datelines skipped: no OR texts in ~/or/txt (kept data/derived/or_datelines.json)"
       [ -f ~/db/civil_war.db ] && python3 pipeline/validate_datelines.py ~/db/civil_war.db data/derived/or_datelines.json | head -6 ;;
