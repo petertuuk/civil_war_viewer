@@ -111,9 +111,9 @@ body { background: var(--land); color: var(--ink); font: 14px/1.4 var(--body); o
 .lbl.big { font-weight: 600; color: var(--ink); }
 .ulbl { font: 600 10.5px var(--display); white-space: nowrap; pointer-events: none;
   text-shadow: 0 0 3px var(--land), 0 0 3px var(--land), 0 0 3px var(--land); }
-.ev { font: 600 12px var(--display); color: var(--event); white-space: nowrap; pointer-events: none;
+.ev { font: 600 12px var(--display); color: var(--event); white-space: nowrap; pointer-events: none; text-align: center; line-height: 13px;
   text-shadow: 0 0 3px var(--land), 0 0 3px var(--land), 0 0 3px var(--land); }
-.ev::before { content: "\2605 "; }
+.ev::after { content: "\2605"; display: block; line-height: 12px; }   /* the star sits on the battle point, under the centered name */
 #find { position: relative; }
 #q { width: 100%; box-sizing: border-box; font: 13px var(--body); color: var(--ink); background: transparent; border: 1px solid var(--line);
   border-radius: 4px; padding: 5px 8px; }
@@ -315,7 +315,7 @@ function placeEvents(day, Y) {
   const b = map.getBounds(), z = map.getZoom();
   Y.events.filter(e => e[2] <= day && day <= e[3] && e[6] >= (z < 6 ? 25 : 5) && b.contains([e[5] / 1e4, e[4] / 1e4])).sort((a, c) => c[6] - a[6]).slice(0, 10).forEach(e => {
     const el = document.createElement("div"); el.className = "ev"; el.textContent = e[1];
-    evMarkers.push(new maplibregl.Marker({element: el, anchor: "bottom", offset: [0, -6]}).setLngLat([e[5] / 1e4, e[4] / 1e4]).addTo(map));
+    evMarkers.push(new maplibregl.Marker({element: el, anchor: "bottom", offset: [0, 6]}).setLngLat([e[5] / 1e4, e[4] / 1e4]).addTo(map));
   });
 }
 // map labels use a short name ("102nd New York", "1st Ohio Battery L"); the full name is in the unit's panel

@@ -10,6 +10,9 @@ from shapely.geometry import box, mapping, shape
 from shapely.ops import unary_union
 
 
+# Dyer's period spellings -> the name used today, for the map's town labels
+DISPLAY_NAMES = {"Mission Ridge": "Missionary Ridge"}
+
 def main(ne, bbox, geocoded, out, tol="0.004"):
     ne = Path(ne)
     W, S, E, N = map(float, bbox.split(","))
@@ -44,7 +47,7 @@ def main(ne, bbox, geocoded, out, tol="0.004"):
             continue
         lat, lon = float(r["lat"]), float(r["lon"])
         if W <= lon <= E and S <= lat <= N and int(float(r["precision_m"] or 9e9)) <= 3000:
-            towns.append((int(r["mentions"]), r["name"], lat, lon))
+            towns.append((int(r["mentions"]), DISPLAY_NAMES.get(r["name"], r["name"]), lat, lon))
     towns.sort(reverse=True)
     layers["towns"] = [{"type": "Feature", "properties": {"name": n, "mentions": m},
                         "geometry": {"type": "Point", "coordinates": [round(lo, 4), round(la, 4)]}} for m, n, la, lo in towns[:int(__import__("os").environ.get("TOWNS", "400"))]]
