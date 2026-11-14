@@ -52,7 +52,7 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from geocode import forms, SAME  # noqa: E402
+from geocode import forms, SAME, generic_dropped  # noqa: E402
 from common import km, day_num as day, D0, gnis_by_name, too_fast  # noqa: E402
 from gnis_index import norm  # noqa: E402
 
@@ -145,6 +145,8 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
         if norm(re.sub(r"\(.*?\)", " ", name)).strip() in STATE_NAMES:
             return []                           # "Arkansas", "Maine": the state, not a town named after it
         for f in forms(name):
+            if generic_dropped(name, f):
+                continue                        # "Harrison's Landing" is not any town called Harrison
             for s, a, b, cl in G.get(f, []):
                 if sts is not None and s not in sts:
                     continue
@@ -365,7 +367,10 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
                 print("DBG", m.get("date"), m["raw"], m.get("state_source"), g.get("lat"), [ (os_[x][0], os_[x][1], os_[x][4][0][1:3]) for x in pa+na], o[0], margin, reach_ok, len(C[i]))
             # only geocode.py's pooled 'context' medians: a lone GNIS namesake that is impossible here is as often right
             # with a wrongly matched event as the anchor (Duvall's Bluff vs "Jonesboro"); those wait for the gazetteer
-            cur_bad = g.get("method") == "context" and m["place_key"].endswith("|?") and bool(g.get("lat")) and impossible((float(g["lat"]), float(g["lon"])))
+            # ... and a GNIS place for a state the text never wrote ("At Burkesville" after Appomattox took Burkesville,
+            # Ky., the state other units wrote; 2026-11-14)
+            pooled = (g.get("method") == "context" and m["place_key"].endswith("|?")) or bool(m.get("guess"))
+            cur_bad = pooled and bool(g.get("lat")) and impossible((float(g["lat"]), float(g["lon"])))
             def detach(why):
                 stats[why] += 1
                 out.append({"unit": unit, "date": m.get("date"), "raw": m["raw"], "place_key": m["place_key"],
@@ -376,19 +381,20 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
             # a point near Petersburg); for a mention no candidate settles, the median of this unit's own clear
             # positions within 30 days is the better estimate (25 km precision, like the pooled one)
             def local(why):
-                if g.get("method") != "context" or not m["place_key"].endswith("|?"):
-                    return False                 # a key with a state ("harrisons landing|VA") pools one real place
+                if not pooled or (g.get("method") != "context" and not cur_bad):
+                    return False                 # a key with a written state ("harrisons landing|VA") pools one real place;
+                                                 # a GNIS place for an unwritten state is replaced only when impossible
                 near = [os_[x][4][0][1:3] for x in anchors
                         if max(0, os_[x][0] - o[0], o[0] - os_[x][1]) <= 30 and not impossible(os_[x][4][0][1:3])]
                 if not near:
                     return False
                 la = sorted(p_[0] for p_ in near)[len(near) // 2]; lo = sorted(p_[1] for p_ in near)[len(near) // 2]
                 stats[why] += 1
-                moved = km((float(g["lat"]), float(g["lon"])), (la, lo))
+                moved = km((float(g["lat"]), float(g["lon"])), (la, lo)) if g.get("lat") else None
                 out.append({"unit": unit, "date": m.get("date"), "raw": m["raw"], "place_key": m["place_key"],
                             "name": m["name"], "state": None, "lat": round(la, 5), "lon": round(lo, 5),
                             "precision_m": 25000, "class": "unit_context", "margin": round(min(margin, 99), 2),
-                            "candidates": len(C[i]), "was": "context", "moved_km": round(moved)})
+                            "candidates": len(C[i]), "was": g.get("method") or "none", "moved_km": None if moved is None else round(moved)})
                 return True
             if margin < MARGIN and not (pa and na and dev <= ROUTE_NEAR and margin >= MARGIN / 4
                                         and all(km(route, c[1:3]) >= ROUTE_FAR for c in rv)):

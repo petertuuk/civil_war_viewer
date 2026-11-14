@@ -153,7 +153,10 @@ def main(pl_path, tables_path, d2n_path, events_dir, out_path):
             n["commanded"] += 1
         if r["table_id"] in table_event:
             phrase, eid = table_event[r["table_id"]]
-            out.write(json.dumps(dict(base, claim_type="participated", event_mention=phrase, event_id=eid), ensure_ascii=False) + "\n")
+            if r.get("detached"):
+                n["participated skipped: command detached (table footnote)"] += 1
+            else:
+                out.write(json.dumps(dict(base, claim_type="participated", event_mention=phrase, event_id=eid), ensure_ascii=False) + "\n")
             n["participated"] += 1
             n["participated linked" if eid else "participated unlinked"] += 1
         n["placements with a unit id" if uid else "placements without a unit id"] += 1

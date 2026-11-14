@@ -120,9 +120,26 @@ def main(proj, db_path):
     # ---------- events ----------
     ev_id = {}
     events = [json.loads(l) for l in open(P / "data/events/events.jsonl", encoding="utf-8")]
+    # one name, several events on different dates ('Battle of Secessionville' was both the June 1862 battle and
+    # Dyer's 'Secessionville July 16 [1863]', the Grimball's Landing action): all but the main one (Wikidata, then most
+    # regiments) carry their date in the name
+    _by = {}
+    for e in events:
+        _by.setdefault(e["name"], []).append(e)
+    shown = {}
+    for nm, es in _by.items():
+        if len({x.get("date_start") for x in es}) < 2:
+            continue
+        main_e = max(es, key=lambda x: (bool(x.get("wikidata")), x.get("regiments") or 0))
+        for x in es:
+            ds = x.get("date_start") or ""
+            if x is main_e or len(ds) < 7:
+                continue
+            mon = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][int(ds[5:7]) - 1]
+            shown[x["event_id"]] = f"{nm} ({mon} {int(ds[8:10])}, {ds[:4]})" if len(ds) >= 10 else f"{nm} ({mon} {ds[:4]})"
     for e in events:
         cur.execute("INSERT INTO event(kind, display_name, notes) VALUES (?,?,?)",
-                    (EVENT_KIND.get((e.get("kind") or "").lower(), "other"), e["name"],
+                    (EVENT_KIND.get((e.get("kind") or "").lower(), "other"), shown.get(e["event_id"], e["name"]),
                      f"{len(e['clusters'])} Dyer's clusters; {e['regiments']} regiments; {e['mentions']} mentions"))
         ev_id[e["event_id"]] = eid_ = cur.lastrowid
         add_x("event", eid_, "pipeline_event", e["event_id"])
@@ -378,8 +395,34 @@ def main(proj, db_path):
     BY = {"osm": "osm:battle_positions_v1", "npgallery": "npgallery:battle_monuments_v1", "shiloh_arcgis": "arcgis:battle_monuments_v1",
           "ga_markers": "claude:battle_monuments_ga_markers_v1", "aotw": "aotw:battle_monuments_maps_v1"}
     for bp in sorted((P / "data/battles").glob("*_positions.jsonl")) if (P / "data/battles").exists() else []:
-        for l in open(bp, encoding="utf-8"):
-            r = json.loads(l)
+        rows_bp = [json.loads(l) for l in open(bp, encoding="utf-8")]
+        # a brigade marker matched by commander surname takes namesake brigades too ('CS Robertson NC Cavalry
+        # Brigade' gave Beverly Robertson's cavalry marker to Jerome Robertson's 4th Texas, and back): when one marker's
+        # units mix branches or states, keep those its own text names
+        grp = {}
+        for r in rows_bp:
+            grp.setdefault((r.get("osm"), r.get("source_span")), []).append(r)
+        drop = set()
+        STW = {"AL": "Alabama|Ala", "AR": "Arkansas|Ark", "FL": "Florida|Fla", "GA": "Georgia|Ga", "LA": "Louisiana|La",
+               "MS": "Mississippi|Miss", "NC": r"North Carolina|N\.? ?C", "SC": r"South Carolina|S\.? ?C",
+               "TN": "Tennessee|Tenn", "TX": "Texas|Tex", "VA": "Virginia|Va", "MD": "Maryland|Md", "KY": "Kentucky|Ky"}
+        for (_, txt), rs in grp.items():
+            codes = [(r, (r.get("unit_key") or "")[4:]) for r in rs if (r.get("unit_key") or "").startswith("nps:")]
+            if len(codes) < 2 or not txt:
+                continue
+            br = lambda c: "cav" if c[7:9] in ("RC", "BC") or c[7:8] == "C" and c[8:9] == "" else ("inf" if "RI" in c[7:9] else "other")
+            kinds = {br(c) for _, c in codes}
+            if {"cav", "inf"} <= kinds:
+                want = "cav" if re.search(r"\bcav", txt, re.I) else "inf"
+                drop |= {id(r) for r, c in codes if br(c) in ("cav", "inf") and br(c) != want}
+            sts = {c[1:3] for _, c in codes}
+            named = [st for st, rx in STW.items() if re.search(rf"\b(?:{rx})\b", txt)]
+            if len(sts) > 1 and len(named) == 1 and named[0] in sts:
+                drop |= {id(r) for r, c in codes if c[1:3] != named[0]}
+        n["battle positions dropped: marker names another branch or state"] += len(drop)
+        for r in rows_bp:
+            if id(r) in drop:
+                continue
             sk = r.get("source", "osm")
             if sk not in S_BP:
                 if sk == "osm":

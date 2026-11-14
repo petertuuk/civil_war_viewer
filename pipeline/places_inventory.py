@@ -124,7 +124,18 @@ def places_of(mention):
         if len(items) > 1 and items[-1][1] and not any(it[1] for it in items[:-1]):
             items = [(n, items[-1][1], "list") if n.lower() not in FULL else (n, st, src) for n, st, src in items[:-1]] + items[-1:]
         out += [it for it in items if it[0]]
-    return out
+    # a state named inside the place name is its state ("Middle Tennessee", "East Tennessee", "New York City"):
+    # without this, an unwritten state was taken from the unit's last place (Middle Tennessee, Ala.)
+    fixed = []
+    for n, st, src in out:
+        if not st:
+            m = re.search(r"\b(?:middle|east|eastern|west|western|north|northern|south|southern|central)\s+([a-z ]+?)$|"
+                          r"^(new york) city$", n.lower())
+            k = m and (m.group(1) or m.group(2))
+            if k and k.strip() in FULL:
+                st, src = FULL[k.strip()], "explicit"
+        fixed.append((n, st, src))
+    return fixed
 
 
 def classify(name, state):

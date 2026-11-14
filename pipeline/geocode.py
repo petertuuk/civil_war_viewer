@@ -21,7 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from gnis_index import norm  # noqa: E402
-from common import km, gnis_rows  # noqa: E402
+from common import km, gnis_rows, in_state  # noqa: E402
 
 SPELL = {"sumpter": "sumter", "colliersville": "collierville", "moorefleld": "moorefield", "spottsylvania": "spotsylvania",
          "kenesaw": "kennesaw", "chattahoochie": "chattahoochee", "opequan": "opequon", "fortress monroe": "fort monroe",
@@ -47,6 +47,20 @@ TOWNISH = {"Populated Place", "Military", "Civil"}
 RANK = {"Populated Place": 0, "Military": 1, "Crossing": 1, "Gap": 2, "Summit": 2, "Civil": 3, "Ridge": 3, "Stream": 4}
 
 
+GENERIC = re.compile(r"\b(station|landing|depot|cross roads|plantation|farm|house|tavern|store|church|mills?|road|pike|"
+                     r"turnpike|heights|bridge)\b")
+
+
+def generic_dropped(name, f):
+    """True when the matched form f is the name with its feature word removed ("Harrison's Landing" -> "harrison"):
+    such a match is a different place unless it is right where the regiments were."""
+    n = norm(re.sub(r"\(.*?\)", " ", name))
+    if re.search(r"\b(station|depot)\b", n):
+        return False                            # stations are named for their towns (Bealeton Station, Bealeton)
+    return bool(GENERIC.search(n)) and re.sub(r"\s+", " ", GENERIC.sub("", n)).strip() == f and \
+        not any(re.sub(r"\s+", " ", x).strip() == f for x in (n, re.sub(r"\bcourt house\b", "", n)))
+
+
 def forms(name):
     """Cleaned forms of a Dyer's place name to try against GNIS, best first."""
     n = norm(re.sub(r"\(.*?\)", " ", name))
@@ -58,7 +72,7 @@ def forms(name):
     if "court house" not in n:
         out.append(n + " court house")
     out.append(re.sub(r"\b(\w+)s\b(?= (ford|ferry|mill|mills|store|tavern|church|cross roads|station|landing|gap|farm|house|bluff|island|plantation|creek|run))", r"\1", n))
-    out.append(re.sub(r"\b(station|landing|depot|cross roads|plantation|farm|house|tavern|store|church|mills?|road|pike|turnpike|heights|bridge)\b", "", n).strip())
+    out.append(GENERIC.sub("", n).strip())
     out.append(re.sub(r"^ft\b", "fort", n)); out.append(re.sub(r"^fort\b", "ft", n))
     out.append(re.sub(r"\bmt\b", "mountain", n))
     seen, res = set(), []
@@ -171,7 +185,16 @@ def main(places_dir, gnis_path, events_dir):
                 lim = 150
                 if best[3] in TOWNISH and best[0] == p["state"]:
                     lim = 500 if len(towns) == 1 else 300
+                if generic_dropped(p["name"], f):
+                    lim = 75                           # Harrison's Landing, Va. is not Harrison, Brunswick Co.
+                    if not ctx:
+                        continue
                 far = ctx and km(ctx, (best[1], best[2])) > lim
+                # the regiments were away from home: a context outside the stated state says nothing about which
+                # namesake in the state is meant (Boston, Mass. was rejected for being far from Virginia)
+                if far and p["state"] and not generic_dropped(p["name"], f) and in_state(p["state"], ctx[0], ctx[1]) is False and \
+                        in_state(p["state"], best[1], best[2]) is not False:
+                    far = False
                 if far and nctx >= 2:
                     stats["gnis rejected: far from context"] += 1 if rnd == 2 else 0
                     if rnd < 2:
@@ -183,7 +206,8 @@ def main(places_dir, gnis_path, events_dir):
                                   detail=f"{best[6]} ({best[3]}, {best[4]} Co., {best[0]}; GNIS {best[5]}{'; variant' if best[7] == 'variant' else ''}; {len(cs)} candidates; matched '{f}')")
                     loc[k] = (best[1], best[2])
                     continue
-            if rnd == 2 and ctx and nctx >= 2 and p["kind"] == "point":
+            if rnd == 2 and ctx and nctx >= 2 and p["kind"] == "point" and \
+                    in_state(p["state"], ctx[0], ctx[1]) is not False:     # never outside the stated state
                 out[k] = dict(lat=round(ctx[0], 5), lon=round(ctx[1], 5), method="context", precision_m=25000,
                               detail=f"median of {nctx} places the same regiments were at within 30 days")
                 loc[k] = ctx

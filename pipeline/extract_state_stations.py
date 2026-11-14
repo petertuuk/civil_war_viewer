@@ -87,6 +87,10 @@ NOTP2 = re.compile(r"^(?:Gen|Col|Capt|Lieut|Maj|Major|Colonel|General|Captain|Li
 NOTP3 = re.compile(r"\b(?:County|Counties|Parish|River|Creek|Road|Pike|Turnpike|Railroad|R\. ?R|Mountain|Mountains|Ridge|Valley|Hill|"
                    r"Brigade|Division|Corps|Army|Regiment|Battalion|Department|District|Line|Lines|Front|Mills?)$")
 SKIP = re.compile(r"\b(?:companies? [A-K]\b|company [a-z]+ (?:was|were)|detachment|detail|detached|section|squad|heard|news|"
+                  # 'the Confederacy of Southern States, organized at Montgomery' (Clark, 26th N.C.): a government, a
+                  # convention or a school class is the subject, not the regiment
+                  r"Confedera(?:cy|te (?:States|government|Congress))|government|convention|legislature|Congress|"
+                  r"Military Institute|graduated|"
                   r"rumou?r|reported that|prisoners?|captured|exchanged|paroled|hospital|furlough|sick)\b", re.I)
 ENEMY_SUBJ = re.compile(r"\b(?:enemy|federals?|yankees?|union (?:army|forces|troops)|[A-Z][a-z]+'s (?:army|corps|cavalry)|"
                         r"Grant|Sherman|Thomas|Rosecrans|Buell|McClellan|Burnside|Hooker|Meade|Sheridan|Schofield|McPherson|"

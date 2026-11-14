@@ -42,19 +42,25 @@ UNIT_LOST = re.compile(r"(?:Regiment|Battery|Company|Battalion|Squadron|Detachme
 
 MOVE_WORDS = ("moved to", "move to", "ordered to", "march to", "marched to", "movement to", "return to", "returned to",
               "sent to", "proceeded to", "embarked for", "to ", "thence to", "and to", "advance to", "retreat to")
-DEPART_WORDS = ("left state for", "left for", "started for")
+DEPART_WORDS = ("left state for", "left for", "started for", "left ")   # 'Left Boston on Steamer "De Molay" for Hilton Head'
+
 DUTY_WORDS = ("assigned to", "duty at", "duty in", "duty on", "duty near", "duty along", "at ", "garrison", "provost", "guard ",
               "camp at", "camp near", "in camp", "post duty", "on line of", "picket", "railroad guard",
-              "garrison duty", "occupation of", "winter quarters")
+              "garrison duty", "occupation of", "winter quarters", "stationed")
 PORTION_RE = [(re.compile(r"\bnon-?veterans?\b", re.I), "non_veterans"),
               (re.compile(r"\bveterans on furlough\b", re.I), "veterans"),
               (re.compile(r"\bdetachments?\b", re.I), "detachment"),
-              (re.compile(r"\bCos?\.\s*\"?[A-M]\"?", re.I), "companies")]
+              (re.compile(r"\bCos?\.\s*\"?[A-M]\"?", re.I), "companies"),
+              # 'Companies "B" and "G" moved to Fort Ridgly' / 'Company "A" moved to Fort Ripley' (1st Minnesota's
+              # frontier forts were filed as the whole regiment)
+              (re.compile(r"\bCompan(?:y|ies)\s+\"?[A-M]\b", re.I), "companies"),
+              (re.compile(r"^(?:one|two|three|four|five|six|seven|eight|nine|\d)\s+compan(?:y|ies)\b", re.I), "companies")]
 
 
 # ------------------------------------------------------------------ dates
 import os
 USE_TILL = os.environ.get('DY_TILL', '0') == '1'
+TILL_YEAR = os.environ.get('DY_TILL_YEAR', '0') == '1'   # tested 2026-11-14: 18 units worse, 5 better
 USE_PAREN = os.environ.get('DY_PAREN', '1') == '1'   # 'till' context (off) made 66 more wrong years than it fixed
 
 
@@ -63,6 +69,10 @@ class YearTracker:
     def __init__(self, year=None):
         self.year, self.month, self.rolled = year, None, False
         self.mark_till, self.till_ctx = False, None
+        self.is_till = False     # the date being read ends a 'till' stay: it lies after the running date
+        self.floor = None        # (year, month) of muster-in: nothing in the service list is before it
+        self.last_item = None    # (year, month) where the previous item of the list ended
+        self.misprints = 0
 
     def resolve(self, month, year, is_start=True):
         if is_start:
@@ -83,11 +93,21 @@ class YearTracker:
         if is_start and not self.mark_till:
             self.till_ctx = None
         pre = (self.year, self.month)
+        if year and year < 1861:
+            self.misprints += 1          # 'Mustered out July 1, 1860' (188th New York)
+            year = None
         if year:
             self.year = year
         elif self.year and self.month and month < self.month:
             if not is_start:
                 self.year += 1                   # a range that wraps the year: December 26 to January 5
+            elif self.is_till and self.month - month >= 5:
+                # 'Battle of Fredericksburg, Va., December 12-15. At Falmouth till April 27.': a stay ends after it
+                # began, so an earlier month is next year (only Dec -> Jan-Mar rolled before; the 72nd New York's
+                # 1863 stayed in 1862 and its review card offered no right answer). Only a long way back: a till date a
+                # few months back is a stay inside the item before ('Red River Campaign March 23-May 22. At Alexandria
+                # till April 12'); tested 2026-11-14 with 5 months
+                self.year += 1
             else:
                 if self.month >= 10 and month <= 3:
                     self.year += 1               # Dec ... Jan with no year written
@@ -143,10 +163,24 @@ def parse_date(expr, years):
 
 
 # ------------------------------------------------------------------ text helpers
+# 'Moved to Folly Island, S. C. Expedition to James Island': a period closing a state name is also a sentence end when
+# an item of the service list starts next ('Kingston, Ga. March to the sea' was read as one place)
+STATE_END = re.compile(r"(?:\b(?:Va|Md|Ky|Mo|Ga|Ala|Tenn|Miss|Ark|Tex|La|Pa|Mich|Ill|Ind|Wis|Minn|Kan|Neb|Fla|Cal|Mass|"
+                       r"Conn|Del|Colo|Ariz|Ter)|\b[DSN]\. ?C)\.$")
+ITEM_START = re.compile(r"(?:Duty|March|Moved?|Movement|Ordered|Expeditions?|Battles?|Siege|Skirmish(?:es)?|Actions?|"
+                        r"Engagements?|Occupation|Pursuit|Advance|Operations?|Garrison|Guard(?:ing)?|Scout(?:ing)?|Raid|"
+                        r"Reconn?oissances?|Attack|Assault|Capture|Surrender|Mustered|Provost|Camp|Stationed|Refitting|"
+                        r"Defen[cs]es?|Assigned|Attached|Relieved|Detached|Returned?|Retreat|Sent|Proceeded|Embarked|"
+                        r"Regiment|Headquarters|Picket|Rejoined|Joined|Operating|Left|Veterans|Non-veterans)\b")
+
+
 def split_sentences(s):
     """Split on '. ' followed by a capital, unless the period closes an abbreviation."""
     out, buf = [], ""
     for piece in re.split(r"(?<=\.)\s+(?=[A-Z(\"])", s):
+        if buf and STATE_END.search(buf) and ITEM_START.match(piece):
+            out.append(buf)
+            buf = ""
         buf = f"{buf} {piece}".strip() if buf else piece
         if not ABBREV_END.search(buf):
             out.append(buf)
@@ -220,11 +254,23 @@ def move_legs(place):
     return legs[:-1] + vias + legs[-1:]
 
 
+# 'Lookout Mountain building hospitals, running mills, etc.' / 'Memphis, Tenn., arriving there' / 'Fort Delaware during
+# entire service': what the unit did there is not part of the place
+PLACE_TAIL = re.compile(r",?\s+(?:engaged|employed|under orders|for (?:special |provost |garrison )?duty|for muster|"
+                        r"[a-z]{3,}ing)\b.*$")
+
+
 def place_from(desc):
     d = clean_desc(desc)
+    mj = re.search(r"\b(?:re)?join(?:ed)?\b[^.;]*?\bat\s+([A-Z].+)$", d)    # '..., and joined Brigade at Cold Harbor, Va'
     m = re.search(r"\b(?:to|for|at|in|near|on line of|along|of)\s+(.+)$", d)
-    p = m.group(1) if m else d
+    p = mj.group(1) if mj else (m.group(1) if m else d)
+    mj = re.match(r"(?:join(?:ed)?|report(?:ed)?)\b.*?\bat\s+(.+)$", p, re.I)    # 'to join 14th Army Corps at Kingston, Ga'
+    if mj:
+        p = mj.group(1)
     p = re.sub(r"\s+(?:till|until)$", "", p)
+    p = PLACE_TAIL.sub("", p)
+    p = re.sub(r"[,\s]+(?:and|or)$", "", p)
     return p.strip(" ,.")
 
 
@@ -238,6 +284,21 @@ def split_sections(text):
     att = re.search(r"\bAt-?\s*tached\s+to\b|\bAttached\s+to\b|\bServed\s+(?:Unattached|unattached)", head)
     pre, attach = (head[:att.start()], head[att.start():]) if att else (head, "")
     return pre, attach, service, losses
+
+
+def _shift(a, n):
+    from datetime import timedelta
+    return (date.fromisoformat(a) + timedelta(days=n)).isoformat()
+
+
+def _gap_days(a, b):
+    """Days from the end a to the start b (ISO day or month strings); 0 when unknown."""
+    try:
+        da = date.fromisoformat(a if len(a) == 10 else a + "-28")
+        db = date.fromisoformat(b if len(b) == 10 else b + "-01")
+        return (db - da).days
+    except (TypeError, ValueError):
+        return 0
 
 
 def items_from(text, years, base_conf=0.8):
@@ -275,9 +336,22 @@ def items_from(text, years, base_conf=0.8):
         elif depth <= 0 and saved is not None:
             years.year, years.month = saved
             saved = None
-        years.mark_till = till and USE_TILL
+        # 'duty guarding Upper Potomac till February, 1862. Operations about Ball's Bluff October 11-23': a till date
+        # with its year printed spans months, and the next item inside that span belongs to its first year (1st
+        # Minnesota's Ball's Bluff was dated 1862, and a year error ran on to Fredericksburg). Unprinted till years
+        # stay off (DY_TILL: that version made more wrong years than it fixed).
+        years.is_till = till
+        years.mark_till = till and (USE_TILL or (TILL_YEAR and bool(re.search(YEAR, expr))))
         parsed = parse_date(expr, years)
         years.mark_till = False
+        years.is_till = False
+        if parsed and len(parsed[1]) >= 7:
+            years.last_item = (int(parsed[1][:4]), int(parsed[1][5:7]))
+        if last.lower() in ("and", "") and items and parsed and items[-1].get("date") and \
+                _gap_days(items[-1]["date"][1], parsed[0]) > 3:
+            # 'Malvern Hill July 1 and August 5': two actions at one place, not a five-week battle
+            items.append({**items[-1], "date": parsed, "date_text": expr})
+            continue
         if last.lower() in ("and", "") and items and parsed and items[-1].get("date"):
             d0, _, prec = items[-1]["date"]           # 'December 30-31, 1862, and January 1-3, 1863'
             items[-1]["date"] = (d0, parsed[1], prec)
@@ -381,6 +455,53 @@ def extract(unit):
         claims.append({"unit_id": unit["id"], "claim_type": ctype, "source_span": span,
                        "page": unit["page_start"], "confidence": round(conf, 2), **detail})
 
+    home = None        # the organization place (in the State a 'Left State for ...' leaves)
+    last = None        # the last place named, for 'duty there' and 'Mustered out'
+    last_d = None
+
+    def add_unit_at(span, conf, place, presence, portion, d0, d1, prec, note, **extra):
+        """'Left State for Louisville, Ky., September 12' says where the regiment was going, not where it was on
+        that day: the destination is kept undated (it was not reached that day), and the day is placed at the
+        regiment's last place before leaving (its organization place, for a first departure)."""
+        nonlocal home, last, last_d
+        # 'duty there', 'arriving there', 'Mustered out': no place of their own; they are at the last place named
+        # (2,058 'there' and 2,160 'Mustered out' claims had no place). Lowercase-only text before the first place
+        # ('The first Regiment tendered to the government') is not a place at all.
+        if place and re.fullmatch(r"[\d\s,]*(?:and[\d\s,]*)*", place):
+            return                  # '9 and 10': the tail of 'Actions on James Island July 2, 9 and 10'
+        if not place or re.search(r"\bthere\b", place) or (not re.search(r"[A-Z]", place) or
+                      re.fullmatch(r"(?i)(?:mustered (?:out|in)|discharged|reorganized|re-?enlisted)\b.*", place)):
+            if not last or (d0 and last_d and _gap_days(last_d, d0) > 60):
+                return              # nothing named lately ('Mustered out' a year after the last place named)
+            note = ((note + "; ") if note else "") + f"no place named: at the last place, {last}"
+            place = last
+            conf *= 0.8
+        if presence == "departed":
+            n = (note + "; ") if note else ""
+            bare = DATE_RE.sub("", span).strip(" ,.")
+            mf = re.match(r"Left\s+(?!State\b|for\b)(.+?)(?:\s+(?:on|by|via|for)\b.*)?$", bare)
+            src = mf.group(1).strip(" ,.") if mf else (home if re.search(r"\bstate for\b", span, re.I) else None)
+            if src:
+                add("unit_at", span, conf * 0.8, place_mention=src, presence="departed", portion=portion,
+                    date_start=d0, date_end=d1, date_precision=prec,
+                    note=n + (f"left {src}" if mf else f"left the State for {place}: placed at the last place before it ({home})"),
+                    **extra)
+            if re.search(r"\bfor\b", bare) and place and not (mf and place == bare):
+                add("unit_at", span, conf * 0.8, place_mention=place, presence="en_route", portion=portion,
+                    date_start=None, date_end=None, date_precision=None,
+                    note=n + "destination of a departure; arrival date not stated", **extra)
+                last = place
+            elif src:
+                last = src
+            return
+        add("unit_at", span, conf, place_mention=place, presence=presence, portion=portion,
+            date_start=d0, date_end=d1, date_precision=prec, note=note, **extra)
+        if place:
+            last = place
+            last_d = d1 or d0 or last_d
+        if place and re.match(r"(?:Organized|Org\.)", span):
+            home = place            # in the State it later left; later camps are not tracked
+
     # Cross-reference stubs: 'See 1st Regiment Heavy Artillery.'
     see = re.match(r"^\(?\s*See\s+(.+?)[.)]*\s*(?:for service)?\.?\)?$", text.strip(), re.I)
     if see:
@@ -390,6 +511,8 @@ def extract(unit):
 
     # Organization and moves before the attachment list
     org_date = None
+    pre_end = None
+    pre_home = False
     in_action = False
     for it in items_from(pre, years):
         kind, presence = classify(it["desc"])
@@ -415,18 +538,21 @@ def extract(unit):
             place = place_from(it["desc"])
         if not it["date"]:
             if place and kind == "unit_at":
-                add("unit_at", it["desc"], it["conf"], place_mention=place, presence=presence,
-                    portion=portion_of(it["desc"]), date_start=None, date_end=None, date_precision=None)
+                add_unit_at(it["desc"], it["conf"], place, presence, portion_of(it["desc"]), None, None, None, None)
             continue
         d0, d1, prec = it["date"]
         org_date = org_date or d0
+        pre_end = max(pre_end or d1, d1)
+        pre_home = bool(re.match(r"(?i)(?:organized|org\.|mustered|left\b|\w+ companies left|reorganized)", it["desc"]))
         if presence == "en_route" and d0 == d1:
             presence = "arrived"
-        add("unit_at", f"{it['desc']} {it['date_text']}", it["conf"], place_mention=place, presence=presence,
-            portion=portion_of(it["desc"]), date_start=d0, date_end=d1, date_precision=prec)
+        add_unit_at(f"{it['desc']} {it['date_text']}", it["conf"], place, presence, portion_of(it["desc"]), d0, d1, prec, None)
 
     # Attachment chain
+    if org_date and re.search(r"(?i)\bmustered in\b|\borganized\b", pre):
+        years.floor = (int(org_date[:4]), int(org_date[5:7]))
     chain, leftover = parse_attachments(attach, years, org_date[:7] if org_date else None)
+    years.last_item = (int(pre_end[:4]), int(pre_end[5:7])) if pre_end and len(pre_end) >= 7 else None
     for a in chain:
         add("subordinate_to", a["span"], 0.85, parent_mention=a["parent"], date_start=a["date_start"],
             date_end=a["date_end"], date_precision="month")
@@ -437,7 +563,9 @@ def extract(unit):
     # Service items
     last_event = None
     last_place = None
-    prev_end = org_date
+    # 'Moved to Washington, D. C., August 29' in the text before the attachments: the first 'Duty ... till October 1'
+    # starts there, not at muster-in (the 24th Michigan was in Washington while still in Detroit)
+    prev_end = pre_end or org_date
     for it in items_from(leftover + " " + service if leftover else service, years):
         desc = it["desc"]
         note = it.get("note")
@@ -449,6 +577,13 @@ def extract(unit):
         d0, d1, prec = it["date"] if it["date"] else (None, None, None)
         if it.get("till") and d0:          # 'Duty at X till October 1' -> from previous end to that date
             d0, d1 = prev_end or d0, d0
+            if pre_home and d0 and len(d0) == 10:
+                # the first stay after muster-in or 'Left State for ...': the journey took days ('Left State for
+                # Washington March 22. Duty in the Defences of Washington till ...' was in Washington on March 22)
+                d0 = min(_shift(d0, 5), d1) if len(d1 or "") == 10 else _shift(d0, 5)
+                note = ((note + "; ") if note else "") + "start set 5 days after leaving home (arrival not stated)"
+        if it["date"]:
+            pre_home = False
         portion = portion_of(desc + " " + (note or ""))
         span = f"{desc} {it.get('date_text') or ''}".strip()
         if kind == "unit_at":
@@ -460,13 +595,13 @@ def extract(unit):
             legs = move_legs(place) if presence in ("en_route", "arrived") else [place]
             last_place = legs[-1]
             if len(legs) == 1:
-                add("unit_at", span, it["conf"], place_mention=place, presence=presence, portion=portion,
-                    date_start=d0, date_end=d1, date_precision=prec, note=note)
+                add_unit_at(span, it["conf"], place, presence, portion, d0, d1, prec, note)
             else:
                 # a move in stages ("Movement to Memphis, thence march to Chattanooga, Tenn September 27-November 20";
                 # "March to Washington via Richmond"): the last stage carries the move's dates (arrival at the end, as
                 # before for a one-place move); the earlier stages are kept, undated, as the places passed through
                 n = len(legs)
+                last = legs[-1]
                 for k, leg in enumerate(legs, 1):
                     if k == n:
                         add("unit_at", span, it["conf"], place_mention=leg, presence=presence, portion=portion,

@@ -133,6 +133,10 @@ CONF = {"regiment": 0.65, "brigade": 0.6, "division": 0.5, "corps": 0.4}
 def ordnum(t):
     """Ordinal in a command part: '3d', 'Third', 'Thied' (OCR), 'XII' -> int."""
     t = t.lower().replace("’", "'")
+    # 'Twenty -first', 'Twenty;first' (OCR): read as 'first', the Twenty-first Corps' headquarters at Manchester, Tenn.
+    # placed the First Corps' 24th Michigan in Tennessee
+    t = re.sub(r"\b(twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\s*[-;:,.~]?\s*(?=first|second|third|fourth|"
+               r"fifth|sixth|seventh|eighth|ninth)", r"\1-", t)
     m = re.search(r"\b(\d{1,3})\s*(?:st|d|nd|rd|th|tli|tb)\b", t)
     if m:
         return int(m.group(1))
@@ -248,6 +252,9 @@ def signer(L, j):
 def parse_heading(blk, m):
     pre = blk[:m.start()]
     pre = HEAD.sub("", pre).strip(" ,.;:")
+    # 'Twenty;first Army Corps' (OCR) was split at the ';' into 'Twenty' and 'first Army Corps'
+    pre = re.sub(r"(?i)\b(twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\s*[;:,.~-]\s*(?=(?:first|second|third|fourth|"
+                 r"fifth|sixth|seventh|eighth|ninth)\b)", r"\1-", pre)
     parts = [p.strip(" .;:") for p in re.split(r",|;", pre) if p.strip(" .;:")]
     cmd, place = [], []
     for p in parts:
@@ -601,6 +608,10 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
             pending = not loc                   # try the commanded units' routes once the command is known
             (lat, lon, gp), pst = loc if loc else ((None, None, None), None)
             sides = [side] if side else ["Union", "Confederate"]
+            if not side and re.search(r"Washington,? D|\bD\. ?[C(]|\b(?:Pa|Md|N\. ?Y|N\. ?J|Del|Ind|Ill|Mich|Wis|Minn|Iowa|"
+                                      r"Kans|Mass|Conn|Vt|Me|N\. ?H|R\. ?I)\.|\bOhio\b", pl or ""):
+                sides = ["Union"]   # 'Headquarters First Corps, Washington, D. C., January 29, 1865' is Hancock's, not
+                                    # Longstreet's (it placed the 4th Texas in Washington)
             units, how, head_corps = None, None, None
             if use_signer:
                 sg = signer(L, j)
@@ -659,6 +670,10 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
                 if not named and ("corps" not in spec or spec["corps"][0] is None):
                     done("numbered command without its corps"); continue     # "Third Brigade, First Division" alone: which army?
                 found = None
+                # 'Headquarters First Corps, Army of the Ohio': only tables of that army (the First Corps of the Army
+                # of the Potomac was taken, and Indiana regiments jumped from Nashville to Washington)
+                am = re.search(r"(?i)army\s+of\s+(?:the\s+)?([a-z]+)", " ".join(p for lv, p in cmd if lv == "army"))
+                army_key = am.group(1).lower() if am else None
                 for s in sides:
                     if s not in tabs:
                         continue
@@ -668,6 +683,8 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
                         td, tid, rows = tabs[s][k]
                         if abs((td - d).days) > TABLE_FAR:
                             break
+                        if army_key and army_key not in (rows[0].get("heading") or "").lower():
+                            continue
                         hit = [r for r in rows if all(comp_ok(spec[lv], r["k"][lv]) for lv in spec)]
                         if not hit:
                             continue

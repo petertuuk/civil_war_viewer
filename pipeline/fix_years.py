@@ -230,6 +230,9 @@ def main(src, wdp, dst, rep=None):
                     continue
                 segs["shifted"] += 1
                 note = f"Year corrected by {k:+d}: '{why[k][0]}' matches {why[k][1]}" + (" (human review)" if dec == "shift" else "")
+                runset = {n for n, _ in run}
+                old_ends = {claims[n].get("date_end") or claims[n]["date_start"]: shift(claims[n].get("date_end") or claims[n]["date_start"], k)
+                            for n in runset}
                 for n, _ in run:
                     c = claims[n]
                     c["date_start"] = shift(c["date_start"], k)
@@ -238,6 +241,16 @@ def main(src, wdp, dst, rep=None):
                     c["confidence"] = round(max(0.1, c.get("confidence", 0.5) - 0.05), 3)
                     c["note"] = ((c.get("note") or "") + " " + note).strip()
                     shifted += 1
+                # a stay right after the run took its start from the run's (wrong) last date and its end from a printed
+                # year ('... Fort Wagner ... September 7. Operations against Charleston and duty at Folly Island till
+                # April, 1864' began 1862-09-07 when the run moved to 1863): move that start with the run
+                for n2, c2 in enumerate(claims):
+                    if n2 in runset or c2.get("unit_id") != u or not c2.get("date_start") or not c2.get("date_end"):
+                        continue
+                    ns = old_ends.get(c2["date_start"])
+                    if ns and ns <= c2["date_end"] and c2["date_start"] < ns:
+                        c2["date_start"] = ns
+                        c2["note"] = ((c2.get("note") or "") + f" start moved with the corrected run ({k:+d})").strip()
                 log.append(f"{u}: {len(run)} claims {note}")
     with open(dst, "w", encoding="utf-8") as f:
         for c in claims:

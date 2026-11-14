@@ -121,6 +121,8 @@ def main(pl_p, tables_p, regions_p, geocoded_p, gnis_p, units_p, out_p):
         if r["table_id"] in tov:
             r["date_start"], r["date_end"] = tov[r["table_id"]]
         head = " ".join(t["heading"].split())
+        if r.get("detached"):
+            continue                              # listed with the army but away from it (table footnote)
         if re.search(r"\bbattle\b|engaged|\bcampaign\b|during the|operations", head, re.I):
             continue                              # a battle's order of battle: the battle itself places the units
         hstates = list(dict.fromkeys(v for k, v in STATE_WORDS.items() if re.search(rf"\b{k}\b", head)))

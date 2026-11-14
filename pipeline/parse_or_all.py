@@ -160,9 +160,18 @@ def is_station(l):
             and bool(ST_ABBR_RE.search(l) or re.match(r"^(Fort|Camp|Forts)\s", x) or len(words) <= 3))
 
 
+SUBCORPS = re.compile(r"SIGNAL|ESCORT|PROVOST|ENGINEER|PONTON|PIONEER|HEADQUARTERS|ARTILLERY BRIGADE|"
+                      r"CORPS ARTILLERY|ARTILLERY OF THE|RESERVE CORPS ARTILLERY", re.I)
+
+
 def parse_table(lines, t, idx):
+    closed = False
     corps = div = brig = None; section = "infantry"; rows = []; last = None; prev = None; scrambled = set(); station = None; prevl = None; cmdr = {}; hdr_pending = None
     start, end = parse_date(t.get("date_text") or t["heading"])
+    # 'LONGSTREET'S ARMY CORPS.]' with the footnote 't Detached November 4, for operations in East Tennessee.': a
+    # command listed with the army but away from it (Hood's Texans were credited with Chattanooga while at Knoxville)
+    det_note = next((x for x in lines if re.match(r"^[t†‡*§]+\s*Detached\b", x.strip())), None)
+    detached_lv, det_hdr = None, None
     for l in join_wrapped(lines):
         k = classify(l)
         ln = " ".join(l.split())
@@ -180,11 +189,27 @@ def parse_table(lines, t, idx):
             hdr_pending = lv
         elif k == "unit":
             hdr_pending = None
-        if k == "corps":
-            corps, div, brig, last = re.sub(r"[’']S\b", "'s", l.title()).rstrip(" ."), None, None, None
+        if det_note and k in ("corps", "division"):
+            if re.search(r"(\]|[†‡]|\.\s*t)\s*$", l.strip()):
+                detached_lv, det_hdr = k, l.strip()
+            elif (detached_lv == "corps" and k == "corps") or (detached_lv == "division" and k in ("corps", "division")):
+                detached_lv = None                       # the next command at the same level is back with the army
+        if k == "corps" and corps and SUBCORPS.search(l) and not SUBCORPS.search(corps):
+            # 'SIGNAL CORPS.' / 'ARTILLERY BRIGADE.' / 'RESERVE CORPS ARTILLERY.' under a corps is part of that corps,
+            # not a new one: its divisions were filed under 'Signal Corps' (528 placements) or 'Artillery Brigade'
+            brig, div, last = re.sub(r"[\s*+†‡§\]]+$", "", l).title().rstrip(" ."), None, None
+            closed = bool(re.search(r"ARTILLERY", l))     # a corps lists its artillery last
+            section = "artillery" if "ARTILLERY" in l else section
+        elif k == "corps":
+            corps, div, brig, last = re.sub(r"[’']S\b", "'s", re.sub(r"[\s*+†‡§\]]+$", "", l).title()).rstrip(" ."), None, None, None
             section = "cavalry" if "CAVALRY" in l else ("artillery" if "ARTILLERY" in l else "infantry")
+            closed = "ARTILLERY" in l
         elif k == "division":
-            div, brig, last = re.sub(r"[’']S\b", "'s", l.title()).rstrip(" ."), None, None
+            if closed:
+                corps = None          # a division after a corps' artillery begins a corps whose header is missing
+                section = "infantry"
+            closed = False
+            div, brig, last = re.sub(r"[’']S\b", "'s", re.sub(r"[\s*+†‡§\]]+$", "", l).title()).rstrip(" ."), None, None
             if "CAVALRY" in l:
                 section = "cavalry"
         elif k == "brigade":
@@ -219,6 +244,8 @@ def parse_table(lines, t, idx):
                   row["cmdrs"] = dict(cmdr)
               if nm != name:
                   row["consolidated_from"] = name
+              if detached_lv:
+                  row["detached"] = f"{det_hdr} | {det_note.strip()[:90]}"
               if t["side"] in ("Union", "Confederate"):
                   code = match(nm, sec, t["side"], start, idx)
                   if code:

@@ -44,7 +44,19 @@ def join_wrapped(lines):
         if keep and keep[-1].endswith("-") and (l[:1].islower() or not RANK.match(l)):
             keep[-1] = keep[-1][:-1] + l                      # "Leven-" + "thorpe."
             continue
-        if re.search(r"division\.?\s*$", l, re.I) and not ORD.match(l):
+        letters = [c for c in l if c.isalpha()]
+        if letters and sum(c.isupper() for c in letters) >= 0.9 * len(letters):
+            l = re.sub(r"[\"“”^]", "", l)                    # 'FOURTH ARMY" CORPS.' (OCR) was not read as a header
+            l = re.sub(r"\.\s*[a-z]{1,2}$", ".", l)            # 'FIRST ARMY CORPS.g' 
+        if re.match(r"^\[?\s*Chap\.?\s*[XVIL]", l):
+            continue                                          # running head "Chap. XXX VII. ]" (it glued itself
+                                                              # to a battery line and swallowed 'SECOND ARMY CORPS.')
+        if re.fullmatch(r"[A-Z0-9’'. ,()&-]+\s*[*+†‡§\]]*", l) and len(l) > 4 and \
+                re.search(r"CORPS|DIVISION|BRIGADE|ARTILLERY|CAVALRY|RESERVE|COMMAND|WING", l):
+            keep.append(l); continue          # a header is never a wrapped line: 'FIRST DIVISION.*' (markers kept for
+                                              # footnotes: 'LONGSTREET'S ARMY CORPS.]'; classify() ignores them)
+        if re.search(r"division\.?\s*[*+†‡§]*$", l, re.I) and not ORD.match(l):
+            l = re.sub(r"\s*[*+†‡§]+$", "", l)
             keep.append(re.sub(r"[’']", "'", l).upper()); continue       # "m' laws' division."
         if re.fullmatch(r"\d{1,4}", l) or l.startswith(("[Chap", "No. ")) or re.match(r"^[*+†‡§%]|^[a-z]", l) \
                 or re.search(r"\b(VA|PA|MD|N\. C)\.,? .*ETC\.?$", l, re.I) or l.lower().startswith("organization of") \
@@ -61,6 +73,7 @@ def join_wrapped(lines):
 
 
 def classify(l):
+    l = re.sub(r"[\s*+†‡§\]]+$", "", l)
     if re.fullmatch(r"[A-Z0-9’'. ,()&-]+", l) and len(l) > 4:
         if "CORPS" in l: return "corps"
         if "DIVISION" in l or "COMMAND" in l: return "division"

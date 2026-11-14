@@ -24,3 +24,16 @@ vaughan|VA,37.1680,-77.4500,4000,Vaughan Road southwest of Petersburg (GNIS has 
 new bridge|VA,37.5700,-77.3200,2000,New Bridge on the Chickahominy (Seven Days)
 white post|VA,39.0590,-78.1000,2000,"White Post, Clarke Co."
 youngs point|LA,32.4265,-91.0115,2000,"Young's Point, Madison Parish (Vicksburg canal camps); not in GNIS"
+camp douglas|IL,41.8350,-87.6140,1500,Camp Douglas, Chicago (not in GNIS); was placed in Maryland by context (2026-11-14 audit)
+camp douglass|IL,41.8350,-87.6140,1500,Camp Douglas, Chicago (spelling variant)
+camp curtin|PA,40.2810,-76.8850,1500,Camp Curtin, Harrisburg; was placed in Maryland by context
+camp stoneman|DC,38.8440,-77.0050,1500,Camp Stoneman, Giesboro Point; was placed in Maryland by context
+camp olden|NJ,40.2300,-74.7400,2000,Camp Olden, Trenton; was placed in DC by context
+reedville|MA,42.2404,-71.1370,1500,OCR/spelling of Readville (Camp Meigs)
+harrisons landing|VA,37.3182,-77.1794,1500,Harrison's Landing = Berkeley Plantation, Charles City Co. (GNIS form 'harrison' matched Brunswick Co.)
+harrison landing|DC,37.3182,-77.1794,1500,Harrison's Landing = Berkeley Plantation (state DC came from context)
+gainesville|VA,38.7957,-77.6139,2000,Gainesville, Prince William Co.; Wikidata seed was the Great Hanging at Gainesville, Texas
+salem church|VA,38.2840,-77.5530,1500,Salem Church near Fredericksburg (GNIS form 'salem' matched Virginia Beach)
+new market heights|VA,37.4270,-77.3360,2000,New Market Heights, Henrico Co. (GNIS form 'new market' matched Shenandoah Co.)
+new market road|VA,37.4270,-77.3360,3000,New Market Road below Richmond
+smithfield|NC,35.5085,-78.3395,2000,Smithfield, Johnston Co., N.C. (Wikidata seed was Smithfield, Va.)

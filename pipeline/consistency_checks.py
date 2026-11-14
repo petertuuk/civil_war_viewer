@@ -209,6 +209,18 @@ def main(dbp, root, out_txt, out_csv):
                 q.append(("test_set", unit, 1, re.sub(r"\s+", " ", l.strip())))
     rep += [f"test_set: {ng} test-set lines missing or resolved to the wrong event"]
 
+    # outside_state: a place said to be in a state but located outside it (2026-11-14: Boston, Mass. in Virginia)
+    from common import in_state
+    outside = []
+    for pid, nm, st, la, lo, nc in db.execute("""SELECT p.id, p.display_name, p.state, p.lat, p.lon, COUNT(a.claim_id)
+            FROM place p JOIN claim_unit_at a ON a.place_id = p.id WHERE p.lat IS NOT NULL AND p.state IS NOT NULL
+            GROUP BY p.id"""):
+        if in_state(st, la, lo) is False:
+            outside.append((nc, nm, st, la, lo))
+    outside.sort(reverse=True)
+    rep += [f"outside_state: {len(outside)} places, {sum(o[0] for o in outside)} unit_at claims"]
+    for nc, nm, st, la, lo in outside:
+        q.append(("outside_state", None, nc, f"{nm}, {st} at {la:.3f},{lo:.3f}"))
     q.sort(key=lambda r: (-r[2], r[0]))
     with open(out_csv, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)

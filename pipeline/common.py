@@ -92,3 +92,40 @@ def gnis_by_name_state(path, classes=None):
         if classes is None or cl in classes:
             G[(nm, st)].append((lat, lon, cl))
     return G
+
+
+# Rough state / territory bounding boxes (lat0, lat1, lon0, lon1). Used as a sanity check: a place said to be in a
+# state must not be located outside it (Boston, Mass. was put at the median of where its regiments were a month later,
+# in Virginia). Territories map to the modern states they mostly cover.
+STATE_BOX = {'AL': (30.1, 35.1, -88.6, -84.8), 'AR': (33.0, 36.6, -94.7, -89.6), 'AZ': (31.3, 37.0, -114.9, -109.0),
+    'CA': (32.5, 42.0, -124.5, -114.1), 'CO': (37.0, 41.0, -109.1, -102.0), 'CT': (40.9, 42.1, -73.8, -71.7),
+    'DE': (38.4, 39.9, -75.8, -75.0), 'DC': (38.7, 39.1, -77.2, -76.9), 'FL': (24.4, 31.0, -87.7, -80.0),
+    'GA': (30.3, 35.0, -85.7, -80.8), 'IA': (40.3, 43.6, -96.7, -90.1), 'ID': (42.0, 49.0, -117.3, -111.0),
+    'IL': (36.9, 42.6, -91.6, -87.0), 'IN': (37.7, 41.8, -88.1, -84.7), 'KS': (36.9, 40.1, -102.1, -94.5),
+    'KY': (36.4, 39.2, -89.6, -81.9), 'LA': (28.9, 33.1, -94.1, -88.8), 'MA': (41.2, 42.9, -73.6, -69.9),
+    'MD': (37.9, 39.8, -79.5, -75.0), 'ME': (43.0, 47.5, -71.1, -66.9), 'MI': (41.6, 48.3, -90.5, -82.1),
+    'MN': (43.4, 49.4, -97.3, -89.4), 'MO': (35.9, 40.7, -95.8, -89.1), 'MS': (30.1, 35.1, -91.7, -88.1),
+    'MT': (44.3, 49.0, -116.1, -104.0), 'NC': (33.8, 36.6, -84.4, -75.4), 'ND': (45.9, 49.0, -104.1, -96.5),
+    'NE': (40.0, 43.0, -104.1, -95.3), 'NH': (42.7, 45.3, -72.6, -70.6), 'NJ': (38.9, 41.4, -75.6, -73.9),
+    'NM': (31.3, 37.0, -109.1, -103.0), 'NV': (35.0, 42.0, -120.0, -114.0), 'NY': (40.4, 45.1, -79.8, -71.8),
+    'OH': (38.4, 42.0, -84.9, -80.5), 'OK': (33.6, 37.0, -103.0, -94.4), 'OR': (42.0, 46.3, -124.6, -116.4),
+    'PA': (39.7, 42.3, -80.6, -74.7), 'RI': (41.1, 42.1, -71.9, -71.1), 'SC': (32.0, 35.3, -83.4, -78.5),
+    'SD': (42.5, 46.0, -104.1, -96.4), 'TN': (34.9, 36.7, -90.4, -81.6), 'TX': (25.8, 36.5, -106.7, -93.5),
+    'UT': (37.0, 42.0, -114.1, -109.0), 'VA': (36.5, 39.5, -83.7, -75.2), 'VT': (42.7, 45.1, -73.5, -71.4),
+    'WA': (45.5, 49.0, -124.8, -116.9), 'WI': (42.4, 47.1, -92.9, -86.2), 'WV': (37.2, 40.7, -82.7, -77.7),
+    'WY': (41.0, 45.0, -111.1, -104.0)}
+STATE_BOX['DT'] = (42.5, 49.0, -104.1, -96.4)
+STATE_BOX['IT'] = STATE_BOX['OK']
+STATE_BOX['NT'] = STATE_BOX['NM']
+
+
+def in_state(st, lat, lon, pad=0.3):
+    """True / False when the state's box is known (VA and WV count as one), None otherwise."""
+    if lat is None or lon is None:
+        return None
+    sts = {"VA", "WV"} if st in ("VA", "WV") else {st}
+    boxes = [STATE_BOX[x] for x in sts if x in STATE_BOX]
+    if not boxes:
+        return None
+    return any(b[0] - pad <= lat <= b[1] + pad and b[2] - pad <= lon <= b[3] + pad for b in boxes)
+
