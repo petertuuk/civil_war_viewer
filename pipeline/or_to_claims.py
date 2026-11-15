@@ -12,6 +12,7 @@ Claims (same field style as Dyer's claims_rules.jsonl):
   participated    only for tables about a battle or campaign; linked to an event_id when one matches
 Confidence: 0.9 heading-dated; 0.75 context-dated; 0.5 two-column scramble or undated.
 """
+from cwv import paths
 import nps_links, collections, csv, json, re, sys
 from datetime import date, timedelta
 from pathlib import Path
@@ -166,4 +167,4 @@ def main(pl_path, tables_path, d2n_path, events_dir, out_path):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:6])
+    main(*(sys.argv[1:6] or paths.defaults("or_to_claims")))

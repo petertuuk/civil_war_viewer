@@ -23,6 +23,7 @@ import collections, glob, json, re, sys
 from datetime import date
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
 from common import first_day as d  # noqa: E402
 
 GAP_DAYS = 2
@@ -270,4 +271,4 @@ def main(dyers_dir, ai_dir, out_dir, wd_path=None):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:5])
+    main(*(sys.argv[1:5] or paths.defaults("merge_events")))

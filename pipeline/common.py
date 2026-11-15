@@ -8,15 +8,34 @@ D0, day_num(s)      day number from 1861-01-01 and its slack: '1862-10-05' -> (n
 parse_date(s, end)  date of an ISO string at day / month / year precision: a month or a year gives its first day, or its
                     last with end=True; an impossible day ("1863-02-30") gives the 28th; None -> None
 first_day(s)        a day, or the 1st of a month ('1862-10' -> 1862-10-01); None when it does not parse
+stable_id(prefix, *parts, n=8)   prefix + first n hex of the sha1 of the parts: ids that depend on content, not on position
+claim_fingerprint(...)         stable_id of a claim (extracted_by, unit key, type, date, locator, first 80 characters of the span, object)
 gnis_rows(path)     the GNIS index rows (with data/external/gnis/gnis_extra.tsv after them):
                     (norm name, state, lat, lon, class, county, id, name, kind)
 """
+from cwv import params
+import hashlib
 import math
 from datetime import date, timedelta
 from pathlib import Path
 
 D0 = date(1861, 1, 1)
-MIN_KM, MAX_KMDAY = 300, 250
+MIN_KM, MAX_KMDAY = params.MIN_KM, params.MAX_KMDAY
+
+
+def stable_id(prefix, *parts, n=8):
+    """prefix + the first n hex characters of the sha1 of the parts joined by '|' (None counts as empty): an id that depends only on
+    what the thing is, so it survives a rebuild and an unrelated change elsewhere in a list."""
+    h = hashlib.sha1("|".join("" if p is None else str(p) for p in parts).encode("utf-8")).hexdigest()
+    return f"{prefix}{h[:n]}"
+
+
+def claim_fingerprint(extracted_by, unit_key, claim_type, date_start, locator, span, obj=None):
+    """The identity of a claim across rebuilds (roadmap T2.4): who extracted what kind of claim about which unit (or, with no unit,
+    which event/person/name), when, from where in the source, from which words, and what it says about the subject (obj: the event,
+    place, commander or parent named: without it a list of commanders or of battles under one heading shares one fingerprint, 6%
+    of claims). Twelve hex characters: 300,000 claims make a chance collision of eight (32 bits) likely."""
+    return stable_id("c", extracted_by, unit_key, claim_type, date_start, locator, (span or "")[:80], obj, n=12)
 
 
 def too_fast(d_km, days, allow_km=0.0):

@@ -18,7 +18,8 @@ from collections import Counter, defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
-from common import parse_date as d  # noqa: E402
+from cwv import paths  # noqa: E402
+from common import parse_date as d, claim_fingerprint  # noqa: E402
 
 TITLE = "Pipeline inference: brigade companions (brigade_inference.py)"
 GAP = timedelta(days=270)        # longest stretch between two placements bridged
@@ -144,17 +145,19 @@ def main(dbp, rep=None):
                  "A unit is inferred at an event most of its stable brigade companions were at"))
     sid = cur.lastrowid
     names = dict(cur.execute("SELECT id, display_name FROM event"))
+    ukey = {i: f"nps:{v}" for i, v in cur.execute("SELECT entity_id, value FROM external_id WHERE entity_type='unit' AND scheme='nps'")}
+    ukey.update(dict(cur.execute("SELECT entity_id, value FROM external_id WHERE entity_type='unit' AND scheme='dyer'")))     # Dyer's id wins
     n = 0
     for u, es in inferred.items():
         for e, (k, m, picked) in es.items():
             ds = evd[e].isoformat()
             # ':namesake' when the unit's place in the brigade came from a namesake pick: resolve_namesakes.py does not
             # count it as evidence on the next build (counted, it made picks flip between builds)
-            cur.execute("""INSERT INTO claim(claim_type, source_id, source_span, confidence, extracted_by, extracted_at, status, review_note, locator)
-                           VALUES ('participated', ?, ?, 0.5, ?, ?, 'pending', ?, ?)""",
-                        (sid, f"{k} of {m} brigade companions at {names.get(e)}",
-                         "inference:brigade_v1" + (":namesake" if picked else ""), now,
-                         "inferred from brigade companions; check", f"event {e}"))
+            span, by = f"{k} of {m} brigade companions at {names.get(e)}", "inference:brigade_v1" + (":namesake" if picked else "")
+            cur.execute("""INSERT INTO claim(claim_type, source_id, source_span, confidence, extracted_by, extracted_at, status, review_note, locator, fingerprint)
+                           VALUES ('participated', ?, ?, 0.5, ?, ?, 'pending', ?, ?, ?)""",
+                        (sid, span, by, now, "inferred from brigade companions; check", f"event {e}",
+                         claim_fingerprint(by, ukey.get(u) or str(u), "participated", ds, f"event {e}", span, names.get(e) or "")))
             cur.execute("""INSERT INTO claim_participated(claim_id, unit_mention, unit_id, event_mention, event_id, portion, date_start, date_end, date_precision)
                            VALUES (?, ?, ?, ?, ?, 'whole', ?, ?, 'day')""", (cur.lastrowid, str(u), u, names.get(e) or "", e, ds, ds))
             n += 1
@@ -170,4 +173,4 @@ def main(dbp, rep=None):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("brigade_inference")))

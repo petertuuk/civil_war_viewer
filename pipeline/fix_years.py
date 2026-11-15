@@ -29,6 +29,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
 from anchor_events import container_tag, load_wikidata, words_of  # noqa: E402
 from resolve_events import iso  # noqa: E402
 
@@ -265,4 +266,4 @@ def main(src, wdp, dst, rep=None):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("fix_years")))

@@ -24,14 +24,14 @@ from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import states as cwv_states  # noqa: E402
+MANUAL = Path(__file__).resolve().parent.parent / "data" / "manual"     # hand-made inputs kept in git (the downloaded sources under data/external are not)
 from common import km, too_fast  # noqa: E402
 
-ST = {"ME": "Maine", "NH": "New Hampshire", "VT": "Vermont", "MA": "Massachusetts", "RI": "Rhode Island", "CT": "Connecticut",
-      "NY": "New York", "NJ": "New Jersey", "PA": "Pennsylvania", "DE": "Delaware", "MD": "Maryland", "WV": "West Virginia",
-      "OH": "Ohio", "IN": "Indiana", "IL": "Illinois", "MI": "Michigan", "WI": "Wisconsin", "MN": "Minnesota", "IA": "Iowa",
-      "MO": "Missouri", "KY": "Kentucky", "KS": "Kansas", "NE": "Nebraska", "US": "U.S.",
-      "VA": "Virginia", "NC": "North Carolina", "SC": "South Carolina", "GA": "Georgia", "AL": "Alabama", "MS": "Mississippi",
-      "LA": "Louisiana", "TX": "Texas", "AR": "Arkansas", "TN": "Tennessee", "FL": "Florida"}
+ST = cwv_states.table("CODE", "Name", "ME", "NH", "VT", "MA", "RI", "CT", "NY", "NJ", "PA", "DE", "MD", "WV", "OH",
+                                      "IN", "IL", "MI", "WI", "MN", "IA", "MO", "KY", "KS", "NE", ("US", "U.S."),
+                                      "VA", "NC", "SC", "GA", "AL", "MS", "LA", "TX", "AR", "TN", "FL")
 NAME2ST = {v.lower(): k for k, v in ST.items()}
 NAME2ST.update({"ind": "IN", "ohio": "OH", "n.y.": "NY", "brooklyn": "NY", "conn": "CT", "mass": "MA", "penn": "PA"})
 MON = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6, "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12}
@@ -54,7 +54,7 @@ SRC = {"npgallery": ("NPS NPGallery: Civil War Monuments and Markers Digital Col
        "ga_markers": ("Georgia historical markers (Georgia Historical Commission, texts mostly by Wilbur G. Kurtz; Georgia Historical Society layer), formations read by Claude",
                       "https://historicalmarkers.georgiahistory.com/", 0,
                       "marker coordinates and texts from the Georgia Historical Society's public ArcGIS layer GA_Historical_Markers; "
-                      "which formations a marker places at its spot read by Claude (data/external/battles/ga_markers_read.psv)"),
+                      "which formations a marker places at its spot read by Claude (data/manual/ga_markers_read.psv)"),
        "aotw": ("Antietam on the Web (Brian Downey), battle maps of September 17 on the Carman-Cope base (CC BY-NC-SA 4.0)",
                 "https://antietam.aotw.org/maps.php?map_number=main", 0,
                 "CC BY-NC-SA 4.0: attribute Antietam on the Web; unit positions read from the maps' clickable unit areas, maps registered to the Cope-Carman Daybreak map as georeferenced on mapwarper.net (map 47702)"),
@@ -414,7 +414,7 @@ def ga_markers(src, db, U, rows, stats):
             a = max(a, "1864-07-18")
         oob.append(dict(unit=uid, side=side, a=a, b=b, title=title, brig=[p.get("brigade")] + [c["name"] for c in p.get("brigade_commanders") or []],
                         div=[p.get("division")] + [c["name"] for c in p.get("division_commanders") or []], key=(title, p.get("division"), p.get("brigade"))))
-    lines = [l.rstrip("\n").split("|") for l in open(src / "ga_markers_read.psv", encoding="utf-8") if l.strip() and not l.startswith("#")][1:]
+    lines = [l.rstrip("\n").split("|") for l in open(MANUAL / "ga_markers_read.psv", encoding="utf-8") if l.strip() and not l.startswith("#")][1:]
     for m, d0, d1, side, level, who, ctx, where in lines:
         a = mk.get(int(m))
         if not a or not a.get("Latitude"):
@@ -526,8 +526,8 @@ def aotw(src, U, rows, stats, linked):
     ours = {k: resolve(u) for k, u in info.items()}
     stats["aotw: units resolved"] = sum(1 for v in ours.values() if v)
     # map pixels -> ground: each map registered (SIFT + RANSAC similarity, overlay masked) to the Cope-Carman
-    # "Daybreak" map as warped on mapwarper.net (map 47702), read at web-mercator zoom 16 (georef.json)
-    G = json.load(open(d / "georef.json", encoding="utf-8"))
+    # "Daybreak" map as warped on mapwarper.net (map 47702), read at web-mercator zoom 16 (data/manual/georef/aotw_georef.json)
+    G = json.load(open(MANUAL / "georef" / "aotw_georef.json", encoding="utf-8"))
     z, X0, Y0 = G["z"], G["X0"], G["Y0"]
     import math
 
@@ -623,7 +623,7 @@ def main(dbp, srcdir, outdir, report):
                 r["unit_key"] = U.key(r["unit_id"])
                 if not r["unit_key"]:
                     stats["no stable unit key"] += 1; continue
-                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+                f.write(json.dumps({k: v for k, v in r.items() if k != "unit_id"}, ensure_ascii=False) + "\n")   # the database number is not stable: unit_key is
         lines.append(f"{bk}: {len(rr)} claims, {len(us)} units; already linked to {ename}: {len(us & lk)} ({100 * len(us & lk) // max(1, len(us))}%)")
         for u in sorted(us - lk, key=lambda u: U.name.get(u, ""))[:40]:
             lines.append(f"   not linked: {U.name.get(u)}")
@@ -636,4 +636,4 @@ def main(dbp, srcdir, outdir, report):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("battle_monuments")))

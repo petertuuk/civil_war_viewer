@@ -12,6 +12,7 @@ Reads every data/ai/event_resolutions_*.psv (pipe-separated, '#' comments):
   lat/lon = approximate AI coordinates, used only when no Wikidata coords
 Writes resolved_events.jsonl, review_queue.csv, ai_report.txt.
 """
+from cwv import paths
 import csv, glob, json, sys
 from datetime import date
 from pathlib import Path
@@ -237,4 +238,4 @@ def main(events_path, wd_path, res_dir, out_dir):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:5])
+    main(*(sys.argv[1:5] or paths.defaults("apply_ai_resolutions")))

@@ -13,6 +13,7 @@ Override ops (one JSON object per line in unit_overrides.jsonl; every row names 
 """
 import json, sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from cwv import paths  # noqa: E402
 import segment_dyers as SD
 
 
@@ -61,4 +62,4 @@ def main(units_p, over_p, nps_p, out_p):
 
 
 if __name__ == '__main__':
-    main(*sys.argv[1:5])
+    main(*(sys.argv[1:5] or paths.defaults("fix_units")))

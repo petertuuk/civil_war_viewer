@@ -1,6 +1,7 @@
 unit: 33rd Virginia Infantry (Stonewall Brigade)
 side: Confederate
 db_unit: 6988
+unit_key: nps:CVA0033RI
 organized: 1861-04-17
 ended: 1865-04-09
 ended_how: surrendered at Appomattox

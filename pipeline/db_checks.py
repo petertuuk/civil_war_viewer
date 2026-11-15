@@ -1,7 +1,8 @@
 """Sanity checks and agreement report on the claims database.
 Usage: python3 pipeline/db_checks.py <db> > data/scores/db_checks.txt"""
+from cwv import paths
 import sqlite3, sys
-c = sqlite3.connect(sys.argv[1]); q = lambda s, *a: c.execute(s, a).fetchall()
+c = sqlite3.connect((sys.argv[1:2] or paths.defaults("db_checks"))[0]); q = lambda s, *a: c.execute(s, a).fetchall()
 ev = lambda qid: q("select entity_id from external_id where entity_type='event' and scheme='wikidata' and value=?", qid)[0][0]
 dy = lambda d: q("select entity_id from external_id where entity_type='unit' and scheme='dyer' and value=?", d)[0][0]
 print("== Row counts"); [print(f"  {t}: {q(f'select count(*) from {t}')[0][0]:,}") for t in ("unit", "event", "place", "person", "source", "claim")]

@@ -1,6 +1,7 @@
 unit: 1st Maine Heavy Artillery
 side: Union
 db_unit: 814
+unit_key: maine/003_1st_regiment_heavy_artillery
 organized: 1862-08-21
 ended: 1865-09-11
 ended_how: mustered out

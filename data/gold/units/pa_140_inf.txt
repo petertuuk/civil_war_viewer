@@ -1,6 +1,7 @@
 unit: 140th Pennsylvania Infantry
 side: Union
 db_unit: 2708
+unit_key: pennsylvania/325_140th_regiment_infantry
 organized: 1862-09-08
 ended: 1865-05-31
 ended_how: mustered out

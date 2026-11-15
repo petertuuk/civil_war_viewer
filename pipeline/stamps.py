@@ -46,16 +46,20 @@ def block(stage):
 def scripts(b):
     mods = {p.stem for p in (ROOT / "pipeline").glob("*.py")}
     todo = [x for x in re.findall(r"(\w+)\.py", b) if x in mods]
-    seen = set()
+    seen, shared = set(), False
     while todo:
         m = todo.pop()
         if m in seen:
             continue
         seen.add(m)
         src = open(ROOT / f"pipeline/{m}.py", encoding="utf-8", errors="replace").read()
+        shared = shared or bool(re.search(r"^\s*(?:from|import)\s+cwv\b", src, re.M))   # pipeline/cwv/*.py: shared numbers and paths
         todo += [x for x in re.findall(r"^\s*(?:from|import)\s+(\w+)", src, re.M) if x in mods]
         todo += [x for x in re.findall(r"\bimport\s+(\w+)", src) if x in mods]
-    return sorted(f"pipeline/{m}.py" for m in seen)
+    files = [f"pipeline/{m}.py" for m in seen]
+    if shared:
+        files += [f"pipeline/cwv/{p.name}" for p in (ROOT / "pipeline/cwv").glob("*.py")]
+    return sorted(files)
 
 
 def files_under(*dirs):

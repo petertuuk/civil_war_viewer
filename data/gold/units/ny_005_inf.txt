@@ -1,6 +1,7 @@
 unit: 5th New York Infantry (Duryee's Zouaves)
 side: Union
 db_unit: 1812
+unit_key: new_york/148_5th_regiment_infantry_duryea_s_zouaves
 organized: 1861-05-09
 ended: 1863-05-14
 ended_how: mustered out

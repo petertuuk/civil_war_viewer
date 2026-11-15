@@ -1,6 +1,7 @@
 unit: 24th Michigan Infantry
 side: Union
 db_unit: 1069
+unit_key: michigan/068_24th_regiment_infantry
 organized: 1862-08-15
 ended: 1865-06-30
 ended_how: mustered out

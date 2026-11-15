@@ -1,7 +1,9 @@
 unit: 21st Ohio Infantry (3 years)
 side: Union
 db_unit: 2195
+unit_key: ohio/127_21st_regiment_infantry_3_years
 same_as: 8110
+same_as_keys: nps:UOH0021RI01
 organized: 1861-09-19
 ended: 1865-07-25
 ended_how: mustered out

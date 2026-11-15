@@ -1,7 +1,9 @@
 unit: 1st Colorado Infantry, later 1st Colorado Cavalry
 side: Union
 db_unit: 36
+unit_key: colorado/001_1st_regiment_cavalry
 same_as: 40
+same_as_keys: colorado/005_1st_regiment_infantry
 organized: 1861-08-26
 ended: 1865-11-18
 ended_how: mustered out

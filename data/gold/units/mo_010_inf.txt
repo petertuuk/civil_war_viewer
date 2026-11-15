@@ -1,6 +1,7 @@
 unit: 10th Missouri Infantry
 side: Union
 db_unit: 1274
+unit_key: missouri/176_10th_regiment_infantry
 organized: 1861-08
 ended: 1864-08-24
 ended_how: mustered out (Cos. I, K 1864-10-31)

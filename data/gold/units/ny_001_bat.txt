@@ -1,7 +1,9 @@
 unit: 1st New York Independent Battery Light Artillery (Cowan's)
 side: Union
 db_unit: 1756
+unit_key: new_york/092_1st_independent_battery_light_artillery
 same_as: 7906
+same_as_keys: nps:UNY0001YAL
 organized: 1861-11-23
 ended: 1865-06-23
 ended_how: mustered out

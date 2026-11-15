@@ -20,6 +20,8 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import params  # noqa: E402
 from gnis_index import norm  # noqa: E402
 from common import km, gnis_rows, in_state  # noqa: E402
 
@@ -182,11 +184,11 @@ def main(places_dir, gnis_path, events_dir):
                 # West Virginia a month later), so a town that is the only one of its name in the stated state is
                 # trusted up to 500 km, other towns 300 km, other features 150 km
                 towns = [c for c in cs if c[3] in TOWNISH and c[0] == p["state"]]
-                lim = 150
+                lim = params.GEOCODE_FEATURE_KM
                 if best[3] in TOWNISH and best[0] == p["state"]:
-                    lim = 500 if len(towns) == 1 else 300
+                    lim = params.GEOCODE_ONLY_TOWN_KM if len(towns) == 1 else params.GEOCODE_TOWN_KM
                 if generic_dropped(p["name"], f):
-                    lim = 75                           # Harrison's Landing, Va. is not Harrison, Brunswick Co.
+                    lim = params.GEOCODE_GENERIC_KM                           # Harrison's Landing, Va. is not Harrison, Brunswick Co.
                     if not ctx:
                         continue
                 far = ctx and km(ctx, (best[1], best[2])) > lim
@@ -231,4 +233,4 @@ def main(places_dir, gnis_path, events_dir):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("geocode")))

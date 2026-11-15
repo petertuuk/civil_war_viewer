@@ -1,6 +1,7 @@
 unit: 3rd Louisiana Infantry
 side: Confederate
 db_unit: 4893
+unit_key: nps:CLA0003RI
 organized: 1861-05
 ended: 1865
 ended_how: disbanded early 1865

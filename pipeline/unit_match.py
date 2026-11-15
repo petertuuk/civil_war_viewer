@@ -7,16 +7,14 @@ by surname or nickname + state + class: "Carrington's Virginia Battery", "Letche
 (nickname, or captain surname), "Phillips's (Georgia) Legion", "Byrd's (South Carolina) battalion".
 match_named(name, side, section, commanders, idx) -> (unit_code or None, note or None)
 """
+from cwv import states as cwv_states
 import csv, re
 from collections import defaultdict
 
-STATES = {"Alabama": "AL", "Arkansas": "AR", "California": "CA", "Colorado": "CO", "Connecticut": "CT", "Delaware": "DE",
-          "Florida": "FL", "Georgia": "GA", "Illinois": "IL", "Indiana": "IN", "Iowa": "IA", "Kansas": "KS", "Kentucky": "KY",
-          "Louisiana": "LA", "Maine": "ME", "Maryland": "MD", "Massachusetts": "MA", "Michigan": "MI", "Minnesota": "MN",
-          "Mississippi": "MS", "Missouri": "MO", "Nebraska": "NE", "New Hampshire": "NH", "New Jersey": "NJ", "New York": "NY",
-          "North Carolina": "NC", "Ohio": "OH", "Pennsylvania": "PA", "Rhode Island": "RI", "South Carolina": "SC",
-          "Tennessee": "TN", "Texas": "TX", "Vermont": "VT", "Virginia": "VA", "West Virginia": "WV", "Wisconsin": "WI",
-          "District of Columbia": "DC", "Arizona": "AZ"}
+STATES = cwv_states.table("Name", "CODE", "AL", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "IL", "IN", "IA", "KS",
+                                          "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "NE", "NH", "NJ",
+                                          "NY", "NC", "OH", "PA", "RI", "SC", "TN", "TX", "VT", "VA", "WV", "WI",
+                                          "DC", "AZ")
 ST_RE = "|".join(sorted(map(re.escape, STATES), key=len, reverse=True))
 ORDN = r"(\d+)(?:st|d|nd|rd|th)"
 

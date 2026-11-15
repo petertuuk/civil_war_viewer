@@ -33,6 +33,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
 from or_datelines import ordnum  # noqa: E402
 
 BOOKS = {  # file stem -> (state, author style)
@@ -295,4 +296,4 @@ def main(src_dir, events_p, units_p, out_p, rep_p):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("extract_state_histories")))

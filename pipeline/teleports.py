@@ -8,6 +8,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import params  # noqa: E402
 from geocode import km  # noqa: E402
 from resolve_mentions import day  # noqa: E402
 
@@ -37,7 +38,7 @@ def main(places_dir):
             xs = sorted((x for x in xs if x[0] is not None and x[ix]), key=lambda x: x[0])
             if xs:
                 start = xs[0][0]
-                xs = [x for x in xs if x[0] - start > 45]       # not the trip from the home state to the front
+                xs = [x for x in xs if x[0] - start > params.FRONT_TRIP_DAYS]       # not the trip from the home state to the front
             for a, b in zip(xs, xs[1:]):
                 n += 1
                 d = km(a[ix], b[ix]); t = max(1, b[0] - a[0] + a[1] + b[1])

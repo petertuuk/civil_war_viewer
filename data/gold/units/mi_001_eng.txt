@@ -1,6 +1,7 @@
 unit: 1st Michigan Engineers and Mechanics
 side: Union
 db_unit: 1030
+unit_key: michigan/029_1st_regiments_engineers_and_mechanics
 organized: 1861-10-29
 ended: 1865-09-22
 ended_how: mustered out

@@ -1,6 +1,7 @@
 unit: 43rd Battalion Virginia Cavalry (Mosby's Rangers)
 side: Confederate
 db_unit: 7246
+unit_key: nps:CVAMOSBRC
 organized: 1863-06-10
 ended: 1865-04-21
 ended_how: disbanded

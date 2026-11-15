@@ -79,3 +79,8 @@ WITH RECURSIVE up(unit_id, event_id, via_event_id, depth, claim_id) AS (
 SELECT unit_id, event_id, MIN(depth) AS depth, COUNT(DISTINCT claim_id) AS claims,
        COUNT(DISTINCT via_event_id) AS via_events
 FROM up GROUP BY unit_id, event_id;
+
+-- Identity of a claim across rebuilds: hash of extractor, unit key, type, date, locator and the first 80 characters of the span
+-- (common.claim_fingerprint). Decisions about single claims attach to it (roadmap T4.2, T4.5).
+ALTER TABLE claim ADD COLUMN fingerprint TEXT;
+CREATE INDEX claim_fingerprint ON claim(fingerprint);

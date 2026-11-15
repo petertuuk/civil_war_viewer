@@ -2,6 +2,7 @@
 day, split by kind (fix flag 0 known, 1 loose; segment from a derived estimate 2 brigade / 3 campaign). Moving
 (between two fixes <= 21 days apart) is counted separately.
 Usage: python pipeline/coverage.py viewer/war/data [YYYY-MM-DD ...]"""
+from cwv import params
 import json, sys
 from collections import Counter
 from datetime import date
@@ -27,7 +28,7 @@ def main(d, *days):
                     f = fx[s[2]]
                     kind = {0: "known", 1: "loose", 2: "est.brig", 3: "est.camp"}.get(f[4], "known")
                     break
-                if i and segs[i - 1][1] < t < s[0] and s[0] - segs[i - 1][1] <= 21:
+                if i and segs[i - 1][1] < t < s[0] and s[0] - segs[i - 1][1] <= params.MARCH_GAP_DAYS:
                     kind = "moving"; break
             if kind:
                 c[(side.get(uid), kind)] += 1

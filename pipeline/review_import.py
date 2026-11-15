@@ -1,7 +1,7 @@
 """Turn answers from the review page (artifact "Dyer's Review Queue", db collection 'decisions') into the
 pipeline's decision files.
 
-usage: python pipeline/review_import.py data/review/decisions.jsonl
+usage: python pipeline/review_import.py data/review/decisions.jsonl [--allow-withdraw]
   (decisions.jsonl: one answer per line, as the page stores it; Claude dumps it from the artifact's db)
 
   ocr  answer reading/other -> data/dyers/flag_decisions.jsonl {unit_id, ocr, before, printed, source}
@@ -10,6 +10,9 @@ usage: python pipeline/review_import.py data/review/decisions.jsonl
        (fix_years.py)
   can't tell: no decision; kept in decisions.jsonl and counted, the case stays in the queue with its note.
 Entries are replaced by key, so answering again (or changing an answer) overwrites the earlier one.
+Withdrawal: a decision this script wrote earlier whose case is missing from the input (or now answered "can't tell") is dropped.
+An incomplete input file would therefore delete real answers, so when anything would be withdrawn the script lists the case ids,
+exits with status 1 and writes nothing, unless --allow-withdraw is given.
 Then rebuild from the 'units' stage (OCR) or the 'dyers' stage (years) on.
 """
 import json, sys
@@ -28,7 +31,7 @@ def save(p, rows):
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
 
-def main(dec_p, root="."):
+def main(dec_p, root=".", allow_withdraw=False):
     root = Path(root)
     D = load(dec_p)
     fp, yp = root / "data/dyers/flag_decisions.jsonl", root / "data/dyers/year_decisions.jsonl"
@@ -63,11 +66,18 @@ def main(dec_p, root="."):
     # an answer cleared on the page: drop the decision this script wrote for it earlier
     live = {d["case_id"] for d in D if d.get("answer") != "cant_tell"}
     keep = lambda r: r.get("source") != SRC or r.get("case_id") in live
-    n["removed"] = sum(not keep(r) for r in flags + years)
+    gone = [r for r in flags + years if not keep(r)]
+    n["removed"] = len(gone)
+    if gone and not allow_withdraw:
+        print(f"refusing to withdraw {len(gone)} earlier decision(s) whose case is not in {dec_p} (or is now can't tell); nothing written.")
+        print("is the input complete? to withdraw them on purpose, run again with --allow-withdraw. case ids:")
+        print("  " + "\n  ".join(sorted(str(r.get("case_id")) for r in gone)))
+        sys.exit(1)
     save(fp, [r for r in flags if keep(r)]); save(yp, [r for r in years if keep(r)])
     print(f"review answers: {len(D)}; OCR decisions {n['ocr']}, year decisions {n['year']}, "
           f"can't tell {n['cant_tell']}, withdrawn {n['removed']}")
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    args = [a for a in sys.argv[1:] if a != "--allow-withdraw"]
+    main(*args, allow_withdraw="--allow-withdraw" in sys.argv)

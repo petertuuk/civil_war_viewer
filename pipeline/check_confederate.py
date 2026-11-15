@@ -5,6 +5,7 @@ Usage: python3 pipeline/check_confederate.py data/or/claims_or.jsonl data/events
 Sources per battle: OR organization table (participated claims, units with NPS codes),
 CWSS units-engaged rows (Crute, via Arnold), and NPS unit histories that link the battle.
 """
+from cwv import paths
 import collections, csv, json, sys
 from pathlib import Path
 
@@ -45,4 +46,4 @@ def main(claims, events_dir, arnold, nps_units, out):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:6])
+    main(*(sys.argv[1:6] or paths.defaults("check_confederate")))

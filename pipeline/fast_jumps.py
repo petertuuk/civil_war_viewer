@@ -20,9 +20,11 @@ from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import params  # noqa: E402
 from common import km, day_num as day, D0, too_fast, MIN_KM, MAX_KMDAY  # noqa: E402
 
-START_DAYS, PREC_MAX = 45, 25000
+START_DAYS, PREC_MAX = params.FRONT_TRIP_DAYS, params.FAST_JUMP_PREC_MAX_M
 
 
 def fast(a, b):
@@ -98,7 +100,7 @@ def main(dbp, out_csv, out_txt):
             # a is the odd one when its predecessor reaches b but not a; b when a reaches b's successor but b does not
             a_bad = p is not None and fast(p, a)[0] and not fast(p, b)[0]
             b_bad = n is not None and fast(b, n)[0] and not fast(a, n)[0]
-            sup = lambda o: sum(x["n"] for x in xs if x is not o and abs(x["t0"] - o["t0"]) <= 10 and km(x["ll"], o["ll"]) <= 50) + o["n"] - 1
+            sup = lambda o: sum(x["n"] for x in xs if x is not o and abs(x["t0"] - o["t0"]) <= params.SUPPORT_DAYS and km(x["ll"], o["ll"]) <= params.SUPPORT_KM) + o["n"] - 1
             sa, sb = sup(a), sup(b)
             culprit = "a" if a_bad and not b_bad else "b" if b_bad and not a_bad else (
                 "a" if sa == 0 and sb >= 2 else "b" if sb == 0 and sa >= 2 else "unclear")
@@ -115,6 +117,8 @@ def main(dbp, out_csv, out_txt):
         w.writerow(["unit", "unit_id", "km", "km_per_day", "likely_wrong", "a_date", "a_place", "a_source", "a_support",
                     "a_text", "b_date", "b_place", "b_source", "b_support", "b_text"])
         w.writerows(rows)
+    from metrics import record
+    record("fast_jumps", rows=len(rows), stats=dict(stats))
     rep = [f"{k}: {v}" for k, v in sorted(stats.items())]
     rep += ["", "Largest with a likely wrong end:"]
     rep += [f"  {r[0]}: {r[2]} km in {max(1, round(r[2] / max(r[3], 1)))} d; {r[5]} {r[6]} ({r[7]}) -> {r[10]} {r[11]} ({r[12]}); "
@@ -124,4 +128,4 @@ def main(dbp, out_csv, out_txt):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:4])
+    main(*(sys.argv[1:4] or paths.defaults("fast_jumps")))

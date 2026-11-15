@@ -29,6 +29,8 @@ from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import params  # noqa: E402
 from gnis_index import norm  # noqa: E402
 from common import gnis_by_name_state, km  # noqa: E402
 from extract_state_histories import BOOKS, HEADS, HEAD, unit_code, own_number, other_regiment, key_of, ALIAS, GOOD_KINDS  # noqa: E402
@@ -177,11 +179,11 @@ def main(src_dir, units_p, geocoded_p, gnis_p, out_p, rep_p, events_p=None):
         if prev and fam and len(prev) > 4:                # the reference is only a place named in the sentence
             return fam
         if prev:
-            if fam and km((prev[1], prev[2]), fam[:2]) <= 400:
+            if fam and km((prev[1], prev[2]), fam[:2]) <= params.STATION_PREV_KM:
                 return fam
             allc = [c for s in CSA for c in cands(name, s)]
             near = sorted((km((prev[1], prev[2]), c[:2]), c) for c in allc)
-            if near and near[0][0] <= 400:
+            if near and near[0][0] <= params.STATION_PREV_KM:
                 return near[0][1]
             return fam
         if fam:
@@ -193,7 +195,7 @@ def main(src_dir, units_p, geocoded_p, gnis_p, out_p, rep_p, events_p=None):
         if stale:
             allc = [c for s in CSA for c in cands(name, s)]
             near = sorted((km((stale[1], stale[2]), c[:2]), c) for c in allc)
-            if near and near[0][0] <= 700:
+            if near and near[0][0] <= params.STATION_STALE_KM:
                 return near[0][1]
         for s in [unit_st]:
             cs = cands(name, s)
@@ -356,7 +358,7 @@ def main(src_dir, units_p, geocoded_p, gnis_p, out_p, rep_p, events_p=None):
                                 stats["skipped: date before the previous claim"] += 1
                                 continue
                             d0 = d1; stats["year moved forward (chronological narrative)"] += 1
-                        if prev and abs((d0 - prev[0]).days) <= 3 and km((prev[1], prev[2]), (loc[0], loc[1])) > 400:
+                        if prev and abs((d0 - prev[0]).days) <= 3 and km((prev[1], prev[2]), (loc[0], loc[1])) > params.STATION_JUMP_KM:
                             stats["skipped: >400 km from the previous claim within 3 days"] += 1
                             continue
                         stay = verb == "at" or bool(re.fullmatch(STAY, verb) or re.fullmatch(DEPART, verb))
@@ -372,7 +374,7 @@ def main(src_dir, units_p, geocoded_p, gnis_p, out_p, rep_p, events_p=None):
                         kind_ = "at place, date" if verb == "at" else "station" if stay else "movement"
                         stats[f"claims ({kind_}, {prec})"] += 1
                         claims.append({"type": "unit_at", "source": "shs", "span": sent.strip()[:300],
-                                       "confidence": (0.55 if verb == "at" else 0.6 if stay else 0.45) - (0.1 if prec == "month" else 0),
+                                       "confidence": (params.STATION_AT_CONF if verb == "at" else params.STATION_STAY_CONF if stay else params.STATION_MOVE_CONF) - (params.STATION_MONTH_PENALTY if prec == "month" else 0),
                                        "extracted_by": "regex:state_stations_v1",
                                        "note": f"{f.stem} line {start + 1}: chapter '{head}'; verb '{verb}'",
                                        "unit": {"nps_code": code, "display_name": codes.get(code, code), "side": "Confederate"},
@@ -413,4 +415,4 @@ def main(src_dir, units_p, geocoded_p, gnis_p, out_p, rep_p, events_p=None):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("extract_state_stations")))

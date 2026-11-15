@@ -7,6 +7,7 @@ import json, math, sqlite3, sys
 from collections import Counter, defaultdict
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
 from common import km  # noqa: E402
 
 
@@ -52,4 +53,4 @@ def main(db, new_p, old_p=None):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("validate_datelines")))

@@ -14,13 +14,14 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import states as cwv_states  # noqa: E402
 import nps_links  # noqa: E402
 
 UA = {"User-Agent": "civil-war-viewer/0.1 (personal research project)"}
-STATES = {"Alabama": "AL", "Arkansas": "AR", "Florida": "FL", "Georgia": "GA", "Kentucky": "KY", "Louisiana": "LA",
-          "Maryland": "MD", "Mississippi": "MS", "Missouri": "MO", "North Carolina": "NC", "South Carolina": "SC",
-          "Tennessee": "TN", "Texas": "TX", "Virginia": "VA", "Arizona": "AZ", "Confederate": "CS", "Cherokee": "OK",
-          "Choctaw": "OK", "Creek": "OK", "Chickasaw": "OK", "Seminole": "OK"}
+STATES = cwv_states.table("Name", "CODE", "AL", "AR", "FL", "GA", "KY", "LA", "MD", "MS", "MO", "NC", "SC", "TN",
+                                          "TX", "VA", "AZ", ("Confederate", "CS"), ("Cherokee", "OK"),
+                                          ("Choctaw", "OK"), ("Creek", "OK"), ("Chickasaw", "OK"), ("Seminole", "OK"))
 ARM = {"Infantry": ("R", "I"), "Cavalry": ("R", "C"), "Mounted Infantry": ("R", "I"), "Mounted Rifles": ("R", "C"),
        "Artillery": ("R", "A"), "Heavy Artillery": ("R", "A"), "Partisan Rangers": ("R", "C"), "Sharpshooters": ("B", "I")}
 
@@ -122,4 +123,4 @@ def main(regdir, events_dir, units_csv, d2n, out):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("wp_regiment_claims")))

@@ -23,6 +23,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from cwv import paths  # noqa: E402
 import segment_dyers as SD  # noqa: E402
 
 norm = lambda t: re.sub(r"[^a-z0-9]", "", t.lower())
@@ -271,4 +272,4 @@ def main(xml_path, pdf, out_dir):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("review_cases")))

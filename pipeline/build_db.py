@@ -10,23 +10,24 @@ Resolution done here: unit ids through external_id; participated -> event throug
 mention_to_event / cluster_to_event (Dyer's) or event_id (OR, Wikipedia); unit_at -> place through place_mentions;
 commanders -> person by normalized name and side (no fuzzy merging yet).
 """
-import csv, json, re, sqlite3, sys, time
+from cwv import params
+from cwv import states as cwv_states
+import csv, json, os, re, sqlite3, sys, time
 from datetime import date, timedelta
 import nps_links
+from common import claim_fingerprint
 from collections import Counter, defaultdict
 collections_Counter = Counter
 from pathlib import Path
 
 NOW = time.strftime("%Y-%m-%dT%H:%M:%S")
-ST = {"ALABAMA": "AL", "ARKANSAS": "AR", "CALIFORNIA": "CA", "COLORADO": "CO", "CONNECTICUT": "CT", "DAKOTA": "DT",
-      "DELAWARE": "DE", "DISTRICT OF COLUMBIA": "DC", "FLORIDA": "FL", "GEORGIA": "GA", "ILLINOIS": "IL", "INDIANA": "IN",
-      "IOWA": "IA", "KANSAS": "KS", "KENTUCKY": "KY", "LOUISIANA": "LA", "MAINE": "ME", "MARYLAND": "MD",
-      "MASSACHUSETTS": "MA", "MICHIGAN": "MI", "MINNESOTA": "MN", "MISSISSIPPI": "MS", "MISSOURI": "MO", "NEBRASKA": "NE",
-      "NEVADA": "NV", "NEW HAMPSHIRE": "NH", "NEW JERSEY": "NJ", "NEW MEXICO": "NM", "NEW YORK": "NY", "NORTH CAROLINA": "NC",
-      "OHIO": "OH", "OREGON": "OR", "PENNSYLVANIA": "PA", "RHODE ISLAND": "RI", "SOUTH CAROLINA": "SC", "TENNESSEE": "TN",
-      "TEXAS": "TX", "VERMONT": "VT", "VIRGINIA": "VA", "WEST VIRGINIA": "WV", "WISCONSIN": "WI", "WASHINGTON TERRITORY": "WA",
-      "U.S. COLORED TROOPS": "US", "U.S. REGULAR ARMY": "UR", "U.S. VETERAN RESERVE CORPS": "VR", "U.S. VOLUNTEERS": "UV",
-      "U.S. VETERAN VOLUNTEERS": "UV", "CORPS D'AFRIQUE": "US", "DAKOTA TERRITORY": "DT"}
+ST = cwv_states.table("NAME", "CODE", "AL", "AR", "CA", "CO", "CT", "DT", "DE", "DC", "FL", "GA", "IL", "IN", "IA",
+                                      "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "NE", "NV", "NH",
+                                      "NJ", "NM", "NY", "NC", "OH", "OR", "PA", "RI", "SC", "TN", "TX", "VT", "VA",
+                                      "WV", "WI", ("WASHINGTON TERRITORY", "WA"), ("U.S. COLORED TROOPS", "US"),
+                                      ("U.S. REGULAR ARMY", "UR"), ("U.S. VETERAN RESERVE CORPS", "VR"),
+                                      ("U.S. VOLUNTEERS", "UV"), ("U.S. VETERAN VOLUNTEERS", "UV"),
+                                      ("CORPS D'AFRIQUE", "US"), ("DAKOTA TERRITORY", "DT"))
 EVENT_KIND = {"campaign": "campaign", "battle": "battle", "siege": "siege", "operations": "operation", "march": "march",
               "expedition": "expedition", "raid": "expedition", "pursuit": "operation", "demonstration": "operation",
               "reconnaissance": "operation", "combat": "engagement", "engagement": "engagement", "action": "engagement",
@@ -47,6 +48,9 @@ def norm_person(s):
 
 def main(proj, db_path):
     P = Path(proj)
+    import refcheck       # claim files made for other event ids attach their rows to the wrong events: stop before building (roadmap T2.3)
+    if not refcheck.run(P, allow=os.environ.get("CWV_ALLOW_STALE") == "1"):
+        sys.exit("build_db: stale generated files (see above); rerun the stage named, or CWV_ALLOW_STALE=1 for the first database build of the rebuild chain")
     Path(db_path).unlink(missing_ok=True)
     con = sqlite3.connect(db_path)
     con.executescript((P / "pipeline/schema.sql").read_text(encoding="utf-8"))
@@ -70,6 +74,8 @@ def main(proj, db_path):
     ech = {"regiment": "regiment", "battalion": "battalion", "battery": "battery", "company": "company", "legion": "regiment", "squadron": "company"}
     br = {"infantry": "infantry", "cavalry": "cavalry", "light artillery": "artillery", "heavy artillery": "artillery",
           "artillery": "artillery", "sharpshooters": "sharpshooters", "engineers": "engineers"}
+    import unit_registry
+    reg = unit_registry.Registry(P / "data/manual/unit_ids.tsv")      # permanent unit numbers (T2.2)
     units_file = P / "data/dyers/units_clean.jsonl"          # cleaned text + hand-checked units (vote_witnesses.py)
     if not units_file.exists():
         units_file = P / "data/dyers/units.jsonl"
@@ -77,8 +83,8 @@ def main(proj, db_path):
         u = json.loads(l)
         st = ST.get(u["state"])
         name = f"{u['state'].title()} {u['heading'].rstrip('.').title()}"
-        cur.execute("INSERT INTO unit(side_id, echelon, branch, state, number, display_name, notes) VALUES (?,?,?,?,?,?,?)",
-                    (side["Union"], ech.get(u.get("kind"), "other"), br.get(u.get("branch")), st, u.get("number"), name,
+        cur.execute("INSERT INTO unit(id, side_id, echelon, branch, state, number, display_name, notes) VALUES (?,?,?,?,?,?,?,?)",
+                    (reg.id_for(u["id"]), side["Union"], ech.get(u.get("kind"), "other"), br.get(u.get("branch")), st, u.get("number"), name,
                      f"Dyer's pp. {u.get('page_start')}-{u.get('page_end')}"))
         uid_ = cur.lastrowid
         add_x("unit", uid_, "dyer", u["id"])
@@ -94,8 +100,8 @@ def main(proj, db_path):
             num = int(u["ordinal"]) if u["ordinal"] else None
         except ValueError:
             num = None
-        cur.execute("INSERT INTO unit(side_id, echelon, branch, state, number, display_name, notes) VALUES (?,?,?,?,?,?,?)",
-                    (side["Union" if u["belligerent"] == "US" else "Confederate"], tmap.get(u["type"], "other"),
+        cur.execute("INSERT INTO unit(id, side_id, echelon, branch, state, number, display_name, notes) VALUES (?,?,?,?,?,?,?,?)",
+                    (reg.id_for("nps:" + u["unit_code"]), side["Union" if u["belligerent"] == "US" else "Confederate"], tmap.get(u["type"], "other"),
                      fmap.get(u["func"]), u["state"], num, u["unit_name"], "NPS Soldiers and Sailors unit list (via Arnold)"))
         add_x("unit", cur.lastrowid, "nps", u["unit_code"])
 
@@ -213,8 +219,12 @@ def main(proj, db_path):
 
     # ---------- claim helper ----------
     def claim(ctype, src, span, conf, by, locator, table, **cols):
-        cur.execute("INSERT INTO claim(claim_type, source_id, source_span, confidence, extracted_by, extracted_at, locator) VALUES (?,?,?,?,?,?,?)",
-                    (ctype, src, (span or "")[:500], conf, by, NOW, locator))
+        subject = reg.key_of(cols.get("unit_id")) or cols.get("unit_mention") or cols.get("event_mention") or cols.get("person_mention") or cols.get("name")
+        what = "|".join(str(cols.get(k) or "") for k in ("unit_mention", "event_mention", "place_mention", "person_mention", "parent_mention", "name",
+                                                          "parent_path_json", "date_end", "presence", "seq", "casualty"))
+        cur.execute("INSERT INTO claim(claim_type, source_id, source_span, confidence, extracted_by, extracted_at, locator, fingerprint) VALUES (?,?,?,?,?,?,?,?)",
+                    (ctype, src, (span or "")[:500], conf, by, NOW, locator,
+                     claim_fingerprint(by, subject, ctype, cols.get("date_start"), locator, span, what)))
         cid = cur.lastrowid
         cols["claim_id"] = cid
         cur.execute(f"INSERT INTO {table} ({','.join(cols)}) VALUES ({','.join('?' * len(cols))})", tuple(cols.values()))
@@ -340,7 +350,7 @@ def main(proj, db_path):
                         (r["name"], "town", r["state"], r["lat"], r["lon"], r["precision_m"],
                          f"resolve_mentions.py: chosen by the routes of {r['units']} units ({r['class']}, margin {r['margin']}, "
                          f"{r['candidates']} candidates; pooled place {r['place_key']} by {r['was']})"))
-            claim("event_at", S_GEO, e["name"], 0.6, "pipeline:route", e["event_id"], "claim_event_at",
+            claim("event_at", S_GEO, e["name"], params.EVENT_ROUTE_CONF, "pipeline:route", e["event_id"], "claim_event_at",
                   event_mention=e["name"], event_id=eid, place_mention=r["name"], place_id=cur.lastrowid,
                   date_start=e["date_start"], date_end=e["date_end"], date_precision="day" if len(e["date_start"] or "") == 10 else "month")
             n["event_at from units' routes"] += 1
@@ -352,7 +362,7 @@ def main(proj, db_path):
                     n["event_at from geocoded place: state disagrees"] += 1
                     continue
                 if g and g["method"] in ("gnis", "override", "seed") and pk in pl_id:
-                    claim("event_at", S_GEO, e["name"], 0.6, "pipeline:geocode", e["event_id"], "claim_event_at",
+                    claim("event_at", S_GEO, e["name"], params.EVENT_GEOCODE_CONF, "pipeline:geocode", e["event_id"], "claim_event_at",
                           event_mention=e["name"], event_id=eid, place_mention=g["name"], place_id=pl_id[pk],
                           date_start=e["date_start"], date_end=e["date_end"], date_precision="day" if len(e["date_start"] or "") == 10 else "month")
                     n["event_at from geocoded place"] += 1
@@ -361,12 +371,12 @@ def main(proj, db_path):
             src = {"wikidata": S_WD, "ai_approx": S_AI}.get(e.get("coord_source"), S_WD)
             cur.execute("INSERT INTO place(display_name, kind, lat, lon, precision_m, notes) VALUES (?,?,?,?,?,?)",
                         (e["name"], "battlefield", e["lat"], e["lon"], 2000 if src == S_WD else 20000, f"location of {e['event_id']}"))
-            claim("event_at", src, e["name"], 0.9 if src == S_WD else 0.5, "pipeline:merge_events", e["event_id"], "claim_event_at",
+            claim("event_at", src, e["name"], params.EVENT_WIKIDATA_CONF if src == S_WD else params.EVENT_OTHER_CONF, "pipeline:merge_events", e["event_id"], "claim_event_at",
                   event_mention=e["name"], event_id=eid, place_mention=e["name"], place_id=cur.lastrowid,
                   date_start=e["date_start"], date_end=e["date_end"], date_precision="day" if len(e["date_start"] or "") == 10 else "month")
             n["event_at"] += 1
         if e.get("dyer_name") and e["dyer_name"] != e["name"]:
-            claim("known_as", S_DYER, e["dyer_name"], 0.8, "pipeline:merge_events", e["event_id"], "claim_known_as",
+            claim("known_as", S_DYER, e["dyer_name"], params.EVENT_NAME_CONF, "pipeline:merge_events", e["event_id"], "claim_known_as",
                   entity_type="event", entity_id=eid, name=e["dyer_name"], name_type="alias"); n["event known_as"] += 1
     # ---------- event membership: part_of claims (data/events/part_of.jsonl, see event_membership.py) ----------
     pf = P / "data/events/part_of.jsonl"
@@ -439,7 +449,7 @@ def main(proj, db_path):
             by = BY[sk] if "source" in r or sk != "osm" else BY["osm"]
             if "source" in r and sk == "osm":
                 by = "osm:battle_monuments_v1"
-            conf = 0.5 if r["kind"] == "division" else 0.6 if r["kind"] == "brigade" else 0.8 if r.get("role") == "camp" else 0.85
+            conf = params.POS_DIVISION_CONF if r["kind"] == "division" else params.POS_BRIGADE_CONF if r["kind"] == "brigade" else params.POS_CAMP_CONF if r.get("role") == "camp" else params.POS_REGIMENT_CONF
             claim("unit_at", S_BP[sk], r["source_span"], conf, by,
                   r.get("ref") or r["osm"], "claim_unit_at", unit_mention=r["source_span"], unit_id=unit_of(r["unit_key"]), place_mention=r["source_span"],
                   place_id=pid, presence="present", portion="whole", date_start=r["date_start"], date_end=r["date_end"],
@@ -448,7 +458,7 @@ def main(proj, db_path):
 
     # ---------- manual / uploaded claims (data/manual/*.json, generated data/derived/*.json; see manual_claims.py) ----------
     import manual_claims
-    manual_claims.load(P, cur, side, xref, events, ev_id, person_of, source, claim, n)
+    manual_claims.load(P, cur, side, xref, events, ev_id, person_of, source, claim, n, reg)
 
     # ---------- namesake decisions (data/manual/namesake_decisions.psv) ----------
     # Placements linked to one unit that belong to a namesake (Turney's 1st Tennessee in Virginia under the
@@ -528,7 +538,7 @@ def main(proj, db_path):
         if len(p) == 2:
             return date(p[0], p[1], 28 if end else 1)
         return date(p[0], 12 if end else 1, 28 if end else 1)
-    def in_win(u, ds, slack=30):
+    def in_win(u, ds, slack=params.SERVICE_SLACK_DAYS):
         w = win.get(u)
         if not w:
             return None
@@ -584,6 +594,8 @@ def main(proj, db_path):
     print("rows:", stats)
     print("loads:", dict(n))
     print("foreign key problems:", len(bad))
+    added = reg.save()                                  # unit numbers issued by this build (T2.2)
+    print(f"unit registry: {len(reg.ids)} units, {added} new")
     con.execute("ANALYZE"); con.commit(); con.close()
 
 

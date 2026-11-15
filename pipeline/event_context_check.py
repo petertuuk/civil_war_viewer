@@ -21,6 +21,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
 from gnis_index import norm  # noqa: E402
 from common import km, gnis_by_name  # noqa: E402
 
@@ -171,4 +172,4 @@ def main(db, gnis_p, out_p):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("event_context_check")))

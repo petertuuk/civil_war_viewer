@@ -1,6 +1,7 @@
 unit: 1st Texas Infantry (Hood's Texas Brigade)
 side: Confederate
 db_unit: 6515
+unit_key: nps:CTX0001RI01
 organized: 1861
 ended: 1865-04-09
 ended_how: surrendered at Appomattox

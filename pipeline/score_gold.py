@@ -7,6 +7,7 @@ for the unit that match no line of the key).
 
 Usage: python pipeline/score_gold.py civil_war.db data/gold/units data/events/events.jsonl out.txt [detail.jsonl]
 """
+from cwv import paths
 import json, re, sqlite3, sys
 from collections import Counter, defaultdict
 from datetime import date, timedelta
@@ -83,6 +84,24 @@ def name_score(a, b):
     return len(c) / min(len(wa), len(wb)) if c else 0.0
 
 
+def unit_ids(head, c, name):
+    """Database ids of the key's unit (and same_as units). `unit_key:` / `same_as_keys:` (Dyer's id or nps:CODE; permanent, see
+    unit_registry.py) win over the older `db_unit:` / `same_as:` numbers, which are only checked."""
+    def one(key):
+        scheme, val = ("nps", key[4:]) if key.startswith("nps:") else ("dyer", key)
+        r = c.execute("SELECT entity_id FROM external_id WHERE entity_type='unit' AND scheme=? AND value=?", (scheme, val)).fetchone()
+        if not r:
+            raise SystemExit(f"score_gold: {name}: unit key {key} is not in the database")
+        return r[0]
+    if "unit_key" in head:
+        ids = [one(head["unit_key"])] + [one(k) for k in head.get("same_as_keys", "").replace(",", " ").split()]
+        old = [int(head["db_unit"])] + [int(x) for x in head.get("same_as", "").replace(",", " ").split()] if "db_unit" in head else None
+        if old and old != ids:
+            print(f"score_gold: {name}: db_unit numbers {old} are out of date (keys give {ids}); the keys are used")
+        return ids
+    return [int(head["db_unit"])] + [int(x) for x in head.get("same_as", "").replace(",", " ").split()]
+
+
 def read_key(p):
     head, items = {}, []
     for ln in p.read_text(encoding="utf-8").splitlines():
@@ -120,7 +139,7 @@ def main(db, keys_dir, events_path, out_path, detail_path=None):
     by_side = defaultdict(Counter)
     for kp in sorted(Path(keys_dir).glob("*.txt")):
         head, items = read_key(kp)
-        uids = [int(head["db_unit"])] + [int(x) for x in head.get("same_as", "").replace(",", " ").split()]
+        uids = unit_ids(head, c, kp.name)
         claims = c.execute(f"""SELECT cp.claim_id, cp.unit_id, cp.event_mention, cp.event_id, cp.date_start, cp.date_end, cl.extracted_by
             FROM claim_participated cp JOIN claim cl ON cl.id=cp.claim_id WHERE cp.unit_id IN ({','.join('?'*len(uids))})""", uids).fetchall()
         cl = [{"id": r[0], "unit": r[1], "mention": r[2], "event": r[3], "span": span(r[4], r[5]) or (EV.get(r[3], {}).get("span")),
@@ -233,8 +252,12 @@ def main(db, keys_dir, events_path, out_path, detail_path=None):
     Path(out_path).write_text("\n".join(summ + lines) + "\n", encoding="utf-8")
     if detail_path:
         Path(detail_path).write_text("\n".join(json.dumps(d) for d in details) + "\n")
+    from metrics import record
+    record("score_gold", regiments=len(details),
+           by_side={s: {**{k: t[k] for k in ("key", "found", "rolled", "missing", "misresolved", "prec_events", "prec_extra")},
+                        "recall": round((t["found"] + t["rolled"]) / max(1, t["key"]), 4)} for s, t in sorted(by_side.items())})
     print("\n".join(summ))
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("score_gold")))

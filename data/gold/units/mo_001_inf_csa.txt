@@ -1,7 +1,9 @@
 unit: 1st Missouri Infantry (Confederate), later 1st and 4th Consolidated
 side: Confederate
 db_unit: 5158
+unit_key: nps:CMO0001RI01
 same_as: 5159
+same_as_keys: nps:CMO0001RI02
 organized: 1861-06-22
 ended: 1865-04-09
 ended_how: surrendered at Fort Blakeley

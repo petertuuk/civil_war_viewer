@@ -85,6 +85,9 @@ Review page: artifact "Dyer's Review Queue" (https://claude.ai/artifact/Gqs91QQg
 | `terrain.py` | Shaded relief for a map window, from AWS Terrain Tiles (terrarium PNG elevation, public domain sources: SRTM, USGS NED). |
 | `wikipedia_infobox.py` | Read battle infoboxes from English Wikipedia for our Wikidata events. |
 | `stamps.py` | Skip rebuild stages whose inputs have not changed (called by rebuild.sh around each stage). |
+| `cwv/params.py` | Named numbers of the pipeline (speed test, day limits, distances, extractor confidences), one line each; changing one changes outputs (roadmap T3.8). |
+| `cwv/paths.py` | Where things live (`ROOT`, `DB`, `OR_TXT`, `SOURCES`, the most used files) and the arguments rebuild.sh gives each script, used when a script is started with none: `python3 pipeline/export_war.py` (roadmap T3.6). |
+| `cwv/states.py` | The 48 states, DC and the two period regions (Dakota, Indian Territory) with their codes, and `table()`, which builds the name→code / code→name tables 15 scripts used to spell out each; where the sources disagree (Dakota DT/SD, Indian Territory OK/IT, Washington WA/DC) the table that has it keeps it, listed in the file's docstring (roadmap T3.1a). The abbreviation tables ("ala", "n. c") are not here yet. |
 | `workcopy.py` | Work in a local copy of the project; write back only what changed. |
 | `wp_fetch.py` | Fetch Wikipedia search hits or plain-text extracts (with revision ids) for reading articles during review. |
 

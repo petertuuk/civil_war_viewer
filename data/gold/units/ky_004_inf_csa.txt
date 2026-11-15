@@ -1,6 +1,7 @@
 unit: 4th Kentucky Infantry (Orphan Brigade), later mounted
 side: Confederate
 db_unit: 4795
+unit_key: nps:CKY0004RIT
 organized: 1861-09
 ended: 1865-04-26
 ended_how: surrendered

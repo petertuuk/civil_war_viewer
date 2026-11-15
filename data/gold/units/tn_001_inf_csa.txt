@@ -1,6 +1,7 @@
 unit: 1st Tennessee Infantry (Maney's / Feild's)
 side: Confederate
 db_unit: 6245
+unit_key: nps:CTN0001RI
 organized: 1861-05-09
 ended: 1865-04-26
 ended_how: surrendered with Johnston (Wikipedia gives disbanded May 1, 1865)

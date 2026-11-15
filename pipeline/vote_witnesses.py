@@ -16,6 +16,7 @@ Output rows keep every input field; 'text' is the cleaned text, 'text_ocr' the o
 """
 import json, re, sys, os, collections, difflib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from cwv import paths  # noqa: E402
 from pathlib import Path
 
 norm = lambda t: re.sub(r"[^a-z0-9]", "", t.lower())
@@ -281,4 +282,4 @@ def main(units_p, match_p, nps_p, cwa_p, out_p, *only):
     print(f"flags: {len(allflags)}")
 
 if __name__ == '__main__':
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("vote_witnesses")))

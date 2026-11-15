@@ -1,6 +1,7 @@
 unit: 26th North Carolina Infantry
 side: Confederate
 db_unit: 5882
+unit_key: nps:CNC0026RI
 organized: 1861-08-27
 ended: 1865-04-09
 ended_how: surrendered at Appomattox

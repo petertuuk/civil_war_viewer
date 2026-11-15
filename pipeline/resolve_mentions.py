@@ -52,6 +52,8 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import states as cwv_states  # noqa: E402
 from geocode import forms, SAME, generic_dropped  # noqa: E402
 from common import km, day_num as day, D0, gnis_by_name, too_fast  # noqa: E402
 from gnis_index import norm  # noqa: E402
@@ -68,14 +70,10 @@ import os
 DEBUG_UNIT = os.environ.get("RM_DEBUG")
 
 
-HOME = {"alabama": "AL", "arkansas": "AR", "california": "CA", "colorado": "CO", "connecticut": "CT", "dakota": "SD",
-        "delaware": "DE", "district_of_columbia": "DC", "florida": "FL", "georgia": "GA", "illinois": "IL", "indiana": "IN",
-        "iowa": "IA", "kansas": "KS", "kentucky": "KY", "louisiana": "LA", "maine": "ME", "maryland": "MD",
-        "massachusetts": "MA", "michigan": "MI", "minnesota": "MN", "mississippi": "MS", "missouri": "MO", "nebraska": "NE",
-        "nevada": "NV", "new_hampshire": "NH", "new_jersey": "NJ", "new_mexico": "NM", "new_york": "NY",
-        "north_carolina": "NC", "ohio": "OH", "oregon": "OR", "pennsylvania": "PA", "rhode_island": "RI",
-        "tennessee": "TN", "texas": "TX", "vermont": "VT", "virginia": "VA", "washington": "WA", "west_virginia": "WV",
-        "wisconsin": "WI"}
+HOME = cwv_states.table("snake", "CODE", "AL", "AR", "CA", "CO", "CT", ("dakota", "SD"), "DE", "DC", "FL", "GA",
+                                         "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS",
+                                         "MO", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "OH", "OR", "PA", "RI",
+                                         "TN", "TX", "VT", "VA", "WA", "WV", "WI")
 GUESS_BONUS = 1.5     # the state geocoding inferred from the mention's context
 HOME_BONUS = 0.5      # a stateless town in the unit's own state: Dyer's leaves the state off "Organized at Rutland"
 
@@ -637,4 +635,4 @@ def main(places_dir, gnis_p, dyers_dir, events_dir, out_p, rep_p):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("resolve_mentions")))

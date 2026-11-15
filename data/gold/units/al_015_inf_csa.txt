@@ -1,6 +1,7 @@
 unit: 15th Alabama Infantry
 side: Confederate
 db_unit: 3675
+unit_key: nps:CAL0015RI
 organized: 1861-08
 ended: 1865-04-09
 ended_how: surrendered at Appomattox

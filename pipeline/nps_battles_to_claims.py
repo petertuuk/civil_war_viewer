@@ -16,6 +16,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
 from common import first_day as d  # noqa: E402
 import nps_links  # noqa: E402
 from anchor_events import words_of  # noqa: E402
@@ -102,4 +103,4 @@ def main(ar, wdp, d2n, events_dir, out_path):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("nps_battles_to_claims")))

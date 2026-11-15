@@ -5,17 +5,17 @@ usage: python pipeline/match_witnesses.py data/dyers/units.jsonl data/nps_us/uni
 Heading/code links propose candidates; word-bigram overlap with the OCR text decides.
 CWA is a checking witness only (site claims copyright): store pointers, not text.
 """
+from cwv import paths
+from cwv import states as cwv_states
 import csv, json, re, sys, collections
 from pathlib import Path
 
-ST = {'al':'ALABAMA','ar':'ARKANSAS','ca':'CALIFORNIA','co':'COLORADO','ct':'CONNECTICUT','dc':'DISTRICT OF COLUMBIA',
-      'de':'DELAWARE','fl':'FLORIDA','ga':'GEORGIA','ia':'IOWA','il':'ILLINOIS','in':'INDIANA','ks':'KANSAS',
-      'ky':'KENTUCKY','la':'LOUISIANA','ma':'MASSACHUSETTS','md':'MARYLAND','me':'MAINE','mi':'MICHIGAN','mn':'MINNESOTA',
-      'mo':'MISSOURI','ms':'MISSISSIPPI','nc':'NORTH CAROLINA','ne':'NEBRASKA','nh':'NEW HAMPSHIRE','nj':'NEW JERSEY',
-      'nm':'NEW MEXICO','nv':'NEVADA','ny':'NEW YORK','oh':'OHIO','or':'OREGON','pa':'PENNSYLVANIA','ri':'RHODE ISLAND',
-      'sc':'SOUTH CAROLINA','tn':'TENNESSEE','tx':'TEXAS','va':'VIRGINIA','vt':'VERMONT','wa':'WASHINGTON TERRITORY',
-      'wi':'WISCONSIN','wv':'WEST VIRGINIA','rg':'U.S. REGULAR ARMY','vetres':'U.S. VETERAN RESERVE CORPS',
-      'vetvol':'U.S. VETERAN VOLUNTEERS','usvol':'U.S. VOLUNTEERS'}
+ST = cwv_states.table("code", "NAME", "AL", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "IA", "IL", "IN", "KS",
+                                      "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "NC", "NE", "NH", "NJ",
+                                      "NM", "NV", "NY", "OH", "OR", "PA", "RI", "SC", "TN", "TX", "VA", "VT",
+                                      ("wa", "WASHINGTON TERRITORY"), "WI", "WV", ("rg", "U.S. REGULAR ARMY"),
+                                      ("vetres", "U.S. VETERAN RESERVE CORPS"),
+                                      ("vetvol", "U.S. VETERAN VOLUNTEERS"), ("usvol", "U.S. VOLUNTEERS"))
 STOP = {'regiment', 'independent', 'company', 'battery', 'the', 'of'}
 
 def cwa_state(f):
@@ -103,4 +103,4 @@ def main(units_p, nps_p, links_p, cwa_p, out_p):
     for k2, v in sorted(st.items()): print(f"{k2}: {v}")
 
 if __name__ == '__main__':
-    main(*sys.argv[1:6])
+    main(*(sys.argv[1:6] or paths.defaults("match_witnesses")))

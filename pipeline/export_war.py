@@ -21,6 +21,8 @@ from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import params  # noqa: E402
 from build_viewer import pretty  # noqa: E402
 from common import parse_date as d, km  # noqa: E402
 
@@ -58,7 +60,7 @@ def derive(db, segs, evd, D0):
         for a, b, f in runs:
             for k in range(a, b + 1):
                 covered[uid].add(k)
-            if f[2] or f[10] or (f[1] - f[0]).days <= 31:
+            if f[2] or f[10] or (f[1] - f[0]).days <= params.LOOSE_SPAN_DAYS:
                 for k in range(a, b + 1):
                     known[k][uid] = (f[3], f[4])
     # order-of-battle brigade snapshots
@@ -89,7 +91,7 @@ def derive(db, segs, evd, D0):
             return False
         prev = o[i - 1] if i > 0 else None
         nxt = o[i] if i < len(o) else None
-        return not (prev is not None and nxt is not None and nxt - prev <= 21)
+        return not (prev is not None and nxt is not None and nxt - prev <= params.MARCH_GAP_DAYS)
     out = defaultdict(list)
     def put(uid, k, lat, lon, label, flag):
         out[uid].append((k, round(lat, 2), round(lon, 2), label, flag))
@@ -126,7 +128,7 @@ def derive(db, segs, evd, D0):
                                          WHERE unit_id IS NOT NULL AND event_id IS NOT NULL"""):
         ks = kids.get(eid)
         a, b = d(ds), d(de or ds, True)
-        if not ks or len(ks) < 2 or not a or not b or (b - a).days <= 20:
+        if not ks or len(ks) < 2 or not a or not b or (b - a).days <= params.CAMPAIGN_DAYS:
             continue
         for k in range(max((a - D0).days, 0), min((b - D0).days, (D1 - D0).days) + 1):
             if k in covered[uid] or not far_from_own(uid, k, 14):
@@ -267,11 +269,11 @@ def locate(segs, day, Y):
         return f[0] / 1e4, f[1] / 1e4, 4 if f[4] >= 2 else 3 if f[4] else 0
     prev = segs[i] if i >= 0 else None
     nxt = segs[i + 1] if i + 1 < len(segs) else None
-    if prev and nxt and nxt[0] - prev[1] <= 21:
+    if prev and nxt and nxt[0] - prev[1] <= params.MARCH_GAP_DAYS:
         a, b = Y["fixes"][prev[2]], Y["fixes"][nxt[2]]
         w = (day - prev[1]) / (nxt[0] - prev[1])
         return (a[0] + w * (b[0] - a[0])) / 1e4, (a[1] + w * (b[1] - a[1])) / 1e4, 1
-    if prev and day - prev[1] <= 10:
+    if prev and day - prev[1] <= params.STALE_DAYS:
         a = Y["fixes"][prev[2]]
         return a[0] / 1e4, a[1] / 1e4, 2
     return None
@@ -372,10 +374,10 @@ def main(dbp, outdir):
         if eid not in evloc:
             continue
         a, b = d(ds), d(de or ds, True)
-        if not a or not b or b < a or ((b - a).days > 20 and not siege(eid)):
+        if not a or not b or b < a or ((b - a).days > params.CAMPAIGN_DAYS and not siege(eid)):
             continue                    # a campaign is not a position; a siege is (the lines stayed put)
         lat, lon, pm, _ = evloc[eid]
-        fixes[uid].append((a, b, prec == "day" and (b - a).days <= 20, lat, lon, pm, ename.get(eid) or "", RANK.get(sk, 1) + 1, conf,
+        fixes[uid].append((a, b, prec == "day" and (b - a).days <= params.CAMPAIGN_DAYS, lat, lon, pm, ename.get(eid) or "", RANK.get(sk, 1) + 1, conf,
                            por in (None, "whole"), siege(eid), None, cite(sid, loc, by)))
     # sweep: best fix per day, then runs
     segs = {}
@@ -383,7 +385,7 @@ def main(dbp, outdir):
         fx = [f for f in fx if f[1] >= D0 and f[0] <= D1]
         if not fx:
             continue
-        key = lambda f: (f[5] >= 10000, not f[2], (f[1] - f[0]).days > 3, f[5] > 500, not f[9], -f[7], -f[8], (f[1] - f[0]).days, f[5])
+        key = lambda f: (f[5] >= params.COARSE_M, not f[2], (f[1] - f[0]).days > params.SHORT_SPAN_DAYS, f[5] > params.MONUMENT_M, not f[9], -f[7], -f[8], (f[1] - f[0]).days, f[5])
         fx.sort(key=key)
         lo = max(min(f[0] for f in fx), D0); hi = min(max(f[1] for f in fx), D1)
         n = (hi - lo).days + 1
@@ -433,7 +435,7 @@ def main(dbp, outdir):
             continue
         r = db.execute("SELECT MIN(date_start), MAX(COALESCE(date_end, date_start)), COUNT(DISTINCT unit_id) FROM claim_participated WHERE event_id=?", (eid,)).fetchone()
         a, b = d(r[0]), d(r[1], True)
-        if not a or not b or (b - a).days > 20 or r[2] < 2:
+        if not a or not b or (b - a).days > params.CAMPAIGN_DAYS or r[2] < 2:
             continue
         lat, lon, _, _ = evloc[eid]
         evs.append((eid, nm, (a - D0).days, (b - D0).days, round(lat * 1e4), round(lon * 1e4), r[2]))
@@ -449,7 +451,7 @@ def main(dbp, outdir):
             for a, b, f in rs:
                 if f[6] not in lab_i:
                     lab_i[f[6]] = len(labels); labels.append(f[6][:70])
-                loose = f[11] if f[11] is not None else (0 if (f[2] or f[10] or (f[1] - f[0]).days <= 31) else 1)   # a siege's lines are a real position
+                loose = f[11] if f[11] is not None else (0 if (f[2] or f[10] or (f[1] - f[0]).days <= params.LOOSE_SPAN_DAYS) else 1)   # a siege's lines are a real position
                 si = -1
                 if f[12]:
                     if f[12] not in src_i:
@@ -475,4 +477,4 @@ def main(dbp, outdir):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("export_war")))

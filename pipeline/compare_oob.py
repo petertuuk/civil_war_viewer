@@ -8,6 +8,7 @@ Usage:
 2. For events with both an OR table and a Wikipedia list (same side): units in each, overlap,
    and brigade agreement: for units in both, do OR and Wikipedia group them the same way?
 """
+from cwv import paths
 import collections, json, re, sys, urllib.parse, urllib.request, time
 from pathlib import Path
 
@@ -106,4 +107,4 @@ def main(wp, orc, events_dir, wdir, out):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:6])
+    main(*(sys.argv[1:6] or paths.defaults("compare_oob")))

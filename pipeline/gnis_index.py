@@ -7,17 +7,15 @@ Inputs (USGS GNIS, public domain), unzipped from https://prd-tnm.s3.amazonaws.co
 Usage: python pipeline/gnis_index.py <gnis_dir> data/external/gnis/gnis_index.tsv
 Columns: norm name, state, lat, lon, class, county, feature id, name as printed, official|variant|historical
 """
+from cwv import states as cwv_states
 import csv, glob, re, sys
 from pathlib import Path
 
-STATES = {"Alabama": "AL", "Arizona": "AZ", "Arkansas": "AR", "California": "CA", "Colorado": "CO", "Connecticut": "CT",
-          "Delaware": "DE", "District of Columbia": "DC", "Florida": "FL", "Georgia": "GA", "Idaho": "ID", "Illinois": "IL",
-          "Indiana": "IN", "Iowa": "IA", "Kansas": "KS", "Kentucky": "KY", "Louisiana": "LA", "Maine": "ME", "Maryland": "MD",
-          "Massachusetts": "MA", "Michigan": "MI", "Minnesota": "MN", "Mississippi": "MS", "Missouri": "MO", "Montana": "MT",
-          "Nebraska": "NE", "Nevada": "NV", "New Hampshire": "NH", "New Jersey": "NJ", "New Mexico": "NM", "New York": "NY",
-          "North Carolina": "NC", "North Dakota": "ND", "Ohio": "OH", "Oklahoma": "OK", "Oregon": "OR", "Pennsylvania": "PA",
-          "Rhode Island": "RI", "South Carolina": "SC", "South Dakota": "SD", "Tennessee": "TN", "Texas": "TX", "Utah": "UT",
-          "Vermont": "VT", "Virginia": "VA", "Washington": "WA", "West Virginia": "WV", "Wisconsin": "WI", "Wyoming": "WY"}
+STATES = cwv_states.table("Name", "CODE", "AL", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "ID", "IL",
+                                          "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO",
+                                          "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR",
+                                          "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI",
+                                          "WY")
 KEEP = {"Populated Place", "Civil", "Military", "Crossing", "Gap", "Summit", "Ridge", "Stream", "Spring", "Island", "Swamp",
         "Valley", "Bend", "Bar", "Cape", "Bay", "Channel", "Falls", "Rapids", "Flat", "Woods", "Plain", "Gut", "Basin",
         "Range", "Slope", "Area", "Levee", "Canal", "Cliff", "Lake", "Beach"}

@@ -19,6 +19,8 @@ Usage: python pipeline/consistency_checks.py civil_war.db . data/scores/consiste
 """
 import csv, json, math, re, sqlite3, sys
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import params  # noqa: E402
 from collections import Counter, defaultdict
 from datetime import date, timedelta
 from pathlib import Path
@@ -94,7 +96,7 @@ def main(dbp, root, out_txt, out_csv):
                 if evd[e2][0] > evd[e1][1]:
                     break
                 dist = km(coord[e1], coord[e2])
-                if dist > 150:
+                if dist > params.TWO_PLACES_KM:
                     clash.append((uid, e1, e2, dist))
     rep += [f"two_places: {len(clash)} pairs for {len({c[0] for c in clash})} units"]
     for uid, e1, e2, dist in sorted(clash, key=lambda c: -c[3])[:400]:
@@ -227,6 +229,9 @@ def main(dbp, root, out_txt, out_csv):
         w.writerow(["check", "unit", "claims_affected", "detail"])
         w.writerows(q)
     kinds = Counter(r[0] for r in q)
+    from metrics import record
+    record("consistency_checks", review_rows=len(q), rows_by_check=dict(kinds), fast_jump_steps=nf, test_set_misses=ng,
+           outside_state_places=len(outside), outside_state_claims=sum(o[0] for o in outside))
     rep += ["", f"review queue: {len(q)} rows " + str(dict(kinds)), "", "Top outside_service:"]
     rep += [f"  {r[2]:3d}  {r[1]}: {r[3]}" for r in q if r[0] == "outside_service"][:25]
     rep += ["", "Top two_brigades:"] + [f"  {r[2]:3d}  {r[1]}: {r[3]}" for r in q if r[0] == "two_brigades"][:25]
@@ -236,4 +241,4 @@ def main(dbp, root, out_txt, out_csv):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("consistency_checks")))

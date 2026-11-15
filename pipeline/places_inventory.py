@@ -17,18 +17,14 @@ Outputs: places_inventory.csv (one row per place), place_mentions.jsonl
 import collections, csv, json, re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import states as cwv_states  # noqa: E402
 from parse_event_index import STATES  # abbreviation -> postal code
 
-FULL = {"alabama": "AL", "arkansas": "AR", "california": "CA", "colorado": "CO", "connecticut": "CT",
-        "delaware": "DE", "florida": "FL", "georgia": "GA", "illinois": "IL", "indiana": "IN", "iowa": "IA",
-        "kansas": "KS", "kentucky": "KY", "louisiana": "LA", "maine": "ME", "maryland": "MD",
-        "massachusetts": "MA", "michigan": "MI", "minnesota": "MN", "mississippi": "MS", "missouri": "MO",
-        "nebraska": "NE", "nevada": "NV", "new hampshire": "NH", "new jersey": "NJ", "new mexico": "NM",
-        "new york": "NY", "north carolina": "NC", "ohio": "OH", "oregon": "OR", "pennsylvania": "PA",
-        "rhode island": "RI", "south carolina": "SC", "tennessee": "TN", "texas": "TX", "vermont": "VT",
-        "virginia": "VA", "west virginia": "WV", "wisconsin": "WI", "dakota": "DT", "indian territory": "IT",
-        "arizona": "AZ", "district of columbia": "DC", "utah": "UT", "idaho": "ID", "montana": "MT",
-        "washington territory": "WA"}
+FULL = cwv_states.table("name", "CODE", "AL", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "IL", "IN", "IA", "KS", "KY",
+                                        "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "NE", "NV", "NH", "NJ", "NM",
+                                        "NY", "NC", "OH", "OR", "PA", "RI", "SC", "TN", "TX", "VT", "VA", "WV", "WI",
+                                        "DT", "IT", "AZ", "DC", "UT", "ID", "MT", ("washington territory", "WA"))
 STATES = dict(STATES, **{"n h": "NH", "r i": "RI", "d c": "DC"})
 ST_RE = re.compile(r"(?:,\s*|\s+)(" + "|".join(sorted((re.escape(k).replace(r"\ ", r"\.?\s*") for k in STATES),
                    key=len, reverse=True)) + r")\.?\s*$", re.I)
@@ -338,4 +334,4 @@ def main(dyers_dir, events_dir, out_dir):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:4])
+    main(*(sys.argv[1:4] or paths.defaults("places_inventory")))

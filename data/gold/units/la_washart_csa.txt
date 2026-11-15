@@ -1,6 +1,7 @@
 unit: Washington Artillery Battalion (Louisiana)
 side: Confederate
 db_unit: 5107
+unit_key: nps:CLAWASHBA
 organized: 1861-05-26
 ended: 1865-04-09
 ended_how: surrendered at Appomattox (5th Company: Mobile, April 1865)

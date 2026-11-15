@@ -1,6 +1,7 @@
 unit: 1st Minnesota Infantry
 side: Union
 db_unit: 1088
+unit_key: minnesota/011_1st_regiment_infantry
 organized: 1861-04-29
 ended: 1865-07-15
 ended_how: mustered out (regiment 1864-04-29; battalion 1865-07-15)

@@ -22,18 +22,18 @@ from datetime import date, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import states as cwv_states  # noqa: E402
 from resolve_events import LEAD, norm, core_words, iso  # noqa: E402
 
 EXTRA_STOP = {"first", "second", "third", "battle", "siege", "engagement", "skirmish", "action", "combat",
               "campaign", "assault", "raid", "expedition"}
 QID = re.compile(r"Q\d+$")
-ST_ABBR = {"Alabama": "AL", "Arizona": "AZ", "Arkansas": "AR", "California": "CA", "Colorado": "CO", "Delaware": "DE",
-           "Florida": "FL", "Georgia": "GA", "Idaho": "ID", "Illinois": "IL", "Indiana": "IN", "Iowa": "IA", "Kansas": "KS",
-           "Kentucky": "KY", "Louisiana": "LA", "Maryland": "MD", "Minnesota": "MN", "Mississippi": "MS", "Missouri": "MO",
-           "Nebraska": "NE", "Nevada": "NV", "New Mexico": "NM", "New York": "NY", "North Carolina": "NC", "North Dakota": "ND",
-           "Ohio": "OH", "Oklahoma": "OK", "Oregon": "OR", "Pennsylvania": "PA", "South Carolina": "SC", "South Dakota": "SD",
-           "Tennessee": "TN", "Texas": "TX", "Utah": "UT", "Virginia": "VA", "West Virginia": "WV", "Washington, D.C.": "DC",
-           "District of Columbia": "DC", "Vermont": "VT", "Wyoming": "WY", "Montana": "MT", "Idaho Territory": "ID"}
+ST_ABBR = cwv_states.table("Name", "CODE", "AL", "AZ", "AR", "CA", "CO", "DE", "FL", "GA", "ID", "IL", "IN", "IA",
+                                           "KS", "KY", "LA", "MD", "MN", "MS", "MO", "NE", "NV", "NM", "NY", "NC",
+                                           "ND", "OH", "OK", "OR", "PA", "SC", "SD", "TN", "TX", "UT", "VA", "WV",
+                                           ("Washington, D.C.", "DC"), "DC", "VT", "WY", "MT",
+                                           ("Idaho Territory", "ID"))
 MENTION_ST = {"va": "VA", "w. va": "WV", "md": "MD", "pa": "PA", "tenn": "TN", "ky": "KY", "ga": "GA", "ala": "AL", "miss": "MS",
               "la": "LA", "ark": "AR", "mo": "MO", "tex": "TX", "n. c": "NC", "s. c": "SC", "fla": "FL", "ind": "IN", "ohio": "OH",
               "kan": "KS", "n. m": "NM", "i. t": "OK", "d. c": "DC"}
@@ -325,4 +325,4 @@ def main(claims_path, wd_path, index_events_path, out_dir):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:5])
+    main(*(sys.argv[1:5] or paths.defaults("anchor_events")))

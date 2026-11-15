@@ -18,16 +18,17 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import states as cwv_states  # noqa: E402
 from gnis_index import norm  # noqa: E402
 from common import gnis_by_name_state  # noqa: E402
 
 MON = "January|February|March|April|May|June|July|August|September|October|November|December"
 MN = {m: i + 1 for i, m in enumerate(MON.split("|"))}
 SEASON = {"spring": (3, 5), "summer": (6, 8), "fall": (9, 11), "autumn": (9, 11), "winter": (12, 2)}
-STATES = {"Alabama": "AL", "Arkansas": "AR", "Florida": "FL", "Georgia": "GA", "Kentucky": "KY", "Louisiana": "LA",
-          "Maryland": "MD", "Mississippi": "MS", "Missouri": "MO", "North Carolina": "NC", "South Carolina": "SC",
-          "Tennessee": "TN", "Texas": "TX", "Virginia": "VA", "West Virginia": "WV", "Indian Territory": "OK",
-          "Arizona": "AZ", "New Mexico": "NM", "Pennsylvania": "PA", "Ohio": "OH", "Indiana": "IN", "Kansas": "KS"}
+STATES = cwv_states.table("Name", "CODE", "AL", "AR", "FL", "GA", "KY", "LA", "MD", "MS", "MO", "NC", "SC", "TN",
+                                          "TX", "VA", "WV", ("Indian Territory", "OK"), "AZ", "NM", "PA", "OH", "IN",
+                                          "KS")
 SURRENDER = {  # date -> (place, state, lat, lon): the main surrenders
     "1865-04-09": ("Appomattox Court House", "VA", 37.3771, -78.7964),
     "1865-04-26": ("Greensboro", "NC", 36.0726, -79.7920),
@@ -184,4 +185,4 @@ def main(units_p, geocoded_p, gnis_p, out_p):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("extract_nps_histories")))

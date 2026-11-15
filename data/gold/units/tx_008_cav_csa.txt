@@ -1,6 +1,7 @@
 unit: 8th Texas Cavalry (Terry's Texas Rangers)
 side: Confederate
 db_unit: 6565
+unit_key: nps:CTX0008RC
 organized: 1861-08
 ended: 1865-04-26
 ended_how: declined surrender with the Army of Tennessee; went home in small groups

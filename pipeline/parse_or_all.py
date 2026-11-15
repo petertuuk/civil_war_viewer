@@ -14,16 +14,14 @@ import csv, json, re, sys
 from collections import Counter
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import states as cwv_states  # noqa: E402
 from parse_or_organization import join_wrapped, classify, ORD, RANK
 from unit_match import Index, match_named
 
-STATES = {"Alabama": "AL", "Arkansas": "AR", "California": "CA", "Colorado": "CO", "Connecticut": "CT", "Delaware": "DE",
-          "Florida": "FL", "Georgia": "GA", "Illinois": "IL", "Indiana": "IN", "Iowa": "IA", "Kansas": "KS", "Kentucky": "KY",
-          "Louisiana": "LA", "Maine": "ME", "Maryland": "MD", "Massachusetts": "MA", "Michigan": "MI", "Minnesota": "MN",
-          "Mississippi": "MS", "Missouri": "MO", "Nebraska": "NE", "Nevada": "NV", "New Hampshire": "NH", "New Jersey": "NJ",
-          "New Mexico": "NM", "New York": "NY", "North Carolina": "NC", "Ohio": "OH", "Oregon": "OR", "Pennsylvania": "PA",
-          "Rhode Island": "RI", "South Carolina": "SC", "Tennessee": "TN", "Texas": "TX", "Vermont": "VT", "Virginia": "VA",
-          "West Virginia": "WV", "Wisconsin": "WI", "District of Columbia": "DC"}
+STATES = cwv_states.table("Name", "CODE", "AL", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "IL", "IN", "IA", "KS",
+                                          "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "NE", "NV", "NH",
+                                          "NJ", "NM", "NY", "NC", "OH", "OR", "PA", "RI", "SC", "TN", "TX", "VT",
+                                          "VA", "WV", "WI", "DC")
 ST_RE = re.compile(r"^(" + "|".join(sorted(map(re.escape, STATES), key=len, reverse=True)) + r")\b")
 MONTHS = {m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
 

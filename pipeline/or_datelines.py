@@ -40,6 +40,8 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import params  # noqa: E402
 from gnis_index import norm  # noqa: E402
 from common import gnis_by_name_state, km, too_fast  # noqa: E402
 from or_stations import split_place, SAME, ABBR  # noqa: E402
@@ -127,7 +129,7 @@ TABLE_DAYS, TABLE_FAR = 45, 120   # a command's table within TABLE_DAYS of the h
 ROUTE_DAYS = 10             # a unit's own positions this near in time test a command heading
 BRACKET_DAYS = 30           # ... and its last position before / first after, if both in the same place
 PREC = {"regiment": 2000, "brigade": 4000, "division": 10000, "corps": 25000}
-CONF = {"regiment": 0.65, "brigade": 0.6, "division": 0.5, "corps": 0.4}
+CONF = params.DATELINE_CONF
 
 
 def ordnum(t):
@@ -815,4 +817,4 @@ def main(txt_dir, vol_p, pl_p, tables_p, geocoded_p, gnis_p, units_p, out_lines,
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("or_datelines")))

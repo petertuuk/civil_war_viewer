@@ -1,6 +1,7 @@
 unit: 33rd Illinois Infantry
 side: Union
 db_unit: 247
+unit_key: illinois/108_33rd_regiment_infantry
 organized: 1861-09-03
 ended: 1865-11-24
 ended_how: mustered out

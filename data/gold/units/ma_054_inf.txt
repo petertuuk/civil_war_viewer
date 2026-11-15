@@ -1,6 +1,7 @@
 unit: 54th Massachusetts Infantry (Colored)
 side: Union
 db_unit: 993
+unit_key: massachusetts/100_54th_regiment_infantry_colored
 organized: 1863-05-13
 ended: 1865-08-20
 ended_how: mustered out

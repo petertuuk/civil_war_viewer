@@ -1,0 +1,131 @@
+# Georgia Historical Commission markers (texts mostly by Wilbur G. Kurtz), read by Claude 2026-11-13: formations each marker places at (here) or next to (near) its own spot.
+# marker = OBJECTID in ga_markers.json (Georgia Historical Society layer); level regiment|battery|brigade|division; who = commander name tokens (or "N ST" for a regiment, "N ST L" for a battery); ctx = division commander tokens for a brigade
+# Brown's division at Ezra Church (July 28) is Hindman's old division, Anderson's Division in the campaign's second order of battle.
+marker|date_start|date_end|side|level|who|ctx|where
+5017|1864-06-27|1864-06-27|US|brigade|Kimball|Newton|near
+5017|1864-06-27|1864-06-27|US|brigade|Wagner|Newton|near
+5017|1864-06-27|1864-06-27|US|brigade|Harker|Newton|near
+5017|1864-06-27|1864-06-27|US|brigade|Mitchell|Davis|near
+5566|1864-06-27|1864-06-27|US|brigade|McCook|Davis|here
+4693|1864-06-27|1864-06-27|CS|division|Cheatham||near
+4693|1864-06-27|1864-06-27|CS|division|Cleburne||near
+5421|1864-06-27|1864-06-27|CS|division|Featherston||here
+5439|1864-06-27|1864-06-27|CS|brigade|Cockrell|French|near
+5441|1864-06-19|1864-07-02|CS|division|French||near
+5441|1864-06-19|1864-07-02|CS|division|Walker||near
+5501|1864-06-25|1864-06-27|US|brigade|Walcutt|Harrow|here
+5501|1864-06-25|1864-06-27|US|brigade|Giles|Morgan Smith|here
+5501|1864-06-25|1864-06-27|US|brigade|Lightburn|Morgan Smith|here
+5980|1864-06-22|1864-06-22|US|division|Cox||here
+5544|1864-06-20|1864-06-20|US|brigade|Cameron|Cox|near
+4396|1864-07-20|1864-07-20|US|regiment|33 NJ||here
+4396|1864-07-20|1864-07-20|CS|brigade|Scott|Loring|here
+4400|1864-07-20|1864-07-20|US|division|Stanley||here
+4442|1864-07-18|1864-07-19|CS|division|French||here
+4471|1864-07-20|1864-07-20|CS|division|Bate||here
+4474|1864-07-19|1864-07-20|US|brigade|Morgan|Davis|here
+4566|1864-07-19|1864-07-19|US|division|Stanley||here
+4748|1864-07-20|1864-07-20|CS|division|Loring||near
+4880|1864-07-19|1864-07-19|US|brigade|Dilworth|Davis|here
+4880|1864-07-19|1864-07-19|CS|brigade|Reynolds|Walthall|near
+5083|1864-07-20|1864-07-21|CS|division|French||near
+5103|1864-07-20|1864-07-20|US|division|Geary||here
+5103|1864-07-20|1864-07-20|US|brigade|Candy|Geary|here
+5103|1864-07-20|1864-07-20|US|brigade|Jones|Geary|here
+5103|1864-07-20|1864-07-20|US|brigade|Ireland|Geary|here
+5220|1864-07-20|1864-07-20|US|division|Gresham||here
+5242|1864-07-20|1864-07-20|CS|division|Walker||near
+5449|1864-07-20|1864-07-20|US|brigade|King||here
+5502|1864-07-20|1864-07-21|US|division|Morgan Smith||here
+5509|1864-07-20|1864-07-20|CS|division|Loring||here
+5509|1864-07-20|1864-07-20|CS|brigade|Featherston|Loring|near
+5650|1864-07-20|1864-07-20|US|division|Newton||here
+5650|1864-07-20|1864-07-20|US|brigade|Kimball|Newton|here
+5650|1864-07-20|1864-07-20|US|brigade|Blake|Newton|here
+5650|1864-07-20|1864-07-20|US|brigade|Bradley|Newton|here
+5746|1864-07-20|1864-07-20|CS|brigade|Stevens|Walker|here
+5748|1864-07-20|1864-07-20|CS|brigade|Reynolds|Walthall|here
+5748|1864-07-20|1864-07-20|CS|brigade|O'Neal|Walthall|here
+5795|1864-07-20|1864-07-21|US|division|Hascall||here
+5808|1864-07-20|1864-07-20|CS|division|Walthall||here
+5907|1864-07-20|1864-07-20|US|brigade|Knipe|Williams|near
+5947|1864-07-20|1864-07-20|US|brigade|Ruger|Williams|here
+5947|1864-07-20|1864-07-20|US|brigade|Anson|Johnson|near
+6132|1864-07-20|1864-07-21|US|division|Wood||here
+6142|1864-07-18|1864-07-21|CS|division|Stevenson||here
+6496|1864-07-20|1864-07-20|US|division|Ward||here
+6496|1864-07-20|1864-07-20|US|brigade|Wood|Ward|here
+6496|1864-07-20|1864-07-20|US|brigade|Coburn|Ward|here
+6496|1864-07-20|1864-07-20|US|brigade|Harrison|Ward|here
+6532|1864-07-21|1864-07-21|CS|division|Cleburne||here
+6532|1864-07-21|1864-07-21|US|division|Leggett||here
+6555|1864-07-20|1864-07-20|US|division|Williams||here
+6555|1864-07-20|1864-07-20|US|brigade|Robinson|Williams|here
+6555|1864-07-20|1864-07-20|US|brigade|Knipe|Williams|here
+6172|1864-07-21|1864-07-21|US|division|Sweeny||here
+4423|1864-07-22|1864-07-22|US|brigade|Mersy|Sweeny|here
+4444|1864-07-22|1864-07-22|US|division|Giles||near
+4457|1864-07-22|1864-07-22|CS|brigade|Baker|Clayton|here
+4457|1864-07-22|1864-07-22|US|division|Woods||near
+4469|1864-07-22|1864-07-22|CS|division|Bate||here
+4469|1864-07-22|1864-07-22|US|brigade|Rice|Sweeny|here
+4481|1864-07-22|1864-07-22|US|division|Sweeny||here
+4553|1864-07-22|1864-07-22|CS|brigade|Benton|Brown|here
+4553|1864-07-22|1864-07-22|CS|brigade|Coltart|Brown|here
+4553|1864-07-22|1864-07-22|US|brigade|Williams|Harrow|near
+4553|1864-07-22|1864-07-22|US|brigade|Oliver|Harrow|near
+4616|1864-07-22|1864-07-22|CS|division|Brown||near
+4616|1864-07-22|1864-07-22|CS|division|Clayton||near
+4725|1864-07-22|1864-07-22|CS|brigade|Lowrey|Cleburne|near
+4725|1864-07-22|1864-07-22|CS|brigade|Govan|Cleburne|near
+4725|1864-07-22|1864-07-22|CS|brigade|Granbury|Cleburne|near
+4726|1864-07-22|1864-07-22|CS|division|Cleburne||here
+4859|1864-07-22|1864-07-28|US|division|Davis||here
+5086|1864-07-22|1864-07-22|US|brigade|Morrill|Fuller|near
+5257|1864-07-22|1864-07-22|US|division|Harrow||here
+5257|1864-07-22|1864-07-22|US|brigade|Walcutt|Harrow|here
+5485|1864-07-22|1864-07-22|US|division|Leggett||here
+5542|1864-07-22|1864-07-22|CS|division|Maney||here
+5543|1864-07-22|1864-07-22|CS|brigade|Manigault|Brown|here
+5588|1864-07-22|1864-07-22|US|brigade|Mersy|Sweeny|here
+5911|1864-07-22|1864-07-22|US|regiment|66 IN||here
+5911|1864-07-22|1864-07-22|US|regiment|2 IA||here
+5911|1864-07-22|1864-07-22|US|regiment|7 IA||here
+5911|1864-07-22|1864-07-22|US|regiment|52 IL||near
+5911|1864-07-22|1864-07-22|US|battery|14 OH||here
+5911|1864-07-22|1864-07-22|US|battery|1 MO H||here
+5985|1864-07-22|1864-08-25|US|division|Wood||here
+6133|1864-07-22|1864-08-25|US|division|Stanley||near
+6204|1864-07-22|1864-07-22|US|division|Morgan Smith||here
+6204|1864-07-22|1864-07-22|US|brigade|Lightburn|Morgan Smith|here
+6204|1864-07-22|1864-07-22|US|brigade|Martin|Morgan Smith|here
+6251|1864-07-22|1864-07-22|US|battery|1 IL H||here
+6385|1864-07-22|1864-07-22|CS|regiment|10 SC||here
+6075|1864-07-22|1864-07-22|CS|regiment|19 SC||here
+6489|1864-07-22|1864-07-22|CS|division|Walker||here
+6489|1864-07-22|1864-07-22|CS|brigade|Stevens|Walker|here
+6489|1864-07-22|1864-07-22|CS|brigade|Gist|Walker|here
+6489|1864-07-22|1864-07-22|CS|brigade|Mercer|Walker|here
+6531|1864-07-22|1864-07-22|US|brigade|Sprague||here
+4491|1864-07-28|1864-07-28|CS|brigade|Johnston|Anderson|here
+4491|1864-07-28|1864-07-28|CS|brigade|Sharp|Anderson|here
+4491|1864-07-28|1864-07-28|CS|brigade|Brantly|Anderson|here
+4492|1864-07-28|1864-07-28|CS|division|Anderson||here
+4494|1864-07-28|1864-07-28|US|brigade|Lightburn|Morgan Smith|here
+4724|1864-07-28|1864-07-28|CS|brigade|Gibson|Clayton|here
+4724|1864-07-28|1864-07-28|CS|brigade|Holtzclaw|Clayton|here
+4724|1864-07-28|1864-07-28|CS|brigade|Baker|Clayton|here
+4724|1864-07-28|1864-07-28|CS|division|Loring||near
+6045|1864-07-28|1864-07-28|US|brigade|Wangelin|Woods|here
+6265|1864-07-28|1864-07-28|US|division|Harrow||near
+4387|1864-08-30|1864-08-30|US|division|Carlin||near
+4443|1864-08-31|1864-08-31|CS|division|Anderson||here
+4443|1864-08-31|1864-08-31|CS|division|Stevenson||here
+4443|1864-08-31|1864-08-31|CS|division|Clayton||here
+4505|1864-09-01|1864-09-01|US|division|Carlin||here
+4505|1864-09-01|1864-09-01|US|division|Baird||here
+4536|1864-08-31|1864-08-31|US|division|Harrow||here
+4536|1864-08-31|1864-08-31|US|brigade|Rice|Corse|here
+4728|1864-08-31|1864-08-31|CS|division|Cleburne||here
+5243|1864-09-01|1864-09-01|CS|brigade|Govan|Cleburne|near
+6074|1864-08-30|1864-08-30|US|division|Newton||near

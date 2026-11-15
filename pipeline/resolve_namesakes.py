@@ -34,6 +34,7 @@ from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import params  # noqa: E402
 from common import km  # noqa: E402
 
 
@@ -161,10 +162,10 @@ def main(pl_p, units_p, db_p, rep_p, battles_p=None, events_p=None):
             live = []
         elif len(cons) > 1:
             live = []
-        here = where(mates[key(r)] - set(cands), d, 30) if live else None
+        here = where(mates[key(r)] - set(cands), d, params.NAMESAKE_MATES_DAYS) if live else None
         if len(live) == 1:
-            w = where([live[0]], d, 60)
-            if here and w and km(here, w) > 400:
+            w = where([live[0]], d, params.NAMESAKE_UNIT_DAYS)
+            if here and w and km(here, w) > params.NAMESAKE_FAR_KM:
                 stats["kept: the only namesake in service was over 400 km away"] += 1
             else:
                 pick, why = live[0], "the only namesake with evidence around that date" + (
@@ -173,10 +174,10 @@ def main(pl_p, units_p, db_p, rep_p, battles_p=None, events_p=None):
             if here:
                 dist = {}
                 for k in live:
-                    w = where([k], d, 60)
+                    w = where([k], d, params.NAMESAKE_UNIT_DAYS)
                     dist[k] = km(here, w) if w else None
-                near = [k for k in live if dist[k] is not None and dist[k] <= 200]
-                far = [k for k in live if dist[k] is not None and dist[k] >= 400]
+                near = [k for k in live if dist[k] is not None and dist[k] <= params.NAMESAKE_NEAR_KM]
+                far = [k for k in live if dist[k] is not None and dist[k] >= params.NAMESAKE_FAR_KM]
                 if len(near) == 1 and len(near) + len(far) == len(live):
                     pick, why = near[0], "near the row's brigade-mates (" + ", ".join(
                         f"{k} {dist[k]:.0f} km" for k in live) + ")"

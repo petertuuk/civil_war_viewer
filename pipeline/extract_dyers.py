@@ -15,6 +15,8 @@ AI step and the review queue know where to look.
 Usage:
     python pipeline/extract_dyers.py data/dyers/units.jsonl data/dyers/claims_rules.jsonl
 """
+from cwv import paths
+from cwv import params
 import json
 from datetime import date
 import re
@@ -301,7 +303,7 @@ def _gap_days(a, b):
         return 0
 
 
-def items_from(text, years, base_conf=0.8):
+def items_from(text, years, base_conf=params.DYERS_BASE_CONF):
     """Cut dated items out of running text. Undated sentences become low-confidence items."""
     items, pos, saved = [], 0, None
     for m in DATE_RE.finditer(text):
@@ -313,7 +315,7 @@ def items_from(text, years, base_conf=0.8):
         for s in sentences[:-1]:                    # undated sentences before this item
             s = clean_desc(s)
             if s and not s.startswith("("):
-                items.append({"desc": s, "date": None, "conf": 0.3})
+                items.append({"desc": s, "date": None, "conf": params.DYERS_UNDATED_CONF})
         last = clean_desc(sentences[-1]) if sentences else ""
         last = re.sub(r"\s+till$", "", last)
         # a leading parenthesis belongs to the previous item: '(Detachment). Near Pulaski'
@@ -365,7 +367,7 @@ def items_from(text, years, base_conf=0.8):
             vm = re.match(r"^(.*?)\s(?:on|to|at|of|against)\s", items[-1]["desc"])
             if vm:
                 last = vm.group(1) + " " + last     # 'Advance on Bowling Green ...; on Nashville'
-        conf = base_conf - (0.3 if years.rolled else 0)
+        conf = base_conf - (params.DYERS_ROLLED_PENALTY if years.rolled else 0)
         items.append({"desc": last, "date": parsed, "till": till, "conf": conf, "date_text": expr,
                       "note": "Date out of order or year inferred; check" if years.rolled else None})
     tail = text[pos:]
@@ -376,7 +378,7 @@ def items_from(text, years, base_conf=0.8):
             items[-1]["note"] = ((items[-1].get("note") or "") + " " + paren.group(1)).strip()
             s = paren.group(2)
         if s:
-            items.append({"desc": s, "date": None, "conf": 0.3})
+            items.append({"desc": s, "date": None, "conf": params.DYERS_UNDATED_CONF})
     return items
 
 
@@ -430,11 +432,11 @@ def fix_order(claims):
             c["note"] = ((c.get("note") or "") + " end day truncated in source; set to start").strip()
         elif c["claim_type"] == "participated":       # keep it dated (clustering needs a start): the stated end
             c["date_start"] = b
-            c["confidence"] = round(max(0.1, c["confidence"] - 0.1), 2)
+            c["confidence"] = round(max(params.DYERS_CONF_FLOOR, c["confidence"] - params.DYERS_ORDER_PENALTY), 2)
             c["note"] = ((c.get("note") or "") + " start set to stated end: listed out of order in source").strip()
         else:
             c["date_start"] = None
-            c["confidence"] = round(max(0.1, c["confidence"] - 0.1), 2)
+            c["confidence"] = round(max(params.DYERS_CONF_FLOOR, c["confidence"] - params.DYERS_ORDER_PENALTY), 2)
             c["note"] = ((c.get("note") or "") + " start unknown: listed out of order in source").strip()
     return claims
 
@@ -475,19 +477,19 @@ def extract(unit):
                 return              # nothing named lately ('Mustered out' a year after the last place named)
             note = ((note + "; ") if note else "") + f"no place named: at the last place, {last}"
             place = last
-            conf *= 0.8
+            conf *= params.DYERS_NO_PLACE_FACTOR
         if presence == "departed":
             n = (note + "; ") if note else ""
             bare = DATE_RE.sub("", span).strip(" ,.")
             mf = re.match(r"Left\s+(?!State\b|for\b)(.+?)(?:\s+(?:on|by|via|for)\b.*)?$", bare)
             src = mf.group(1).strip(" ,.") if mf else (home if re.search(r"\bstate for\b", span, re.I) else None)
             if src:
-                add("unit_at", span, conf * 0.8, place_mention=src, presence="departed", portion=portion,
+                add("unit_at", span, conf * params.DYERS_MOVE_FACTOR, place_mention=src, presence="departed", portion=portion,
                     date_start=d0, date_end=d1, date_precision=prec,
                     note=n + (f"left {src}" if mf else f"left the State for {place}: placed at the last place before it ({home})"),
                     **extra)
             if re.search(r"\bfor\b", bare) and place and not (mf and place == bare):
-                add("unit_at", span, conf * 0.8, place_mention=place, presence="en_route", portion=portion,
+                add("unit_at", span, conf * params.DYERS_MOVE_FACTOR, place_mention=place, presence="en_route", portion=portion,
                     date_start=None, date_end=None, date_precision=None,
                     note=n + "destination of a departure; arrival date not stated", **extra)
                 last = place
@@ -505,7 +507,7 @@ def extract(unit):
     # Cross-reference stubs: 'See 1st Regiment Heavy Artillery.'
     see = re.match(r"^\(?\s*See\s+(.+?)[.)]*\s*(?:for service)?\.?\)?$", text.strip(), re.I)
     if see:
-        add("known_as", text.strip(), 0.6, name=unit["heading"], target_mention=see.group(1),
+        add("known_as", text.strip(), params.DYERS_KNOWN_AS_CONF, name=unit["heading"], target_mention=see.group(1),
             note="Cross-reference: same unit under another designation, or a successor")
         return claims
 
@@ -524,7 +526,7 @@ def extract(unit):
             in_action = True
             d0, d1, prec = it["date"]
             org_date = org_date or d0
-            add("participated", f"{it['desc']} {it['date_text']}", it["conf"] - 0.1, event_mention=it["desc"],
+            add("participated", f"{it['desc']} {it['date_text']}", it["conf"] - params.DYERS_EVENT_DISCOUNT, event_mention=it["desc"],
                 portion=portion_of(it["desc"] + " " + (it.get("note") or "")), date_start=d0, date_end=d1,
                 date_precision=prec, note="Action in the text before the attachment list (no SERVICE section)")
             continue
@@ -554,10 +556,10 @@ def extract(unit):
     chain, leftover = parse_attachments(attach, years, org_date[:7] if org_date else None)
     years.last_item = (int(pre_end[:4]), int(pre_end[5:7])) if pre_end and len(pre_end) >= 7 else None
     for a in chain:
-        add("subordinate_to", a["span"], 0.85, parent_mention=a["parent"], date_start=a["date_start"],
+        add("subordinate_to", a["span"], params.DYERS_ASSIGNED_CONF, parent_mention=a["parent"], date_start=a["date_start"],
             date_end=a["date_end"], date_precision="month")
     if attach and not chain:
-        add("subordinate_to", attach.strip(), 0.3, parent_mention=attach.strip(), date_start=None, date_end=None,
+        add("subordinate_to", attach.strip(), params.DYERS_ATTACHED_CONF, parent_mention=attach.strip(), date_start=None, date_end=None,
             note="Attachment text present but not parsed")
 
     # Service items
@@ -570,7 +572,7 @@ def extract(unit):
         desc = it["desc"]
         note = it.get("note")
         if re.match(r"Regiment selected|Designation changed|Consolidated with|Transferred to", desc, re.I) and not it["date"]:
-            add("participated", desc, 0.3, event_mention=desc, portion="whole", date_start=None, date_end=None,
+            add("participated", desc, params.DYERS_UNDATED_CONF, event_mention=desc, portion="whole", date_start=None, date_end=None,
                 note="Undated statement; may be a succession or a notable event")
             continue
         kind, presence = classify(desc)
@@ -612,7 +614,7 @@ def extract(unit):
                     # 16-February 9" reached Washington ten days later), and spreading the stages evenly over the dates
                     # put them weeks off ("to Memphis, thence march to Chattanooga" took days, then a month)
                     ds = None
-                    add("unit_at", span, it["conf"] * 0.8, place_mention=leg, presence="arrived" if ds else "en_route",
+                    add("unit_at", span, it["conf"] * params.DYERS_MOVE_FACTOR, place_mention=leg, presence="arrived" if ds else "en_route",
                         portion=portion, date_start=ds, date_end=ds, date_precision=prec if ds else None,
                         note=((note + "; ") if note else "") + f"stage {k} of {n} of a move, no date of its own",
                         leg=f"{k}/{n}")
@@ -634,12 +636,12 @@ def extract(unit):
                 if mm:
                     n[k] = int(mm.group(1))
             if n:
-                add("unit_numbers", note, 0.75, scope="event", event_mention=last_event, **n)
+                add("unit_numbers", note, params.DYERS_NUMBERS_EVENT_CONF, scope="event", event_mention=last_event, **n)
 
     # Whole-service losses
     rec = parse_losses(losses)
     if rec:
-        add("unit_numbers", losses.strip(), 0.95, scope="whole_service", event_mention=None, **rec)
+        add("unit_numbers", losses.strip(), params.DYERS_NUMBERS_TOTAL_CONF, scope="whole_service", event_mention=None, **rec)
     return fix_order(claims)
 
 
@@ -653,7 +655,7 @@ def main(src, dst):
             cl = extract(u)
             for c in cl:
                 stats[c["claim_type"]] += 1
-                if c["confidence"] < 0.5:
+                if c["confidence"] < params.DYERS_LOW_CONF:
                     low[c["claim_type"]] += 1
                 out.write(json.dumps(c, ensure_ascii=False) + "\n")
     print(f"units: {n_units}  claims: {sum(stats.values())}")
@@ -662,4 +664,4 @@ def main(src, dst):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(*(sys.argv[1:3] or paths.defaults("extract_dyers")))

@@ -1,6 +1,7 @@
 unit: 20th Maine Infantry
 side: Union
 db_unit: 845
+unit_key: maine/034_20th_regiment_infantry
 organized: 1862-08-29
 ended: 1865-07-16
 ended_how: mustered out

@@ -1,6 +1,7 @@
 unit: 1st Vermont Cavalry
 side: Union
 db_unit: 2920
+unit_key: vermont/001_1st_regiment_cavalry
 organized: 1861-11-19
 ended: 1865-08-09
 ended_how: mustered out

@@ -11,14 +11,13 @@ Data: OpenStreetMap contributors (ODbL 1.0), fetched with Overpass (historic=mem
 Usage: python pipeline/battle_positions.py data/battles/osm_gettysburg_monuments.json civil_war.db "Battle of Gettysburg" \
           1863-07-01 1863-07-03 data/battles/gettysburg_positions.jsonl
 """
+from cwv import states as cwv_states
 import json, re, sqlite3, sys
 from collections import Counter, defaultdict
 
-ST = {"ME": "Maine", "NH": "New Hampshire", "VT": "Vermont", "MA": "Massachusetts", "RI": "Rhode Island", "CT": "Connecticut",
-      "NY": "New York", "NJ": "New Jersey", "PA": "Pennsylvania", "DE": "Delaware", "MD": "Maryland", "WV": "West Virginia",
-      "OH": "Ohio", "IN": "Indiana", "IL": "Illinois", "MI": "Michigan", "WI": "Wisconsin", "MN": "Minnesota", "US": "U.S.",
-      "VA": "Virginia", "NC": "North Carolina", "SC": "South Carolina", "GA": "Georgia", "AL": "Alabama", "MS": "Mississippi",
-      "LA": "Louisiana", "TX": "Texas", "AR": "Arkansas", "TN": "Tennessee", "FL": "Florida"}
+ST = cwv_states.table("CODE", "Name", "ME", "NH", "VT", "MA", "RI", "CT", "NY", "NJ", "PA", "DE", "MD", "WV", "OH",
+                                      "IN", "IL", "MI", "WI", "MN", ("US", "U.S."), "VA", "NC", "SC", "GA", "AL",
+                                      "MS", "LA", "TX", "AR", "TN", "FL")
 DAY = {"1st": "01", "2nd": "02", "3rd": "03"}
 
 

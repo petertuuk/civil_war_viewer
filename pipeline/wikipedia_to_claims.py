@@ -8,6 +8,7 @@ k killed, mw mortally wounded, w wounded, c captured), participated (event from 
 Dated to the event. Source: English Wikipedia (CC BY-SA 4.0), article title and revision id kept.
 Confidence 0.8: compiled secondary source, usually from the Official Records.
 """
+from cwv import paths
 import csv, json, sys
 import nps_links
 from collections import Counter
@@ -54,4 +55,4 @@ def main(pl, battles, d2n_path, events_dir, out_path):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:6])
+    main(*(sys.argv[1:6] or paths.defaults("wikipedia_to_claims")))

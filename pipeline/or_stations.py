@@ -22,6 +22,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import states as cwv_states  # noqa: E402
 from gnis_index import norm  # noqa: E402
 from common import gnis_by_name_state  # noqa: E402
 
@@ -31,11 +33,11 @@ ABBR = {"va": "VA", "w. va": "WV", "w.va": "WV", "n. c": "NC", "n.c": "NC", "s. 
         "ariz": "AZ", "n. mex": "NM", "cal": "CA", "oreg": "OR", "wash": "WA", "colo. ter": "CO", "idaho ter": "ID",
         "dak. ter": "SD", "n. h": "NH", "mass": "MA", "conn": "CT", "del": "DE", "minn": "MN", "wis": "WI", "iowa": "IA",
         "mich": "MI", "nebr": "NE", "nev": "NV", "me": "ME", "vt": "VT", "r. i": "RI", "n. j": "NJ", "ind. t": "OK"}
-STATE_WORDS = {"Virginia": "VA", "North Carolina": "NC", "South Carolina": "SC", "Georgia": "GA", "Florida": "FL",
-               "Alabama": "AL", "Mississippi": "MS", "Louisiana": "LA", "Texas": "TX", "Arkansas": "AR", "Tennessee": "TN",
-               "Kentucky": "KY", "Missouri": "MO", "Maryland": "MD", "Richmond": "VA", "Wilmington": "NC", "Charleston": "SC",
-               "Savannah": "GA", "Mobile": "AL", "Vicksburg": "MS", "Kansas": "KS", "Ohio": "OH", "Pennsylvania": "PA",
-               "Washington": "DC", "Baltimore": "MD", "New Orleans": "LA", "Arizona": "AZ", "New Mexico": "NM"}
+STATE_WORDS = cwv_states.table("Name", "CODE", "VA", "NC", "SC", "GA", "FL", "AL", "MS", "LA", "TX", "AR", "TN",
+                                               "KY", "MO", "MD", ("Richmond", "VA"), ("Wilmington", "NC"),
+                                               ("Charleston", "SC"), ("Savannah", "GA"), ("Mobile", "AL"),
+                                               ("Vicksburg", "MS"), "KS", "OH", "PA", ("Washington", "DC"),
+                                               ("Baltimore", "MD"), ("New Orleans", "LA"), "AZ", "NM")
 SAME = {"VA": ["VA", "WV"], "WV": ["WV", "VA"]}
 MON_NAMES = "January|February|March|April|May|June|July|August|September|October|November|December"
 
@@ -67,9 +69,8 @@ def main(pl_p, tables_p, regions_p, geocoded_p, gnis_p, units_p, out_p):
                 famous.add(norm(g["name"]))
     G = gnis_by_name_state(gnis_p, ("Populated Place", "Military", "Civil", "Island", "Locale"))
     ustate = {u["unit_code"]: u["state"] for u in csv.DictReader(open(units_p, encoding="utf-8"))}
-    STABBR = {"Alabama": "AL", "Arkansas": "AR", "Florida": "FL", "Georgia": "GA", "Kentucky": "KY", "Louisiana": "LA",
-              "Mississippi": "MS", "Missouri": "MO", "North Carolina": "NC", "South Carolina": "SC", "Tennessee": "TN",
-              "Texas": "TX", "Virginia": "VA", "Maryland": "MD"}
+    STABBR = cwv_states.table("Name", "CODE", "AL", "AR", "FL", "GA", "KY", "LA", "MS", "MO", "NC", "SC", "TN", "TX",
+                                              "VA", "MD")
 
     def locate(name, states):
         for s in [x for st in states for x in SAME.get(st, [st])]:
@@ -225,4 +226,4 @@ def main(pl_p, tables_p, regions_p, geocoded_p, gnis_p, units_p, out_p):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    main(*(sys.argv[1:] or paths.defaults("or_stations")))

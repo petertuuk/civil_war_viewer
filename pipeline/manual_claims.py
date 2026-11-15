@@ -48,8 +48,9 @@ def day(s, end=False):
 
 
 class Resolver:
-    def __init__(self, cur, side, xref, events, ev_id, person_of, note):
+    def __init__(self, cur, side, xref, events, ev_id, person_of, note, reg=None):
         self.cur, self.side, self.xref, self.person_of, self.note = cur, side, xref, person_of, note
+        self.reg = reg                                 # unit_registry.Registry: permanent numbers for the units created here
         self.ev = []                                   # (event db id, [name word sets], start, end, regiments, kind)
         global names_raw
         names_raw = {ev_id[e["event_id"]]: [n.lower() for n in (e["name"], e.get("dyer_name")) if n] for e in events}
@@ -90,8 +91,10 @@ class Resolver:
                                  (u["display_name"], sid, sid)).fetchone()
             if x: r = x[0]
             elif not u.get("number") or u.get("echelon") not in ("regiment", "battalion", "battery", "company"):
-                self.cur.execute("INSERT INTO unit(side_id, echelon, branch, state, number, display_name, notes) VALUES (?,?,?,?,?,?,?)",
-                                 (sid, u.get("echelon") or "other", u.get("branch"), u.get("state"), u.get("number"),
+                sname = next((k for k, v in self.side.items() if v == sid), "")
+                uid_ = self.reg.id_for(f"manual:{sname}|{u.get('echelon') or 'other'}|{u['display_name']}") if self.reg else None
+                self.cur.execute("INSERT INTO unit(id, side_id, echelon, branch, state, number, display_name, notes) VALUES (?,?,?,?,?,?,?,?)",
+                                 (uid_, sid, u.get("echelon") or "other", u.get("branch"), u.get("state"), u.get("number"),
                                   u["display_name"], self.note))
                 r = self.cur.lastrowid; self.made["unit"] += 1
         self.cache[key] = r
@@ -158,14 +161,14 @@ class Resolver:
         return self.person_of(p["name"], p.get("side") or "Union") if p else None
 
 
-def load(P, cur, side, xref, events, ev_id, person_of, source, claim, n):
+def load(P, cur, side, xref, events, ev_id, person_of, source, claim, n, reg=None):
     """Called from build_db.main after all other claims are in. Returns nothing; counts into n."""
     # hand-made claim files (data/manual) and generated ones in the same format (data/derived), in file-name order
     files = sorted([*(Path(P) / "data/manual").glob("*.json"), *(Path(P) / "data/derived").glob("*.json")], key=lambda f: f.name)
     for f in files:
         doc = json.load(open(f, encoding="utf-8"))
         rel = f"data/{f.parent.name}/{f.name}"
-        R = Resolver(cur, side, xref, events, ev_id, person_of, f"created from manual source {rel}")
+        R = Resolver(cur, side, xref, events, ev_id, person_of, f"created from manual source {rel}", reg)
         src = {k: source(s["title"], s.get("kind") or "manual", s.get("citation"), s.get("url"),
                          int(s.get("public_domain") or 0), s.get("notes")) for k, s in doc["sources"].items()}
         for c in doc["claims"]:

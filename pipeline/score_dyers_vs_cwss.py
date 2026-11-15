@@ -15,19 +15,18 @@ import collections, csv, json, re, sys
 from datetime import date, timedelta
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
+from cwv import paths  # noqa: E402
+from cwv import states as cwv_states  # noqa: E402
 from common import first_day as d  # noqa: E402
 
-ST = {"ALABAMA": "AL", "ARKANSAS": "AR", "CALIFORNIA": "CA", "COLORADO": "CO", "CONNECTICUT": "CT", "DAKOTA": "DT",
-      "DELAWARE": "DE", "DISTRICT OF COLUMBIA": "DC", "FLORIDA": "FL", "GEORGIA": "GA", "ILLINOIS": "IL", "INDIANA": "IN",
-      "IOWA": "IA", "KANSAS": "KS", "KENTUCKY": "KY", "LOUISIANA": "LA", "MAINE": "ME", "MARYLAND": "MD",
-      "MASSACHUSETTS": "MA", "MICHIGAN": "MI", "MINNESOTA": "MN", "MISSISSIPPI": "MS", "MISSOURI": "MO",
-      "NEBRASKA": "NE", "NEVADA": "NV", "NEW HAMPSHIRE": "NH", "NEW JERSEY": "NJ", "NEW MEXICO": "NM", "NEW YORK": "NY",
-      "NORTH CAROLINA": "NC", "OHIO": "OH", "OREGON": "OR", "PENNSYLVANIA": "PA", "RHODE ISLAND": "RI",
-      "SOUTH CAROLINA": "SC", "TENNESSEE": "TN", "TEXAS": "TX", "VERMONT": "VT", "VIRGINIA": "VA",
-      "WEST VIRGINIA": "WV", "WISCONSIN": "WI", "WASHINGTON TERRITORY": "WA",
-      # Dyer's U.S. sections -> NPS pseudo-states (added 2026-11-11; these had never been linked)
-      "U.S. COLORED TROOPS": "US", "U.S. REGULAR ARMY": "UR", "U.S. VETERAN VOLUNTEERS": "UV",
-      "U.S. VOLUNTEERS": "UV", "U.S. VETERAN RESERVE CORPS": "VR"}
+ST = cwv_states.table("NAME", "CODE", "AL", "AR", "CA", "CO", "CT", "DT", "DE", "DC", "FL", "GA", "IL", "IN", "IA",
+                                      "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "NE", "NV", "NH",
+                                      "NJ", "NM", "NY", "NC", "OH", "OR", "PA", "RI", "SC", "TN", "TX", "VT", "VA",
+                                      "WV", "WI", ("WASHINGTON TERRITORY", "WA"),
+                                      # Dyer's U.S. sections -> NPS pseudo-states (added 2026-11-11; these had never been linked)
+                                      ("U.S. COLORED TROOPS", "US"), ("U.S. REGULAR ARMY", "UR"),
+                                      ("U.S. VETERAN VOLUNTEERS", "UV"), ("U.S. VOLUNTEERS", "UV"),
+                                      ("U.S. VETERAN RESERVE CORPS", "VR"))
 SPELL = {"spottsylvania": "spotsylvania", "jonesboro": "jonesborough", "opequan": "opequon", "kenesaw": "kennesaw",
          "chickamauga": "chickamauga", "peach": "peachtree", "averysboro": "averasborough", "averasboro": "averasborough",
          "drury": "drewry", "drurys": "drewrys", "savage": "savages", "champions": "champion", "shiloh": "shiloh"}
@@ -168,4 +167,4 @@ def main(dyers_dir, arnold_dir, out_dir):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:4])
+    main(*(sys.argv[1:4] or paths.defaults("score_dyers_vs_cwss")))

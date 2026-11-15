@@ -1,7 +1,9 @@
 unit: 9th Indiana Infantry (3 years)
 side: Union
 db_unit: 434
+unit_key: indiana/053_9th_regiment_infantry_3_years
 same_as: 7428
+same_as_keys: nps:UIN0009RI01
 organized: 1861-09-05
 ended: 1865-09-28
 ended_how: mustered out

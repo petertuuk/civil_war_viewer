@@ -1,6 +1,7 @@
 unit: 2nd Iowa Infantry
 side: Union
 db_unit: 609
+unit_key: iowa/016_2nd_regiment_infantry
 organized: 1861-05-27
 ended: 1865-07-12
 ended_how: mustered out

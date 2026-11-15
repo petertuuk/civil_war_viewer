@@ -43,8 +43,15 @@ _to_delete*/
 !/data/gold/**
 !/data/manual/*.psv
 !/data/manual/sample_regiments.json
+!/data/manual/ga_markers_read.psv
+!/data/manual/unit_ids.tsv
+!/data/manual/georef/
+!/data/manual/georef/*.json
+!/data/manual/state_histories_README.md
 !/data/dyers/unit_overrides.jsonl
 !/data/dyers/flag_decisions.jsonl
+!/data/dyers/year_decisions.jsonl
+!/data/review/decisions.jsonl
 !/data/ai/event_resolutions_batch*.psv
 !/data/ai/cluster_keys_v1.jsonl
 !/data/places/place_overrides.csv

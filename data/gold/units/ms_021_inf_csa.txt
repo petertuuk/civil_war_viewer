@@ -1,6 +1,7 @@
 unit: 21st Mississippi Infantry
 side: Confederate
 db_unit: 5554
+unit_key: nps:CMS0021RI
 organized: 1861-10
 ended: 1865-04-09
 ended_how: surrendered at Appomattox

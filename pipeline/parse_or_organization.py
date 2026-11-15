@@ -13,13 +13,13 @@ Text must have single spaces (sed -E 's/ +/ /g'). Output, one row per unit:
 These become subordinate_to (unit -> brigade -> division -> corps) and commanded
 claims dated to the event, and participated claims for the event.
 """
+from cwv import states as cwv_states
 import argparse, csv, json, re
 
 RANK = re.compile(r"^(Lieut\.|Lieat\.|Brig\.|Maj\.|Col\.|Capt\.|Cpl\.|Gen\.|Lient\.|Sergt\.|Surg\.|Brevet)", re.I)
 ORD = re.compile(r"^(\d+)(?:st|d|nd|rd|th)\b\.?\s+(.*)$")
-STATES = {"Alabama": "AL", "Arkansas": "AR", "Florida": "FL", "Georgia": "GA", "Kentucky": "KY", "Louisiana": "LA",
-          "Maryland": "MD", "Mississippi": "MS", "Missouri": "MO", "North Carolina": "NC", "South Carolina": "SC",
-          "Tennessee": "TN", "Texas": "TX", "Virginia": "VA"}
+STATES = cwv_states.table("Name", "CODE", "AL", "AR", "FL", "GA", "KY", "LA", "MD", "MS", "MO", "NC", "SC", "TN",
+                                          "TX", "VA")
 
 
 def lines_between(path, start, end):

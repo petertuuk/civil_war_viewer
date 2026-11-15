@@ -1,7 +1,9 @@
 unit: 1st Kansas Colored Infantry (79th USCT, New)
 side: Union
 db_unit: 673
+unit_key: kansas/019_1st_regiment_colored_infantry
 same_as: 3311
+same_as_keys: u_s_colored_troops/111_79th_regiment_infantry_new
 organized: 1863-01-13
 ended: 1865-10-01
 ended_how: mustered out

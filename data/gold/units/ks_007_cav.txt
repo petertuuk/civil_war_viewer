@@ -1,6 +1,7 @@
 unit: 7th Kansas Cavalry
 side: Union
 db_unit: 658
+unit_key: kansas/004_7th_regiment_cavalry
 organized: 1861-10-28
 ended: 1865-09-29
 ended_how: mustered out
